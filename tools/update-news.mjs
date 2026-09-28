@@ -36,7 +36,11 @@ for (const key of countryData.order) {
   const oldItems = previous.countries?.[key] || [];
   const oldUrls = new Set(oldItems.map(item => item.url));
   newArticleCount += fetched[key].filter(item => !oldUrls.has(item.url)).length;
-  const byUrl = new Map([...fetched[key], ...oldItems].map(item => [item.url, item]));
+  // Clean legacy records as they are merged. Earlier builds could retain HTTP
+  // publisher links even after new results were filtered to HTTPS.
+  const safeItems = [...fetched[key], ...oldItems]
+    .filter(item => typeof item.url === "string" && item.url.startsWith("https://"));
+  const byUrl = new Map(safeItems.map(item => [item.url, item]));
   countries[key] = [...byUrl.values()]
     .filter(item => Date.parse(item.publishedAt) >= cutoff)
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
