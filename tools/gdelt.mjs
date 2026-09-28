@@ -50,7 +50,9 @@ function normaliseArticle(article) {
   const url = cleanUrl(article.url);
   const publishedAt = normaliseDate(article.seendate || article.date);
   const title = String(article.title || "").replace(/\s+/g, " ").trim();
-  if (!url || !publishedAt || !title) return null;
+  // The dashboard is served over HTTPS. Drop legacy HTTP publisher links rather
+  // than weakening validation or guessing that the publisher supports TLS.
+  if (!url || !url.startsWith("https://") || !publishedAt || !title) return null;
   return {
     id: Buffer.from(url).toString("base64url").slice(0, 24),
     title,

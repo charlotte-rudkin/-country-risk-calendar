@@ -1,4 +1,4 @@
-# Country Calendar
+# Country Dashboard
 
 An update-safe, repository-backed dashboard for political-risk and sovereign-credit monitoring.
 

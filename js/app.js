@@ -1,4 +1,4 @@
-/* Country Calendar application logic. Data is loaded before this file. */
+/* Country Dashboard application logic. Data is loaded before this file. */
 'use strict';
 
 const DATA_LAST_UPDATED = window.SITE_CONFIG.dataLastUpdated;
