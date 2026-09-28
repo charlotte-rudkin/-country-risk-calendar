@@ -94,7 +94,9 @@ for (const key of countryData.order) {
 }
 
 if (failures.length === countryData.order.length) {
-  throw new Error(`Every news request failed; retaining the last published file. ${failures.join(" | ")}`);
+  console.warn("Every GDELT request failed. The last published news file has been retained and deployment may continue.");
+  failures.forEach(message => console.warn(`- ${message}`));
+  process.exit(0);
 }
 
 const comparableBefore = JSON.stringify(previous.countries || {});

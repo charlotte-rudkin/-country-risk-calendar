@@ -24,6 +24,8 @@ News materiality is risk-trajectory based rather than limited to realised events
 
 Country relevance uses two routes. A country or strong local identity anchor in the headline qualifies immediately, subject to ambiguity exclusions such as `Benin City`, `New Mexico` and `Angola Prison`. If headline coverage is thin, a constrained fallback requires the country name to appear at least twice in the indexed article text and also requires a second country-specific anchor (for example Cotonou, Luanda or the relevant central bank). Each stored article records which route qualified it.
 
+The repeated-mention search is optional and rate-limited. If GDELT throttles or rejects that secondary query, the refresh keeps successful headline results. If GDELT is wholly unavailable, the workflow retains the last published news file and continues deploying the valid site rather than replacing data or failing the deployment.
+
 Every headline must also pass a country-entity check based on country names, demonyms, capitals, leaders and major institutions. Ambiguous geographic names have explicit exclusions—for example, Republic of Benin coverage excludes Benin City/Edo/Nigerian-only stories, Angola excludes the Louisiana prison, Mexico excludes New Mexico, and Türkiye excludes poultry stories. Existing records are rechecked on every refresh, so newly identified false positives are removed automatically.
 - **Weekly:** screens the retained news for possible country-defining timeline events.
 - **Monthly:** generates a review queue for elections, sovereign ratings, IMF developments, sanctions/FATF and central-bank developments.

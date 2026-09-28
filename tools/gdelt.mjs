@@ -58,7 +58,7 @@ const COUNTRY_BODY_FALLBACKS = Object.freeze({
   uzbekistan: '(repeat2:Uzbekistan AND (Uzbek OR Tashkent OR Mirziyoyev))',
   vietnam: '(repeat2:Vietnam AND (Vietnamese OR Hanoi OR "To Lam"))',
   senegal: '(repeat2:Senegal AND (Senegalese OR Dakar OR "Bassirou Diomaye Faye" OR "Ousmane Sonko"))',
-  cotedivoire: '((repeat2:"Ivory Coast" OR repeat2:"Cote d Ivoire") AND (Ivorian OR Abidjan OR Ouattara))',
+  cotedivoire: '(repeat2:"Ivory Coast" AND (Ivorian OR Abidjan OR Ouattara))',
   benin: '(repeat2:Benin AND (Beninese OR Cotonou OR "Porto-Novo" OR "Patrice Talon" OR "Romuald Wadagni"))',
   angola: '(repeat2:Angola AND (Angolan OR Luanda OR Lourenco OR "Banco Nacional de Angola"))',
   kenya: '(repeat2:Kenya AND (Kenyan OR Nairobi OR "William Ruto" OR "Central Bank of Kenya"))',
@@ -143,8 +143,19 @@ async function requestArticles(query, { timespan, maxrecords, relevanceBasis }) 
     headers: { "user-agent": "CountryCalendar/1.0 (scheduled public-interest risk monitor)" },
     signal: AbortSignal.timeout(30000)
   });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const payload = await response.json();
+  if (!response.ok) {
+    const error = new Error(`HTTP ${response.status}`);
+    error.status = response.status;
+    error.retryAfter = Number(response.headers.get("retry-after")) || 0;
+    throw error;
+  }
+  const responseText = await response.text();
+  let payload;
+  try {
+    payload = JSON.parse(responseText);
+  } catch {
+    throw new Error(`GDELT returned a non-JSON response: ${responseText.slice(0, 100).replace(/\s+/g, " ")}`);
+  }
   return (payload.articles || []).map(article => normaliseArticle(article, relevanceBasis)).filter(Boolean);
 }
 
@@ -163,16 +174,22 @@ export async function fetchGdelt(countryKey, { timespan = "2d", maxrecords = 12,
       // Avoid doubling routine API traffic where headline coverage is already
       // healthy. Thin country feeds get a second search that enforces repeated
       // country mentions and a separate local identity signal in article text.
-      if (!timelineOnly && headlineMatches.length < 6 && COUNTRY_BODY_FALLBACKS[countryKey]) {
-        await sleep(1100);
+      if (!timelineOnly && headlineMatches.length < 4 && COUNTRY_BODY_FALLBACKS[countryKey]) {
+        await sleep(3500);
         const fallbackQuery = `${COUNTRY_BODY_FALLBACKS[countryKey]} AND ${RISK_TERMS} sourcelang:english`;
-        fallbackMatches = await requestArticles(fallbackQuery, {
-          timespan,
-          maxrecords: Math.min(15, maxrecords),
-          relevanceBasis: "repeated-country-body"
-        });
-        const identity = COUNTRY_IDENTITIES[countryKey];
-        fallbackMatches = fallbackMatches.filter(article => !identity.exclude?.test(article.title));
+        try {
+          fallbackMatches = await requestArticles(fallbackQuery, {
+            timespan,
+            maxrecords: Math.min(10, maxrecords),
+            relevanceBasis: "repeated-country-body"
+          });
+          const identity = COUNTRY_IDENTITIES[countryKey];
+          fallbackMatches = fallbackMatches.filter(article => !identity.exclude?.test(article.title));
+        } catch (error) {
+          // The body-search route improves thin feeds but must never discard a
+          // successful headline result or fail the whole scheduled refresh.
+          console.warn(`Optional repeated-mention search skipped for ${countryKey}: ${error.message}`);
+        }
       }
 
       const seen = new Set();
@@ -184,7 +201,10 @@ export async function fetchGdelt(countryKey, { timespan = "2d", maxrecords = 12,
         });
     } catch (error) {
       lastError = error;
-      if (attempt < 3) await sleep(attempt * 2500);
+      if (attempt < 3) {
+        const retryDelay = Math.max(error.retryAfter * 1000, attempt * 10000);
+        await sleep(retryDelay);
+      }
     }
   }
   throw new Error(`GDELT request failed for ${countryKey}: ${lastError?.message || "unknown error"}`);
@@ -194,7 +214,7 @@ export async function mapWithGentleRateLimit(keys, operation) {
   const output = {};
   for (const key of keys) {
     output[key] = await operation(key);
-    await sleep(1100);
+    await sleep(4000);
   }
   return output;
 }
