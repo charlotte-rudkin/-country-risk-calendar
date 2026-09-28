@@ -1,6 +1,29 @@
 # Country Calendar
 
-An update-safe static dashboard for political-risk and sovereign-credit monitoring.
+An update-safe, repository-backed dashboard for political-risk and sovereign-credit monitoring.
+
+## Live-site workflow
+
+This project is designed to be hosted from one GitHub repository rather than redistributed as replacement ZIP files. GitHub Pages publishes the root `index.html`; every approved change to `main` is rebuilt before commit and the branch-based Pages deployment publishes it automatically.
+
+- Visitors keep one permanent site URL.
+- The **Refresh latest data** button reloads the newest published deployment without reusing a stale page URL.
+- Country records remain separate in `data/`, so data updates do not require redesigning the interface.
+- Pull requests run validation before they can be merged.
+- GitHub Pages republishes whenever an approved update reaches `main`.
+
+The dashboard is still compiled to a single self-contained `index.html` at deployment time. That makes production loading reliable while preserving modular source files for maintenance.
+
+## Automated monitoring cadence
+
+Set **Settings → Pages → Source** to **GitHub Actions** after uploading this version. The workflow in `.github/workflows/country-risk-refresh.yml` runs four guarded jobs and deploys a validated standalone page whenever monitored data changes:
+
+- **Daily:** refreshes a 14-day country-risk news window from GDELT and rebuilds the site only when headlines change.
+- **Weekly:** screens the retained news for possible country-defining timeline events.
+- **Monthly:** generates a review queue for elections, sovereign ratings, IMF developments, sanctions/FATF and central-bank developments.
+- **Quarterly:** searches the prior three months for possible missed coups, defaults, restructurings, wars, constitutional breaks and comparable anchor events.
+
+News is a discovery feed and is displayed with a verification warning. The structured and historical jobs create files in `data/review/`; they never rewrite ratings, status fields or historical events automatically. An analyst must corroborate candidates against primary or authoritative sources before publication. If a news refresh fails for every country, the job exits without replacing the last working data file.
 
 ## Open the dashboard
 
@@ -23,7 +46,9 @@ Open the root `index.html` directly in a browser. It is a fully self-contained c
 | `src/index.template.html` | Maintainable page structure | Only for layout changes |
 | `data/config.js` | Freshness date and validation settings | Yes |
 | `data/countries.js` | Current profiles, ratings, key issues, upcoming calendar and recent developments | Yes |
+| `data/news.js` | Generated rolling country-risk news feed | No—daily workflow |
 | `data/history.js` | 1945–present turning points and source registry | Yes |
+| `data/review/` | Generated analyst review queues; never published as verified facts | Review only |
 | `data/map-data.js` | Generated Natural Earth SVG geometry | No |
 | `assets/styles.css` | Visual design | Only for design changes |
 | `js/app.js` | Rendering, search, map, filters and interactions | Only for feature changes |

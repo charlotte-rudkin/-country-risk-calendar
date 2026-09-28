@@ -5,12 +5,19 @@ const DATA_LAST_UPDATED = window.SITE_CONFIG.dataLastUpdated;
 const HISTORY_START_YEAR = window.SITE_CONFIG.historyStartYear;
 const HISTORY_DEEP_COVERAGE_START_YEAR = window.SITE_CONFIG.historyDeepCoverageStartYear;
 const { countries, order } = window.COUNTRY_DATA;
+const NEWS_DATA = window.NEWS_DATA || { generatedAt: null, countries: {} };
 const { sources: HISTORY_SOURCES, events: HISTORICAL_EVENTS } = window.HISTORY_DATA;
 const { worldBasePaths: WORLD_BASE_PATHS, countryShapes: COUNTRY_SHAPES, countryCentroids: COUNTRY_CENTROIDS } = window.MAP_DATA;
 
 const TODAY = new Date();
 TODAY.setHours(0, 0, 0, 0);
 const TODAY_LABEL = `TODAY — ${TODAY.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()}`;
+
+function refreshSite() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("refresh", Date.now().toString());
+  window.location.replace(url.toString());
+}
 
 function parseISODate(value) {
   const [year, month, day] = value.split('-').map(Number);
@@ -21,6 +28,37 @@ function formatLongDate(value) {
   return parseISODate(value).toLocaleDateString('en-GB', {
     day: 'numeric', month: 'long', year: 'numeric'
   });
+}
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>'"]/g, character => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+  })[character]);
+}
+
+function newsHTML(countryKey) {
+  const articles = (NEWS_DATA.countries?.[countryKey] || []).slice(0, 8);
+  const generated = NEWS_DATA.generatedAt
+    ? new Date(NEWS_DATA.generatedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })
+    : "scheduled refresh pending";
+  const rows = articles.map(article => `
+    <article class="news-item">
+      <div class="news-meta">${escapeHTML(new Date(article.publishedAt).toLocaleDateString("en-GB"))} · ${escapeHTML(article.domain)}</div>
+      <a href="${escapeHTML(article.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(article.title)}</a>
+    </article>
+  `).join("");
+  return `
+    <section class="block">
+      <div class="news-head">
+        <div>
+          <p class="block-title">Country risk news</p>
+          <p class="block-note">Automatically discovered headlines; links open the original publisher.</p>
+        </div>
+        <span class="news-updated">Updated ${escapeHTML(generated)}</span>
+      </div>
+      ${rows || '<p class="empty-note">No headlines published yet. The scheduled refresh will preserve this empty state until verified results are available.</p>'}
+      <p class="news-disclaimer">Discovery feed only—not an underwriting conclusion. Confirm material facts against primary or authoritative sources.</p>
+    </section>`;
 }
 
 
@@ -208,6 +246,8 @@ function renderMain() {
     </div>
 
     <div class="chip-row">${chips}</div>
+
+    ${newsHTML(active)}
 
     <section class="block">
       <p class="block-title">Upcoming calendar</p>

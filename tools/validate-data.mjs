@@ -18,6 +18,7 @@ function loadData() {
   for (const relativePath of [
     "data/config.js",
     "data/countries.js",
+    "data/news.js",
     "data/history.js",
     "data/map-data.js",
   ]) {
@@ -59,11 +60,13 @@ function checkCalendarEvent(event, location) {
 const loaded = loadData();
 const config = loaded.SITE_CONFIG;
 const countryData = loaded.COUNTRY_DATA;
+const newsData = loaded.NEWS_DATA;
 const historyData = loaded.HISTORY_DATA;
 const mapData = loaded.MAP_DATA;
 
 if (!config) fail("SITE_CONFIG was not created");
 if (!countryData) fail("COUNTRY_DATA was not created");
+if (!newsData) fail("NEWS_DATA was not created");
 if (!historyData) fail("HISTORY_DATA was not created");
 if (!mapData) fail("MAP_DATA was not created");
 
@@ -132,6 +135,23 @@ if (errors.length === 0) {
     }
 
     if (!mapData.countryShapes[key]) fail(`Map geometry is missing for ${key}`);
+
+    const news = newsData.countries?.[key];
+    if (!Array.isArray(news)) fail(`News data is missing for ${key}`);
+    else {
+      if (news.length > 14) fail(`${key} has more than 14 retained news records`);
+      const urls = new Set();
+      news.forEach((article, index) => {
+        const location = `${key}.news[${index}]`;
+        for (const field of ["id", "title", "url", "domain", "publishedAt"]) {
+          if (!isText(article[field])) fail(`${location}.${field} must be non-empty text`);
+        }
+        if (article.url && !article.url.startsWith("https://")) fail(`${location}.url must use https`);
+        if (article.publishedAt && Number.isNaN(Date.parse(article.publishedAt))) fail(`${location}.publishedAt must be a valid date`);
+        if (urls.has(article.url)) fail(`${location} duplicates another news URL`);
+        urls.add(article.url);
+      });
+    }
   }
 
   for (const [key, source] of Object.entries(historySources)) {
@@ -141,6 +161,9 @@ if (errors.length === 0) {
 
   for (const key of Object.keys(historyEvents)) {
     if (!countries[key]) fail(`Historical data references unknown country: ${key}`);
+  }
+  for (const key of Object.keys(newsData.countries || {})) {
+    if (!countries[key]) fail(`News data references unknown country: ${key}`);
   }
   for (const key of Object.keys(mapData.countryShapes)) {
     if (!countries[key]) warnings.push(`Map geometry exists for unlisted country: ${key}`);

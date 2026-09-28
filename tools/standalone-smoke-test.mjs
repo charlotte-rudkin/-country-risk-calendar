@@ -20,7 +20,7 @@ for (const unresolved of ['href="assets/', 'src="data/', 'src="js/']) {
 }
 
 const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);
-if (scripts.length !== 5) failures.push(`Expected 5 embedded scripts; found ${scripts.length}`);
+if (scripts.length !== 6) failures.push(`Expected 6 embedded scripts; found ${scripts.length}`);
 
 const elements = {};
 function element(id = "") {
@@ -66,6 +66,7 @@ if (context.window.COUNTRY_DATA) {
       const profile = element("main").innerHTML;
       const name = context.window.COUNTRY_DATA.countries[key].name;
       if (!profile.includes(`>${name}</h1>`)) failures.push(`${key}: standalone profile did not render`);
+      if (!profile.includes("Country risk news")) failures.push(`${key}: standalone news section did not render`);
       if (!profile.includes("Historical turning points")) failures.push(`${key}: standalone history did not render`);
     } catch (error) {
       failures.push(`${key}: standalone render failed: ${error.message}`);

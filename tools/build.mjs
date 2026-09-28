@@ -11,6 +11,7 @@ const requiredFiles = [
   "assets/styles.css",
   "data/config.js",
   "data/countries.js",
+  "data/news.js",
   "data/history.js",
   "data/map-data.js",
   "js/app.js",
