@@ -1,0 +1,33 @@
+import { articleMatchesCountry, storedArticleMatchesCountry } from "./gdelt.mjs";
+
+const cases = [
+  ["benin", "Atiku: N70,000 minimum wage buys just 50 litres as fuel costs soar", false],
+  ["benin", "Benin City businesses struggle with Nigerian fuel costs", false],
+  ["benin", "Benin and Nigeria reopen key border crossing", true],
+  ["benin", "Cotonou unveils revised 2027 budget framework", true],
+  ["angola", "Annual Angola Prison Rodeo opens in Louisiana", false],
+  ["angola", "Banco Nacional de Angola cuts policy rate", true],
+  ["mexico", "New Mexico legislature approves state budget", false],
+  ["mexico", "Banxico cuts its policy rate", true],
+  ["turkey", "Turkey meat prices rise before Thanksgiving", false],
+  ["turkey", "Türkiye inflation slows as central bank holds", true]
+];
+
+const failures = cases.filter(([country, title, expected]) => articleMatchesCountry(country, title) !== expected);
+if (failures.length) {
+  failures.forEach(([country, title, expected]) => console.error(`${country}: expected ${expected} for ${title}`));
+  process.exit(1);
+}
+console.log(`Country relevance test passed: ${cases.length} ambiguity cases.`);
+
+const storedCases = [
+  ["benin", { title: "West African economy faces refinancing pressure", relevanceBasis: "repeated-country-body" }, true],
+  ["benin", { title: "Atiku comments on Nigerian fuel prices", relevanceBasis: "country-headline" }, false],
+  ["angola", { title: "Louisiana prison rodeo returns", relevanceBasis: "repeated-country-body" }, false]
+];
+const storedFailures = storedCases.filter(([country, article, expected]) => storedArticleMatchesCountry(country, article) !== expected);
+if (storedFailures.length) {
+  storedFailures.forEach(([country, article, expected]) => console.error(`${country}: expected ${expected} for stored ${article.title}`));
+  process.exit(1);
+}
+console.log(`Stored relevance test passed: ${storedCases.length} qualification cases.`);

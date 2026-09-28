@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
-import { fetchGdelt, mapWithGentleRateLimit } from "./gdelt.mjs";
+import { fetchGdelt, mapWithGentleRateLimit, storedArticleMatchesCountry } from "./gdelt.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -77,6 +77,7 @@ for (const key of countryData.order) {
   // publisher links even after new results were filtered to HTTPS.
   const safeItems = [...fetched[key], ...oldItems]
     .filter(item => typeof item.url === "string" && item.url.startsWith("https://"))
+    .filter(item => storedArticleMatchesCountry(key, item))
     .map(item => ({ ...item, ...assessMateriality(item.title) }))
     .filter(item => {
       const cutoff = item.materiality === "critical"
