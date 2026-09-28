@@ -1,18 +1,828 @@
 {
   "schemaVersion": 1,
-  "generatedAt": null,
-  "status": "awaiting-refresh",
-  "provider": "GDELT DOC 2.0",
+  "generatedAt": "2026-09-28T20:28:00.570Z",
+  "runStartedAt": "2026-09-28T20:15:42.618Z",
+  "status": "partial",
+  "providers": [
+    "GDELT DOC 2.0",
+    "Direct official sources"
+  ],
   "totals": {
     "retrieved": 0,
     "acceptedFromCurrentSearch": 0,
-    "officialRetrieved": 0,
-    "rejected": 0,
+    "officialRetrieved": 17,
+    "rejected": 69,
     "expired": 0,
-    "duplicatesMerged": 0,
-    "publishedEventClusters": 0
+    "duplicatesMerged": 6,
+    "publishedEventClusters": 36
   },
-  "requestFailures": [],
-  "officialSourceStatus": [],
-  "countries": {}
+  "requestFailures": [
+    "GDELT request failed for usa: fetch failed",
+    "GDELT request failed for mexico: fetch failed",
+    "GDELT request failed for bahamas: HTTP 429",
+    "GDELT request failed for serbia: fetch failed",
+    "GDELT request failed for turkey: fetch failed",
+    "GDELT request failed for egypt: fetch failed",
+    "GDELT request failed for uzbekistan: fetch failed",
+    "GDELT request failed for vietnam: fetch failed",
+    "GDELT request failed for senegal: HTTP 429",
+    "GDELT request failed for cotedivoire: GDELT returned a non-JSON response: Your query was too short or too long. ",
+    "GDELT request failed for benin: fetch failed",
+    "GDELT request failed for angola: HTTP 429",
+    "GDELT request failed for kenya: HTTP 429",
+    "GDELT request failed for tanzania: HTTP 429",
+    "GDELT request failed for ethiopia: GDELT returned a non-JSON response: Your query was too short or too long. "
+  ],
+  "officialSourceStatus": [
+    {
+      "id": "imf-news",
+      "label": "International Monetary Fund",
+      "status": "failed",
+      "error": "HTTP 403"
+    },
+    {
+      "id": "fatf-news",
+      "label": "Financial Action Task Force",
+      "status": "failed",
+      "error": "HTTP 403"
+    },
+    {
+      "id": "eu-council-press",
+      "label": "Council of the European Union",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "ofac-recent-actions",
+      "label": "US Treasury OFAC",
+      "status": "ok",
+      "records": 2
+    },
+    {
+      "id": "moodys-sovereigns",
+      "label": "Moody's Ratings",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "fitch-sovereigns",
+      "label": "Fitch Ratings",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "us-fed",
+      "label": "Federal Reserve",
+      "status": "ok",
+      "records": 20
+    },
+    {
+      "id": "sp-sovereign-actions",
+      "label": "S&P Global Ratings",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "bs-central-bank",
+      "label": "Central Bank of The Bahamas",
+      "status": "failed",
+      "error": "HTTP 404"
+    },
+    {
+      "id": "mx-banxico",
+      "label": "Banco de México",
+      "status": "failed",
+      "error": "HTTP 404"
+    },
+    {
+      "id": "tr-tcmb",
+      "label": "Central Bank of the Republic of Türkiye",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "rs-nbs",
+      "label": "National Bank of Serbia",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "eg-cbe",
+      "label": "Central Bank of Egypt",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "sn-bceao",
+      "label": "BCEAO",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "ci-bceao",
+      "label": "BCEAO",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "bj-bceao",
+      "label": "BCEAO",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "vn-sbv",
+      "label": "State Bank of Vietnam",
+      "status": "failed",
+      "error": "HTTP 403"
+    },
+    {
+      "id": "uz-cbu",
+      "label": "Central Bank of Uzbekistan",
+      "status": "ok",
+      "records": 5
+    },
+    {
+      "id": "ao-bna",
+      "label": "Banco Nacional de Angola",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "tz-bot",
+      "label": "Bank of Tanzania",
+      "status": "failed",
+      "error": "HTTP 404"
+    },
+    {
+      "id": "et-nbe",
+      "label": "National Bank of Ethiopia",
+      "status": "ok",
+      "records": 1
+    },
+    {
+      "id": "ke-cbk",
+      "label": "Central Bank of Kenya",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "world-bank-mexico",
+      "label": "World Bank — mexico",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-bahamas",
+      "label": "World Bank — bahamas",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-usa",
+      "label": "World Bank — usa",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-egypt",
+      "label": "World Bank — egypt",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-turkey",
+      "label": "World Bank — turkey",
+      "status": "ok",
+      "records": 1
+    },
+    {
+      "id": "world-bank-serbia",
+      "label": "World Bank — serbia",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-vietnam",
+      "label": "World Bank — vietnam",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-uzbekistan",
+      "label": "World Bank — uzbekistan",
+      "status": "ok",
+      "records": 1
+    },
+    {
+      "id": "world-bank-cotedivoire",
+      "label": "World Bank — cotedivoire",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-senegal",
+      "label": "World Bank — senegal",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-benin",
+      "label": "World Bank — benin",
+      "status": "ok",
+      "records": 1
+    },
+    {
+      "id": "world-bank-angola",
+      "label": "World Bank — angola",
+      "status": "ok",
+      "records": 1
+    },
+    {
+      "id": "world-bank-kenya",
+      "label": "World Bank — kenya",
+      "status": "ok",
+      "records": 1
+    },
+    {
+      "id": "world-bank-tanzania",
+      "label": "World Bank — tanzania",
+      "status": "ok",
+      "records": 2
+    },
+    {
+      "id": "world-bank-ethiopia",
+      "label": "World Bank — ethiopia",
+      "status": "ok",
+      "records": 1
+    }
+  ],
+  "countries": {
+    "usa": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 9,
+      "rejectedCount": 5,
+      "expired": 0,
+      "duplicatesMerged": 3,
+      "publishedEventClusters": 13,
+      "rejections": [
+        {
+          "title": "Morning Minute : Run Through the Tape",
+          "url": "https://redstate.com/smoosieq/2026/09/28/morning-minute-n2207462",
+          "domain": "redstate.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Tesla European FSD Vote Is On Hold",
+          "url": "https://www.jalopnik.com/2270611/tesla-european-full-self-driving-vote-on-hold/",
+          "domain": "jalopnik.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "5 British suspects arrested , explosives found near U . S .- run air base . Iran denies role",
+          "url": "https://www.northernpublicradio.org/2026-09-28/5-british-suspects-arrested-explosives-found-near-u-s-run-air-base-iran-denies-role",
+          "domain": "northernpublicradio.org",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Wisconsin Lawyer : In My View Forgive and Forget : Making Expungement Work in Wisconsin , Part 1 :",
+          "url": "https://www.wisbar.org/NewsPublications/WisconsinLawyer/Pages/Article.aspx?Volume=99&Issue=8&ArticleID=31759&source=carousel",
+          "domain": "wisbar.org",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "5 British suspects arrested , explosives found near U . S .- run air base . Iran denies role",
+          "url": "https://www.wxxinews.org/npr-news/2026-09-28/5-british-suspects-arrested-explosives-found-near-u-s-run-air-base-iran-denies-role",
+          "domain": "wxxinews.org",
+          "reason": "Insufficient country evidence"
+        }
+      ]
+    },
+    "mexico": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 13,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 1,
+      "rejections": [
+        {
+          "title": "Trump administration muses about hitting Canada with EU - style tariffs over Carney EU pivot",
+          "url": "https://vancouversun.com/news/trump-administration-muses-about-hitting-canada-with-eu-style-tariffs-over-carneys-eu-pivot/wcm/05cfb6b4-deef-45e8-b200-141f1f2d5775",
+          "domain": "vancouversun.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "North America is building rare earth plants faster than it is building rare earth engineers",
+          "url": "https://www.northernminer.com/news/north-america-is-building-rare-earth-plants-faster-than-it-is-building-rare-earth-engineers/1003895179/",
+          "domain": "northernminer.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Why Blue States Pay More for Electricity on Purpose",
+          "url": "https://redstate.com/wardclark/2026/09/28/why-blue-states-pay-more-for-electricityon-purpose-n2207463",
+          "domain": "redstate.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "End Times Fascism looks at supremacist groups uniting around end - of - the - world ideas",
+          "url": "https://www.interlochenpublicradio.org/2026-09-28/end-times-fascism-looks-at-supremacist-groups-uniting-around-end-of-the-world-ideas",
+          "domain": "interlochenpublicradio.org",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Wally and Colleen Mah – in for the long run",
+          "url": "https://www.gx94radio.com/2026/09/28/wally-and-colleen-mah-in-for-the-long-run/",
+          "domain": "gx94radio.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "The un - ordered UN order – European Council on Foreign Relations",
+          "url": "https://ecfr.eu/article/the-un-ordered-un-order/",
+          "domain": "ecfr.eu",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "A national education survey ranks Utah dead last and that a good thing",
+          "url": "https://www.ksl.com/article/news/features/education/a-national-education-survey-ranks-utah-dead-last--and-thats-a-good-thing/51626890",
+          "domain": "ksl.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "End Times Fascism looks at supremacist groups uniting around end - of - the - world ideas",
+          "url": "https://www.wbaa.org/npr-news/2026-09-28/end-times-fascism-looks-at-supremacist-groups-uniting-around-end-of-the-world-ideas",
+          "domain": "wbaa.org",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "TECH Global University , leader in employability with a 99 % rate",
+          "url": "https://www.newsx.com/brand-desk/tech-global-university-leader-in-employability-with-a-99-rate-276971/",
+          "domain": "newsx.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Multigenerational travel is booming , and this resort has smarter options than hotel rooms",
+          "url": "https://www.mesabitribune.com/around_the_web/health/multigenerational-travel-is-booming-and-this-resort-has-smarter-options-than-hotel-rooms/article_3ef878f8-ed06-53a8-bfe4-a1f6f6bfbf0e.html",
+          "domain": "mesabitribune.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "North Korean land mines highly likely cause of DMZ blast : South Korean military",
+          "url": "https://www.prokerala.com/news/articles/a1817818.html",
+          "domain": "prokerala.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Multigenerational travel is booming , and this resort has smarter options than hotel rooms",
+          "url": "https://homenewshere.com/national/features/article_81a779cf-b3f6-5162-8f95-86f426bc9090.html",
+          "domain": "homenewshere.com",
+          "reason": "Insufficient country evidence"
+        }
+      ]
+    },
+    "bahamas": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 7,
+      "expired": 0,
+      "duplicatesMerged": 1,
+      "publishedEventClusters": 3,
+      "rejections": [
+        {
+          "title": "A curios posture",
+          "url": "https://www.thenassauguardian.com/opinion/a-curios-posture/article_e49a21ac-baa1-4a34-af35-61223a0a51bc.html",
+          "domain": "thenassauguardian.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Former Atlantis exec appointed director general of tourism",
+          "url": "https://www.thenassauguardian.com/business/former-atlantis-exec-appointed-director-general-of-tourism/article_ecef9c0e-f301-45c7-af78-a19d19bf2f4e.html",
+          "domain": "thenassauguardian.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Carnival Teams Participate in Coastal Cleanups Across its Fleet - Cruise Industry News",
+          "url": "https://cruiseindustrynews.com/cruise-news/2026/09/carnival-teams-participate-in-coastal-cleanups-across-its-fleet/",
+          "domain": "cruiseindustrynews.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Democrats to probe lucrative Trump family business deals if they win midterms",
+          "url": "https://lufkindailynews.com/news_reuters/national/democrats-to-probe-lucrative-trump-family-business-deals-if-they-win-midterms/article_a32f088a-30ee-5727-beda-f1b5ce5840f7.html",
+          "domain": "lufkindailynews.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Democrats to probe lucrative Trump family business deals if they win midterms",
+          "url": "https://economictimes.indiatimes.com/news/international/world-news/democrats-to-probe-lucrative-trump-family-business-deals-if-they-win-midterms/articleshow/134539143.cms",
+          "domain": "economictimes.indiatimes.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "King Charle stinging warning as Caribbean campaigners demand apology for Britain slavery links",
+          "url": "https://www.mirror.co.uk/news/royals/king-charles-bahamas-visit-warning-37706372",
+          "domain": "mirror.co.uk",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "73 Times Signs Were So Entertaining They Became The Main Attraction",
+          "url": "https://2.boredpanda.com/hilarious-signs-pictures/?cexp_id=161933&_f=homepage_featured&cexp_var=30",
+          "domain": "2.boredpanda.com",
+          "reason": "Insufficient country evidence"
+        }
+      ]
+    },
+    "serbia": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 7,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 4,
+      "rejections": [
+        {
+          "title": "Pathway to LA28 Revealed as World Aquatics Announces 2027 Water Polo World Cup Hosts",
+          "url": "https://swimswam.com/pathway-to-la28-revealed-as-world-aquatics-announces-2027-water-polo-world-cup-hosts/",
+          "domain": "swimswam.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Ireland beat Israel 3 - 0 in politically charged match",
+          "url": "https://www.middle-east-online.com/en/ireland-beat-israel-3-0-politically-charged-match",
+          "domain": "middle-east-online.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Ukraine Will Have to Pay The Price For Its Recent Actions Kremlin",
+          "url": "https://sputnikglobe.com/20260928/ukraine-will-have-to-pay-the-price-for-its-recent-actions--kremlin-1124804181.html",
+          "domain": "sputnikglobe.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Clear win for China in Women Chess Olympiad , while Kazakhstan and India complete the podium",
+          "url": "https://en.chessbase.com/post/chess-olympiad-2026-11-women",
+          "domain": "en.chessbase.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Support for Gaza wins the game as Ireland beats Israel wearing black armbands for genocide victims",
+          "url": "https://www.presstv.co.uk/Detail/2026/09/28/777170/Ireland-beats-Israel-UEFA-players-armbands-support-war-genocide",
+          "domain": "presstv.co.uk",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "FAI president defends handling of Ireland Nations League fixture against Israel",
+          "url": "https://www.thejournal.ie/ireland-vs-israel-nations-league-3-7175376-Sep2026/",
+          "domain": "thejournal.ie",
+          "reason": "Sovereign-risk topic in headline"
+        },
+        {
+          "title": "Financial Results for the Q2 and 6M 2026 | Company Announcement",
+          "url": "https://www.investegate.co.uk/announcement/rns/mhp-se--mhpc/financial-results-for-the-q2-and-6m-2026/9793496",
+          "domain": "investegate.co.uk",
+          "reason": "Insufficient country evidence"
+        }
+      ]
+    },
+    "turkey": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "rejectedCount": 8,
+      "expired": 0,
+      "duplicatesMerged": 1,
+      "publishedEventClusters": 6,
+      "rejections": [
+        {
+          "title": "The un - ordered UN order – European Council on Foreign Relations",
+          "url": "https://ecfr.eu/article/the-un-ordered-un-order/",
+          "domain": "ecfr.eu",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Pathway to LA28 Revealed as World Aquatics Announces 2027 Water Polo World Cup Hosts",
+          "url": "https://swimswam.com/pathway-to-la28-revealed-as-world-aquatics-announces-2027-water-polo-world-cup-hosts/",
+          "domain": "swimswam.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Iran files formal protest with UN aviation watchdog over US sanctions",
+          "url": "https://www.moneycontrol.com/world/iran-files-formal-protest-with-un-aviation-watchdog-over-us-sanctions-article-14040316.html",
+          "domain": "moneycontrol.com",
+          "reason": "Sovereign-risk topic in headline"
+        },
+        {
+          "title": "Graham Act Imposes Sweeping Russia Tariffs and Durable Sanctions",
+          "url": "https://natlawreview.com/article/russia-sanctions-and-tariffs-what-businesses-need-know-about-graham-act-0",
+          "domain": "natlawreview.com",
+          "reason": "Sovereign-risk topic in headline"
+        },
+        {
+          "title": "What Businesses Need to Know About the Graham Act - Russia Sanctio",
+          "url": "https://natlawreview.com/article/russia-sanctions-and-tariffs-what-businesses-need-know-about-graham-act",
+          "domain": "natlawreview.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Iran Seeks Legal Action Against US Aviation Sanctions",
+          "url": "https://pakobserver.net/iran-seeks-legal-action-against-us-aviation-sanctions/",
+          "domain": "pakobserver.net",
+          "reason": "Sovereign-risk topic in headline"
+        },
+        {
+          "title": "bp completes subsea intervention campaign at Deepwater Gunashli [ PHOTOS ]",
+          "url": "https://www.azernews.az/oil_and_gas/264625.html",
+          "domain": "azernews.az",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Philippines is the deadliest country in Asia for environmental defenders , report finds",
+          "url": "https://news.mongabay.com/short-article/2026/09/philippines-is-the-deadliest-country-in-asia-for-environmental-defenders-report-finds/",
+          "domain": "news.mongabay.com",
+          "reason": "Insufficient country evidence"
+        }
+      ]
+    },
+    "egypt": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 0,
+      "rejections": []
+    },
+    "uzbekistan": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "rejectedCount": 8,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 2,
+      "rejections": [
+        {
+          "title": "Not stopping after my third Asian Games , says Pincky Balhara after Kurash bronze",
+          "url": "https://www.prokerala.com/news/articles/a1817848.html",
+          "domain": "prokerala.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Not stopping after my third Asian Games , says Pincky Balhara after Kurash bronze",
+          "url": "https://ianslive.in/not-stopping-after-my-third-asian-games-says-pincky-balhara-after-kurash-bronze--20260928192048",
+          "domain": "ianslive.in",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Arab News | Jeddah food shows connect Saudi firms with global markets",
+          "url": "https://www.arabnews.com/saudi-arabia/jeddah-food-shows-connect-saudi-firms-with-global-markets-3003561",
+          "domain": "arabnews.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Team VI returns from Samarkand with three Candidate Masters | Virgin Islands News Online",
+          "url": "https://www.virginislandsnewsonline.com/en/news/team-vi-returns-from-samarkand-with-three-candidate-masters",
+          "domain": "virginislandsnewsonline.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Turkmenistan Women Win Category B Silver at Chess Olympiad A Gift to the Nation on Independence Day",
+          "url": "https://www.newscentralasia.net/2026/09/28/turkmenistan-women-win-category-b-silver-at-chess-olympiad-a-gift-to-the-nation-on-independence-day/",
+          "domain": "newscentralasia.net",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Asia hydropower growth faces water challenges",
+          "url": "https://www.power-technology.com/analysis/asias-hydropower-growth-faces-water-challenges/",
+          "domain": "power-technology.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Dr . Achyuta Samanta Conferred Honorary Citizenship by Romanian Town , Receives Multiple International Honours",
+          "url": "https://news.webindia123.com/news/Articles/Business/20260928/4504426.html",
+          "domain": "news.webindia123.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Dr . Achyuta Samanta Conferred Honorary Citizenship by Romanian Town , Receives Multiple International Honours",
+          "url": "https://www.prnewswire.com/news-releases/dr-achyuta-samanta-conferred-honorary-citizenship-by-romanian-town-receives-multiple-international-honours-302891295.html",
+          "domain": "prnewswire.com",
+          "reason": "Insufficient country evidence"
+        }
+      ]
+    },
+    "vietnam": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 0,
+      "rejections": []
+    },
+    "senegal": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 0,
+      "rejections": []
+    },
+    "cotedivoire": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 0,
+      "rejections": []
+    },
+    "benin": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "rejectedCount": 12,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 1,
+      "rejections": [
+        {
+          "title": "The Problem With Okpebholo Public Statements - By Oluwafemi Popoola",
+          "url": "https://www.opinionnigeria.com/the-problem-with-okpebholos-public-statements-by-oluwafemi-popoola/",
+          "domain": "opinionnigeria.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Atiku : N70 , 000 Minimum Wage Buys Just 50 Litres as Fuel Costs Soar",
+          "url": "https://zalebs.com/business/atiku-n70000-minimum-wage-buys-just-50-litres-as-fuel-costs-soar/",
+          "domain": "zalebs.com",
+          "reason": "Conflicting or ambiguous country identity"
+        },
+        {
+          "title": "Atiku to Tinubu : Increase minimum wage , N70k swallowed by petrol cost - Latest News In Nigeria , Nigeria News Today , Your Online Nigerian Newspaper",
+          "url": "https://www.nigerianeye.com/2026/09/atiku-to-tinubu-increase-minimum-wage.html",
+          "domain": "nigerianeye.com",
+          "reason": "Conflicting or ambiguous country identity"
+        },
+        {
+          "title": "APC raises campaign tempo for Tinubu , governors , others",
+          "url": "https://thenationonlineng.net/apc-raises-campaign-tempo-for-tinubu-governors-others/",
+          "domain": "thenationonlineng.net",
+          "reason": "Conflicting or ambiguous country identity"
+        },
+        {
+          "title": "Niger water electricity shortages grip the Agadez region",
+          "url": "https://www.riotimesonline.com/nigers-north-water-electricity-shortages-2026/",
+          "domain": "riotimesonline.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Constitution missing institutions ( I ) – Daily Trust",
+          "url": "https://dailytrust.com/constitutions-missing-institutions-i/",
+          "domain": "dailytrust.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Niger mosque attacks : 14 members of my family in captivity – Student – Daily Trust",
+          "url": "https://dailytrust.com/niger-mosque-attacks-14-members-of-my-family-in-captivity-student/",
+          "domain": "dailytrust.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "ARA fuel oil stocks climb 15 % in September so far | Hellenic Shipping News Worldwide",
+          "url": "https://www.hellenicshippingnews.com/ara-fuel-oil-stocks-climb-15-in-september-so-far-2/",
+          "domain": "hellenicshippingnews.com",
+          "reason": "Sovereign-risk topic in headline"
+        },
+        {
+          "title": "APM slams Okpebholo for comparing Nigerian fuel prices to united kingdom",
+          "url": "https://punchng.com/apm-slams-okpebholo-for-comparing-nigerian-fuel-prices-to-uk/",
+          "domain": "punchng.com",
+          "reason": "Conflicting or ambiguous country identity"
+        },
+        {
+          "title": "Ijaws in Edo Demand Autonomy , Allege Marginalisation By Govt , Oba Palace – THISDAYLIVE",
+          "url": "https://www.thisdaylive.com/2026/09/27/ijaws-in-edo-demand-autonomy-allege-marginalisation-by-govt-obas-palace/",
+          "domain": "thisdaylive.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "The Power Behind PawaPay 3 Billion Mobile - Money Transactions : TechMoran",
+          "url": "https://techmoran.com/2026/09/27/pawapay-secures-kenya-payments-licence-after-3-billion-mobile-money-transactions/",
+          "domain": "techmoran.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Edo Governor Okpebholo Fuel Price Comparison Misses the Bigger Picture : A British Minimum - Wage Worker Earns About ₦22 , 300 an Hour , a Nigerian Worker ₦437 . 50 - By Daniel Nduka Okonkwo",
+          "url": "https://www.opinionnigeria.com/edo-governor-okpebholos-fuel-price-comparison-misses-the-bigger-picture-a-british-minimum-wage-worker-earns-about-%E2%82%A622300-an-hour-a-nigerian-worker-%E2%82%A6437-50-by-daniel-nduka-okonkwo/",
+          "domain": "opinionnigeria.com",
+          "reason": "Conflicting or ambiguous country identity"
+        }
+      ]
+    },
+    "angola": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 1,
+      "rejections": []
+    },
+    "kenya": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "rejectedCount": 9,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 3,
+      "rejections": [
+        {
+          "title": "KAM Vice Chair Mary - Ann Musangi Calls for Private Sector to Drive AfCFTA at Unstoppable Africa 2026 Forum In New York",
+          "url": "https://capitalfm.africa/kam-vice-chair-mary-ann-musangi-calls-for-private-sector-to-drive-afcfta-at-unstoppable-africa-2026-forum-in-new-york/",
+          "domain": "capitalfm.africa",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Tawang Marathon to showcase Arunachal Himalayan landscape , cultural heritage : CM Pema Khandu",
+          "url": "https://www.prokerala.com/news/articles/a1817844.html",
+          "domain": "prokerala.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Arab News | Jeddah food shows connect Saudi firms with global markets",
+          "url": "https://www.arabnews.com/saudi-arabia/jeddah-food-shows-connect-saudi-firms-with-global-markets-3003561",
+          "domain": "arabnews.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Africa Financial Summit Heads to Luanda , Angola : TechMoran",
+          "url": "https://techmoran.com/2026/09/28/africa-financial-summit-heads-to-luanda-as-angola-pushes-financial-sector-reforms/",
+          "domain": "techmoran.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Foreign nationals and trade : Why law enforcement should be fair and professional",
+          "url": "https://www.standardmedia.co.ke/opinion/article/2001558888/foreign-nationals-and-trade-why-law-enforcement-should-be-fair-and-professional",
+          "domain": "standardmedia.co.ke",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Top 10 African Airlines Named Among the Best in 2026",
+          "url": "https://www.africa.com/arts-culture-society/top-10-african-airlines-named-among-the-best-in-2026",
+          "domain": "africa.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Uganda Airlines Makes Historic First Landing At Kabalega Airport in Hoima",
+          "url": "https://allafrica.com/stories/202609280100.html",
+          "domain": "allafrica.com",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Patrick M . Yingling joins the Bulletin Governing Board - Bulletin of the Atomic Scientists",
+          "url": "https://thebulletin.org/2026/09/patrick-m-yingling-joins-the-bulletins-governing-board/",
+          "domain": "thebulletin.org",
+          "reason": "Insufficient country evidence"
+        },
+        {
+          "title": "Growing with Africa aquaculture industry",
+          "url": "https://thefishsite.com/articles/growing-with-africa-aquaculture-industry",
+          "domain": "thefishsite.com",
+          "reason": "Insufficient country evidence"
+        }
+      ]
+    },
+    "tanzania": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 2,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 1,
+      "publishedEventClusters": 1,
+      "rejections": []
+    },
+    "ethiopia": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 1,
+      "rejections": []
+    }
+  }
 }
