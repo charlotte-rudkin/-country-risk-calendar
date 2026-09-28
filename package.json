@@ -1,0 +1,10 @@
+{
+  "name": "country-calendar",
+  "private": true,
+  "version": "3.3.1",
+  "description": "Update-safe static Country Calendar dashboard",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "validate": "npm run build && node tools/validate-data.mjs && node tools/smoke-test.mjs && node tools/standalone-smoke-test.mjs"
+  }
+}
