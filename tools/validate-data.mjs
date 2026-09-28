@@ -139,7 +139,7 @@ if (errors.length === 0) {
     const news = newsData.countries?.[key];
     if (!Array.isArray(news)) fail(`News data is missing for ${key}`);
     else {
-      if (news.length > 14) fail(`${key} has more than 14 retained news records`);
+      if (news.length > 24) fail(`${key} has more than 24 retained news records`);
       const urls = new Set();
       news.forEach((article, index) => {
         const location = `${key}.news[${index}]`;
@@ -148,6 +148,9 @@ if (errors.length === 0) {
         }
         if (article.url && !article.url.startsWith("https://")) fail(`${location}.url must use https`);
         if (article.publishedAt && Number.isNaN(Date.parse(article.publishedAt))) fail(`${location}.publishedAt must be a valid date`);
+        if (!['critical', 'elevated', 'standard'].includes(article.materiality)) fail(`${location}.materiality must be critical, elevated or standard`);
+        if (typeof article.materialityScore !== 'number' || article.materialityScore < 0) fail(`${location}.materialityScore must be a non-negative number`);
+        if (!Array.isArray(article.riskSignals)) fail(`${location}.riskSignals must be an array`);
         if (urls.has(article.url)) fail(`${location} duplicates another news URL`);
         urls.add(article.url);
       });

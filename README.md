@@ -18,7 +18,9 @@ The dashboard is still compiled to a single self-contained `index.html` at deplo
 
 Set **Settings → Pages → Source** to **GitHub Actions** after uploading this version. The workflow in `.github/workflows/country-risk-refresh.yml` runs four guarded jobs and deploys a validated standalone page whenever monitored data changes:
 
-- **Daily:** refreshes a 14-day country-risk news window from GDELT and rebuilds the site only when headlines change.
+- **Daily:** searches a rolling 30-day country-risk news window from GDELT. Elevated early-warning signals are retained for 90 days and critical events for 180 days; the site rebuilds only when headlines change.
+
+News materiality is risk-trajectory based rather than limited to realised events. The scoring model covers funding and refinancing pressure, external liquidity and FX stress, arrears, fiscal slippage, SOE contingent liabilities, banking-sovereign feedback, IMF programme risk, creditor/legal action, sanctions, institutional disruption, social pressure and commodity-linked fiscal shocks. Headlines are labelled `critical`, `elevated` or `standard`; labels remain discovery signals and are not substitutes for analyst assessment.
 - **Weekly:** screens the retained news for possible country-defining timeline events.
 - **Monthly:** generates a review queue for elections, sovereign ratings, IMF developments, sanctions/FATF and central-bank developments.
 - **Quarterly:** searches the prior three months for possible missed coups, defaults, restructurings, wars, constitutional breaks and comparable anchor events.

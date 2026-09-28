@@ -226,6 +226,10 @@
   .news-item a { color:var(--text); font-family:var(--font-serif); font-size:15px; line-height:1.35; text-decoration:none; }
   .news-item a:hover { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
   .news-meta { color:var(--text-faint); font-size:10.5px; margin-bottom:4px; }
+  .news-material { color:var(--accent); font-weight:600; letter-spacing:.03em; text-transform:uppercase; }
+  .news-material.critical { color:var(--rust); }
+  .news-material.elevated { color:var(--amber); }
+  .news-signals { color:var(--text-faint); font-size:10px; margin-top:5px; }
   .news-disclaimer { color:var(--text-faint); font-size:10.5px; line-height:1.45; margin:12px 0 0; }
   .chip-row:empty { display: none; }
   .chip {

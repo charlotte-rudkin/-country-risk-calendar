@@ -18,7 +18,7 @@ export const COUNTRY_QUERIES = Object.freeze({
   ethiopia: 'Ethiopia'
 });
 
-const RISK_TERMS = '(election OR parliament OR president OR government OR protest OR coup OR conflict OR debt OR default OR restructuring OR rating OR IMF OR sanctions OR "central bank" OR inflation)';
+const RISK_TERMS = '(election OR parliament OR president OR government OR opposition OR protest OR coup OR conflict OR security OR debt OR default OR restructuring OR rating OR IMF OR sanctions OR FATF OR "central bank" OR inflation OR currency OR reserves OR banking OR budget OR fiscal OR oil OR investment OR arrears OR "missed payment" OR refinancing OR liquidity OR "financing gap" OR "bond yield" OR "credit spread" OR "debt auction" OR "capital controls" OR devaluation OR "foreign exchange shortage" OR SOE OR "state-owned" OR bailout OR guarantee OR subsidy OR creditor OR waiver)';
 export const TIMELINE_TERMS = '(coup OR "coup attempt" OR default OR restructuring OR invasion OR war OR "peace agreement" OR constitution OR "regime change" OR "state of emergency")';
 
 const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));

@@ -37,14 +37,15 @@ function escapeHTML(value) {
 }
 
 function newsHTML(countryKey) {
-  const articles = (NEWS_DATA.countries?.[countryKey] || []).slice(0, 8);
+  const articles = (NEWS_DATA.countries?.[countryKey] || []).slice(0, 12);
   const generated = NEWS_DATA.generatedAt
     ? new Date(NEWS_DATA.generatedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })
     : "scheduled refresh pending";
   const rows = articles.map(article => `
     <article class="news-item">
-      <div class="news-meta">${escapeHTML(new Date(article.publishedAt).toLocaleDateString("en-GB"))} · ${escapeHTML(article.domain)}</div>
+      <div class="news-meta">${article.materiality !== "standard" ? `<span class="news-material ${article.materiality}">${escapeHTML(article.materiality)}</span> · ` : ''}${escapeHTML(new Date(article.publishedAt).toLocaleDateString("en-GB"))} · ${escapeHTML(article.domain)}</div>
       <a href="${escapeHTML(article.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(article.title)}</a>
+      ${article.riskSignals?.length ? `<div class="news-signals">${article.riskSignals.map(escapeHTML).join(" · ")}</div>` : ""}
     </article>
   `).join("");
   return `
@@ -52,11 +53,11 @@ function newsHTML(countryKey) {
       <div class="news-head">
         <div>
           <p class="block-title">Country risk news</p>
-          <p class="block-note">Automatically discovered headlines; links open the original publisher.</p>
+          <p class="block-note">30-day coverage · elevated early-warning signals retained for 90 days · critical events for 180 days.</p>
         </div>
         <span class="news-updated">Updated ${escapeHTML(generated)}</span>
       </div>
-      ${rows || '<p class="empty-note">No headlines published yet. The scheduled refresh will preserve this empty state until verified results are available.</p>'}
+      ${rows || '<p class="empty-note">No qualifying items found in the current 30-day search window.</p>'}
       <p class="news-disclaimer">Discovery feed only—not an underwriting conclusion. Confirm material facts against primary or authoritative sources.</p>
     </section>`;
 }
