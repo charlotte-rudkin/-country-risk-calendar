@@ -41,19 +41,33 @@ function newsHTML(countryKey) {
   const generated = NEWS_DATA.generatedAt
     ? new Date(NEWS_DATA.generatedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })
     : "scheduled refresh pending";
-  const rows = articles.map(article => `
-    <article class="news-item">
-      <div class="news-meta">${article.materiality !== "standard" ? `<span class="news-material ${article.materiality}">${escapeHTML(article.materiality)}</span> · ` : ''}${escapeHTML(new Date(article.publishedAt).toLocaleDateString("en-GB"))} · ${escapeHTML(article.domain)}</div>
-      <a href="${escapeHTML(article.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(article.title)}</a>
-      ${article.riskSignals?.length ? `<div class="news-signals">${article.riskSignals.map(escapeHTML).join(" · ")}</div>` : ""}
-    </article>
-  `).join("");
+  const rows = articles.map(article => {
+    const sourceLabel = article.officialSourceName || article.domain;
+    const relevanceExplanation = article.relevanceReasons?.length
+      ? ` title="${escapeHTML(article.relevanceReasons.join("; "))}"`
+      : "";
+    const related = (article.relatedCoverage || []).map(item => `
+      <li><a href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(item.officialSourceName || item.domain)}</a> — ${escapeHTML(item.title)}</li>
+    `).join("");
+    return `
+      <article class="news-item">
+        <div class="news-meta">${article.materiality !== "standard" ? `<span class="news-material ${article.materiality}">${escapeHTML(article.materiality)}</span> · ` : ''}${escapeHTML(new Date(article.publishedAt).toLocaleDateString("en-GB"))} · ${escapeHTML(sourceLabel)}</div>
+        <a href="${escapeHTML(article.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(article.title)}</a>
+        <div class="news-quality">
+          ${article.sourceClass ? `<span>${escapeHTML(article.sourceClass)}</span>` : ""}
+          ${Number.isFinite(article.relevanceScore) ? `<span${relevanceExplanation}>relevance ${escapeHTML(article.relevanceScore)}</span>` : ""}
+          ${article.coverageCount > 1 ? `<span>${escapeHTML(article.coverageCount)} reports</span>` : ""}
+        </div>
+        ${article.riskSignals?.length ? `<div class="news-signals">${article.riskSignals.map(escapeHTML).join(" · ")}</div>` : ""}
+        ${related ? `<details class="news-related"><summary>Related coverage</summary><ul>${related}</ul></details>` : ""}
+      </article>`;
+  }).join("");
   return `
     <section class="block">
       <div class="news-head">
         <div>
           <p class="block-title">Country risk news</p>
-          <p class="block-note">30-day coverage · elevated early-warning signals retained for 90 days · critical events for 180 days.</p>
+          <p class="block-note">GDELT discovery + direct official sources · event-clustered · standard 30 days · elevated 90 days · critical 180 days.</p>
         </div>
         <span class="news-updated">Updated ${escapeHTML(generated)}</span>
       </div>

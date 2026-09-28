@@ -230,6 +230,13 @@
   .news-material.critical { color:var(--rust); }
   .news-material.elevated { color:var(--amber); }
   .news-signals { color:var(--text-faint); font-size:10px; margin-top:5px; }
+  .news-quality { display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+  .news-quality span { border:1px solid var(--hairline); border-radius:999px; color:var(--text-faint); font-size:9px; letter-spacing:.03em; padding:2px 6px; text-transform:uppercase; }
+  .news-related { color:var(--text-faint); font-size:10px; margin-top:7px; }
+  .news-related summary { color:var(--accent); cursor:pointer; width:max-content; }
+  .news-related ul { margin:7px 0 0 17px; padding:0; }
+  .news-related li { margin:4px 0; }
+  .news-related a { font-family:var(--font-sans); font-size:10px; }
   .news-disclaimer { color:var(--text-faint); font-size:10.5px; line-height:1.45; margin:12px 0 0; }
   .chip-row:empty { display: none; }
   .chip {

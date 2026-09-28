@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": null,
+  "status": "awaiting-refresh",
+  "provider": "GDELT DOC 2.0",
+  "totals": {
+    "retrieved": 0,
+    "acceptedFromCurrentSearch": 0,
+    "officialRetrieved": 0,
+    "rejected": 0,
+    "expired": 0,
+    "duplicatesMerged": 0,
+    "publishedEventClusters": 0
+  },
+  "requestFailures": [],
+  "officialSourceStatus": [],
+  "countries": {}
+}

@@ -27,6 +27,23 @@ Country relevance uses two routes. A country or strong local identity anchor in 
 The repeated-mention search is optional and rate-limited. If GDELT throttles or rejects that secondary query, the refresh keeps successful headline results. If GDELT is wholly unavailable, the workflow retains the last published news file and continues deploying the valid site rather than replacing data or failing the deployment.
 
 Every headline must also pass a country-entity check based on country names, demonyms, capitals, leaders and major institutions. Ambiguous geographic names have explicit exclusions—for example, Republic of Benin coverage excludes Benin City/Edo/Nigerian-only stories, Angola excludes the Louisiana prison, Mexico excludes New Mexico, and Türkiye excludes poultry stories. Existing records are rechecked on every refresh, so newly identified false positives are removed automatically.
+
+### Stage 1 news-quality controls
+
+- **Explainable relevance:** every accepted item stores a numerical relevance score and the reasons it qualified. A headline country identity normally scores five points; repeated country-body evidence plus a second local anchor scores six. Conflicting identities subtract ten and prevent publication.
+- **Source classification:** recognised primary institutions and official bodies are tier 1, wire services are tier 2, vetted media are tier 3 and all other discovery sources are tier 4. The strongest available source represents a duplicated event.
+- **Event clustering:** tracking-link variants, near-identical headlines and sufficiently similar stories in the same risk category and five-day window are merged. The dashboard displays one representative headline and provides expandable links to related coverage.
+- **Quality reporting:** each daily run writes `data/review/news-quality.json`, recording retrievals, acceptances, rejections, expired items, duplicate merges, published event clusters and a sample of rejected stories with reasons.
+- **Provider resilience:** secondary full-text searches are optional. GDELT throttling never removes the last valid news file or stops an otherwise valid site deployment.
+
+### Stage 2 direct official sources
+
+The daily news job also checks primary sources directly. It currently supports RSS/Atom feeds, feed auto-discovery, structured JSON-LD news pages, conservative dated-link extraction and the World Bank Documents & Reports API. The source registry covers the IMF, Council of the EU, FATF, OFAC, Fitch, Moody's, S&P Global Ratings, World Bank, Federal Reserve and the central bank or monetary authority relevant to every pilot country. Shared institutions such as BCEAO are fetched once and reused.
+
+Official items still need a sovereign-risk topic and a usable publication date. A country-specific official source supplies the country evidence even where a release uses a generic headline such as “Monetary Policy Committee decision.” Global sources such as the IMF and EU Council must still pass the normal country-identity test. Official releases and media reporting are then passed through the same retention, materiality and event-clustering rules; a tier-one official release becomes the representative link when available.
+
+Every connector fails independently. `data/review/news-quality.json` records each official source as `ok` or `failed`, its record count, GDELT request failures and country-level quality totals. OFAC is monitored from its official Recent Actions page because its RSS feed was retired in 2025.
+
 - **Weekly:** screens the retained news for possible country-defining timeline events.
 - **Monthly:** generates a review queue for elections, sovereign ratings, IMF developments, sanctions/FATF and central-bank developments.
 - **Quarterly:** searches the prior three months for possible missed coups, defaults, restructurings, wars, constitutional breaks and comparable anchor events.
@@ -61,6 +78,11 @@ Open the root `index.html` directly in a browser. It is a fully self-contained c
 | `assets/styles.css` | Visual design | Only for design changes |
 | `js/app.js` | Rendering, search, map, filters and interactions | Only for feature changes |
 | `tools/validate-data.mjs` | Pre-publication guardrail | No |
+| `tools/news-quality.mjs` | Source classification, URL cleanup and event clustering | No |
+| `tools/news-quality-test.mjs` | Tests source tiers and duplicate clustering | No |
+| `tools/official-source-registry.mjs` | Direct official-source definitions for the pilot countries | Update when an institution changes its site |
+| `tools/official-news.mjs` | RSS, JSON-LD, HTML and World Bank official-source ingestion | No |
+| `tools/official-news-test.mjs` | Tests official feed parsing and country qualification | No |
 | `tools/smoke-test.mjs` | Headless rendering and interaction check | No |
 | `tools/build.mjs` | Compiles the modules into the standalone `index.html` | No |
 | `tools/standalone-smoke-test.mjs` | Confirms the compiled one-file dashboard runs by itself | No |

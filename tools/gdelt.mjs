@@ -49,16 +49,16 @@ const COUNTRY_IDENTITIES = Object.freeze({
 // country naming and a second country-specific identity anchor. They are used
 // only when the stricter headline route produces a thin result set.
 const COUNTRY_BODY_FALLBACKS = Object.freeze({
-  usa: '(repeat2:"United States" AND (American OR Washington OR "Federal Reserve" OR "US Treasury" OR Congress))',
+  usa: '("United States" AND repeat2:American AND (Washington OR "Federal Reserve" OR "US Treasury" OR Congress))',
   mexico: '(repeat2:Mexico AND (Mexican OR Sheinbaum OR Banxico OR Pemex OR "Mexico City"))',
   bahamas: '(repeat2:Bahamas AND (Bahamian OR Nassau OR "Philip Davis"))',
   serbia: '(repeat2:Serbia AND (Serbian OR Belgrade OR Vucic))',
-  turkey: '((repeat2:Turkey OR repeat2:Türkiye) AND (Turkish OR Erdogan OR Ankara))',
+  turkey: '(repeat2:Turkish AND (Turkey OR Türkiye OR Erdogan OR Ankara))',
   egypt: '(repeat2:Egypt AND (Egyptian OR Cairo OR Sisi))',
   uzbekistan: '(repeat2:Uzbekistan AND (Uzbek OR Tashkent OR Mirziyoyev))',
   vietnam: '(repeat2:Vietnam AND (Vietnamese OR Hanoi OR "To Lam"))',
   senegal: '(repeat2:Senegal AND (Senegalese OR Dakar OR "Bassirou Diomaye Faye" OR "Ousmane Sonko"))',
-  cotedivoire: '(repeat2:"Ivory Coast" AND (Ivorian OR Abidjan OR Ouattara))',
+  cotedivoire: '("Ivory Coast" AND repeat2:Ivorian AND (Abidjan OR Ouattara))',
   benin: '(repeat2:Benin AND (Beninese OR Cotonou OR "Porto-Novo" OR "Patrice Talon" OR "Romuald Wadagni"))',
   angola: '(repeat2:Angola AND (Angolan OR Luanda OR Lourenco OR "Banco Nacional de Angola"))',
   kenya: '(repeat2:Kenya AND (Kenyan OR Nairobi OR "William Ruto" OR "Central Bank of Kenya"))',
@@ -66,20 +66,59 @@ const COUNTRY_BODY_FALLBACKS = Object.freeze({
   ethiopia: '(repeat2:Ethiopia AND (Ethiopian OR "Addis Ababa" OR "Abiy Ahmed"))'
 });
 
-export function articleMatchesCountry(countryKey, title) {
+const RISK_HEADLINE_PATTERN = /election|parliament|president|government|opposition|protest|coup|conflict|security|debt|default|restructur|rating|IMF|sanction|FATF|central bank|inflation|currency|reserve|banking|budget|fiscal|oil|arrears|payment|refinanc|liquidity|bond|capital control|devalu|foreign exchange|state-owned|\bSOE\b|bailout|guarantee|subsidy|creditor/i;
+
+export function scoreCountryRelevance(countryKey, article) {
   const identity = COUNTRY_IDENTITIES[countryKey];
-  if (!identity || typeof title !== "string") return false;
-  if (identity.strong?.test(title)) return true;
-  if (!identity.anchor.test(title)) return false;
-  return !identity.exclude?.test(title);
+  const title = String(article?.title || "");
+  const basis = article?.relevanceBasis || "country-headline";
+  if (!identity || !title) return { accepted: false, relevanceScore: 0, relevanceReasons: ["Missing country identity or title"] };
+
+  const reasons = [];
+  const strongMatch = Boolean(identity.strong?.test(title));
+  const headlineMatch = identity.anchor.test(title);
+  const conflictingIdentity = Boolean(identity.exclude?.test(title)) && !strongMatch;
+  let score = 0;
+
+  if (strongMatch) {
+    score += 6;
+    reasons.push("Strong country-specific headline anchor");
+  } else if (headlineMatch) {
+    score += 5;
+    reasons.push("Country identity in headline");
+  }
+  if (basis === "repeated-country-body") {
+    score += 3;
+    reasons.push("Country repeated in indexed article text");
+    score += 3;
+    reasons.push("Second country-specific identity anchor");
+  }
+  if (basis === "official-country-source") {
+    score += 6;
+    reasons.push("Country-specific official source");
+  }
+  if (RISK_HEADLINE_PATTERN.test(title)) {
+    score += 2;
+    reasons.push("Sovereign-risk topic in headline");
+  }
+  if (conflictingIdentity) {
+    score -= 10;
+    reasons.push("Conflicting or ambiguous country identity");
+  }
+
+  return {
+    accepted: score >= 5 && !conflictingIdentity,
+    relevanceScore: Math.max(0, score),
+    relevanceReasons: reasons
+  };
+}
+
+export function articleMatchesCountry(countryKey, title) {
+  return scoreCountryRelevance(countryKey, { title, relevanceBasis: "country-headline" }).accepted;
 }
 
 export function storedArticleMatchesCountry(countryKey, article) {
-  if (!article || typeof article !== "object") return false;
-  if (articleMatchesCountry(countryKey, article.title)) return true;
-  if (article.relevanceBasis !== "repeated-country-body") return false;
-  const identity = COUNTRY_IDENTITIES[countryKey];
-  return !identity?.exclude?.test(article.title);
+  return scoreCountryRelevance(countryKey, article).accepted;
 }
 
 const RISK_TERMS = '(election OR parliament OR president OR government OR opposition OR protest OR coup OR conflict OR security OR debt OR default OR restructuring OR rating OR IMF OR sanctions OR FATF OR "central bank" OR inflation OR currency OR reserves OR banking OR budget OR fiscal OR oil OR investment OR arrears OR "missed payment" OR refinancing OR liquidity OR "financing gap" OR "bond yield" OR "credit spread" OR "debt auction" OR "capital controls" OR devaluation OR "foreign exchange shortage" OR SOE OR "state-owned" OR bailout OR guarantee OR subsidy OR creditor OR waiver)';
@@ -168,8 +207,15 @@ export async function fetchGdelt(countryKey, { timespan = "2d", maxrecords = 12,
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     try {
       const primary = await requestArticles(query, { timespan, maxrecords, relevanceBasis: "country-headline" });
-      const headlineMatches = primary.filter(article => articleMatchesCountry(countryKey, article.title));
+      const primaryAssessed = primary.map(article => ({ article, assessment: scoreCountryRelevance(countryKey, article) }));
+      const headlineMatches = primaryAssessed
+        .filter(item => item.assessment.accepted)
+        .map(item => ({ ...item.article, ...item.assessment }));
       let fallbackMatches = [];
+      let fallbackRetrievedCount = 0;
+      const rejected = primaryAssessed
+        .filter(item => !item.assessment.accepted)
+        .map(item => ({ ...item.article, rejectionReason: item.assessment.relevanceReasons.join("; ") || "Insufficient country evidence" }));
 
       // Avoid doubling routine API traffic where headline coverage is already
       // healthy. Thin country feeds get a second search that enforces repeated
@@ -178,13 +224,19 @@ export async function fetchGdelt(countryKey, { timespan = "2d", maxrecords = 12,
         await sleep(3500);
         const fallbackQuery = `${COUNTRY_BODY_FALLBACKS[countryKey]} AND ${RISK_TERMS} sourcelang:english`;
         try {
-          fallbackMatches = await requestArticles(fallbackQuery, {
+          const fallback = await requestArticles(fallbackQuery, {
             timespan,
             maxrecords: Math.min(10, maxrecords),
             relevanceBasis: "repeated-country-body"
           });
-          const identity = COUNTRY_IDENTITIES[countryKey];
-          fallbackMatches = fallbackMatches.filter(article => !identity.exclude?.test(article.title));
+          fallbackRetrievedCount = fallback.length;
+          const fallbackAssessed = fallback.map(article => ({ article, assessment: scoreCountryRelevance(countryKey, article) }));
+          fallbackMatches = fallbackAssessed
+            .filter(item => item.assessment.accepted)
+            .map(item => ({ ...item.article, ...item.assessment }));
+          rejected.push(...fallbackAssessed
+            .filter(item => !item.assessment.accepted)
+            .map(item => ({ ...item.article, rejectionReason: item.assessment.relevanceReasons.join("; ") || "Insufficient country evidence" })));
         } catch (error) {
           // The body-search route improves thin feeds but must never discard a
           // successful headline result or fail the whole scheduled refresh.
@@ -193,12 +245,21 @@ export async function fetchGdelt(countryKey, { timespan = "2d", maxrecords = 12,
       }
 
       const seen = new Set();
-      return [...headlineMatches, ...fallbackMatches]
+      const results = [...headlineMatches, ...fallbackMatches]
         .filter(article => {
           if (seen.has(article.url)) return false;
           seen.add(article.url);
           return true;
         });
+      Object.defineProperty(results, "audit", {
+        value: {
+          retrieved: primary.length + fallbackRetrievedCount,
+          accepted: results.length,
+          rejected
+        },
+        enumerable: false
+      });
+      return results;
     } catch (error) {
       lastError = error;
       if (attempt < 3) {

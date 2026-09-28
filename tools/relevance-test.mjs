@@ -1,4 +1,4 @@
-import { articleMatchesCountry, storedArticleMatchesCountry } from "./gdelt.mjs";
+import { articleMatchesCountry, scoreCountryRelevance, storedArticleMatchesCountry } from "./gdelt.mjs";
 
 const cases = [
   ["benin", "Atiku: N70,000 minimum wage buys just 50 litres as fuel costs soar", false],
@@ -31,3 +31,13 @@ if (storedFailures.length) {
   process.exit(1);
 }
 console.log(`Stored relevance test passed: ${storedCases.length} qualification cases.`);
+
+const scored = scoreCountryRelevance("benin", {
+  title: "Regional debt pressures intensify",
+  relevanceBasis: "repeated-country-body"
+});
+if (!scored.accepted || scored.relevanceScore !== 8 || scored.relevanceReasons.length !== 3) {
+  console.error("Repeated country-body evidence did not produce the expected explainable score.");
+  process.exit(1);
+}
+console.log("Explainable relevance score test passed.");

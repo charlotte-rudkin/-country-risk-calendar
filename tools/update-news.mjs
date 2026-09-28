@@ -2,12 +2,15 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
-import { fetchGdelt, mapWithGentleRateLimit, storedArticleMatchesCountry } from "./gdelt.mjs";
+import { fetchGdelt, mapWithGentleRateLimit, scoreCountryRelevance } from "./gdelt.mjs";
+import { clusterNews } from "./news-quality.mjs";
+import { fetchOfficialNews } from "./official-news.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
 const newsPath = path.join(root, "data", "news.js");
 const countriesPath = path.join(root, "data", "countries.js");
+const qualityPath = path.join(root, "data", "review", "news-quality.json");
 
 function loadBrowserGlobal(file, key) {
   const context = { window: {} };
@@ -22,6 +25,25 @@ const standardCutoff = Date.now() - 30 * 86400000;
 const elevatedCutoff = Date.now() - 90 * 86400000;
 const criticalCutoff = Date.now() - 180 * 86400000;
 const failures = [];
+const runStartedAt = new Date().toISOString();
+
+function writeQualityReport(report) {
+  fs.mkdirSync(path.dirname(qualityPath), { recursive: true });
+  fs.writeFileSync(qualityPath, `${JSON.stringify(report, null, 2)}\n`);
+}
+
+function expandStoredClusters(items) {
+  return items.flatMap(item => {
+    const related = (item.relatedCoverage || []).map((coverage, index) => ({
+      ...item,
+      ...coverage,
+      id: `${item.id}-r${index + 1}`,
+      coverageCount: 1,
+      relatedCoverage: []
+    }));
+    return [{ ...item, coverageCount: 1, relatedCoverage: [] }, ...related];
+  });
+}
 
 function assessMateriality(title) {
   const signals = [];
@@ -58,46 +80,107 @@ function assessMateriality(title) {
   };
 }
 
-const fetched = await mapWithGentleRateLimit(countryData.order, async key => {
-  try {
-    return await fetchGdelt(key, { timespan: "30d", maxrecords: 40 });
-  } catch (error) {
-    failures.push(error.message);
-    return [];
-  }
-});
+const [fetched, official] = await Promise.all([
+  mapWithGentleRateLimit(countryData.order, async key => {
+    try {
+      return await fetchGdelt(key, { timespan: "30d", maxrecords: 40 });
+    } catch (error) {
+      failures.push(error.message);
+      return [];
+    }
+  }),
+  fetchOfficialNews(countryData.order, { days: 30 })
+]);
 
 const countries = {};
+const countryQuality = {};
 let newArticleCount = 0;
 for (const key of countryData.order) {
-  const oldItems = previous.countries?.[key] || [];
+  const oldItems = expandStoredClusters(previous.countries?.[key] || []);
   const oldUrls = new Set(oldItems.map(item => item.url));
-  newArticleCount += fetched[key].filter(item => !oldUrls.has(item.url)).length;
-  // Clean legacy records as they are merged. Earlier builds could retain HTTP
-  // publisher links even after new results were filtered to HTTPS.
-  const safeItems = [...fetched[key], ...oldItems]
-    .filter(item => typeof item.url === "string" && item.url.startsWith("https://"))
-    .filter(item => storedArticleMatchesCountry(key, item))
-    .map(item => ({ ...item, ...assessMateriality(item.title) }))
-    .filter(item => {
-      const cutoff = item.materiality === "critical"
-        ? criticalCutoff
-        : item.materiality === "elevated" ? elevatedCutoff : standardCutoff;
-      return Date.parse(item.publishedAt) >= cutoff;
-    });
-  const byUrl = new Map(safeItems.map(item => [item.url, item]));
-  countries[key] = [...byUrl.values()]
+  const freshItems = [...official.countries[key], ...fetched[key]];
+  newArticleCount += freshItems.filter(item => !oldUrls.has(item.url)).length;
+  const rejected = [...(fetched[key].audit?.rejected || []), ...(official.rejected[key] || [])].map(item => ({
+    title: item.title,
+    url: item.url,
+    domain: item.domain,
+    reason: item.rejectionReason
+  }));
+  const safeItems = [];
+  let expired = 0;
+  for (const item of [...freshItems, ...oldItems]) {
+    if (typeof item.url !== "string" || !item.url.startsWith("https://")) {
+      rejected.push({ title: item.title || "Untitled", url: item.url || "", domain: item.domain || "", reason: "Unsafe or invalid URL" });
+      continue;
+    }
+    const relevance = scoreCountryRelevance(key, item);
+    if (!relevance.accepted) {
+      rejected.push({ title: item.title, url: item.url, domain: item.domain, reason: relevance.relevanceReasons.join("; ") || "Insufficient country evidence" });
+      continue;
+    }
+    const enriched = { ...item, ...relevance, ...assessMateriality(item.title) };
+    const cutoff = enriched.materiality === "critical"
+      ? criticalCutoff
+      : enriched.materiality === "elevated" ? elevatedCutoff : standardCutoff;
+    if (Date.parse(enriched.publishedAt) < cutoff) {
+      expired += 1;
+      continue;
+    }
+    safeItems.push(enriched);
+  }
+
+  const clustered = clusterNews(key, safeItems);
+  countries[key] = clustered.articles
     .sort((a, b) => {
-      return (b.materialityScore - a.materialityScore) || b.publishedAt.localeCompare(a.publishedAt);
+      return (b.materialityScore - a.materialityScore)
+        || (b.relevanceScore - a.relevanceScore)
+        || (a.sourceTier - b.sourceTier)
+        || b.publishedAt.localeCompare(a.publishedAt);
     })
     .slice(0, 24);
+
+  countryQuality[key] = {
+    retrieved: fetched[key].audit?.retrieved ?? fetched[key].length,
+    acceptedFromCurrentSearch: fetched[key].audit?.accepted ?? fetched[key].length,
+    officialRetrieved: official.countries[key].length,
+    rejectedCount: rejected.length,
+    expired,
+    duplicatesMerged: clustered.stats.duplicateArticlesMerged,
+    publishedEventClusters: countries[key].length,
+    rejections: rejected.slice(0, 12)
+  };
 }
 
-if (failures.length === countryData.order.length) {
-  console.warn("Every GDELT request failed. The last published news file has been retained and deployment may continue.");
+const providerUnavailable = failures.length === countryData.order.length;
+if (providerUnavailable) {
+  console.warn("Every GDELT request failed. Existing GDELT coverage is retained while direct official-source results continue through validation.");
   failures.forEach(message => console.warn(`- ${message}`));
-  process.exit(0);
 }
+
+const totals = Object.values(countryQuality).reduce((sum, item) => ({
+  retrieved: sum.retrieved + item.retrieved,
+  acceptedFromCurrentSearch: sum.acceptedFromCurrentSearch + item.acceptedFromCurrentSearch,
+  officialRetrieved: sum.officialRetrieved + item.officialRetrieved,
+  rejected: sum.rejected + item.rejectedCount,
+  expired: sum.expired + item.expired,
+  duplicatesMerged: sum.duplicatesMerged + item.duplicatesMerged,
+  publishedEventClusters: sum.publishedEventClusters + item.publishedEventClusters
+}), { retrieved: 0, acceptedFromCurrentSearch: 0, officialRetrieved: 0, rejected: 0, expired: 0, duplicatesMerged: 0, publishedEventClusters: 0 });
+
+const officialFailures = official.sourceStatus.filter(source => source.status === "failed");
+
+const qualityReport = {
+  schemaVersion: 1,
+  generatedAt: new Date().toISOString(),
+  runStartedAt,
+  status: providerUnavailable && totals.officialRetrieved === 0 ? "provider-unavailable" : (failures.length || officialFailures.length) ? "partial" : "complete",
+  providers: ["GDELT DOC 2.0", "Direct official sources"],
+  totals,
+  requestFailures: failures,
+  officialSourceStatus: official.sourceStatus,
+  countries: countryQuality
+};
+writeQualityReport(qualityReport);
 
 const comparableBefore = JSON.stringify(previous.countries || {});
 const comparableAfter = JSON.stringify(countries);
@@ -107,9 +190,14 @@ if (comparableBefore === comparableAfter) {
 }
 
 const output = {
-  schemaVersion: 1,
-  generatedAt: new Date().toISOString(),
+  schemaVersion: 2,
+  generatedAt: providerUnavailable && totals.officialRetrieved === 0 ? previous.generatedAt : new Date().toISOString(),
   provider: { label: "GDELT DOC 2.0", url: "https://www.gdeltproject.org/" },
+  providers: [
+    { label: "GDELT DOC 2.0", url: "https://www.gdeltproject.org/" },
+    { label: "Direct official sources", url: "https://www.imf.org/en/countries" }
+  ],
+  quality: totals,
   countries
 };
 fs.writeFileSync(newsPath, `/* Generated by tools/update-news.mjs. Do not edit routine headlines by hand. */\nwindow.NEWS_DATA = Object.freeze(${JSON.stringify(output, null, 2)});\n`);

@@ -63,12 +63,38 @@ const countryData = loaded.COUNTRY_DATA;
 const newsData = loaded.NEWS_DATA;
 const historyData = loaded.HISTORY_DATA;
 const mapData = loaded.MAP_DATA;
+const newsQualityPath = path.join(root, "data", "review", "news-quality.json");
+let newsQuality = null;
+if (fs.existsSync(newsQualityPath)) {
+  try {
+    newsQuality = JSON.parse(fs.readFileSync(newsQualityPath, "utf8"));
+  } catch (error) {
+    fail(`data/review/news-quality.json cannot be loaded: ${error.message}`);
+  }
+}
 
 if (!config) fail("SITE_CONFIG was not created");
 if (!countryData) fail("COUNTRY_DATA was not created");
 if (!newsData) fail("NEWS_DATA was not created");
 if (!historyData) fail("HISTORY_DATA was not created");
 if (!mapData) fail("MAP_DATA was not created");
+
+if (newsQuality) {
+  if (!["awaiting-refresh", "complete", "partial", "provider-unavailable"].includes(newsQuality.status)) {
+    fail("news-quality.json has an unsupported status");
+  }
+  if (!newsQuality.totals || typeof newsQuality.totals !== "object") fail("news-quality.json totals are missing");
+  else {
+    for (const field of ["retrieved", "acceptedFromCurrentSearch", "officialRetrieved", "rejected", "expired", "duplicatesMerged", "publishedEventClusters"]) {
+      if (!Number.isInteger(newsQuality.totals[field]) || newsQuality.totals[field] < 0) {
+        fail(`news-quality.json totals.${field} must be a non-negative integer`);
+      }
+    }
+  }
+  if (newsQuality.officialSourceStatus !== undefined && !Array.isArray(newsQuality.officialSourceStatus)) {
+    fail("news-quality.json officialSourceStatus must be an array");
+  }
+}
 
 if (errors.length === 0) {
   const { countries, order } = countryData;
@@ -151,6 +177,24 @@ if (errors.length === 0) {
         if (!['critical', 'elevated', 'standard'].includes(article.materiality)) fail(`${location}.materiality must be critical, elevated or standard`);
         if (typeof article.materialityScore !== 'number' || article.materialityScore < 0) fail(`${location}.materialityScore must be a non-negative number`);
         if (!Array.isArray(article.riskSignals)) fail(`${location}.riskSignals must be an array`);
+        if (typeof article.relevanceScore !== 'number' || article.relevanceScore < 0) fail(`${location}.relevanceScore must be a non-negative number`);
+        if (!Array.isArray(article.relevanceReasons) || article.relevanceReasons.length === 0) fail(`${location}.relevanceReasons must be a non-empty array`);
+        if (![1, 2, 3, 4].includes(article.sourceTier)) fail(`${location}.sourceTier must be 1–4`);
+        if (!isText(article.sourceClass)) fail(`${location}.sourceClass must be non-empty text`);
+        if (!isText(article.eventId)) fail(`${location}.eventId must be non-empty text`);
+        if (!Number.isInteger(article.coverageCount) || article.coverageCount < 1) fail(`${location}.coverageCount must be a positive integer`);
+        if (!Array.isArray(article.relatedCoverage)) fail(`${location}.relatedCoverage must be an array`);
+        else {
+          if (article.coverageCount < article.relatedCoverage.length + 1) fail(`${location}.coverageCount is smaller than its displayed coverage`);
+          article.relatedCoverage.forEach((related, relatedIndex) => {
+            const relatedLocation = `${location}.relatedCoverage[${relatedIndex}]`;
+            for (const field of ["title", "url", "domain", "publishedAt", "sourceClass"]) {
+              if (!isText(related[field])) fail(`${relatedLocation}.${field} must be non-empty text`);
+            }
+            if (related.url && !related.url.startsWith("https://")) fail(`${relatedLocation}.url must use https`);
+            if (![1, 2, 3, 4].includes(related.sourceTier)) fail(`${relatedLocation}.sourceTier must be 1–4`);
+          });
+        }
         if (urls.has(article.url)) fail(`${location} duplicates another news URL`);
         urls.add(article.url);
       });
