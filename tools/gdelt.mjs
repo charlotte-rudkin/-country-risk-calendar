@@ -18,6 +18,45 @@ export const COUNTRY_QUERIES = Object.freeze({
   ethiopia: 'Ethiopia'
 });
 
+// Material developments at these sovereign-owned or sovereign-linked entities
+// can transmit directly to public finances, external liquidity or government
+// contingent liabilities. Keep aliases specific enough to avoid matching
+// unrelated companies in other countries.
+export const COUNTRY_STRATEGIC_ENTITIES = Object.freeze({
+  usa: ["Fannie Mae", "Freddie Mac", "US Postal Service"],
+  mexico: ["Pemex", "Comision Federal de Electricidad", "CFE Mexico", "Banobras", "Nafin"],
+  bahamas: ["Bahamas Power and Light", "Bahamasair", "Water and Sewerage Corporation Bahamas"],
+  serbia: ["Elektroprivreda Srbije", "Srbijagas", "Air Serbia"],
+  turkey: ["BOTAS", "Turkish Petroleum Corporation", "Turkiye Varlik Fonu", "Ziraat Bank", "Halkbank"],
+  egypt: ["Egyptian General Petroleum Corporation", "Egyptian Natural Gas Holding Company", "Suez Canal Authority", "National Bank of Egypt"],
+  uzbekistan: ["Uzbekneftegaz", "Navoi Mining", "Uzbekistan Airways", "National Bank of Uzbekistan"],
+  vietnam: ["PetroVietnam", "Vietnam Electricity", "Vinacomin", "Vietnam Airlines", "Agribank Vietnam"],
+  senegal: ["Petrosen", "Senelec", "Air Senegal", "Societe Africaine de Raffinage"],
+  cotedivoire: ["PETROCI", "CI-Energies", "Societe Ivoirienne de Raffinage", "Port Autonome d'Abidjan"],
+  benin: ["Societe Beninoise d'Energie Electrique", "SBEE Benin", "Port Autonome de Cotonou", "Benin Electricity Production Company"],
+  angola: ["Sonangol", "TAAG Angola Airlines", "Endiama", "Banco de Poupanca e Credito", "ENDE Angola"],
+  kenya: ["Kenya Power", "Kenya Airways", "KenGen", "Kenya Railways"],
+  tanzania: ["TANESCO", "Air Tanzania", "Tanzania Railways Corporation", "Tanzania Petroleum Development Corporation"],
+  ethiopia: ["Ethiopian Airlines", "Ethio Telecom", "Ethiopian Electric Power", "Commercial Bank of Ethiopia"]
+});
+
+function escapeRegex(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+const STRATEGIC_ENTITY_PATTERNS = Object.freeze(Object.fromEntries(
+  Object.entries(COUNTRY_STRATEGIC_ENTITIES).map(([key, entities]) => [
+    key,
+    new RegExp(entities.map(escapeRegex).join("|"), "i")
+  ])
+));
+
+function entityQuery(countryKey) {
+  return (COUNTRY_STRATEGIC_ENTITIES[countryKey] || [])
+    .map(entity => `"${entity.replaceAll('"', '\\"')}"`)
+    .join(" OR ");
+}
+
 const COUNTRY_IDENTITIES = Object.freeze({
   usa: { anchor: /United States|\bU\.?S\.?A?\b|American|Trump|Federal Reserve|\bFed\b|US Treasury|Congress|Washington/i },
   mexico: { anchor: /\bMexico\b|Mexican|Sheinbaum|Banxico|Pemex|Mexico City/i, exclude: /New Mexico/i },
@@ -66,9 +105,17 @@ const COUNTRY_BODY_FALLBACKS = Object.freeze({
   ethiopia: '(repeat2:Ethiopia AND (Ethiopian OR "Addis Ababa" OR "Abiy Ahmed"))'
 });
 
-const RISK_HEADLINE_PATTERN = /election|referendum|parliament|president|prime minister|finance minister|cabinet|government|opposition|protest|strike|unrest|riot|coup|conflict|war|military|security forces|border|constitution|state of emergency|no.confidence|coalition|corruption|debt|default|restructur|rating|outlook|creditwatch|IMF|sanction|FATF|central bank|monetary policy|policy rate|rate decision|inflation|currency|reserve|banking|budget|fiscal|deficit|revenue|tax|GDP|economic (?:growth|outlook|crisis)|recession|current account|trade deficit|tariff|export ban|oil production|commodity price|arrears|missed payment|refinanc|liquidity|bond|capital control|devalu|foreign exchange|state-owned|\bSOE\b|bailout|guarantee|subsidy|creditor|privati[sz]|nationali[sz]|blackout|power crisis|fuel shortage|drought|flood|earthquake|cyclone|hurricane|disaster|constitutional court|supreme court|court.{0,20}(blocks|overturns|rules)/i;
-const OFF_TOPIC_HEADLINE_PATTERN = /travel advice|travel warning|travel guide|safe for (?:tourists|expats|visitors)|expat|holiday|vacation|cruise|hotel|resort|beach|tourism tips|things to do|where to stay|food guide|recipe|football|soccer|celebrity|working paper|clean energy|renewable energy|marine fisher|fisheries|agrifood|agri-food|agricultural transformation|biodiversity|conservation project/i;
-const HARD_SOVEREIGN_OVERRIDE_PATTERN = /debt|default|restructur|rating|outlook|creditwatch|IMF|sanction|FATF|central bank|monetary policy|policy rate|inflation|currency|reserve|budget|fiscal|deficit|arrears|refinanc|bond|capital control|foreign exchange|coup|election|parliament|government collapse|state of emergency/i;
+const RISK_HEADLINE_PATTERN = /election|referendum|parliament|president|prime minister|cabinet reshuffle|government|opposition|coalition|impeachment|no.confidence|martial law|state of emergency|constitutional crisis|succession|protest|riot|coup|conflict|insurgency|militia|terroris|attack|unrest|general strike|strike|curfew|border clash|border crossing|military mobili[sz]ation|ceasefire|peace talks|debt|default|restructur|rating|downgrade|upgrade|outlook|creditwatch|debt distress|debt relief|debt suspension|sovereign bond|IMF|World Bank|FATF|sanction|blacklist|grey list|export control|asset freeze|travel ban|embargo|central bank|inflation|currency|reserve|banking|interest rate|policy rate|monetary policy|exchange rate|stock market|bank run|deposit freeze|budget|fiscal|GDP|public spending|austerity|tax reform|subsidy cut|wage bill|pension reform|growth|recession|economic outlook|economic diversification|non-oil activity|unemployment|cost of living|informal economy|industrial output|manufacturing PMI|current account|trade deficit|tariff|export ban|import restriction|trade agreement|customs|supply chain disruption|remittance|oil|offshore|fuel shortage|gas|LNG|mining|commodity price|OPEC|power outage|energy crisis|renewable project|investment|share sale|stake sale|divestment|foreign direct investment|acquisition|joint venture|IPO|asset sale|arrears|missed payment|refinanc|liquidity|financing gap|cash crunch|payment delay|bridge loan|bond yield|credit spread|debt auction|eurobond|syndicated loan|debt swap|Paris Club|London Club|capital control|devalu|foreign.exchange shortage|dollar shortage|black market rate|currency peg|\bSOE\b|state-owned|bailout|guarantee|subsidy|contingent liabilit|parastatal loss|creditor|corruption|fraud|embezzlement|money laundering|investigation|audit|asset seizure|privati[sz]|nationali[sz]|expropriation|concession|licen[cs]e revocation|blackout|drought|flood|earthquake|cyclone|hurricane|wildfire|landslide|infrastructure collapse|dam failure|arbitration|ICSID|litigation|contract dispute|regulatory change|licen[cs]e suspension|court ruling|constitutional court|supreme court|epidemic|outbreak|humanitarian crisis|food insecurity|famine|refugee crisis|displacement|cyberattack|data breach|critical infrastructure attack|pipeline attack|grid attack/i;
+const OFF_TOPIC_HEADLINE_PATTERN = /travel advice|travel warning|travel guide|safe for (?:tourists|expats|visitors)|expat|holiday|vacation|cruise|hotel|resort|beach|tourism tips|things to do|where to stay|food guide|recipe|football|soccer|celebrity|working paper|clean energy|renewable energy|renewable project|clean energy award|sustainability award|\bCSR\b|corporate social responsibility|healthcare access|marine fisher|fisheries|agrifood|agri-food|agricultural transformation|biodiversity|conservation|wildlife|national geographic/i;
+const HARD_SOVEREIGN_OVERRIDE_PATTERN = /debt|default|restructur|rating|outlook|creditwatch|IMF|sanction|FATF|central bank|monetary policy|policy rate|inflation|currency|reserve|budget|fiscal|deficit|arrears|refinanc|bond|capital control|foreign exchange|coup|election|parliament|government collapse|state of emergency|government guarantee|sovereign guarantee|state support|public financ|contingent liabilit|subsidy cut|national emergency|humanitarian crisis|food insecurity|famine|refugee crisis|mass displacement/i;
+const PROBATIONARY_HEADLINE_PATTERN = /renewable project|epidemic|outbreak|humanitarian crisis|food insecurity|famine|refugee crisis|displacement/i;
+const PROBATIONARY_MATERIAL_CONTEXT_PATTERN = /sovereign|government|state|public financ|budget|fiscal|debt|guarantee|subsidy|contingent liabilit|national emergency|state of emergency|WHO|health ministry|deaths?|fatal|cases.{0,20}(surge|rise)|border closure|humanitarian crisis|food insecurity|famine|refugee crisis|mass displacement/i;
+const ENTITY_RISK_HEADLINE_PATTERN = /debt|default|restructur|refinanc|bond|loan|creditor|arrears|missed payment|loss|profit warning|liquidity|capital injection|recapital|bailout|rescue|government support|state support|guarantee|contingent liabilit|privati[sz]|nationali[sz]|asset sale|stake sale|governance|corruption|fraud|sanction|investigation|production.{0,25}(fall|drop|cut|halt|suspend)|output.{0,25}(fall|drop|cut)|shutdown|outage|strike|insolv|bankrupt|downgrade|rating|tariff|subsidy|fiscal|budget/i;
+
+export function matchesMaterialStrategicEntityHeadline(countryKey, title) {
+  const text = String(title || "");
+  return Boolean(STRATEGIC_ENTITY_PATTERNS[countryKey]?.test(text)) && ENTITY_RISK_HEADLINE_PATTERN.test(text);
+}
 
 export function scoreCountryRelevance(countryKey, article) {
   const identity = COUNTRY_IDENTITIES[countryKey];
@@ -77,10 +124,14 @@ export function scoreCountryRelevance(countryKey, article) {
   if (!identity || !title) return { accepted: false, relevanceScore: 0, relevanceReasons: ["Missing country identity or title"] };
 
   const reasons = [];
+  const entityMatch = Boolean(STRATEGIC_ENTITY_PATTERNS[countryKey]?.test(title));
+  const entityRisk = matchesMaterialStrategicEntityHeadline(countryKey, title);
   const strongMatch = Boolean(identity.strong?.test(title));
   const headlineMatch = identity.anchor.test(title);
   const conflictingIdentity = Boolean(identity.exclude?.test(title)) && !strongMatch;
-  const riskHeadline = RISK_HEADLINE_PATTERN.test(title);
+  const probationaryTopic = PROBATIONARY_HEADLINE_PATTERN.test(title);
+  const probationaryQualified = !probationaryTopic || PROBATIONARY_MATERIAL_CONTEXT_PATTERN.test(title);
+  const riskHeadline = RISK_HEADLINE_PATTERN.test(title) && probationaryQualified;
   const offTopic = OFF_TOPIC_HEADLINE_PATTERN.test(title) && !HARD_SOVEREIGN_OVERRIDE_PATTERN.test(title);
   let score = 0;
 
@@ -90,6 +141,10 @@ export function scoreCountryRelevance(countryKey, article) {
   } else if (headlineMatch) {
     score += 5;
     reasons.push("Country identity in headline");
+  }
+  if (entityMatch) {
+    score += 6;
+    reasons.push("Country-specific strategic SOE/entity in headline");
   }
   if (basis === "repeated-country-body") {
     score += 3;
@@ -107,6 +162,13 @@ export function scoreCountryRelevance(countryKey, article) {
   } else if (basis !== "official-country-source") {
     reasons.push("No explicit sovereign-risk topic in headline");
   }
+  if (probationaryTopic && !probationaryQualified) {
+    reasons.push("Probationary renewable or health topic lacks a material sovereign context");
+  }
+  if (entityRisk) {
+    score += 2;
+    reasons.push("Material SOE or contingent-liability trigger in headline");
+  }
   if (offTopic) {
     score -= 10;
     reasons.push("Travel, lifestyle or non-sovereign sector content");
@@ -117,7 +179,12 @@ export function scoreCountryRelevance(countryKey, article) {
   }
 
   return {
-    accepted: score >= 6 && !conflictingIdentity && !offTopic && (basis === "official-country-source" || riskHeadline),
+    accepted: score >= 6 && !conflictingIdentity && !offTopic && (
+      basis === "official-country-source"
+      || (entityMatch && entityRisk)
+      || (headlineMatch && riskHeadline)
+      || (basis === "repeated-country-body" && riskHeadline)
+    ),
     relevanceScore: Math.max(0, score),
     relevanceReasons: reasons
   };
@@ -131,7 +198,32 @@ export function storedArticleMatchesCountry(countryKey, article) {
   return scoreCountryRelevance(countryKey, article).accepted;
 }
 
-const RISK_TERMS = '(election OR referendum OR parliament OR president OR government OR opposition OR protest OR coup OR conflict OR debt OR default OR restructuring OR rating OR IMF OR sanctions OR FATF OR "central bank" OR inflation OR currency OR reserves OR banking OR budget OR fiscal OR GDP OR recession OR "economic outlook" OR "current account" OR "trade deficit" OR tariff OR "export ban" OR oil OR arrears OR "missed payment" OR refinancing OR liquidity OR "financing gap" OR "bond yield" OR "credit spread" OR "debt auction" OR "capital controls" OR devaluation OR "foreign exchange shortage" OR SOE OR "state-owned" OR bailout OR guarantee OR subsidy OR creditor OR corruption OR privatisation OR nationalisation OR blackout OR "fuel shortage" OR drought OR flood OR earthquake OR cyclone OR hurricane)';
+export const GDELT_RISK_QUERY_TERMS = Object.freeze([
+  "election", "referendum", "parliament", "president", "prime minister", "cabinet reshuffle", "government", "opposition", "coalition", "impeachment", "no-confidence vote", "martial law", "state of emergency", "constitutional crisis", "succession",
+  "protest", "riot", "coup", "conflict", "insurgency", "militia", "terrorism", "attack", "unrest", "strike", "general strike", "curfew", "border clash", "border crossing", "military mobilisation", "ceasefire", "peace talks",
+  "debt", "default", "restructuring", "rating", "downgrade", "upgrade", "rating outlook", "debt distress", "debt relief", "debt suspension", "sovereign bond",
+  "IMF", "World Bank", "FATF", "sanctions", "blacklist", "grey list", "export controls", "asset freeze", "travel ban", "embargo",
+  "central bank", "inflation", "currency", "reserves", "banking", "interest rate", "policy rate", "monetary policy", "exchange rate", "stock market", "bank run", "deposit freeze",
+  "budget", "fiscal", "GDP", "public spending", "austerity", "tax reform", "subsidy cut", "wage bill", "pension reform",
+  "growth", "recession", "economic outlook", "economic diversification", "non-oil activity", "unemployment", "cost of living", "informal economy", "industrial output", "manufacturing PMI",
+  "current account", "trade deficit", "tariff", "export ban", "import restrictions", "trade agreement", "customs", "supply chain disruption", "remittances",
+  "oil", "offshore", "fuel shortage", "gas", "LNG", "mining", "commodity price", "OPEC", "power outage", "energy crisis", "renewable project",
+  "investment", "share sale", "stake sale", "divestment", "foreign direct investment", "acquisition", "joint venture", "IPO", "asset sale",
+  "arrears", "missed payment", "refinancing", "liquidity", "financing gap", "cash crunch", "payment delay", "bridge loan",
+  "bond yield", "credit spread", "debt auction", "eurobond", "syndicated loan", "debt swap", "Paris Club", "London Club",
+  "capital controls", "devaluation", "foreign-exchange shortage", "dollar shortage", "black market rate", "currency peg",
+  "SOE", "state-owned", "bailout", "guarantee", "subsidy", "contingent liability", "parastatal losses",
+  "creditor", "corruption", "fraud", "embezzlement", "money laundering", "investigation", "audit", "asset seizure",
+  "privatisation", "nationalisation", "expropriation", "concession", "license revocation",
+  "blackout", "drought", "flood", "earthquake", "cyclone", "hurricane", "wildfire", "landslide", "infrastructure collapse", "dam failure",
+  "arbitration", "ICSID", "litigation", "contract dispute", "regulatory change", "license suspension", "court ruling", "constitutional court", "supreme court",
+  "epidemic", "outbreak", "humanitarian crisis", "food insecurity", "famine", "refugee crisis", "displacement",
+  "cyberattack", "data breach", "critical infrastructure attack", "pipeline attack", "grid attack"
+]);
+
+const RISK_TERMS = `(${GDELT_RISK_QUERY_TERMS
+  .map(term => term.includes(" ") ? `"${term}"` : term)
+  .join(" OR ")})`;
 export const TIMELINE_TERMS = '(coup OR "coup attempt" OR default OR restructuring OR invasion OR war OR "peace agreement" OR constitution OR "regime change" OR "state of emergency")';
 
 const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
@@ -208,15 +300,17 @@ async function requestArticles(query, { timespan, maxrecords, relevanceBasis }) 
   return (payload.articles || []).map(article => normaliseArticle(article, relevanceBasis)).filter(Boolean);
 }
 
-export async function fetchGdelt(countryKey, { timespan = "2d", maxrecords = 12, timelineOnly = false } = {}) {
+export async function fetchGdelt(countryKey, { timespan = "2d", maxrecords = 12, timelineOnly = false, allowFallback = true } = {}) {
   const countryQuery = COUNTRY_QUERIES[countryKey];
   if (!countryQuery) throw new Error(`No GDELT query configured for ${countryKey}`);
-  const query = `${countryQuery} AND ${timelineOnly ? TIMELINE_TERMS : RISK_TERMS} sourcelang:english`;
+  const entities = timelineOnly ? "" : entityQuery(countryKey);
+  const searchIdentity = entities ? `(${countryQuery} OR (${entities}))` : countryQuery;
+  const query = `${searchIdentity} AND ${timelineOnly ? TIMELINE_TERMS : RISK_TERMS} sourcelang:english`;
 
   let lastError;
   for (let attempt = 1; attempt <= 3; attempt += 1) {
     try {
-      const primary = await requestArticles(query, { timespan, maxrecords, relevanceBasis: "country-headline" });
+      const primary = await requestArticles(query, { timespan, maxrecords, relevanceBasis: "country-or-strategic-entity-headline" });
       const primaryAssessed = primary.map(article => ({ article, assessment: scoreCountryRelevance(countryKey, article) }));
       const headlineMatches = primaryAssessed
         .filter(item => item.assessment.accepted)
@@ -230,7 +324,7 @@ export async function fetchGdelt(countryKey, { timespan = "2d", maxrecords = 12,
       // Avoid doubling routine API traffic where headline coverage is already
       // healthy. Thin country feeds get a second search that enforces repeated
       // country mentions and a separate local identity signal in article text.
-      if (!timelineOnly && headlineMatches.length < 4 && COUNTRY_BODY_FALLBACKS[countryKey]) {
+      if (allowFallback && !timelineOnly && headlineMatches.length < 4 && COUNTRY_BODY_FALLBACKS[countryKey]) {
         await sleep(3500);
         const fallbackQuery = `${COUNTRY_BODY_FALLBACKS[countryKey]} AND ${RISK_TERMS} sourcelang:english`;
         try {

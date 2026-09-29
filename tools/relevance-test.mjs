@@ -19,7 +19,23 @@ const cases = [
   ["bahamas", "Bahamas government presents fiscal consolidation budget", true],
   ["angola", "Angola GDP growth slows as oil production falls", true],
   ["bahamas", "Hurricane causes widespread damage across the Bahamas", true],
-  ["mexico", "Mexico supreme court blocks controversial reform", true]
+  ["mexico", "Mexico supreme court blocks controversial reform", true],
+  ["angola", "Sonangol debt rises as refinancing pressure builds", true],
+  ["angola", "Sonangol sponsors international culture festival", false],
+  ["kenya", "Kenya Airways seeks state support after widening losses", true],
+  ["vietnam", "PetroVietnam launches community scholarship programme", false],
+  ["angola", "Angola raises $228 million from Standard Bank unit share sale", true],
+  ["angola", "Significant expansion in non-oil activity: new drivers of Angola's growth", true],
+  ["angola", "Spotlight Angola, Gabon and Namibia as offshore deals expand", true],
+  ["angola", "Okavango Eternal runs five more years, with Angola and Namibia aligned", false],
+  ["angola", "Angola clean energy award recognises local company", false],
+  ["angola", "Angola government guarantee backs $2 billion renewable project", true],
+  ["kenya", "Kenya bank wins sustainability award for CSR programme", false],
+  ["kenya", "Kenya programme expands healthcare access in rural counties", false],
+  ["ethiopia", "Ethiopia food insecurity deepens into humanitarian crisis", true],
+  ["mexico", "Mexico faces ICSID arbitration over cancelled concession", true],
+  ["vietnam", "Vietnam grid attack triggers nationwide power outage", true],
+  ["senegal", "Senegal reports isolated seasonal outbreak", false]
 ];
 
 const failures = cases.filter(([country, title, expected]) => articleMatchesCountry(country, title) !== expected);

@@ -94,6 +94,9 @@ if (newsQuality) {
   if (newsQuality.officialSourceStatus !== undefined && !Array.isArray(newsQuality.officialSourceStatus)) {
     fail("news-quality.json officialSourceStatus must be an array");
   }
+  if (newsQuality.recentDiscoveryStatus !== undefined && !Array.isArray(newsQuality.recentDiscoveryStatus)) {
+    fail("news-quality.json recentDiscoveryStatus must be an array");
+  }
 }
 
 if (errors.length === 0) {
