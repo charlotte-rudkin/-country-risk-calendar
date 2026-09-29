@@ -2,7 +2,7 @@ name: Refresh country-risk monitoring
 
 on:
   schedule:
-    - cron: "17 * * * *"       # one country-news bundle each hour
+    - cron: "17 5 * * *"       # daily news
     - cron: "41 6 * * 1"       # weekly timeline screen
     - cron: "23 6 1 * *"       # monthly structured-risk review
     - cron: "53 6 1 1,4,7,10 *" # quarterly history backfill
@@ -13,7 +13,7 @@ on:
         required: true
         default: news
         type: choice
-        options: [news-bundle, news, timeline, structured, backfill]
+        options: [news, timeline, structured, backfill]
 
 permissions:
   contents: write
@@ -45,7 +45,7 @@ jobs:
           MANUAL_TASK: ${{ inputs.task }}
         run: |
           if [ -n "$MANUAL_TASK" ]; then task="$MANUAL_TASK";
-          elif [ "$SCHEDULE" = "17 * * * *" ]; then task="news-bundle";
+          elif [ "$SCHEDULE" = "17 5 * * *" ]; then task="news";
           elif [ "$SCHEDULE" = "41 6 * * 1" ]; then task="timeline";
           elif [ "$SCHEDULE" = "23 6 1 * *" ]; then task="structured";
           else task="backfill"; fi
@@ -57,11 +57,6 @@ jobs:
         run: |
           case "$TASK" in
             news) node tools/update-news.mjs ;;
-            news-bundle)
-              hour=$(date -u +%H)
-              index=$((10#$hour))
-              NEWS_BUNDLE_INDEX="$index" NEWS_BUNDLE_COUNT=24 node tools/update-news.mjs
-              ;;
             timeline) node tools/build-review-queues.mjs --mode=weekly ;;
             structured) node tools/build-review-queues.mjs --mode=structured ;;
             backfill) node tools/build-review-queues.mjs --mode=backfill ;;
@@ -94,7 +89,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html _site/index.html
-          touch _site/.nojekyll
+          cp .nojekyll _site/.nojekyll
       - name: Upload Pages artifact
         if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-pages-artifact@v4
