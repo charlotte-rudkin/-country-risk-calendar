@@ -40,7 +40,20 @@ globalThis.fetch = async input => {
       one: {
         display_title: "Kenya Public Finance Review",
         docdt: currentDate,
-        url: "https://documents.worldbank.org/kenya-public-finance-review"
+        url: "https://documents.worldbank.org/kenya-public-finance-review",
+        docty: "Economic & Sector Work"
+      },
+      two: {
+        display_title: "Clean Energy Investment in Kenya",
+        docdt: currentDate,
+        url: "https://documents.worldbank.org/kenya-clean-energy",
+        docty: "Working Paper"
+      },
+      three: {
+        display_title: "Kenya Marine Fisheries and Agrifood Transformation",
+        docdt: currentDate,
+        url: "https://documents.worldbank.org/kenya-fisheries",
+        docty: "Project Document"
       }
     } }), { status: 200, headers: { "content-type": "application/json" } });
   }

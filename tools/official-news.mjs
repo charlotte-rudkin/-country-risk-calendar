@@ -7,6 +7,21 @@ const DAY = 86400000;
 const fetchCache = new Map();
 
 const OFFICIAL_RISK_PATTERN = /article iv|staff.level agreement|executive board|programme review|program review|mission|debt|default|restructur|development policy|budget support|public finance|economic update|macro poverty|fiscal|monetary|policy rate|interest rate|inflation|reserve|foreign exchange|currency|banking|financial stability|capital control|sanction|restrictive measure|FATF|rating|bond|auction|liquidity|arrears|monetaria|tasa de inter[eé]s|inflaci[oó]n|reservas|deuda|politique mon[eé]taire|taux d.int[eé]r[eê]t|dette|r[eé]serves|stabilit[eé] financi[eè]re/i;
+const OFFICIAL_OFF_TOPIC_PATTERN = /travel advice|safe for (?:tourists|expats)|expat|holiday|vacation|tourism tips|working paper|clean energy|renewable energy|marine fisher|fisheries|agrifood|agri-food|agricultural transformation|biodiversity|conservation project/i;
+const OFFICIAL_OVERRIDE_PATTERN = /sovereign|debt|default|restructur|rating|IMF|sanction|FATF|central bank|monetary|policy rate|inflation|currency|reserve|budget|fiscal|deficit|arrears|bond|development policy financing|budget support|public finance/i;
+const WORLD_BANK_RISK_PATTERN = /country economic update|economic monitor|public finance review|debt sustainability|sovereign debt|development policy (?:financing|operation|loan|credit)|budget support|macro poverty outlook|country partnership framework|systematic country diagnostic|country economic memorandum|fiscal|public debt|economic recovery/i;
+
+function isOfficialRiskTitle(title) {
+  if (!OFFICIAL_RISK_PATTERN.test(title)) return false;
+  return !OFFICIAL_OFF_TOPIC_PATTERN.test(title) || OFFICIAL_OVERRIDE_PATTERN.test(title);
+}
+
+function isWorldBankRiskDocument(record, title) {
+  const documentType = String(record.docty || record.majdocty || "");
+  if (/working paper|research paper/i.test(documentType) || /working paper/i.test(title)) return false;
+  if (OFFICIAL_OFF_TOPIC_PATTERN.test(title) && !OFFICIAL_OVERRIDE_PATTERN.test(title)) return false;
+  return WORLD_BANK_RISK_PATTERN.test(title);
+}
 
 function decodeEntities(value = "") {
   return String(value)
@@ -123,7 +138,7 @@ export function parseHtmlArticles(html, source, countryKey) {
   // a candidate needs a risk-bearing anchor title and a nearby explicit date.
   for (const match of String(html).matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
     const title = stripMarkup(match[2]);
-    if (title.length < 18 || title.length > 220 || !OFFICIAL_RISK_PATTERN.test(title)) continue;
+    if (title.length < 18 || title.length > 220 || !isOfficialRiskTitle(title)) continue;
     const nearby = String(html).slice(Math.max(0, match.index - 180), Math.min(String(html).length, match.index + match[0].length + 180));
     const dateMatch = nearby.match(/\b(20\d{2}-\d{2}-\d{2}|(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2},\s+20\d{2}|\d{1,2}\s+(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+20\d{2})\b/i);
     const item = normaliseOfficialArticle({ title, url: match[1], publishedAt: dateMatch?.[1] }, source, countryKey);
@@ -165,11 +180,16 @@ async function fetchWorldBank(countryKey, sinceDate) {
   url.searchParams.set("fl", "display_title,docdt,disclosure_date,url,pdfurl,docty,count");
   const response = await fetchText(url.toString());
   const payload = JSON.parse(response.text);
-  return worldBankRecords(payload).map(record => normaliseOfficialArticle({
-    title: record.display_title || record.docna || record.repnme,
-    url: record.url || record.pdfurl,
-    publishedAt: record.docdt || record.disclosure_date
-  }, source, countryKey)).filter(Boolean).filter(item => OFFICIAL_RISK_PATTERN.test(item.title));
+  return worldBankRecords(payload).flatMap(record => {
+    const title = stripMarkup(record.display_title || record.docna || record.repnme);
+    if (!isWorldBankRiskDocument(record, title)) return [];
+    const article = normaliseOfficialArticle({
+      title,
+      url: record.url || record.pdfurl,
+      publishedAt: record.docdt || record.disclosure_date
+    }, source, countryKey);
+    return article ? [article] : [];
+  });
 }
 
 async function mapLimited(items, limit, operation) {
@@ -206,7 +226,7 @@ export async function fetchOfficialNews(countryKeys, { days = 30 } = {}) {
 
   for (const { source, articles } of sourceResults) {
     for (const article of articles) {
-      if (Date.parse(article.publishedAt) < cutoff || !OFFICIAL_RISK_PATTERN.test(article.title)) continue;
+      if (Date.parse(article.publishedAt) < cutoff || !isOfficialRiskTitle(article.title)) continue;
       const candidateCountries = source.countryKey ? [source.countryKey] : countryKeys;
       for (const countryKey of candidateCountries) {
         const relevance = scoreCountryRelevance(countryKey, article);

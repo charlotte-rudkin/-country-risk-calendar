@@ -10,7 +10,13 @@ const cases = [
   ["mexico", "New Mexico legislature approves state budget", false],
   ["mexico", "Banxico cuts its policy rate", true],
   ["turkey", "Turkey meat prices rise before Thanksgiving", false],
-  ["turkey", "Türkiye inflation slows as central bank holds", true]
+  ["turkey", "Türkiye inflation slows as central bank holds", true],
+  ["bahamas", "Canada updates travel advice for the Bahamas", false],
+  ["bahamas", "Is the Bahamas safe for expats?", false],
+  ["angola", "Angola clean energy working paper published", false],
+  ["senegal", "Senegal marine fisheries programme expands", false],
+  ["kenya", "Kenya government launches agrifood transformation project", false],
+  ["bahamas", "Bahamas government presents fiscal consolidation budget", true]
 ];
 
 const failures = cases.filter(([country, title, expected]) => articleMatchesCountry(country, title) !== expected);

@@ -31,6 +31,7 @@ Every headline must also pass a country-entity check based on country names, dem
 ### Stage 1 news-quality controls
 
 - **Explainable relevance:** every accepted item stores a numerical relevance score and the reasons it qualified. A headline country identity normally scores five points; repeated country-body evidence plus a second local anchor scores six. Conflicting identities subtract ten and prevent publication.
+- **Precision gate:** GDELT items must contain both country evidence and an explicit sovereign-risk topic in the headline. Travel advice, expat/lifestyle material, working papers and routine clean-energy, fisheries, agrifood, biodiversity or conservation stories are rejected unless the headline also contains a hard sovereign trigger such as debt, fiscal policy, IMF involvement, sanctions or a rating action.
 - **Source classification:** recognised primary institutions and official bodies are tier 1, wire services are tier 2, vetted media are tier 3 and all other discovery sources are tier 4. The strongest available source represents a duplicated event.
 - **Event clustering:** tracking-link variants, near-identical headlines and sufficiently similar stories in the same risk category and five-day window are merged. The dashboard displays one representative headline and provides expandable links to related coverage.
 - **Quality reporting:** each daily run writes `data/review/news-quality.json`, recording retrievals, acceptances, rejections, expired items, duplicate merges, published event clusters and a sample of rejected stories with reasons.
@@ -41,6 +42,8 @@ Every headline must also pass a country-entity check based on country names, dem
 The daily news job also checks primary sources directly. It currently supports RSS/Atom feeds, feed auto-discovery, structured JSON-LD news pages, conservative dated-link extraction and the World Bank Documents & Reports API. The source registry covers the IMF, Council of the EU, FATF, OFAC, Fitch, Moody's, S&P Global Ratings, World Bank, Federal Reserve and the central bank or monetary authority relevant to every pilot country. Shared institutions such as BCEAO are fetched once and reused.
 
 Official items still need a sovereign-risk topic and a usable publication date. A country-specific official source supplies the country evidence even where a release uses a generic headline such as “Monetary Policy Committee decision.” Global sources such as the IMF and EU Council must still pass the normal country-identity test. Official releases and media reporting are then passed through the same retention, materiality and event-clustering rules; a tier-one official release becomes the representative link when available.
+
+World Bank ingestion uses a narrower document whitelist: country economic updates, economic monitors, public-finance reviews, debt-sustainability material, development-policy financing, budget support, macro-poverty outlooks and comparable country diagnostics. Working papers and routine sector/project documents are excluded by default.
 
 Every connector fails independently. `data/review/news-quality.json` records each official source as `ok` or `failed`, its record count, GDELT request failures and country-level quality totals. OFAC is monitored from its official Recent Actions page because its RSS feed was retired in 2025.
 

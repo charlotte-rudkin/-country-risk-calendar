@@ -66,7 +66,9 @@ const COUNTRY_BODY_FALLBACKS = Object.freeze({
   ethiopia: '(repeat2:Ethiopia AND (Ethiopian OR "Addis Ababa" OR "Abiy Ahmed"))'
 });
 
-const RISK_HEADLINE_PATTERN = /election|parliament|president|government|opposition|protest|coup|conflict|security|debt|default|restructur|rating|IMF|sanction|FATF|central bank|inflation|currency|reserve|banking|budget|fiscal|oil|arrears|payment|refinanc|liquidity|bond|capital control|devalu|foreign exchange|state-owned|\bSOE\b|bailout|guarantee|subsidy|creditor/i;
+const RISK_HEADLINE_PATTERN = /election|parliament|president|prime minister|finance minister|cabinet|government|opposition|protest|strike|unrest|riot|coup|conflict|war|military|security forces|border|constitution|state of emergency|debt|default|restructur|rating|outlook|creditwatch|IMF|sanction|FATF|central bank|monetary policy|policy rate|rate decision|inflation|currency|reserve|banking|budget|fiscal|deficit|revenue|tax|oil production|arrears|missed payment|refinanc|liquidity|bond|capital control|devalu|foreign exchange|state-owned|\bSOE\b|bailout|guarantee|subsidy|creditor/i;
+const OFF_TOPIC_HEADLINE_PATTERN = /travel advice|travel warning|travel guide|safe for (?:tourists|expats|visitors)|expat|holiday|vacation|cruise|hotel|resort|beach|tourism tips|things to do|where to stay|food guide|recipe|football|soccer|celebrity|working paper|clean energy|renewable energy|marine fisher|fisheries|agrifood|agri-food|agricultural transformation|biodiversity|conservation project/i;
+const HARD_SOVEREIGN_OVERRIDE_PATTERN = /debt|default|restructur|rating|outlook|creditwatch|IMF|sanction|FATF|central bank|monetary policy|policy rate|inflation|currency|reserve|budget|fiscal|deficit|arrears|refinanc|bond|capital control|foreign exchange|coup|election|parliament|government collapse|state of emergency/i;
 
 export function scoreCountryRelevance(countryKey, article) {
   const identity = COUNTRY_IDENTITIES[countryKey];
@@ -78,6 +80,8 @@ export function scoreCountryRelevance(countryKey, article) {
   const strongMatch = Boolean(identity.strong?.test(title));
   const headlineMatch = identity.anchor.test(title);
   const conflictingIdentity = Boolean(identity.exclude?.test(title)) && !strongMatch;
+  const riskHeadline = RISK_HEADLINE_PATTERN.test(title);
+  const offTopic = OFF_TOPIC_HEADLINE_PATTERN.test(title) && !HARD_SOVEREIGN_OVERRIDE_PATTERN.test(title);
   let score = 0;
 
   if (strongMatch) {
@@ -97,9 +101,15 @@ export function scoreCountryRelevance(countryKey, article) {
     score += 6;
     reasons.push("Country-specific official source");
   }
-  if (RISK_HEADLINE_PATTERN.test(title)) {
+  if (riskHeadline) {
     score += 2;
     reasons.push("Sovereign-risk topic in headline");
+  } else if (basis !== "official-country-source") {
+    reasons.push("No explicit sovereign-risk topic in headline");
+  }
+  if (offTopic) {
+    score -= 10;
+    reasons.push("Travel, lifestyle or non-sovereign sector content");
   }
   if (conflictingIdentity) {
     score -= 10;
@@ -107,7 +117,7 @@ export function scoreCountryRelevance(countryKey, article) {
   }
 
   return {
-    accepted: score >= 5 && !conflictingIdentity,
+    accepted: score >= 6 && !conflictingIdentity && !offTopic && (basis === "official-country-source" || riskHeadline),
     relevanceScore: Math.max(0, score),
     relevanceReasons: reasons
   };
