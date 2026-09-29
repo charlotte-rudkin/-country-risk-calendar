@@ -37,7 +37,7 @@ function escapeHTML(value) {
 }
 
 function newsHTML(countryKey) {
-  const articles = (NEWS_DATA.countries?.[countryKey] || []).slice(0, 12);
+  const articles = (NEWS_DATA.countries?.[countryKey] || []).slice(0, 10);
   const generated = NEWS_DATA.generatedAt
     ? new Date(NEWS_DATA.generatedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" })
     : "scheduled refresh pending";
@@ -67,11 +67,11 @@ function newsHTML(countryKey) {
       <div class="news-head">
         <div>
           <p class="block-title">Country risk news</p>
-          <p class="block-note">GDELT discovery + direct official sources · event-clustered · standard 30 days · elevated 90 days · critical 180 days.</p>
+          <p class="block-note">Up to 10 highest-value events · space reserved for qualifying news from the latest 30 days · one-year maximum.</p>
         </div>
         <span class="news-updated">Updated ${escapeHTML(generated)}</span>
       </div>
-      ${rows || '<p class="empty-note">No qualifying items found in the current 30-day search window.</p>'}
+      ${rows || '<p class="empty-note">No qualifying sovereign-risk items found yet. The next refresh will search the previous six months.</p>'}
       <p class="news-disclaimer">Discovery feed only—not an underwriting conclusion. Confirm material facts against primary or authoritative sources.</p>
     </section>`;
 }

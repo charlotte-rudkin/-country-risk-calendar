@@ -16,7 +16,10 @@ const cases = [
   ["angola", "Angola clean energy working paper published", false],
   ["senegal", "Senegal marine fisheries programme expands", false],
   ["kenya", "Kenya government launches agrifood transformation project", false],
-  ["bahamas", "Bahamas government presents fiscal consolidation budget", true]
+  ["bahamas", "Bahamas government presents fiscal consolidation budget", true],
+  ["angola", "Angola GDP growth slows as oil production falls", true],
+  ["bahamas", "Hurricane causes widespread damage across the Bahamas", true],
+  ["mexico", "Mexico supreme court blocks controversial reform", true]
 ];
 
 const failures = cases.filter(([country, title, expected]) => articleMatchesCountry(country, title) !== expected);

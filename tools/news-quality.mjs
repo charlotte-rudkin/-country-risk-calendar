@@ -80,6 +80,33 @@ export function headlineSimilarity(left, right) {
   return intersection / (a.size + b.size - intersection);
 }
 
+export function rankNewsInventory(article, now = Date.now()) {
+  const ageDays = Math.max(0, (now - Date.parse(article.publishedAt)) / 86400000);
+  const recency = Math.max(0, 18 - ageDays / 10);
+  const source = Math.max(0, 5 - Number(article.sourceTier || 4)) * 2;
+  const materiality = Number(article.materialityScore || 0) * 2;
+  const relevance = Number(article.relevanceScore || 0) * 2;
+  return recency + source + materiality + relevance;
+}
+
+export function selectNewsInventory(articles, { target = 10, recentDays = 30, recentFloor = 4, now = Date.now() } = {}) {
+  const compare = (left, right) => (rankNewsInventory(right, now) - rankNewsInventory(left, now))
+    || (left.sourceTier - right.sourceTier)
+    || right.publishedAt.localeCompare(left.publishedAt);
+  const ranked = [...articles].sort(compare);
+  const recentCutoff = now - recentDays * 86400000;
+  const selected = ranked.filter(article => Date.parse(article.publishedAt) >= recentCutoff).slice(0, recentFloor);
+  const selectedIds = new Set(selected.map(article => article.eventId || article.url));
+  for (const article of ranked) {
+    if (selected.length >= target) break;
+    const identity = article.eventId || article.url;
+    if (selectedIds.has(identity)) continue;
+    selected.push(article);
+    selectedIds.add(identity);
+  }
+  return selected;
+}
+
 function daysApart(left, right) {
   return Math.abs(Date.parse(left) - Date.parse(right)) / 86400000;
 }

@@ -3,7 +3,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { fetchGdelt, mapWithGentleRateLimit, scoreCountryRelevance } from "./gdelt.mjs";
-import { clusterNews } from "./news-quality.mjs";
+import { clusterNews, selectNewsInventory } from "./news-quality.mjs";
 import { fetchOfficialNews } from "./official-news.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -21,9 +21,8 @@ function loadBrowserGlobal(file, key) {
 
 const countryData = loadBrowserGlobal(countriesPath, "COUNTRY_DATA");
 const previous = loadBrowserGlobal(newsPath, "NEWS_DATA");
-const standardCutoff = Date.now() - 30 * 86400000;
-const elevatedCutoff = Date.now() - 90 * 86400000;
-const criticalCutoff = Date.now() - 180 * 86400000;
+const NEWS_TARGET_PER_COUNTRY = 10;
+const hardRetentionCutoff = Date.now() - 365 * 86400000;
 const failures = [];
 const runStartedAt = new Date().toISOString();
 
@@ -65,6 +64,10 @@ function assessMateriality(title) {
     ["Political/institutional transmission", 3, /constitutional crisis|regime change|state of emergency|government collapse|budget rejected|parliament dissolved/i],
     ["Social/security pressure", 2, /general strike|mass protest|violent protest|civil unrest|emergency declaration|insurgency/i],
     ["Commodity/fiscal shock", 2, /oil production.{0,25}(fall|drop|cut)|commodity price shock|pipeline shutdown|mine closure/i],
+    ["Macroeconomic deterioration", 3, /GDP.{0,25}(fall|drop|contract|slow)|recession|economic crisis|current account deficit|trade deficit/i],
+    ["Governance/legal pressure", 3, /corruption scandal|constitutional court|supreme court|no.confidence|coalition collapse/i],
+    ["Trade/ownership policy", 2, /tariff|export ban|privati[sz]ation|nationali[sz]ation/i],
+    ["Natural-disaster pressure", 2, /earthquake|cyclone|hurricane|severe flood|national disaster/i],
     ["Major policy decision", 2, /central bank.{0,35}(raise|cut)|policy rate.{0,35}(raise|cut)|election result|wins election|elected president/i]
   ];
   for (const [signal, weight, pattern] of rules) {
@@ -83,13 +86,13 @@ function assessMateriality(title) {
 const [fetched, official] = await Promise.all([
   mapWithGentleRateLimit(countryData.order, async key => {
     try {
-      return await fetchGdelt(key, { timespan: "30d", maxrecords: 40 });
+      return await fetchGdelt(key, { timespan: "180d", maxrecords: 75 });
     } catch (error) {
       failures.push(error.message);
       return [];
     }
   }),
-  fetchOfficialNews(countryData.order, { days: 30 })
+  fetchOfficialNews(countryData.order, { days: 180 })
 ]);
 
 const countries = {};
@@ -119,10 +122,7 @@ for (const key of countryData.order) {
       continue;
     }
     const enriched = { ...item, ...relevance, ...assessMateriality(item.title) };
-    const cutoff = enriched.materiality === "critical"
-      ? criticalCutoff
-      : enriched.materiality === "elevated" ? elevatedCutoff : standardCutoff;
-    if (Date.parse(enriched.publishedAt) < cutoff) {
+    if (Date.parse(enriched.publishedAt) < hardRetentionCutoff) {
       expired += 1;
       continue;
     }
@@ -130,14 +130,11 @@ for (const key of countryData.order) {
   }
 
   const clustered = clusterNews(key, safeItems);
-  countries[key] = clustered.articles
-    .sort((a, b) => {
-      return (b.materialityScore - a.materialityScore)
-        || (b.relevanceScore - a.relevanceScore)
-        || (a.sourceTier - b.sourceTier)
-        || b.publishedAt.localeCompare(a.publishedAt);
-    })
-    .slice(0, 24);
+  countries[key] = selectNewsInventory(clustered.articles, {
+    target: NEWS_TARGET_PER_COUNTRY,
+    recentDays: 30,
+    recentFloor: 4
+  });
 
   countryQuality[key] = {
     retrieved: fetched[key].audit?.retrieved ?? fetched[key].length,

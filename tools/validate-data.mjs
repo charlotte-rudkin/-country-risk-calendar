@@ -165,7 +165,7 @@ if (errors.length === 0) {
     const news = newsData.countries?.[key];
     if (!Array.isArray(news)) fail(`News data is missing for ${key}`);
     else {
-      if (news.length > 24) fail(`${key} has more than 24 retained news records`);
+      if (news.length > 10) fail(`${key} has more than 10 retained news records`);
       const urls = new Set();
       news.forEach((article, index) => {
         const location = `${key}.news[${index}]`;

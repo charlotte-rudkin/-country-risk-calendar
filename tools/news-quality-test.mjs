@@ -1,4 +1,4 @@
-import { clusterNews, classifySource, headlineSimilarity } from "./news-quality.mjs";
+import { clusterNews, classifySource, headlineSimilarity, rankNewsInventory, selectNewsInventory } from "./news-quality.mjs";
 
 function article(overrides = {}) {
   return {
@@ -37,4 +37,32 @@ if (!rateCluster || rateCluster.coverageCount !== 2) throw new Error("Rate cover
 if (rateCluster.domain !== "reuters.com") throw new Error("The stronger wire source should represent the event cluster");
 if (clustered.stats.duplicateArticlesMerged !== 2) throw new Error("Duplicate count is incorrect");
 
-console.log("News quality test passed: source tiers, URL cleanup and event clustering.");
+const now = Date.parse("2026-09-29T00:00:00Z");
+const recentStandard = article({ publishedAt: "2026-09-28T00:00:00Z", sourceTier: 3, relevanceScore: 7, materialityScore: 0 });
+const oldStandard = article({ publishedAt: "2026-02-01T00:00:00Z", sourceTier: 3, relevanceScore: 7, materialityScore: 0 });
+const officialElevated = article({ publishedAt: "2026-08-01T00:00:00Z", sourceTier: 1, relevanceScore: 8, materialityScore: 4 });
+if (rankNewsInventory(recentStandard, now) <= rankNewsInventory(oldStandard, now)) throw new Error("Recency is not influencing inventory rank");
+if (rankNewsInventory(officialElevated, now) <= rankNewsInventory(recentStandard, now)) throw new Error("Official elevated coverage should outrank routine recent coverage");
+
+const olderCritical = Array.from({ length: 10 }, (_, index) => article({
+  id: `old-${index}`,
+  eventId: `old-${index}`,
+  url: `https://example.com/old-${index}`,
+  publishedAt: `2026-08-${String(index + 1).padStart(2, "0")}T00:00:00Z`,
+  sourceTier: 1,
+  relevanceScore: 10,
+  materialityScore: 8
+}));
+const freshItems = Array.from({ length: 4 }, (_, index) => article({
+  id: `fresh-${index}`,
+  eventId: `fresh-${index}`,
+  url: `https://example.com/fresh-${index}`,
+  publishedAt: `2026-09-${String(25 + index).padStart(2, "0")}T00:00:00Z`,
+  sourceTier: 4,
+  relevanceScore: 7,
+  materialityScore: 0
+}));
+const inventory = selectNewsInventory([...olderCritical, ...freshItems], { target: 10, recentDays: 30, recentFloor: 4, now });
+if (inventory.filter(item => item.eventId.startsWith("fresh-")).length !== 4) throw new Error("Recent qualifying coverage was crowded out of the inventory");
+
+console.log("News quality test passed: source tiers, URL cleanup, event clustering and inventory ranking.");

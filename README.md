@@ -18,7 +18,7 @@ The dashboard is still compiled to a single self-contained `index.html` at deplo
 
 Set **Settings → Pages → Source** to **GitHub Actions** after uploading this version. The workflow in `.github/workflows/country-risk-refresh.yml` runs four guarded jobs and deploys a validated standalone page whenever monitored data changes:
 
-- **Daily:** searches a rolling 30-day country-risk news window from GDELT. Elevated early-warning signals are retained for 90 days and critical events for 180 days; the site rebuilds only when headlines change.
+- **Daily:** searches a rolling six-month country-risk window from GDELT and direct official sources. Each profile retains up to 10 highest-value event clusters. Relevant items remain until stronger or newer coverage displaces them, subject to a one-year hard ceiling; the site rebuilds only when the published inventory changes.
 
 News materiality is risk-trajectory based rather than limited to realised events. The scoring model covers funding and refinancing pressure, external liquidity and FX stress, arrears, fiscal slippage, SOE contingent liabilities, banking-sovereign feedback, IMF programme risk, creditor/legal action, sanctions, institutional disruption, social pressure and commodity-linked fiscal shocks. Headlines are labelled `critical`, `elevated` or `standard`; labels remain discovery signals and are not substitutes for analyst assessment.
 
@@ -34,6 +34,7 @@ Every headline must also pass a country-entity check based on country names, dem
 - **Precision gate:** GDELT items must contain both country evidence and an explicit sovereign-risk topic in the headline. Travel advice, expat/lifestyle material, working papers and routine clean-energy, fisheries, agrifood, biodiversity or conservation stories are rejected unless the headline also contains a hard sovereign trigger such as debt, fiscal policy, IMF involvement, sanctions or a rating action.
 - **Source classification:** recognised primary institutions and official bodies are tier 1, wire services are tier 2, vetted media are tier 3 and all other discovery sources are tier 4. The strongest available source represents a duplicated event.
 - **Event clustering:** tracking-link variants, near-identical headlines and sufficiently similar stories in the same risk category and five-day window are merged. The dashboard displays one representative headline and provides expandable links to related coverage.
+- **Curated inventory:** each country keeps at most 10 events ranked by country relevance, materiality, source authority and recency. Up to four positions are reserved for qualifying coverage from the latest 30 days before the remaining positions are filled from the wider pool. This avoids both empty profiles and older high-impact events crowding out fresh developments.
 - **Quality reporting:** each daily run writes `data/review/news-quality.json`, recording retrievals, acceptances, rejections, expired items, duplicate merges, published event clusters and a sample of rejected stories with reasons.
 - **Provider resilience:** secondary full-text searches are optional. GDELT throttling never removes the last valid news file or stops an otherwise valid site deployment.
 
