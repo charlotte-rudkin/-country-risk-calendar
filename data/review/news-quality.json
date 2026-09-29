@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T05:41:20.779Z",
-  "runStartedAt": "2026-09-29T05:30:39.510Z",
+  "generatedAt": "2026-09-29T08:36:08.218Z",
+  "runStartedAt": "2026-09-29T08:24:49.170Z",
   "status": "partial",
   "providers": [
     "GDELT DOC 2.0",
@@ -10,36 +10,30 @@
   "totals": {
     "retrieved": 0,
     "acceptedFromCurrentSearch": 0,
-    "officialRetrieved": 17,
-    "rejected": 0,
+    "officialRetrieved": 10,
+    "rejected": 21,
     "expired": 0,
-    "duplicatesMerged": 23,
-    "publishedEventClusters": 36
+    "duplicatesMerged": 11,
+    "publishedEventClusters": 20
   },
   "requestFailures": [
     "GDELT request failed for usa: fetch failed",
-    "GDELT request failed for mexico: fetch failed",
-    "GDELT request failed for bahamas: fetch failed",
-    "GDELT request failed for serbia: fetch failed",
+    "GDELT request failed for mexico: HTTP 429",
+    "GDELT request failed for bahamas: HTTP 429",
+    "GDELT request failed for serbia: HTTP 429",
     "GDELT request failed for turkey: HTTP 429",
     "GDELT request failed for egypt: fetch failed",
     "GDELT request failed for uzbekistan: fetch failed",
     "GDELT request failed for vietnam: fetch failed",
-    "GDELT request failed for senegal: HTTP 429",
-    "GDELT request failed for cotedivoire: HTTP 429",
-    "GDELT request failed for benin: HTTP 429",
-    "GDELT request failed for angola: fetch failed",
-    "GDELT request failed for kenya: GDELT returned a non-JSON response: Your query was too short or too long. ",
+    "GDELT request failed for senegal: fetch failed",
+    "GDELT request failed for cotedivoire: fetch failed",
+    "GDELT request failed for benin: fetch failed",
+    "GDELT request failed for angola: HTTP 429",
+    "GDELT request failed for kenya: HTTP 429",
     "GDELT request failed for tanzania: fetch failed",
-    "GDELT request failed for ethiopia: HTTP 429"
+    "GDELT request failed for ethiopia: fetch failed"
   ],
   "officialSourceStatus": [
-    {
-      "id": "fatf-news",
-      "label": "Financial Action Task Force",
-      "status": "failed",
-      "error": "HTTP 403"
-    },
     {
       "id": "imf-news",
       "label": "International Monetary Fund",
@@ -47,16 +41,22 @@
       "error": "HTTP 403"
     },
     {
-      "id": "eu-council-press",
-      "label": "Council of the European Union",
-      "status": "ok",
-      "records": 0
+      "id": "fatf-news",
+      "label": "Financial Action Task Force",
+      "status": "failed",
+      "error": "HTTP 403"
     },
     {
       "id": "ofac-recent-actions",
       "label": "US Treasury OFAC",
       "status": "ok",
       "records": 2
+    },
+    {
+      "id": "eu-council-press",
+      "label": "Council of the European Union",
+      "status": "ok",
+      "records": 0
     },
     {
       "id": "moodys-sovereigns",
@@ -71,12 +71,6 @@
       "records": 20
     },
     {
-      "id": "sp-sovereign-actions",
-      "label": "S&P Global Ratings",
-      "status": "ok",
-      "records": 0
-    },
-    {
       "id": "fitch-sovereigns",
       "label": "Fitch Ratings",
       "status": "ok",
@@ -89,16 +83,16 @@
       "error": "HTTP 404"
     },
     {
+      "id": "sp-sovereign-actions",
+      "label": "S&P Global Ratings",
+      "status": "ok",
+      "records": 0
+    },
+    {
       "id": "mx-banxico",
       "label": "Banco de México",
       "status": "failed",
       "error": "HTTP 404"
-    },
-    {
-      "id": "tr-tcmb",
-      "label": "Central Bank of the Republic of Türkiye",
-      "status": "ok",
-      "records": 0
     },
     {
       "id": "eg-cbe",
@@ -113,10 +107,10 @@
       "records": 0
     },
     {
-      "id": "vn-sbv",
-      "label": "State Bank of Vietnam",
-      "status": "failed",
-      "error": "HTTP 403"
+      "id": "tr-tcmb",
+      "label": "Central Bank of the Republic of Türkiye",
+      "status": "ok",
+      "records": 0
     },
     {
       "id": "sn-bceao",
@@ -137,6 +131,12 @@
       "records": 3
     },
     {
+      "id": "vn-sbv",
+      "label": "State Bank of Vietnam",
+      "status": "failed",
+      "error": "HTTP 403"
+    },
+    {
       "id": "ao-bna",
       "label": "Banco Nacional de Angola",
       "status": "ok",
@@ -155,16 +155,16 @@
       "records": 3
     },
     {
-      "id": "tz-bot",
-      "label": "Bank of Tanzania",
-      "status": "failed",
-      "error": "HTTP 404"
-    },
-    {
       "id": "et-nbe",
       "label": "National Bank of Ethiopia",
       "status": "ok",
       "records": 1
+    },
+    {
+      "id": "tz-bot",
+      "label": "Bank of Tanzania",
+      "status": "failed",
+      "error": "HTTP 404"
     },
     {
       "id": "world-bank-usa",
@@ -176,7 +176,7 @@
       "id": "world-bank-mexico",
       "label": "World Bank — mexico",
       "status": "ok",
-      "records": 0
+      "records": 1
     },
     {
       "id": "world-bank-bahamas",
@@ -206,12 +206,6 @@
       "id": "world-bank-uzbekistan",
       "label": "World Bank — uzbekistan",
       "status": "ok",
-      "records": 1
-    },
-    {
-      "id": "world-bank-cotedivoire",
-      "label": "World Bank — cotedivoire",
-      "status": "ok",
       "records": 0
     },
     {
@@ -221,40 +215,46 @@
       "records": 0
     },
     {
+      "id": "world-bank-turkey",
+      "label": "World Bank — turkey",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-cotedivoire",
+      "label": "World Bank — cotedivoire",
+      "status": "ok",
+      "records": 0
+    },
+    {
       "id": "world-bank-benin",
       "label": "World Bank — benin",
       "status": "ok",
-      "records": 1
+      "records": 0
     },
     {
       "id": "world-bank-angola",
       "label": "World Bank — angola",
       "status": "ok",
-      "records": 1
+      "records": 0
     },
     {
       "id": "world-bank-kenya",
       "label": "World Bank — kenya",
       "status": "ok",
-      "records": 1
+      "records": 0
     },
     {
       "id": "world-bank-tanzania",
       "label": "World Bank — tanzania",
       "status": "ok",
-      "records": 2
+      "records": 0
     },
     {
       "id": "world-bank-ethiopia",
       "label": "World Bank — ethiopia",
       "status": "ok",
-      "records": 1
-    },
-    {
-      "id": "world-bank-turkey",
-      "label": "World Bank — turkey",
-      "status": "ok",
-      "records": 1
+      "records": 0
     }
   ],
   "countries": {
@@ -262,31 +262,106 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 9,
-      "rejectedCount": 0,
+      "rejectedCount": 7,
       "expired": 0,
-      "duplicatesMerged": 12,
-      "publishedEventClusters": 13,
-      "rejections": []
+      "duplicatesMerged": 10,
+      "publishedEventClusters": 8,
+      "rejections": [
+        {
+          "title": "US and China cut tariffs on $30B in goods after Trump - Xi meeting",
+          "url": "https://nebraska.tv/news/nation-world/us-and-china-cut-tariffs-on-30-billion-dollars-in-goods-after-president-trump-xi-jinping-meeting-trade-tensions-most-favored-nation-duties-household-goods-economy-exports",
+          "domain": "nebraska.tv",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "US and China cut tariffs on $30B in goods after Trump - Xi meeting",
+          "url": "https://wcti12.com/news/nation-world/us-and-china-cut-tariffs-on-30-billion-dollars-in-goods-after-president-trump-xi-jinping-meeting-trade-tensions-most-favored-nation-duties-household-goods-economy-exports",
+          "domain": "wcti12.com",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Trump aims to leave a physical legacy in D . C ., bulldozing norms along the way",
+          "url": "https://www.wbaa.org/npr-news/2026-09-28/trump-aims-to-leave-a-physical-legacy-in-d-c-bulldozing-norms-along-the-way",
+          "domain": "wbaa.org",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Trump aims to leave a physical legacy in D . C ., bulldozing norms along the way",
+          "url": "https://www.tspr.org/npr-news/2026-09-28/trump-aims-to-leave-a-physical-legacy-in-d-c-bulldozing-norms-along-the-way",
+          "domain": "tspr.org",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Trump meets Anthropic CEO after Pentagon clash over AI safety",
+          "url": "https://nebraska.tv/news/nation-world/president-donald-trump-meets-anthropic-ceo-dario-amodei-after-pentagon-clash-over-ai-artificial-intelligence-safety-department-of-war-hegseth-technology-development-national-security-supply-chain-risk",
+          "domain": "nebraska.tv",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Trump asked China XI if he wants to buy US arms , ambassador says",
+          "url": "https://www.bostonherald.com/2026/09/28/trump-xi-china-us-arms/",
+          "domain": "bostonherald.com",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "The Latest : Trump administration lowers fuel economy standards",
+          "url": "https://www.stcatharinesstandard.ca/news/world/united-states/the-latest-trump-administration-set-to-roll-out-lower-fuel-economy-standards/article_06126222-4752-5a87-b130-2ee07453ac96.html",
+          "domain": "stcatharinesstandard.ca",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        }
+      ]
     },
     "mexico": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 0,
-      "rejectedCount": 0,
+      "officialRetrieved": 1,
+      "rejectedCount": 1,
       "expired": 0,
       "duplicatesMerged": 0,
       "publishedEventClusters": 1,
-      "rejections": []
+      "rejections": [
+        {
+          "title": "Heading to Mexico ? Canada issues urgent new travel warning | Daily Hive",
+          "url": "https://dailyhive.com/canada/mexico-hurricane-polo-travel-advisory",
+          "domain": "dailyhive.com",
+          "reason": "Country identity in headline; Sovereign-risk topic in headline; Travel, lifestyle or non-sovereign sector content"
+        }
+      ]
     },
     "bahamas": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 0,
-      "rejectedCount": 0,
+      "rejectedCount": 4,
       "expired": 0,
-      "duplicatesMerged": 1,
-      "publishedEventClusters": 3,
-      "rejections": []
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 0,
+      "rejections": [
+        {
+          "title": "The Bahamas Ministry of Tourism Appoints Jackson Weech as Director General",
+          "url": "https://www.manilatimes.net/2026/09/28/tmt-newswire/globenewswire/the-bahamas-ministry-of-tourism-appoints-jackson-weech-as-director-general/2434184",
+          "domain": "manilatimes.net",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "The Bahamas Ministry of Tourism Appoints Jackson Weech as Director General",
+          "url": "https://znsbahamas.com/the-bahamas-ministry-of-tourism-appoints-jackson-weech-as-director-general/",
+          "domain": "znsbahamas.com",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Govt claims DEA went rogue | News | thenassauguardian . com",
+          "url": "https://www.thenassauguardian.com/news/govt-claims-dea-went-rogue/article_f1af1f1c-5a7b-4039-b8c9-8aaff067bbba.html",
+          "domain": "thenassauguardian.com",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Is the Bahamas Safe for Expats in 2026 ? Crime and Islands",
+          "url": "https://www.riotimesonline.com/is-bahamas-safe-expats-2026/",
+          "domain": "riotimesonline.com",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline; Travel, lifestyle or non-sovereign sector content"
+        }
+      ]
     },
     "serbia": {
       "retrieved": 0,
@@ -301,12 +376,49 @@
     "turkey": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 1,
-      "rejectedCount": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 6,
       "expired": 0,
-      "duplicatesMerged": 2,
-      "publishedEventClusters": 6,
-      "rejections": []
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 1,
+      "rejections": [
+        {
+          "title": "Terror - free Türkiye board seeks to speed up process at 2nd meet",
+          "url": "https://article.wn.com/view/2026/09/28/Terrorfree_Turkiye_board_seeks_to_speed_up_process_at_2nd_me/",
+          "domain": "article.wn.com",
+          "reason": "Strong country-specific headline anchor; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Comedian convicted for Erdogan insult but freed pending appeal",
+          "url": "https://www.freemalaysiatoday.com/category/world/2026/09/28/comedian-convicted-for-erdogan-insult-but-freed-pending-appeal",
+          "domain": "freemalaysiatoday.com",
+          "reason": "Strong country-specific headline anchor; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Comedian convicted for Erdogan insult but freed pending appeal",
+          "url": "https://www.al-monitor.com/originals/2026/09/comedian-convicted-erdogan-insult-freed-pending-appeal",
+          "domain": "al-monitor.com",
+          "reason": "Strong country-specific headline anchor; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "UAE - Türkiye forum focuses on Middle Corridor investment opportunities",
+          "url": "https://www.dailysabah.com/business/economy/uae-turkiye-forum-focuses-on-middle-corridor-investment-opportunities",
+          "domain": "dailysabah.com",
+          "reason": "Strong country-specific headline anchor; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Turkish comedian gets jail term for calling Erdogan dictator but released ahead of appeal",
+          "url": "https://www.winknews.com/news/international/turkish-comedian-gets-jail-term-for-calling-erdogan-dictator-but-released-ahead-of-appeal/article_d7f0b94c-b15e-56c8-b500-6b159001896b.html",
+          "domain": "winknews.com",
+          "reason": "Strong country-specific headline anchor; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "Potential Merz successor visits Türkiye with large business group",
+          "url": "https://www.dailysabah.com/business/economy/potential-merz-successor-visits-turkiye-with-large-business-group",
+          "domain": "dailysabah.com",
+          "reason": "Strong country-specific headline anchor; No explicit sovereign-risk topic in headline"
+        }
+      ]
     },
     "egypt": {
       "retrieved": 0,
@@ -321,12 +433,19 @@
     "uzbekistan": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 1,
-      "rejectedCount": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 1,
       "expired": 0,
-      "duplicatesMerged": 1,
-      "publishedEventClusters": 2,
-      "rejections": []
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 1,
+      "rejections": [
+        {
+          "title": "Uzbekistan plans to transfer pension savings to investment firms",
+          "url": "https://akipress.com/news:921544:Uzbekistan_plans_to_transfer_pension_savings_to_investment_firms/",
+          "domain": "akipress.com",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        }
+      ]
     },
     "vietnam": {
       "retrieved": 0,
@@ -361,50 +480,63 @@
     "benin": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 1,
+      "officialRetrieved": 0,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 1,
+      "duplicatesMerged": 0,
       "publishedEventClusters": 1,
       "rejections": []
     },
     "angola": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 1,
+      "officialRetrieved": 0,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 1,
+      "duplicatesMerged": 0,
       "publishedEventClusters": 1,
       "rejections": []
     },
     "kenya": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 1,
-      "rejectedCount": 0,
+      "officialRetrieved": 0,
+      "rejectedCount": 2,
       "expired": 0,
-      "duplicatesMerged": 1,
-      "publishedEventClusters": 3,
-      "rejections": []
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 1,
+      "rejections": [
+        {
+          "title": "Kenya : Murkomen Wants Community Reports Turned Into Strategic Security Intelligence",
+          "url": "https://allafrica.com/stories/202609280491.html",
+          "domain": "allafrica.com",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        },
+        {
+          "title": "OPINION : Kenya opportunity to build the e - mobility sector is now – Capital FM Kenya",
+          "url": "https://capitalfm.africa/opinion-kenyas-opportunity-to-build-the-e-mobility-sector-is-now/",
+          "domain": "capitalfm.africa",
+          "reason": "Country identity in headline; No explicit sovereign-risk topic in headline"
+        }
+      ]
     },
     "tanzania": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 2,
+      "officialRetrieved": 0,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 3,
+      "duplicatesMerged": 1,
       "publishedEventClusters": 1,
       "rejections": []
     },
     "ethiopia": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 1,
+      "officialRetrieved": 0,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 1,
+      "duplicatesMerged": 0,
       "publishedEventClusters": 1,
       "rejections": []
     }
