@@ -89,7 +89,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html _site/index.html
-          touch _site/.nojekyll
+          cp .nojekyll _site/.nojekyll
       - name: Upload Pages artifact
         if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
         uses: actions/upload-pages-artifact@v4
