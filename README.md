@@ -91,6 +91,7 @@ Open the root `index.html` directly in a browser. It is a fully self-contained c
 | `data/config.js` | Freshness date and validation settings | Yes |
 | `data/countries.js` | Current profiles, ratings, key issues, upcoming calendar and recent developments | Yes |
 | `data/economics.js` | Generated IMF, World Bank, UNCTAD and OEC profile data | No—guarded refresh/import workflow |
+| `tools/jurisdictions.mjs` | ISO3 and OEC identifiers for 197 target jurisdictions | Only when the target universe changes |
 | `data/commodity-import.example.json` | Example schema for the annual reviewed UNCTAD import | Copy, verify and rename when updating |
 | `data/news.js` | Generated rolling country-risk news feed | No—daily workflow |
 | `data/history.js` | 1945–present turning points and source registry | Yes |
@@ -153,10 +154,14 @@ The application reads stable browser globals including `SITE_CONFIG`, `COUNTRY_D
 
 Each country now has a separate **Economic & trade structure** sub-page, reached from the navigation above the country title. This keeps the risk profile focused while giving structural data enough room for visual analysis. Missing provider values render as a transparent pending state; they never break either page.
 
-- **IMF:** real GDP growth, inflation, current-account balance, general-government balance and gross government debt. The updater retains a ten-year actual/forecast series, used for the macro and debt charts; the current-year point is preferred for the headline value.
-- **World Bank:** reserves in months of imports, external debt as a share of GNI and total debt service as a share of exports. The most recent non-null observation and available history are retained, with reserve coverage shown as a time series.
-- **UNCTAD:** commodity exports as a share of merchandise exports, the derived commodity-dependent classification, the dominant commodity group and reference period. The page displays the share against UNCTAD's 60% threshold. Copy `data/commodity-import.example.json` to `data/commodity-import.json`, add only figures checked against the current UNCTAD country profile, then run `npm run import:commodity`.
-- **OEC:** total merchandise exports and imports plus horizontal ranked charts for the five largest exports, imports, export destinations and import origins. The configured annual BACI vintage is shown on the page. If OEC requires authenticated access, store an `OEC_API_TOKEN` GitHub Actions secret; never put a token in a data file or commit.
+- **IMF:** real GDP growth, inflation, current-account balance, general-government balance and gross government debt. The updater requests a fixed window of four historical years, the current year and five future years. Years before the run year are labelled historical, the run year is labelled an IMF estimate, and only later years are labelled forecasts.
+- **World Bank:** reserves in months of imports (`FI.RES.TOTL.MO`), interest payments as a share of revenue (`GC.XPN.INTP.RV.ZS`), total external debt as a share of GNI (`DT.DOD.DECT.GN.ZS`), short-term debt as a share of total external debt (`DT.DOD.DSTC.ZS`), concessional debt as a share of total external debt (`DT.DOD.ALLC.ZS`), debt service as a share of exports (`DT.TDS.DECT.EX.ZS`) and GDP per capita in current US dollars (`NY.GDP.PCAP.CD`). Every card keeps its own observation year, indicator code and definition; data are never presented as a common vintage.
+- **UNCTAD:** commodity exports as a share of merchandise exports, the derived commodity-dependent classification, the dominant commodity group and reference period. The updater first checks the official UNCTAD dashboard data and then an optional reviewed local import. The page displays the share against UNCTAD's greater-than-60% threshold. `UNCTAD_DATA_URL` can point the workflow at a revised official CSV without a code change.
+- **OEC:** total merchandise exports and imports plus horizontal ranked charts for the five largest exports, imports, export destinations and import origins. Requests use the documented `include` filters and BACI HS22 cube, try six annual vintages and can publish partial sections explicitly. If OEC requires authenticated access, store an `OEC_API_TOKEN` GitHub Actions secret; never put a token in a data file or commit.
+
+Economic ingestion is keyed by ISO3 in `ECONOMIC_DATA.jurisdictions`, not by the 15 original profile slugs. The catalogue asserts exactly 197 targets: 193 UN members plus Palestine, Kosovo, Taiwan and Vatican City. Existing profile pages resolve their data by ISO3, so new profiles do not require another provider-ID table.
+
+Every jurisdiction stores separate IMF, World Bank, UNCTAD and OEC refresh state: last attempt, last success, source observation period, warnings/errors and whether a previous value was retained. These states are displayed on the page. A failed request therefore cannot silently make old data look current.
 
 Useful commands:
 
@@ -165,6 +170,7 @@ npm run refresh:macro
 npm run refresh:trade
 npm run refresh:economic
 npm run import:commodity
+npm run normalize:economic
 ```
 
-All connectors use last-known-good semantics. A provider error produces a workflow warning and preserves that provider's published block; successful providers can still update normally.
+All connectors use visible last-known-good semantics. A provider error preserves that provider's published block but marks it failed and retained on the country page; successful providers can still update normally. Monthly macro work is split into 24 hourly bundles, while weekly OEC bundles complete a 197-jurisdiction rotation over a quarter. The separate economic workflow accepts an ISO3 code for a focused manual refresh, or `profiles` to refresh every currently published country page in one run.

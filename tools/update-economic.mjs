@@ -2,39 +2,69 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { JURISDICTIONS, jurisdictionFor } from "./jurisdictions.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
 const outputPath = path.join(root, "data", "economics.js");
 const commodityImportPath = path.join(root, "data", "commodity-import.json");
 const scopeArg = process.argv.find(argument => argument.startsWith("--scope="));
+const countryArg = process.argv.find(argument => argument.startsWith("--country="));
 const scope = scopeArg?.split("=")[1] || "all";
-if (!["all", "macro", "trade", "commodity"].includes(scope)) throw new Error(`Unsupported scope: ${scope}`);
-
-const IDS = {
-  usa: { iso3: "USA", oec: "nausa" }, mexico: { iso3: "MEX", oec: "namex" },
-  bahamas: { iso3: "BHS", oec: "nabhs" }, serbia: { iso3: "SRB", oec: "eusrb" },
-  turkey: { iso3: "TUR", oec: "astur" }, egypt: { iso3: "EGY", oec: "afegy" },
-  uzbekistan: { iso3: "UZB", oec: "asuzb" }, vietnam: { iso3: "VNM", oec: "asvnm" },
-  senegal: { iso3: "SEN", oec: "afsen" }, cotedivoire: { iso3: "CIV", oec: "afciv" },
-  benin: { iso3: "BEN", oec: "afben" }, angola: { iso3: "AGO", oec: "afago" },
-  kenya: { iso3: "KEN", oec: "afken" }, tanzania: { iso3: "TZA", oec: "aftza" },
-  ethiopia: { iso3: "ETH", oec: "afeth" }
-};
+const requestedCountry = countryArg?.split("=")[1] || null;
+if (!["all", "macro", "trade", "commodity", "normalize"].includes(scope)) throw new Error(`Unsupported scope: ${scope}`);
 
 const IMF_INDICATORS = {
-  realGdpGrowth: ["NGDP_RPCH", "percent"],
-  inflation: ["PCPIPCH", "percent"],
-  currentAccount: ["BCA_NGDPD", "percent"],
-  fiscalBalance: ["GGXCNL_NGDP", "percent"],
-  governmentDebt: ["GGXWDG_NGDP", "percent"]
+  realGdpGrowth: { code: "NGDP_RPCH", unit: "percent", label: "Real GDP growth" },
+  inflation: { code: "PCPIPCH", unit: "percent", label: "Inflation" },
+  currentAccount: { code: "BCA_NGDPD", unit: "percent", label: "Current-account balance / GDP" },
+  fiscalBalance: { code: "GGXCNL_NGDP", unit: "percent", label: "General-government net lending / GDP" },
+  governmentDebt: { code: "GGXWDG_NGDP", unit: "percent", label: "General-government gross debt / GDP" }
 };
 
 const WB_INDICATORS = {
-  reserveMonths: ["FI.RES.TOTL.MO", "months"],
-  externalDebtGni: ["DT.DOD.DECT.GN.ZS", "percent"],
-  debtServiceExports: ["DT.TDS.DECT.EX.ZS", "percent"]
+  reserveMonths: {
+    code: "FI.RES.TOTL.MO", unit: "months", maxAgeYears: 2,
+    label: "Total reserves in months of imports",
+    definition: "International reserves expressed as months of imports."
+  },
+  interestPaymentsRevenue: {
+    code: "GC.XPN.INTP.RV.ZS", unit: "percent", maxAgeYears: 3,
+    label: "Interest payments / revenue",
+    definition: "Government interest payments as a percentage of government revenue."
+  },
+  externalDebtGni: {
+    code: "DT.DOD.DECT.GN.ZS", unit: "percent", maxAgeYears: 2,
+    label: "Total external debt / GNI",
+    definition: "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI."
+  },
+  shortTermDebtPct: {
+    code: "DT.DOD.DSTC.ZS", unit: "percent", maxAgeYears: 2,
+    label: "Short-term debt / external debt",
+    definition: "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt."
+  },
+  concessionalDebtPct: {
+    code: "DT.DOD.ALLC.ZS", unit: "percent", maxAgeYears: 2,
+    label: "Concessional debt / external debt",
+    definition: "Concessional external debt as a percentage of total external debt."
+  },
+  debtServiceExports: {
+    code: "DT.TDS.DECT.EX.ZS", unit: "percent", maxAgeYears: 2,
+    label: "Total external debt service / exports",
+    definition: "Principal and interest paid on total external debt as a percentage of exports and primary income receipts."
+  },
+  gdpPerCapita: {
+    code: "NY.GDP.PCAP.CD", unit: "usd", maxAgeYears: 2,
+    label: "GDP per capita",
+    definition: "GDP divided by mid-year population, current US dollars."
+  }
 };
+
+const UNCTAD_URLS = [
+  process.env.UNCTAD_DATA_URL,
+  "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv",
+  "https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv"
+].filter(Boolean);
 
 function loadWindow(...relativePaths) {
   const context = { window: {} };
@@ -45,22 +75,26 @@ function loadWindow(...relativePaths) {
   return context.window;
 }
 
-async function fetchJson(url, options = {}) {
+function sleep(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+async function fetchResponse(url, options = {}) {
   let lastError;
-  for (let attempt = 0; attempt < 3; attempt += 1) {
+  for (let attempt = 0; attempt < 4; attempt += 1) {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 25_000);
+    const timer = setTimeout(() => controller.abort(), 30_000);
     try {
       const response = await fetch(url, {
         ...options,
         signal: controller.signal,
-        headers: { "user-agent": "CountryDashboard/1.0", accept: "application/json", ...(options.headers || {}) }
+        headers: { "user-agent": "CountryDashboard/2.0", accept: "application/json,text/csv,*/*", ...(options.headers || {}) }
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return await response.json();
+      return response;
     } catch (error) {
       lastError = error;
-      if (attempt < 2) await new Promise(resolve => setTimeout(resolve, 750 * (attempt + 1)));
+      if (attempt < 3) await sleep((attempt + 1) * 1_250);
     } finally {
       clearTimeout(timer);
     }
@@ -68,52 +102,114 @@ async function fetchJson(url, options = {}) {
   throw lastError;
 }
 
-function nearestYearValue(series, preferredYear) {
-  const candidates = Object.entries(series || {})
-    .map(([year, value]) => ({ year: Number(year), value: Number(value) }))
-    .filter(item => Number.isInteger(item.year) && Number.isFinite(item.value))
-    .sort((left, right) => Math.abs(left.year - preferredYear) - Math.abs(right.year - preferredYear) || right.year - left.year);
-  return candidates[0] || null;
+async function fetchJson(url, options = {}) {
+  return (await fetchResponse(url, options)).json();
+}
+
+async function fetchText(url, options = {}) {
+  return (await fetchResponse(url, options)).text();
+}
+
+function nowIso() {
+  return new Date().toISOString();
+}
+
+function observationClass(year, currentYear) {
+  if (year < currentYear) return "historical";
+  if (year === currentYear) return "estimate";
+  return "forecast";
+}
+
+function currentValue(series, preferredYear) {
+  const exact = series.find(point => point.year === preferredYear);
+  if (exact) return exact;
+  return [...series].sort((left, right) =>
+    Math.abs(left.year - preferredYear) - Math.abs(right.year - preferredYear) || right.year - left.year
+  )[0] || null;
 }
 
 async function fetchImf(iso3) {
-  const preferredYear = new Date().getUTCFullYear();
-  const requestedYears = Array.from({ length: 10 }, (_, index) => preferredYear - 4 + index);
-  const years = requestedYears.join(",");
+  const currentYear = new Date().getUTCFullYear();
+  const requestedYears = Array.from({ length: 10 }, (_, index) => currentYear - 4 + index);
+  const requestedSet = new Set(requestedYears);
+  const periods = requestedYears.join(",");
   const indicators = {};
-  for (const [key, [code, unit]] of Object.entries(IMF_INDICATORS)) {
-    let json;
+  const warnings = [];
+
+  for (const [key, metadata] of Object.entries(IMF_INDICATORS)) {
+    const url = `https://www.imf.org/external/datamapper/api/v1/${metadata.code}/${iso3}?periods=${periods}`;
     try {
-      json = await fetchJson(`https://www.imf.org/external/datamapper/api/v2/${code}/${iso3}?periods=${years}`);
-    } catch {
-      json = await fetchJson(`https://www.imf.org/external/datamapper/api/v1/${code}/${iso3}?periods=${years}`);
+      const json = await fetchJson(url);
+      const sourceSeries = json?.values?.[metadata.code]?.[iso3] || json?.values?.[iso3] || json?.data?.[metadata.code]?.[iso3] || {};
+      const series = Object.entries(sourceSeries).map(([year, value]) => ({
+        year: Number(year), value: Number(value)
+      })).filter(point => requestedSet.has(point.year) && Number.isFinite(point.value))
+        .sort((left, right) => left.year - right.year)
+        .map(point => ({
+          ...point,
+          observationClass: observationClass(point.year, currentYear),
+          projection: point.year > currentYear
+        }));
+      const picked = currentValue(series, currentYear);
+      if (!picked) {
+        warnings.push(`${metadata.code}: no observations in requested window`);
+        continue;
+      }
+      indicators[key] = {
+        value: picked.value,
+        year: picked.year,
+        unit: metadata.unit,
+        label: metadata.label,
+        observationClass: picked.observationClass,
+        projection: picked.projection,
+        sourceCode: metadata.code,
+        sourceUrl: url,
+        series
+      };
+    } catch (error) {
+      warnings.push(`${metadata.code}: ${error.message}`);
     }
-    const series = json?.values?.[code]?.[iso3] || json?.values?.[iso3] || json?.data?.[code]?.[iso3];
-    const picked = nearestYearValue(series, preferredYear);
-    const points = Object.entries(series || {}).map(([year, value]) => ({
-      year: Number(year), value: Number(value), projection: Number(year) >= preferredYear
-    })).filter(point => Number.isInteger(point.year) && Number.isFinite(point.value))
-      .sort((left, right) => left.year - right.year);
-    if (picked) indicators[key] = { value: picked.value, year: picked.year, unit, projection: picked.year >= preferredYear, series: points };
   }
-  if (!Object.keys(indicators).length) throw new Error("no IMF observations returned");
-  return { indicators };
+  if (!Object.keys(indicators).length) throw new Error(warnings.join(" | ") || "no IMF observations returned");
+  return { indicators, warnings, observationThrough: Math.max(...Object.values(indicators).map(metric => metric.year)) };
 }
 
 async function fetchWorldBank(iso3) {
+  const currentYear = new Date().getUTCFullYear();
   const indicators = {};
-  for (const [key, [code, unit]] of Object.entries(WB_INDICATORS)) {
-    const url = `https://api.worldbank.org/v2/country/${iso3}/indicator/${code}?format=json&per_page=12&date=2015:2030`;
-    const json = await fetchJson(url);
-    const rows = Array.isArray(json?.[1]) ? json[1] : [];
-    const found = rows.find(row => row?.value !== null && Number.isFinite(Number(row.value)));
-    const series = rows.filter(row => row?.value !== null && Number.isFinite(Number(row.value)) && Number.isInteger(Number(row.date)))
-      .map(row => ({ value: Number(row.value), year: Number(row.date), projection: false }))
-      .sort((left, right) => left.year - right.year);
-    if (found) indicators[key] = { value: Number(found.value), year: Number(found.date), unit, series };
+  const warnings = [];
+  for (const [key, metadata] of Object.entries(WB_INDICATORS)) {
+    const url = `https://api.worldbank.org/v2/country/${iso3}/indicator/${metadata.code}?format=json&per_page=100&date=2015:${currentYear}`;
+    try {
+      const json = await fetchJson(url);
+      const rows = Array.isArray(json?.[1]) ? json[1] : [];
+      const series = rows.filter(row => row?.value !== null && Number.isFinite(Number(row.value)) && Number.isInteger(Number(row.date)))
+        .map(row => ({ value: Number(row.value), year: Number(row.date), projection: false, observationClass: "historical" }))
+        .sort((left, right) => left.year - right.year);
+      const picked = series.at(-1);
+      if (!picked) {
+        warnings.push(`${metadata.code}: no observations`);
+        continue;
+      }
+      const ageYears = Math.max(0, currentYear - picked.year);
+      indicators[key] = {
+        value: picked.value,
+        year: picked.year,
+        unit: metadata.unit,
+        label: metadata.label,
+        definition: metadata.definition,
+        sourceCode: metadata.code,
+        sourceUrl: `https://data.worldbank.org/indicator/${metadata.code}?locations=${iso3}`,
+        ageYears,
+        stale: ageYears > metadata.maxAgeYears,
+        series
+      };
+    } catch (error) {
+      warnings.push(`${metadata.code}: ${error.message}`);
+    }
   }
-  if (!Object.keys(indicators).length) throw new Error("no World Bank observations returned");
-  return { indicators };
+  if (!Object.keys(indicators).length) throw new Error(warnings.join(" | ") || "no World Bank observations returned");
+  return { indicators, warnings, observationThrough: Math.max(...Object.values(indicators).map(metric => metric.year)) };
 }
 
 function oecRows(json) {
@@ -128,51 +224,165 @@ function firstField(row, fields) {
   return null;
 }
 
+function tradeValue(row) {
+  return Number(firstField(row, ["Trade Value", "Trade Value USD", "value"])) || 0;
+}
+
 function rankOec(rows, nameFields) {
   const mapped = rows.map(row => ({
-    name: String(firstField(row, nameFields) || "").trim(),
-    value: Number(firstField(row, ["Trade Value", "Trade Value USD", "value"]))
+    name: String(firstField(row, nameFields) || "").trim(), value: tradeValue(row)
   })).filter(row => row.name && Number.isFinite(row.value) && row.value > 0);
   const total = mapped.reduce((sum, row) => sum + row.value, 0);
-  return mapped.sort((a, b) => b.value - a.value).slice(0, 5)
+  return mapped.sort((left, right) => right.value - left.value).slice(0, 5)
     .map(row => ({ ...row, share: total ? row.value / total * 100 : null }));
 }
 
 async function fetchOecQuery(params) {
-  const url = new URL("https://api-v2.oec.world/tesseract/data.jsonrecords");
+  const url = new URL(process.env.OEC_API_BASE || "https://api-v2.oec.world/tesseract/data.jsonrecords");
   for (const [key, value] of Object.entries(params)) url.searchParams.set(key, value);
-  const headers = process.env.OEC_API_TOKEN ? { authorization: `Bearer ${process.env.OEC_API_TOKEN}` } : {};
-  return oecRows(await fetchJson(url, { headers }));
+  if (process.env.OEC_API_TOKEN) url.searchParams.set("token", process.env.OEC_API_TOKEN);
+  const rows = oecRows(await fetchJson(url));
+  if (!rows.length) throw new Error("no rows returned");
+  return rows;
 }
 
-async function fetchOec(oecId) {
-  const year = Number(process.env.OEC_DATA_YEAR || new Date().getUTCFullYear() - 2);
-  const common = { cube: "trade_i_baci_a_22", measures: "Trade Value", Year: String(year), locale: "en" };
-  const [exportRows, importRows, exportPartnerRows, importPartnerRows] = await Promise.all([
-    fetchOecQuery({ ...common, "Exporter Country": oecId, drilldowns: "HS4" }),
-    fetchOecQuery({ ...common, "Importer Country": oecId, drilldowns: "HS4" }),
-    fetchOecQuery({ ...common, "Exporter Country": oecId, drilldowns: "Importer Country" }),
-    fetchOecQuery({ ...common, "Importer Country": oecId, drilldowns: "Exporter Country" })
-  ]);
-  const trade = {
-    year,
-    exportsTotal: exportRows.reduce((sum, row) => sum + (Number(firstField(row, ["Trade Value", "Trade Value USD", "value"])) || 0), 0),
-    importsTotal: importRows.reduce((sum, row) => sum + (Number(firstField(row, ["Trade Value", "Trade Value USD", "value"])) || 0), 0),
-    topExports: rankOec(exportRows, ["HS4", "HS4 Name", "Product"]),
-    topImports: rankOec(importRows, ["HS4", "HS4 Name", "Product"]),
-    exportPartners: rankOec(exportPartnerRows, ["Importer Country", "Importer Country Name"]),
-    importPartners: rankOec(importPartnerRows, ["Exporter Country", "Exporter Country Name"])
-  };
-  if (![trade.topExports, trade.topImports, trade.exportPartners, trade.importPartners].some(rows => rows.length)) {
-    throw new Error(`no OEC observations returned for ${year}`);
+async function fetchOecYear(oecId, year) {
+  const common = { cube: "trade_i_baci_a_22", measures: "Trade Value", locale: "en", limit: "5000,0" };
+  const specifications = [
+    ["topExports", { ...common, include: `Year:${year};Exporter Country:${oecId}`, drilldowns: "HS4" }, ["HS4", "HS4 Description", "HS4 Name", "Product"]],
+    ["topImports", { ...common, include: `Year:${year};Importer Country:${oecId}`, drilldowns: "HS4" }, ["HS4", "HS4 Description", "HS4 Name", "Product"]],
+    ["exportPartners", { ...common, include: `Year:${year};Exporter Country:${oecId}`, drilldowns: "Importer Country" }, ["Importer Country", "Importer Country Name"]],
+    ["importPartners", { ...common, include: `Year:${year};Importer Country:${oecId}`, drilldowns: "Exporter Country" }, ["Exporter Country", "Exporter Country Name"]]
+  ];
+  const sections = {};
+  const warnings = [];
+  for (const [field, params, nameFields] of specifications) {
+    try {
+      const rows = await fetchOecQuery(params);
+      sections[field] = { rows, ranked: rankOec(rows, nameFields) };
+    } catch (error) {
+      warnings.push(`${field}: ${error.message}`);
+    }
+    await sleep(Number(process.env.OEC_THROTTLE_MS || 350));
   }
-  return trade;
+  return { sections, warnings };
 }
 
-function loadCommodityImport() {
-  if (!fs.existsSync(commodityImportPath)) return {};
-  const parsed = JSON.parse(fs.readFileSync(commodityImportPath, "utf8"));
-  return parsed.countries || parsed;
+async function fetchOec(oecId, previousTrade = null) {
+  const preferredYear = Number(process.env.OEC_DATA_YEAR || new Date().getUTCFullYear() - 2);
+  const candidateYears = Array.from({ length: 6 }, (_, index) => preferredYear - index);
+  const yearWarnings = [];
+  for (const year of candidateYears) {
+    const attempt = await fetchOecYear(oecId, year);
+    const available = Object.keys(attempt.sections);
+    if (!available.length) {
+      yearWarnings.push(`${year}: ${attempt.warnings.join("; ")}`);
+      continue;
+    }
+    const previousSameYear = previousTrade?.year === year ? previousTrade : {};
+    const topExports = attempt.sections.topExports?.ranked || previousSameYear.topExports || [];
+    const topImports = attempt.sections.topImports?.ranked || previousSameYear.topImports || [];
+    const exportPartners = attempt.sections.exportPartners?.ranked || previousSameYear.exportPartners || [];
+    const importPartners = attempt.sections.importPartners?.ranked || previousSameYear.importPartners || [];
+    const exportRows = attempt.sections.topExports?.rows || attempt.sections.exportPartners?.rows || [];
+    const importRows = attempt.sections.topImports?.rows || attempt.sections.importPartners?.rows || [];
+    const coverage = {
+      topExports: Boolean(attempt.sections.topExports),
+      topImports: Boolean(attempt.sections.topImports),
+      exportPartners: Boolean(attempt.sections.exportPartners),
+      importPartners: Boolean(attempt.sections.importPartners)
+    };
+    const retainedSections = Object.entries(coverage)
+      .filter(([field, refreshed]) => !refreshed && Array.isArray(previousSameYear[field]) && previousSameYear[field].length)
+      .map(([field]) => field);
+    return {
+      year,
+      dataset: "BACI bilateral merchandise trade via OEC",
+      exportsTotal: exportRows.reduce((sum, row) => sum + tradeValue(row), 0) || previousSameYear.exportsTotal || null,
+      importsTotal: importRows.reduce((sum, row) => sum + tradeValue(row), 0) || previousSameYear.importsTotal || null,
+      topExports, topImports, exportPartners, importPartners, coverage,
+      retainedSections,
+      warnings: [...yearWarnings, ...attempt.warnings]
+    };
+  }
+  throw new Error(yearWarnings.join(" | ") || "no OEC observations returned");
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [], field = "", quoted = false;
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    if (character === '"' && quoted && text[index + 1] === '"') { field += '"'; index += 1; }
+    else if (character === '"') quoted = !quoted;
+    else if (character === "," && !quoted) { row.push(field); field = ""; }
+    else if ((character === "\n" || character === "\r") && !quoted) {
+      if (character === "\r" && text[index + 1] === "\n") index += 1;
+      row.push(field); field = "";
+      if (row.some(value => value.length)) rows.push(row);
+      row = [];
+    } else field += character;
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  const headers = rows.shift()?.map(value => value.trim()) || [];
+  return rows.map(values => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""])));
+}
+
+function normalizedKey(value) {
+  return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+function findColumn(headers, candidates) {
+  const normalized = new Map(headers.map(header => [normalizedKey(header), header]));
+  for (const candidate of candidates) {
+    const exact = normalized.get(normalizedKey(candidate));
+    if (exact) return exact;
+  }
+  for (const [key, header] of normalized) {
+    if (candidates.some(candidate => key.includes(normalizedKey(candidate)))) return header;
+  }
+  return null;
+}
+
+function numericCell(row, field) {
+  if (!field) return null;
+  const value = Number(String(row[field] ?? "").replace(/[%\s]/g, ""));
+  return Number.isFinite(value) ? value : null;
+}
+
+function commodityRecordsFromCsv(text, sourceUrl) {
+  const rows = parseCsv(text);
+  if (!rows.length) throw new Error("UNCTAD CSV contained no rows");
+  const headers = Object.keys(rows[0]);
+  const isoField = findColumn(headers, ["iso3", "country iso3", "economy iso3", "alpha3"]);
+  const shareField = findColumn(headers, ["commodity export dependence", "commodity export share", "dependence", "share commodity exports", "commodity share", "dependency"]);
+  const periodField = findColumn(headers, ["reference period", "period", "year"]);
+  const groupField = findColumn(headers, ["dominant export product group", "dominant group", "primary group"]);
+  const agricultureField = findColumn(headers, ["agriculture share", "agricultural commodities"]);
+  const energyField = findColumn(headers, ["energy share", "energy commodities"]);
+  const miningField = findColumn(headers, ["mining share", "minerals ores metals"]);
+  if (!isoField || !shareField) throw new Error(`UNCTAD CSV fields not recognised (${headers.join(", ")})`);
+  const records = {};
+  for (const row of rows) {
+    const iso3 = String(row[isoField] || "").trim().toUpperCase();
+    const exportShare = numericCell(row, shareField);
+    if (!/^[A-Z]{3}$/.test(iso3) || exportShare === null || exportShare < 0 || exportShare > 100) continue;
+    const groups = [
+      ["Agriculture", numericCell(row, agricultureField)],
+      ["Energy", numericCell(row, energyField)],
+      ["Mining", numericCell(row, miningField)]
+    ].filter(([, value]) => value !== null).sort((left, right) => right[1] - left[1]);
+    records[iso3] = {
+      exportShare,
+      dependent: exportShare > 60,
+      referencePeriod: String(row[periodField] || "2022–2024").trim(),
+      ...(row[groupField] ? { primaryGroup: String(row[groupField]).trim() } : groups.length ? { primaryGroup: groups[0][0] } : {}),
+      sourceUrl,
+      sourceDataset: "UNCTAD Commodity Dependence Dashboard"
+    };
+  }
+  if (!Object.keys(records).length) throw new Error("UNCTAD CSV yielded no valid country records");
+  return records;
 }
 
 function validateCommodity(record, key) {
@@ -185,12 +395,145 @@ function validateCommodity(record, key) {
     dependent: share > 60,
     referencePeriod: String(record.referencePeriod),
     ...(record.primaryGroup ? { primaryGroup: String(record.primaryGroup) } : {}),
-    sourceUrl: String(record.sourceUrl || "https://unctad.org/topic/commodities/state-of-commodity-dependence")
+    sourceUrl: String(record.sourceUrl || "https://unctad.org/topic/commodities/state-of-commodity-dependence/country-profiles"),
+    sourceDataset: String(record.sourceDataset || "UNCTAD reviewed import")
   };
 }
 
-function stable(value) {
-  return JSON.stringify(value, Object.keys(value || {}).sort());
+function loadCommodityImport(countries) {
+  if (!fs.existsSync(commodityImportPath)) return {};
+  const parsed = JSON.parse(fs.readFileSync(commodityImportPath, "utf8"));
+  const source = parsed.countries || parsed;
+  const records = {};
+  for (const [key, record] of Object.entries(source)) {
+    const iso3 = countries[key]?.iso3 || (/^[A-Z]{3}$/.test(key) ? key : null);
+    if (!iso3) continue;
+    records[iso3] = validateCommodity(record, key);
+  }
+  return records;
+}
+
+async function fetchUnctad(countries) {
+  const failures = [];
+  for (const url of UNCTAD_URLS) {
+    try {
+      return { records: commodityRecordsFromCsv(await fetchText(url), url), warnings: failures };
+    } catch (error) {
+      failures.push(`${url}: ${error.message}`);
+    }
+  }
+  const imported = loadCommodityImport(countries);
+  if (Object.keys(imported).length) return { records: imported, warnings: failures };
+  throw new Error(failures.join(" | ") || "no UNCTAD source or reviewed import available");
+}
+
+function providerStatus(previous, status, attemptedAt, details = {}) {
+  return {
+    status,
+    lastAttemptAt: attemptedAt,
+    lastSuccessAt: status === "ok" || status === "partial" ? attemptedAt : previous?.lastSuccessAt || null,
+    retainedPrevious: status === "error" && Boolean(details.retainedPrevious),
+    ...details
+  };
+}
+
+function ensureCountryRecord(data, key) {
+  if (!data.countries[key]) data.countries[key] = {};
+  if (!data.countries[key].refresh) data.countries[key].refresh = {};
+  return data.countries[key];
+}
+
+function selectTargets(loaded) {
+  const profileKeyByIso3 = Object.fromEntries(loaded.COUNTRY_DATA.order.map(key => [
+    String(loaded.COUNTRY_DATA.countries[key]?.iso3 || "").toUpperCase(), key
+  ]));
+  let targets = Object.values(JURISDICTIONS).map(jurisdiction => ({
+    ...jurisdiction,
+    profileKey: profileKeyByIso3[jurisdiction.iso3] || null
+  })).sort((left, right) => left.iso3.localeCompare(right.iso3));
+  if (requestedCountry) {
+    if (requestedCountry.toLowerCase() === "profiles") {
+      targets = targets.filter(target => target.profileKey);
+      if (!targets.length) throw new Error("No published country profiles have ISO3 mappings");
+      return targets;
+    }
+    const requestedIso3 = loaded.COUNTRY_DATA.countries[requestedCountry]?.iso3 || requestedCountry;
+    targets = targets.filter(target => target.iso3 === String(requestedIso3).toUpperCase());
+    if (!targets.length) throw new Error(`Unknown jurisdiction: ${requestedCountry}`);
+    return targets;
+  }
+  const bundleCount = Number(process.env.ECONOMIC_BUNDLE_COUNT || 1);
+  const bundleIndex = Number(process.env.ECONOMIC_BUNDLE_INDEX || 0);
+  if (!Number.isInteger(bundleCount) || bundleCount < 1 || !Number.isInteger(bundleIndex) || bundleIndex < 0 || bundleIndex >= bundleCount) {
+    throw new Error("Invalid ECONOMIC_BUNDLE_INDEX/ECONOMIC_BUNDLE_COUNT");
+  }
+  return targets.filter((_, index) => index % bundleCount === bundleIndex);
+}
+
+function normalizeExistingMetric(metric, provider, metricKey, currentYear) {
+  if (!metric || typeof metric !== "object") return metric;
+  const metadata = provider === "imf" ? IMF_INDICATORS[metricKey] : WB_INDICATORS[metricKey];
+  const minimumYear = provider === "imf" ? currentYear - 4 : -Infinity;
+  const maximumYear = provider === "imf" ? currentYear + 5 : Infinity;
+  const series = (Array.isArray(metric.series) ? metric.series : [])
+    .map(point => ({ year: Number(point.year), value: Number(point.value) }))
+    .filter(point => Number.isInteger(point.year) && Number.isFinite(point.value) && point.year >= minimumYear && point.year <= maximumYear)
+    .sort((left, right) => left.year - right.year)
+    .map(point => ({
+      ...point,
+      observationClass: provider === "imf" ? observationClass(point.year, currentYear) : "historical",
+      projection: provider === "imf" && point.year > currentYear
+    }));
+  const picked = provider === "imf" ? currentValue(series, currentYear) : series.at(-1);
+  const year = Number(picked?.year ?? metric.year);
+  const normalized = {
+    ...metric,
+    ...(metadata || {}),
+    sourceCode: metadata?.code || metric.sourceCode,
+    year,
+    series
+  };
+  if (provider === "imf") {
+    normalized.observationClass = observationClass(year, currentYear);
+    normalized.projection = year > currentYear;
+  } else {
+    normalized.ageYears = Math.max(0, currentYear - year);
+    normalized.stale = normalized.ageYears > (metadata?.maxAgeYears ?? 2);
+    normalized.projection = false;
+  }
+  return normalized;
+}
+
+function normalizeRecord(record, iso3) {
+  const currentYear = new Date().getUTCFullYear();
+  record.iso3 = iso3;
+  record.refresh ||= {};
+  for (const provider of ["imf", "worldBank"]) {
+    const indicators = record[provider]?.indicators;
+    if (indicators && typeof indicators === "object") {
+      if (provider === "worldBank") delete indicators.externalDebtCurrentUsd;
+      for (const [metricKey, metric] of Object.entries(indicators)) {
+        indicators[metricKey] = normalizeExistingMetric(metric, provider, metricKey, currentYear);
+      }
+    }
+  }
+  for (const [provider, hasData] of Object.entries({
+    imf: Boolean(record.imf),
+    worldBank: Boolean(record.worldBank),
+    oec: Boolean(record.trade),
+    unctad: Boolean(record.commodityDependence)
+  })) {
+    if (!record.refresh[provider]) {
+      record.refresh[provider] = {
+        status: hasData ? "stale" : "pending",
+        lastAttemptAt: null,
+        lastSuccessAt: null,
+        retainedPrevious: false,
+        ...(hasData ? { warning: "Record predates provider-level refresh tracking; run the relevant refresh." } : {})
+      };
+    }
+  }
+  return record;
 }
 
 function writeData(data) {
@@ -199,61 +542,123 @@ function writeData(data) {
 }
 
 const loaded = loadWindow("data/countries.js", "data/economics.js");
-const previous = loaded.ECONOMIC_DATA;
-const next = structuredClone(previous);
-const failures = [];
-let changed = false;
+const next = structuredClone(loaded.ECONOMIC_DATA);
+next.schemaVersion = 2;
+next.sources = {
+  ...next.sources,
+  imf: { label: "IMF World Economic Outlook", url: "https://www.imf.org/external/datamapper/", cadence: "Monthly API check", apiVersion: "v1" },
+  worldBank: { label: "World Bank Indicators API", url: "https://api.worldbank.org/v2/", cadence: "Monthly API check", apiVersion: "v2" },
+  unctad: { label: "UNCTAD Commodity Dependence Dashboard", url: "https://unctad.org/topic/commodities/state-of-commodity-dependence/country-profiles", cadence: "Annual source refresh" },
+  oec: { label: "Observatory of Economic Complexity", url: "https://oec.world/", cadence: "Quarterly API check; annual BACI merchandise data", dataset: "BACI via OEC" }
+};
 
-if (scope === "all" || scope === "macro") {
-  for (const key of loaded.COUNTRY_DATA.order) {
-    const ids = IDS[key];
-    if (!ids) { failures.push(`${key}: no source identifiers`); continue; }
-    const [imf, worldBank] = await Promise.allSettled([fetchImf(ids.iso3), fetchWorldBank(ids.iso3)]);
-    if (imf.status === "fulfilled") {
-      if (JSON.stringify(next.countries[key].imf) !== JSON.stringify(imf.value)) changed = true;
-      next.countries[key].imf = imf.value;
-    } else failures.push(`${key} IMF: ${imf.reason.message}`);
-    if (worldBank.status === "fulfilled") {
-      if (JSON.stringify(next.countries[key].worldBank) !== JSON.stringify(worldBank.value)) changed = true;
-      next.countries[key].worldBank = worldBank.value;
-    } else failures.push(`${key} World Bank: ${worldBank.reason.message}`);
-  }
+next.jurisdictions ||= {};
+for (const key of loaded.COUNTRY_DATA.order) {
+  const iso3 = String(loaded.COUNTRY_DATA.countries[key]?.iso3 || "").toUpperCase();
+  if (iso3 && next.countries?.[key] && !next.jurisdictions[iso3]) next.jurisdictions[iso3] = next.countries[key];
 }
+for (const iso3 of Object.keys(JURISDICTIONS)) {
+  next.jurisdictions[iso3] = normalizeRecord(next.jurisdictions[iso3] || {}, iso3);
+}
+delete next.countries;
 
-if (scope === "all" || scope === "trade") {
-  for (const key of loaded.COUNTRY_DATA.order) {
+const selectedTargets = selectTargets(loaded);
+const attemptedAt = nowIso();
+const failures = [];
+
+for (const target of selectedTargets) {
+  const { iso3 } = target;
+  const jurisdiction = jurisdictionFor(iso3);
+  const record = next.jurisdictions[iso3];
+  if (!jurisdiction) {
+    const message = `missing or unsupported ISO3 code ${iso3 || "(blank)"}`;
+    failures.push(`${iso3}: ${message}`);
+    for (const provider of ["imf", "worldBank", "oec", "unctad"]) {
+      record.refresh[provider] = providerStatus(record.refresh[provider], "error", attemptedAt, { error: message, retainedPrevious: Boolean(record[provider]) });
+    }
+    continue;
+  }
+
+  if (scope === "all" || scope === "macro") {
+    const results = await Promise.allSettled([fetchImf(iso3), fetchWorldBank(iso3)]);
+    for (const [provider, result] of [["imf", results[0]], ["worldBank", results[1]]]) {
+      if (result.status === "fulfilled") {
+        const previousIndicators = record[provider]?.indicators || {};
+        const retainedMetricKeys = Object.keys(previousIndicators).filter(metricKey => !result.value.indicators[metricKey]);
+        record[provider] = { indicators: { ...previousIndicators, ...result.value.indicators } };
+        const status = result.value.warnings.length ? "partial" : "ok";
+        record.refresh[provider] = providerStatus(record.refresh[provider], status, attemptedAt, {
+          observationThrough: result.value.observationThrough,
+          retainedPrevious: retainedMetricKeys.length > 0,
+          retainedMetricKeys,
+          warnings: result.value.warnings
+        });
+      } else {
+        failures.push(`${iso3} ${provider}: ${result.reason.message}`);
+        record.refresh[provider] = providerStatus(record.refresh[provider], "error", attemptedAt, {
+          error: result.reason.message,
+          retainedPrevious: Boolean(record[provider])
+        });
+      }
+    }
+  }
+
+  if (scope === "all" || scope === "trade") {
     try {
-      const trade = await fetchOec(IDS[key].oec);
-      if (JSON.stringify(next.countries[key].trade) !== JSON.stringify(trade)) changed = true;
-      next.countries[key].trade = trade;
+      record.trade = await fetchOec(jurisdiction.oecId, record.trade);
+      const coverageCount = Object.values(record.trade.coverage || {}).filter(Boolean).length;
+      record.refresh.oec = providerStatus(record.refresh.oec, coverageCount === 4 ? "ok" : "partial", attemptedAt, {
+        observationThrough: record.trade.year,
+        retainedPrevious: Boolean(record.trade.retainedSections?.length),
+        warnings: record.trade.warnings || []
+      });
     } catch (error) {
-      failures.push(`${key} OEC: ${error.message}`);
+      failures.push(`${iso3} OEC: ${error.message}`);
+      record.refresh.oec = providerStatus(record.refresh.oec, "error", attemptedAt, {
+        error: error.message,
+        retainedPrevious: Boolean(record.trade)
+      });
     }
   }
 }
 
 if (scope === "all" || scope === "commodity") {
-  const imported = loadCommodityImport();
-  for (const [key, record] of Object.entries(imported)) {
-    if (!next.countries[key]) { failures.push(`${key} UNCTAD: unknown country key`); continue; }
-    try {
-      const commodity = validateCommodity(record, key);
-      if (JSON.stringify(next.countries[key].commodityDependence) !== JSON.stringify(commodity)) changed = true;
-      next.countries[key].commodityDependence = commodity;
-    } catch (error) {
-      failures.push(`UNCTAD ${error.message}`);
+  try {
+    const unctad = await fetchUnctad(loaded.COUNTRY_DATA.countries);
+    for (const { iso3 } of selectedTargets) {
+      const record = next.jurisdictions[iso3];
+      const commodity = unctad.records[record.iso3];
+      if (commodity) {
+        record.commodityDependence = commodity;
+        record.refresh.unctad = providerStatus(record.refresh.unctad, "ok", attemptedAt, {
+          observationThrough: commodity.referencePeriod,
+          warnings: unctad.warnings
+        });
+      } else {
+        const error = `no UNCTAD record for ${record.iso3}`;
+        failures.push(`${iso3} UNCTAD: ${error}`);
+        record.refresh.unctad = providerStatus(record.refresh.unctad, "error", attemptedAt, {
+          error, retainedPrevious: Boolean(record.commodityDependence)
+        });
+      }
     }
+  } catch (error) {
+    for (const { iso3 } of selectedTargets) {
+      const record = next.jurisdictions[iso3];
+      record.refresh.unctad = providerStatus(record.refresh.unctad, "error", attemptedAt, {
+        error: error.message, retainedPrevious: Boolean(record.commodityDependence)
+      });
+    }
+    failures.push(`UNCTAD: ${error.message}`);
   }
 }
 
-if (changed) {
-  next.generatedAt = new Date().toISOString();
-  writeData(next);
-  console.log(`Economic data updated (${scope}).`);
-} else {
-  console.log(`No economic-data changes (${scope}); retained last published file.`);
-}
+next.generatedAt = attemptedAt;
+next.refreshSummary = { scope, jurisdictionsAttempted: selectedTargets.length, completedAt: attemptedAt, failures: failures.length };
+writeData(next);
+console.log(`Economic data refresh completed (${scope}): ${selectedTargets.length} jurisdictions, ${failures.length} provider warning(s).`);
 if (failures.length) {
   console.warn(`Provider warnings (${failures.length}):`);
   failures.forEach(failure => console.warn(`- ${failure}`));
+  console.warn(`::warning title=Economic refresh incomplete::${failures.length} provider or jurisdiction refresh warning(s). Previous values, where retained, are marked on the dashboard.`);
 }

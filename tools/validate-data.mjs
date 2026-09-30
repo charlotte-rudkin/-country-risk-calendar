@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { JURISDICTIONS } from "./jurisdictions.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -63,14 +64,27 @@ function checkEconomicMetric(metric, location) {
   if (!Number.isFinite(Number(metric.value))) fail(`${location}.value must be numeric`);
   if (!Number.isInteger(Number(metric.year))) fail(`${location}.year must be an integer`);
   if (!["percent", "months", "usd"].includes(metric.unit)) fail(`${location}.unit is unsupported`);
+  if (!isText(metric.sourceCode)) fail(`${location}.sourceCode must be non-empty text`);
+  if (!isText(metric.label)) fail(`${location}.label must be non-empty text`);
   if (metric.series !== undefined) {
     if (!Array.isArray(metric.series)) fail(`${location}.series must be an array`);
     else metric.series.forEach((point, index) => {
       if (!Number.isInteger(Number(point?.year))) fail(`${location}.series[${index}].year must be an integer`);
       if (!Number.isFinite(Number(point?.value))) fail(`${location}.series[${index}].value must be numeric`);
       if (typeof point?.projection !== "boolean") fail(`${location}.series[${index}].projection must be boolean`);
+      if (!["historical", "estimate", "forecast"].includes(point?.observationClass)) fail(`${location}.series[${index}].observationClass is unsupported`);
     });
+    if (location.includes(".imf.") && metric.series.length > 10) fail(`${location}.series must contain no more than 10 IMF observations`);
   }
+}
+
+function checkRefreshStatus(status, location) {
+  if (!status || typeof status !== "object") return fail(`${location} is required`);
+  if (!["ok", "partial", "error", "stale", "pending"].includes(status.status)) fail(`${location}.status is unsupported`);
+  for (const field of ["lastAttemptAt", "lastSuccessAt"]) {
+    if (status[field] !== null && status[field] !== undefined && Number.isNaN(Date.parse(status[field]))) fail(`${location}.${field} must be a timestamp or null`);
+  }
+  if (typeof status.retainedPrevious !== "boolean") fail(`${location}.retainedPrevious must be boolean`);
 }
 
 function checkRankedRows(rows, location) {
@@ -135,17 +149,32 @@ if (errors.length === 0) {
   const historySources = historyData.sources;
   const countryKeys = Object.keys(countries);
 
-  if (economicData.schemaVersion !== 1) fail("ECONOMIC_DATA.schemaVersion must be 1");
+  if (economicData.schemaVersion !== 2) fail("ECONOMIC_DATA.schemaVersion must be 2");
   if (!economicData.sources || typeof economicData.sources !== "object") fail("ECONOMIC_DATA.sources is required");
-  if (!economicData.countries || typeof economicData.countries !== "object") fail("ECONOMIC_DATA.countries is required");
-  for (const key of countryKeys) {
-    if (!economicData.countries?.[key] || typeof economicData.countries[key] !== "object") {
-      fail(`Economic data is missing for ${key}`);
+  if (!economicData.jurisdictions || typeof economicData.jurisdictions !== "object") fail("ECONOMIC_DATA.jurisdictions is required");
+  const targetIso3s = Object.keys(JURISDICTIONS).sort();
+  const economicIso3s = Object.keys(economicData.jurisdictions || {}).sort();
+  if (economicIso3s.length !== 197) fail(`ECONOMIC_DATA must contain 197 jurisdiction records; found ${economicIso3s.length}`);
+  for (const iso3 of targetIso3s) {
+    const record = economicData.jurisdictions?.[iso3];
+    if (!record) {
+      fail(`Economic data is missing jurisdiction ${iso3}`);
+      continue;
     }
-    const economic = economicData.countries?.[key] || {};
+    if (record.iso3 !== iso3) fail(`Economic jurisdiction ${iso3} has a mismatched iso3 field`);
+    for (const provider of ["imf", "worldBank", "oec", "unctad"]) checkRefreshStatus(record.refresh?.[provider], `${iso3}.refresh.${provider}`);
+  }
+  for (const iso3 of economicIso3s) if (!JURISDICTIONS[iso3]) fail(`Economic data references unsupported jurisdiction ${iso3}`);
+  for (const key of countryKeys) {
+    const iso3 = countries[key]?.iso3;
+    if (!isText(iso3) || !JURISDICTIONS[iso3]) fail(`${key}.iso3 must identify one of the 197 target jurisdictions`);
+    const economic = economicData.jurisdictions?.[iso3] || {};
+    if (!economicData.jurisdictions?.[iso3]) fail(`Economic data is missing for ${key} (${iso3})`);
+    if (economic.iso3 !== iso3) fail(`${key} economic record has mismatched iso3`);
+    for (const provider of ["imf", "worldBank", "oec", "unctad"]) checkRefreshStatus(economic.refresh?.[provider], `${key}.refresh.${provider}`);
     for (const [provider, indicatorKeys] of Object.entries({
       imf: ["realGdpGrowth", "inflation", "currentAccount", "fiscalBalance", "governmentDebt"],
-      worldBank: ["reserveMonths", "externalDebtGni", "debtServiceExports"]
+      worldBank: ["reserveMonths", "interestPaymentsRevenue", "externalDebtGni", "shortTermDebtPct", "concessionalDebtPct", "debtServiceExports", "gdpPerCapita"]
     })) {
       if (economic[provider] !== undefined) {
         if (!economic[provider]?.indicators || typeof economic[provider].indicators !== "object") fail(`${key}.${provider}.indicators is required`);
@@ -161,6 +190,7 @@ if (errors.length === 0) {
       if (commodity.dependent !== (Number(commodity.exportShare) > 60)) fail(`${key}.commodityDependence.dependent must follow the >60% UNCTAD threshold`);
       if (!isText(commodity.referencePeriod)) fail(`${key}.commodityDependence.referencePeriod is required`);
       if (!isText(commodity.sourceUrl) || !commodity.sourceUrl.startsWith("https://")) fail(`${key}.commodityDependence.sourceUrl must use https`);
+      if (!isText(commodity.sourceDataset)) fail(`${key}.commodityDependence.sourceDataset is required`);
     }
     if (economic.trade !== undefined) {
       if (!Number.isInteger(Number(economic.trade.year))) fail(`${key}.trade.year must be an integer`);
@@ -172,10 +202,6 @@ if (errors.length === 0) {
       }
     }
   }
-  for (const key of Object.keys(economicData.countries || {})) {
-    if (!countries[key]) fail(`Economic data references unknown country: ${key}`);
-  }
-
   if (newsData.imfArticleIV !== undefined) {
     if (!newsData.imfArticleIV || typeof newsData.imfArticleIV !== "object" || Array.isArray(newsData.imfArticleIV)) {
       fail("NEWS_DATA.imfArticleIV must be an object when present");
@@ -206,6 +232,7 @@ if (errors.length === 0) {
       if (country[field] === undefined || country[field] === null) fail(`${key}.${field} is required`);
     }
     if (!isText(country.name)) fail(`${key}.name must be non-empty text`);
+    if (!isText(country.iso3) || !/^[A-Z]{3}$/.test(country.iso3)) fail(`${key}.iso3 must be a three-letter uppercase code`);
     if (!isText(country.region)) fail(`${key}.region must be non-empty text`);
     if (!Array.isArray(country.coords) || country.coords.length !== 2 || country.coords.some(n => typeof n !== "number")) {
       fail(`${key}.coords must contain latitude and longitude numbers`);

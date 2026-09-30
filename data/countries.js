@@ -4,7 +4,7 @@
 
 const countries = {
   usa: {
-    name: "United States", region: "North America", coords: [39, -95],
+    name: "United States", iso3: "USA", region: "North America", coords: [39, -95],
     ratings: { sp: ["AA+","Stable"], fitch: ["AA+","Stable"], moodys: ["Aa1","Stable"] },
     snapshot: {"leader": "Donald Trump", "party": "Republican Party", "fh": "Free", "opposition": "Democrats hold roughly 45% of House and Senate seats; the Nov 3, 2026 midterms could flip House control.", "issues": ["Press access dispute \u2014 White House barred CNN, MSNBC and Politico (Sept 2026); outlets are suing on First Amendment grounds", "Voting rights \u2014 Supreme Court's Louisiana v. Callais ruling (Apr 2026) narrows majority-minority districting ahead of the midterms"]},
     status: {},
@@ -19,7 +19,7 @@ const countries = {
   },
 
   mexico: {
-    name: "Mexico", region: "North America", coords: [23.6, -102.5],
+    name: "Mexico", iso3: "MEX", region: "North America", coords: [23.6, -102.5],
     ratings: { sp: ["BBB","Negative"], fitch: ["BBB−","Stable"], moodys: ["Baa3","—"] },
     snapshot: {"leader": "Claudia Sheinbaum", "party": "Morena", "fh": "Partly Free", "opposition": "PAN, PRI and MC combined hold ~27% of Chamber of Deputies seats and ~32% of Senate seats; Morena and allies have a two-thirds constitutional supermajority in the Chamber.", "issues": ["USMCA review \u2014 the pact's mandatory 2026 joint review carries renegotiation risk", "Judicial capture concerns \u2014 2025 direct election of federal judges (12% turnout) produced a Morena-aligned judiciary", "Cartel violence \u2014 assassinations of local and state officials continued through 2025\u201326"]},
     status: {},
@@ -33,7 +33,7 @@ const countries = {
   },
 
   bahamas: {
-    name: "The Bahamas", region: "Caribbean", coords: [24.3, -76.6],
+    name: "The Bahamas", iso3: "BHS", region: "Caribbean", coords: [24.3, -76.6],
     ratings: { sp: ["BB−","Stable"], fitch: ["BB−","Stable"], moodys: ["Ba3","Stable"] },
     snapshot: {"leader": "Philip Davis", "party": "Progressive Liberal Party (PLP)", "fh": "Free", "opposition": "FNM holds 8 of 41 House of Assembly seats (20%) after the May 2026 election, on 35% of the popular vote.", "issues": []},
     status: {},
@@ -48,7 +48,7 @@ const countries = {
   },
 
   serbia: {
-    name: "Serbia", region: "South-East Europe", coords: [44.8, 20.5],
+    name: "Serbia", iso3: "SRB", region: "South-East Europe", coords: [44.8, 20.5],
     ratings: { sp: ["BBB−","Stable"], fitch: ["BB+","Positive"], moodys: ["Ba2","Stable"] },
     snapshot: {"leader": "Aleksandar Vu\u010di\u0107", "party": "Serbian Progressive Party (SNS)", "fh": "Partly Free", "opposition": "SNS and allies hold a majority of the 250 National Assembly seats; sustained mass protests since the Nov 2024 Novi Sad railway station collapse have kept sizable street pressure on the government.", "issues": ["Civil unrest \u2014 nationwide protests continuing since Nov 2024", "Unconfirmed election \u2014 National Assembly vote expected ~Oct 2026, date not yet set"]},
     status: { imf: "Active — 36-month Policy Coordination Instrument (since Oct 2024)" },
@@ -64,7 +64,7 @@ const countries = {
   },
 
   turkey: {
-    name: "Türkiye", region: "Europe / Middle East", coords: [39.9, 32.8],
+    name: "Türkiye", iso3: "TUR", region: "Europe / Middle East", coords: [39.9, 32.8],
     ratings: { sp: ["BB−","Stable"], fitch: ["BB−","Stable"], moodys: ["B1","Positive"] },
     snapshot: {"leader": "Recep Tayyip Erdo\u011fan", "party": "AKP (Justice and Development Party)", "fh": "Not Free", "opposition": "CHP (Republican People's Party) is the main opposition and won most major cities in the 2024 local elections, but is under sustained legal pressure.", "issues": ["Opposition crackdown \u2014 CHP's presidential frontrunner Ekrem \u0130mamo\u011flu has been jailed since Mar 2025 facing a 2,000+ year sentence request; ~20 CHP mayors have been detained", "Civil unrest \u2014 recurring mass protests and detentions since \u0130mamo\u011flu's arrest", "Elevated inflation \u2014 disinflation programme still underway, ~30% y/y in late 2025"]},
     status: {},
@@ -78,7 +78,7 @@ const countries = {
   },
 
   egypt: {
-    name: "Egypt", region: "North Africa", coords: [26.8, 30.8],
+    name: "Egypt", iso3: "EGY", region: "North Africa", coords: [26.8, 30.8],
     ratings: { sp: ["B","Stable"], fitch: ["B","Stable"], moodys: ["Caa1","Negative"] },
     snapshot: {"leader": "Abdel Fattah el-Sisi", "party": "Independent (backed by the Nation's Future Party-led coalition)", "fh": "Not Free", "opposition": "No meaningful legislative opposition \u2014 the pro-Sisi coalition holds an overwhelming majority in the House of Representatives.", "issues": ["IMF programme \u2014 active EFF/RSF arrangement; 8th/final review expected ~Q4 2026", "Regional conflict spillover \u2014 Middle East war has weighed on Suez Canal transit revenue and investor sentiment", "Elevated inflation \u2014 running above 15% into 2026"]},
     status: { imf: "Active — Extended Fund Facility + Resilience & Sustainability Facility (since Dec 2022, extended through Dec 2026)" },
@@ -93,7 +93,7 @@ const countries = {
   },
 
   uzbekistan: {
-    name: "Uzbekistan", region: "Central Asia", coords: [41.4, 64.6],
+    name: "Uzbekistan", iso3: "UZB", region: "Central Asia", coords: [41.4, 64.6],
     ratings: { sp: ["BB","Stable"], fitch: ["BB","Positive"], moodys: ["Ba2","Stable"] },
     snapshot: {"leader": "Shavkat Mirziyoyev", "party": "UzLiDeP (Liberal Democratic Party)", "fh": "Not Free", "opposition": "No genuine opposition party \u2014 every party represented in parliament is pro-government.", "issues": ["Long-tenure risk \u2014 the 2023 constitutional reset restarted Mirziyoyev's term count, opening a path to rule until 2037"]},
     status: {},
@@ -107,7 +107,7 @@ const countries = {
   },
 
   vietnam: {
-    name: "Vietnam", region: "Southeast Asia", coords: [16.2, 107.8],
+    name: "Vietnam", iso3: "VNM", region: "Southeast Asia", coords: [16.2, 107.8],
     ratings: { sp: ["BB+","Stable"], fitch: ["BB+","Stable"], moodys: ["Ba2","Stable"] },
     snapshot: {"leader": "T\u00f4 L\u00e2m", "party": "Communist Party of Vietnam (sole legal party)", "fh": "Not Free", "opposition": "None permitted \u2014 one-party state.", "issues": ["FATF grey list \u2014 listed since 2023; reforms target virtual-asset AML rules", "South China Sea tensions \u2014 ongoing maritime disputes with China"]},
     status: { fatf: "Grey list — Jurisdiction under Increased Monitoring (since 2023)" },
@@ -121,7 +121,7 @@ const countries = {
   },
 
   senegal: {
-    name: "Senegal", region: "West Africa", coords: [14.5, -14.5],
+    name: "Senegal", iso3: "SEN", region: "West Africa", coords: [14.5, -14.5],
     ratings: { sp: ["CCC+","CreditWatch Dev."], fitch: ["NR","—"], moodys: ["B1","—"] },
     snapshot: {"leader": "Bassirou Diomaye Faye (President) / Ousmane Sonko (PM)", "party": "Pastef", "fh": "Free", "opposition": "Pastef and allies hold roughly 78% of National Assembly seats after the Nov 2024 election; the opposition was reduced sharply following the 2024 transfer of power.", "issues": ["Hidden debt scandal \u2014 the prior government concealed over $11bn in debt (2019\u201324); a new IMF programme reached staff-level agreement Sept 2026 but is not yet Board-approved", "Sovereign rating distress \u2014 S&P at CCC+ (CreditWatch Developing); Moody's downgraded to B1"]},
     status: {},
@@ -137,7 +137,7 @@ const countries = {
   },
 
   cotedivoire: {
-    name: "Côte d'Ivoire", region: "West Africa", coords: [7.5, -5.5],
+    name: "Côte d'Ivoire", iso3: "CIV", region: "West Africa", coords: [7.5, -5.5],
     ratings: { sp: ["BB","Stable"], fitch: ["BB","Stable"], moodys: ["Ba3","Positive"] },
     snapshot: {"leader": "Alassane Ouattara", "party": "RHDP", "fh": "Partly Free", "opposition": "Main opposition figures Laurent Gbagbo and Tidjane Thiam were barred from the Oct 2025 presidential race on legal grounds; RHDP dominates the National Assembly.", "issues": ["Succession concern \u2014 Ouattara, 83, won a widely contested fourth term in Oct 2025", "FATF grey list \u2014 on track for possible October 2026 delisting"]},
     status: { fatf: "Grey list — Jurisdiction under Increased Monitoring (since Oct 2024)" },
@@ -152,7 +152,7 @@ const countries = {
   },
 
   benin: {
-    name: "Benin", region: "West Africa", coords: [9.3, 2.3],
+    name: "Benin", iso3: "BEN", region: "West Africa", coords: [9.3, 2.3],
     ratings: { sp: ["BB−","Stable"], fitch: ["B+","Positive"], moodys: ["B1","Stable"] },
     snapshot: {"leader": "Romuald Wadagni", "party": "Independent (backed by Talon's UPR-led coalition)", "fh": "Partly Free", "opposition": "Pro-government UPR and Republican Bloc won all 109 National Assembly seats in the Jan 2026 election \u2014 no opposition party crossed the seat threshold; Wadagni won the presidency with 94% of the vote against a single permitted opposition candidate.", "issues": ["Coup attempt \u2014 a failed Dec 2025 coup targeted then-President Talon", "Jihadist insurgency \u2014 ongoing attacks in northern Benin", "Opposition exclusion \u2014 main opposition figures barred from contesting recent elections"]},
     status: {},
@@ -167,7 +167,7 @@ const countries = {
   },
 
   angola: {
-    name: "Angola", region: "Southern Africa", coords: [-12.5, 18.5],
+    name: "Angola", iso3: "AGO", region: "Southern Africa", coords: [-12.5, 18.5],
     ratings: { sp: ["B−","Stable"], fitch: ["B−","Stable"], moodys: ["B3","Positive"] },
     snapshot: {"leader": "Jo\u00e3o Louren\u00e7o", "party": "MPLA", "fh": "Not Free", "opposition": "UNITA won 44% of the vote and 90 of 220 seats in 2022 \u2014 the closest election in Angola's history \u2014 though Freedom House cites an uneven playing field despite the numeric closeness.", "issues": ["FATF grey list \u2014 since Oct 2024, action plan targeted for completion by early 2027", "Fiscal fragility \u2014 IMF has flagged weak non-oil revenue and a widening fiscal deficit despite falling public debt"]},
     status: { fatf: "Grey list — Jurisdiction under Increased Monitoring (returned Oct 2024)" },
@@ -182,7 +182,7 @@ const countries = {
   },
 
   kenya: {
-    name: "Kenya", region: "East Africa", coords: [-1.3, 36.8],
+    name: "Kenya", iso3: "KEN", region: "East Africa", coords: [-1.3, 36.8],
     ratings: { sp: ["B","Stable"], fitch: ["B−","Stable"], moodys: ["B3","Negative"] },
     snapshot: {"leader": "William Ruto", "party": "United Democratic Alliance (UDA)", "fh": "Partly Free", "opposition": "Ruto won the 2022 presidential election by under 2 points (50.5% vs 48.9%); deadly 2024 anti-tax protests and the impeachment of his own deputy president reflect real political volatility.", "issues": ["Civil unrest \u2014 deadly 2024 Finance Bill protests and recurring demonstrations", "FATF grey list \u2014 since Feb 2024; next plenary review Oct 2026", "Fiscal pressure \u2014 large Eurobond maturity wall being actively managed via buybacks"]},
     status: { fatf: "Grey list — Jurisdiction under Increased Monitoring (since Feb 2024)" },
@@ -198,7 +198,7 @@ const countries = {
   },
 
   tanzania: {
-    name: "Tanzania", region: "East Africa", coords: [-6.4, 34.9],
+    name: "Tanzania", iso3: "TZA", region: "East Africa", coords: [-6.4, 34.9],
     ratings: { sp: ["NR","—"], fitch: ["B+","Stable"], moodys: ["NR","—"] },
     snapshot: {"leader": "Samia Suluhu Hassan", "party": "Chama Cha Mapinduzi (CCM)", "fh": "Not Free", "opposition": "Main opposition candidates were barred or detained ahead of the Oct 2025 election; CCM was credited with ~98% of the vote amid widely reported violence and suppression \u2014 not considered a genuinely competitive result.", "issues": ["Election violence \u2014 widely reported killings and repression around the Oct 2025 vote; Freedom House recorded the steepest score decline of any country this cycle", "IMF programme concluded \u2014 ECF/RSF arrangements wrapped up July 2026, no successor programme currently active"]},
     status: {},
@@ -213,7 +213,7 @@ const countries = {
   },
 
   ethiopia: {
-    name: "Ethiopia", region: "East Africa", coords: [9.0, 38.7],
+    name: "Ethiopia", iso3: "ETH", region: "East Africa", coords: [9.0, 38.7],
     ratings: { sp: ["SD","—"], fitch: ["RD","—"], moodys: ["Caa3","Stable"] },
     snapshot: {"leader": "Abiy Ahmed", "party": "Prosperity Party", "fh": "Not Free", "opposition": "No meaningful legislative opposition \u2014 the Prosperity Party dominates federal and regional government.", "issues": ["Active conflict \u2014 ongoing Fano militia insurgency in the Amhara region and residual Oromia (OLA) conflict, following the 2020\u201322 Tigray war", "Sovereign default \u2014 still in Common Framework restructuring; the $1bn Eurobond dispute with bondholders remains unresolved", "Elevated inflation \u2014 consumer prices persistently high"]},
     status: { parisClub: "Active Common Framework restructuring — unresolved" },

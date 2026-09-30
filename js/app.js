@@ -52,13 +52,44 @@ function formatMetricValue(metric) {
   return value.toLocaleString("en-GB", { maximumFractionDigits: digits });
 }
 
-function metricCard(label, metric) {
-  if (!metric || !Number.isFinite(Number(metric.value))) return "";
-  return `<div class="economic-metric">
+function metricCard(label, metric, showMissing = false) {
+  if (!metric || !Number.isFinite(Number(metric.value))) {
+    return showMissing ? `<div class="economic-metric missing"><span>${escapeHTML(label)}</span><strong>—</strong><small>Awaiting source data</small></div>` : "";
+  }
+  const classification = metric.observationClass === "forecast" ? "IMF forecast"
+    : metric.observationClass === "estimate" ? "IMF estimate"
+    : metric.stale ? "stale source year" : "observed";
+  const sourceCode = metric.sourceCode ? ` · ${metric.sourceCode}` : "";
+  return `<div class="economic-metric"${metric.definition ? ` title="${escapeHTML(metric.definition)}"` : ""}>
     <span>${escapeHTML(label)}</span>
     <strong>${escapeHTML(formatMetricValue(metric))}</strong>
-    <small>${escapeHTML(metric.year || metric.period || "")}${metric.projection ? " · IMF projection" : ""}</small>
+    <small>${escapeHTML(metric.year || metric.period || "")} · ${escapeHTML(classification)}${escapeHTML(sourceCode)}</small>
   </div>`;
+}
+
+function formatRefreshTime(value) {
+  if (!value) return "never";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+}
+
+function providerStatusHTML(refresh = {}) {
+  const providers = [
+    ["imf", "IMF WEO"], ["worldBank", "World Bank"], ["unctad", "UNCTAD"], ["oec", "OEC / BACI"]
+  ];
+  const statusLabels = { ok: "Current", partial: "Partial", error: "Failed", stale: "Needs refresh", pending: "Pending" };
+  return `<div class="provider-status-grid" aria-label="Economic source refresh status">${providers.map(([key, label]) => {
+    const item = refresh[key] || { status: "pending" };
+    const status = item.status || "pending";
+    const detail = item.error || item.warning || (item.warnings || []).filter(Boolean).join("; ");
+    const observation = item.observationThrough ? ` · data through ${item.observationThrough}` : "";
+    return `<div class="provider-status ${escapeHTML(status)}">
+      <div><strong>${escapeHTML(label)}</strong><span>${escapeHTML(statusLabels[status] || status)}</span></div>
+      <small>Last success: ${escapeHTML(formatRefreshTime(item.lastSuccessAt))}${escapeHTML(observation)}</small>
+      ${item.retainedPrevious ? `<em>Previous values retained after this refresh did not complete.</em>` : ""}
+      ${detail ? `<details><summary>Refresh detail</summary><p>${escapeHTML(detail)}</p></details>` : ""}
+    </div>`;
+  }).join("")}</div>`;
 }
 
 function rankedBars(title, rows) {
@@ -81,7 +112,7 @@ function lineChartHTML(title, definitions, unit = "%") {
     ...definition,
     index,
     values: (definition.metric?.series || [])
-      .map(point => ({ year: Number(point.year), value: Number(point.value), projection: Boolean(point.projection) }))
+      .map(point => ({ year: Number(point.year), value: Number(point.value), projection: Boolean(point.projection), observationClass: point.observationClass }))
       .filter(point => Number.isInteger(point.year) && Number.isFinite(point.value))
       .sort((left, right) => left.year - right.year)
   })).filter(definition => definition.values.length);
@@ -99,8 +130,8 @@ function lineChartHTML(title, definitions, unit = "%") {
   const yTicks = Array.from({ length: 5 }, (_, index) => yMin + index * (yMax - yMin) / 4);
   const xStep = Math.max(1, Math.ceil(years.length / 6));
   const xTicks = years.filter((_, index) => index % xStep === 0 || index === years.length - 1);
-  const currentYear = new Date().getUTCFullYear();
-  const forecastX = years.includes(currentYear) ? x(currentYear) : null;
+  const firstForecastYear = all.filter(point => point.observationClass === "forecast" || point.projection).map(point => point.year).sort((a, b) => a - b)[0];
+  const forecastX = Number.isInteger(firstForecastYear) ? x(firstForecastYear) : null;
   return `<div class="macro-chart">
     <div class="chart-heading"><p class="chart-title">${escapeHTML(title)}</p><div class="chart-legend">${series.map(definition => `<span class="series-${definition.index + 1}"><i></i>${escapeHTML(definition.label)}</span>`).join("")}</div></div>
     <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHTML(title)} time series">
@@ -122,21 +153,27 @@ function countryPageNavHTML() {
 }
 
 function economicsPageHTML(countryKey, country) {
-  const record = ECONOMIC_DATA.countries?.[countryKey] || {};
+  const record = ECONOMIC_DATA.jurisdictions?.[country.iso3] || ECONOMIC_DATA.countries?.[countryKey] || {};
   const imf = record.imf?.indicators || {};
   const wb = record.worldBank?.indicators || {};
   const commodity = record.commodityDependence;
   const trade = record.trade;
   const macroCards = [
-    metricCard("Real GDP growth", imf.realGdpGrowth),
-    metricCard("Inflation", imf.inflation),
-    metricCard("Current account", imf.currentAccount),
-    metricCard("Fiscal balance", imf.fiscalBalance),
-    metricCard("Government debt", imf.governmentDebt),
-    metricCard("Reserves", wb.reserveMonths),
-    metricCard("External debt", wb.externalDebtGni),
-    metricCard("Debt service / exports", wb.debtServiceExports),
-  ].filter(Boolean).join("");
+    metricCard("Real GDP growth", imf.realGdpGrowth, true),
+    metricCard("Inflation", imf.inflation, true),
+    metricCard("Current-account balance / GDP", imf.currentAccount, true),
+    metricCard("Fiscal balance / GDP", imf.fiscalBalance, true),
+    metricCard("GDP per capita, current US$", wb.gdpPerCapita, true),
+    metricCard("Reserve cover", wb.reserveMonths, true)
+  ].join("");
+  const debtCards = [
+    metricCard("Government gross debt / GDP", imf.governmentDebt, true),
+    metricCard("Interest payments / revenue", wb.interestPaymentsRevenue, true),
+    metricCard("Total external debt / GNI", wb.externalDebtGni, true),
+    metricCard("Short-term debt / external debt", wb.shortTermDebtPct, true),
+    metricCard("Concessional debt / external debt", wb.concessionalDebtPct, true),
+    metricCard("External debt service / exports", wb.debtServiceExports, true)
+  ].join("");
   const hasTrade = trade && [trade.topExports, trade.topImports, trade.exportPartners, trade.importPartners].some(rows => rows?.length);
   const sourceDate = ECONOMIC_DATA.generatedAt
     ? new Date(ECONOMIC_DATA.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
@@ -153,18 +190,25 @@ function economicsPageHTML(countryKey, country) {
   return `${countryPageNavHTML()}
   <div class="country-head economic-page-head">
     <div><h1 class="country-title">${escapeHTML(country.name)}</h1><p class="country-region">Economic &amp; trade structure · ${escapeHTML(country.region)}</p></div>
-    <span class="economic-updated">Updated ${escapeHTML(sourceDate)}</span>
+    <span class="economic-updated">Refresh attempted ${escapeHTML(sourceDate)}</span>
   </div>
+  ${providerStatusHTML(record.refresh)}
   <section class="block economic-block">
     <div class="economic-head">
       <div>
-        <p class="block-title">Macro vulnerability</p>
-        <p class="block-note">Latest observations and IMF projections. The year shown on every value matters: source vintages differ.</p>
+        <p class="block-title">Macro outlook</p>
+        <p class="block-note">IMF WEO is limited to four historical years, the current-year estimate and five future forecast years. World Bank cards show the latest observation and its exact vintage.</p>
       </div>
     </div>
-    ${macroCards ? `<div class="economic-grid">${macroCards}</div>` : `<p class="empty-note">IMF and World Bank indicators will populate on the first successful economic-data refresh.</p>`}
+    <div class="economic-grid">${macroCards}</div>
     ${macroChart || ""}
-    <div class="secondary-chart-grid">${debtChart}${reserveChart}</div>
+    <div class="secondary-chart-grid">${reserveChart}</div>
+  </section>
+  <section class="block economic-block">
+    <p class="block-title">Fiscal and external debt vulnerability</p>
+    <p class="block-note">World Bank external-debt measures cover public and publicly guaranteed debt, private nonguaranteed debt, IMF credit and short-term debt where the indicator definition specifies total external debt. Concessional debt uses <code>DT.DOD.ALLC.ZS</code>.</p>
+    <div class="economic-grid">${debtCards}</div>
+    <div class="secondary-chart-grid">${debtChart}</div>
   </section>
   <section class="block">
     <p class="block-title">Commodity dependence</p>
@@ -174,18 +218,18 @@ function economicsPageHTML(countryKey, country) {
       <div class="commodity-gauge" role="img" aria-label="Commodities are ${escapeHTML(commodity.exportShare)} percent of merchandise exports; UNCTAD dependence threshold is 60 percent"><span style="width:${Math.max(0, Math.min(100, Number(commodity.exportShare)))}%"></span><i></i></div>
       <div class="commodity-scale"><span>0%</span><span>60% threshold</span><span>100%</span></div>
       <div class="commodity-detail"><span>Largest commodity group</span><strong>${escapeHTML(commodity.primaryGroup || "Not recorded")}</strong><small>Reference period ${escapeHTML(commodity.referencePeriod || "not recorded")}</small></div>
-    </div>` : `<p class="empty-note">UNCTAD commodity-dependence record pending annual reviewed import.</p>`}
+    </div>` : `<p class="empty-note">No UNCTAD observation is currently published for this profile. Check the UNCTAD source status above; a failed refresh is not treated as a valid zero.</p>`}
   </section>
   <section class="block">
     <p class="block-title">Merchandise trade</p>
-    <p class="block-note">Largest products and trading partners, ranked by share of the country's total.</p>
+    <p class="block-note">Largest products and trading partners from BACI bilateral merchandise trade via OEC, ranked by share of the country's total.</p>
     ${trade ? `<div class="trade-totals">${metricCard("Merchandise exports", { value: trade.exportsTotal, unit: "usd", year: trade.year })}${metricCard("Merchandise imports", { value: trade.importsTotal, unit: "usd", year: trade.year })}</div>` : ""}
     ${hasTrade ? `<div class="trade-grid">
       ${rankedBars("Top exports", trade.topExports)}
       ${rankedBars("Top imports", trade.topImports)}
       ${rankedBars("Export destinations", trade.exportPartners)}
       ${rankedBars("Import origins", trade.importPartners)}
-    </div><p class="economic-pending">OEC merchandise trade · ${escapeHTML(trade.year || "latest available year")}.</p>` : `<p class="empty-note">OEC top products and trade partners will populate on the first successful trade refresh.</p>`}
+    </div><p class="economic-pending">BACI bilateral merchandise trade via OEC · ${escapeHTML(trade.year || "latest available year")}${record.refresh?.oec?.status === "partial" ? " · partial coverage" : ""}.</p>` : `<p class="empty-note">No verified OEC/BACI trade record is currently available. The updater searches the preferred year and five earlier annual vintages rather than recording a false zero.</p>`}
     <p class="economic-sources"><a href="${escapeHTML(ECONOMIC_DATA.sources?.imf?.url || "https://www.imf.org/")}" target="_blank" rel="noopener noreferrer">IMF</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.worldBank?.url || "https://data.worldbank.org/")}" target="_blank" rel="noopener noreferrer">World Bank</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.unctad?.url || "https://unctad.org/")}" target="_blank" rel="noopener noreferrer">UNCTAD</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.oec?.url || "https://oec.world/")}" target="_blank" rel="noopener noreferrer">OEC</a></p>
   </section>`;
 }

@@ -69,7 +69,7 @@ if (context.window.COUNTRY_DATA) {
       if (!profile.includes("Country risk news")) failures.push(`${key}: standalone news section did not render`);
       vm.runInContext("countryView='economics'; renderMain();", context);
       const economics = element("main").innerHTML;
-      if (!economics.includes("Macro vulnerability") || !economics.includes("Commodity dependence") || !economics.includes("Merchandise trade")) failures.push(`${key}: standalone economic sub-page did not render`);
+      if (!economics.includes("Macro outlook") || !economics.includes("Fiscal and external debt vulnerability") || !economics.includes("Commodity dependence") || !economics.includes("Merchandise trade")) failures.push(`${key}: standalone economic sub-page did not render`);
       vm.runInContext("countryView='profile'; renderMain();", context);
       if (!profile.includes("Historical turning points")) failures.push(`${key}: standalone history did not render`);
     } catch (error) {

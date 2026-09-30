@@ -62,7 +62,7 @@ for (const key of context.window.COUNTRY_DATA.order) {
   if (!html.includes("IMF Article IV consultation")) failures.push(`${key}: IMF Article IV section did not render`);
   vm.runInContext("countryView='economics'; renderMain();", context);
   const economics = element("main").innerHTML;
-  if (!economics.includes("Macro vulnerability") || !economics.includes("Commodity dependence") || !economics.includes("Merchandise trade")) {
+  if (!economics.includes("Macro outlook") || !economics.includes("Fiscal and external debt vulnerability") || !economics.includes("Commodity dependence") || !economics.includes("Merchandise trade")) {
     failures.push(`${key}: economic and trade sub-page did not render`);
   }
   vm.runInContext("countryView='profile'; renderMain();", context);
@@ -70,7 +70,7 @@ for (const key of context.window.COUNTRY_DATA.order) {
   if (renderedSources !== expectedHistoryCount) failures.push(`${key}: rendered ${renderedSources}/${expectedHistoryCount} history sources`);
 }
 
-context.window.ECONOMIC_DATA.countries.usa = {
+context.window.ECONOMIC_DATA.jurisdictions.USA = {
   imf: { indicators: {
     realGdpGrowth: { value: 2.1, year: 2026, unit: "percent", projection: true, series: [
       { year: 2024, value: 2.8, projection: false }, { year: 2025, value: 2.4, projection: false }, { year: 2026, value: 2.1, projection: true }
@@ -86,6 +86,12 @@ context.window.ECONOMIC_DATA.countries.usa = {
   trade: { year: 2024, exportsTotal: 1000000000, importsTotal: 1200000000,
     topExports: [{ name: "Aircraft", value: 300000000, share: 30 }], topImports: [{ name: "Cars", value: 240000000, share: 20 }],
     exportPartners: [{ name: "Canada", value: 180000000, share: 18 }], importPartners: [{ name: "Mexico", value: 240000000, share: 20 }]
+  },
+  refresh: {
+    imf: { status: "ok", lastAttemptAt: "2026-09-30T00:00:00Z", lastSuccessAt: "2026-09-30T00:00:00Z", retainedPrevious: false },
+    worldBank: { status: "ok", lastAttemptAt: "2026-09-30T00:00:00Z", lastSuccessAt: "2026-09-30T00:00:00Z", retainedPrevious: false },
+    unctad: { status: "ok", lastAttemptAt: "2026-09-30T00:00:00Z", lastSuccessAt: "2026-09-30T00:00:00Z", retainedPrevious: false },
+    oec: { status: "ok", lastAttemptAt: "2026-09-30T00:00:00Z", lastSuccessAt: "2026-09-30T00:00:00Z", retainedPrevious: false }
   }
 };
 vm.runInContext("active='usa'; countryView='economics'; renderMain();", context);
