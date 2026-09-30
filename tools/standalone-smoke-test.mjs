@@ -20,7 +20,7 @@ for (const unresolved of ['href="assets/', 'src="data/', 'src="js/']) {
 }
 
 const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);
-if (scripts.length !== 6) failures.push(`Expected 6 embedded scripts; found ${scripts.length}`);
+if (scripts.length !== 7) failures.push(`Expected 7 embedded scripts; found ${scripts.length}`);
 
 const elements = {};
 function element(id = "") {
@@ -67,6 +67,10 @@ if (context.window.COUNTRY_DATA) {
       const name = context.window.COUNTRY_DATA.countries[key].name;
       if (!profile.includes(`>${name}</h1>`)) failures.push(`${key}: standalone profile did not render`);
       if (!profile.includes("Country risk news")) failures.push(`${key}: standalone news section did not render`);
+      vm.runInContext("countryView='economics'; renderMain();", context);
+      const economics = element("main").innerHTML;
+      if (!economics.includes("Macro vulnerability") || !economics.includes("Commodity dependence") || !economics.includes("Merchandise trade")) failures.push(`${key}: standalone economic sub-page did not render`);
+      vm.runInContext("countryView='profile'; renderMain();", context);
       if (!profile.includes("Historical turning points")) failures.push(`${key}: standalone history did not render`);
     } catch (error) {
       failures.push(`${key}: standalone render failed: ${error.message}`);

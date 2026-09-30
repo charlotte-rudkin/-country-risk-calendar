@@ -18,6 +18,7 @@ function loadData() {
   for (const relativePath of [
     "data/config.js",
     "data/countries.js",
+    "data/economics.js",
     "data/news.js",
     "data/history.js",
     "data/map-data.js",
@@ -57,9 +58,37 @@ function checkCalendarEvent(event, location) {
   }
 }
 
+function checkEconomicMetric(metric, location) {
+  if (!metric || typeof metric !== "object") return fail(`${location} must be an object`);
+  if (!Number.isFinite(Number(metric.value))) fail(`${location}.value must be numeric`);
+  if (!Number.isInteger(Number(metric.year))) fail(`${location}.year must be an integer`);
+  if (!["percent", "months", "usd"].includes(metric.unit)) fail(`${location}.unit is unsupported`);
+  if (metric.series !== undefined) {
+    if (!Array.isArray(metric.series)) fail(`${location}.series must be an array`);
+    else metric.series.forEach((point, index) => {
+      if (!Number.isInteger(Number(point?.year))) fail(`${location}.series[${index}].year must be an integer`);
+      if (!Number.isFinite(Number(point?.value))) fail(`${location}.series[${index}].value must be numeric`);
+      if (typeof point?.projection !== "boolean") fail(`${location}.series[${index}].projection must be boolean`);
+    });
+  }
+}
+
+function checkRankedRows(rows, location) {
+  if (!Array.isArray(rows)) return fail(`${location} must be an array`);
+  if (rows.length > 5) fail(`${location} must contain no more than five rows`);
+  rows.forEach((row, index) => {
+    if (!isText(row?.name)) fail(`${location}[${index}].name must be non-empty text`);
+    if (!Number.isFinite(Number(row?.value)) || Number(row.value) < 0) fail(`${location}[${index}].value must be non-negative`);
+    if (row?.share !== null && row?.share !== undefined && (!Number.isFinite(Number(row.share)) || Number(row.share) < 0 || Number(row.share) > 100)) {
+      fail(`${location}[${index}].share must be 0–100 or null`);
+    }
+  });
+}
+
 const loaded = loadData();
 const config = loaded.SITE_CONFIG;
 const countryData = loaded.COUNTRY_DATA;
+const economicData = loaded.ECONOMIC_DATA;
 const newsData = loaded.NEWS_DATA;
 const historyData = loaded.HISTORY_DATA;
 const mapData = loaded.MAP_DATA;
@@ -75,6 +104,7 @@ if (fs.existsSync(newsQualityPath)) {
 
 if (!config) fail("SITE_CONFIG was not created");
 if (!countryData) fail("COUNTRY_DATA was not created");
+if (!economicData) fail("ECONOMIC_DATA was not created");
 if (!newsData) fail("NEWS_DATA was not created");
 if (!historyData) fail("HISTORY_DATA was not created");
 if (!mapData) fail("MAP_DATA was not created");
@@ -104,6 +134,62 @@ if (errors.length === 0) {
   const historyEvents = historyData.events;
   const historySources = historyData.sources;
   const countryKeys = Object.keys(countries);
+
+  if (economicData.schemaVersion !== 1) fail("ECONOMIC_DATA.schemaVersion must be 1");
+  if (!economicData.sources || typeof economicData.sources !== "object") fail("ECONOMIC_DATA.sources is required");
+  if (!economicData.countries || typeof economicData.countries !== "object") fail("ECONOMIC_DATA.countries is required");
+  for (const key of countryKeys) {
+    if (!economicData.countries?.[key] || typeof economicData.countries[key] !== "object") {
+      fail(`Economic data is missing for ${key}`);
+    }
+    const economic = economicData.countries?.[key] || {};
+    for (const [provider, indicatorKeys] of Object.entries({
+      imf: ["realGdpGrowth", "inflation", "currentAccount", "fiscalBalance", "governmentDebt"],
+      worldBank: ["reserveMonths", "externalDebtGni", "debtServiceExports"]
+    })) {
+      if (economic[provider] !== undefined) {
+        if (!economic[provider]?.indicators || typeof economic[provider].indicators !== "object") fail(`${key}.${provider}.indicators is required`);
+        for (const [metricKey, metric] of Object.entries(economic[provider]?.indicators || {})) {
+          if (!indicatorKeys.includes(metricKey)) fail(`${key}.${provider}.indicators.${metricKey} is unsupported`);
+          checkEconomicMetric(metric, `${key}.${provider}.indicators.${metricKey}`);
+        }
+      }
+    }
+    if (economic.commodityDependence !== undefined) {
+      const commodity = economic.commodityDependence;
+      if (!Number.isFinite(Number(commodity.exportShare)) || Number(commodity.exportShare) < 0 || Number(commodity.exportShare) > 100) fail(`${key}.commodityDependence.exportShare must be 0–100`);
+      if (commodity.dependent !== (Number(commodity.exportShare) > 60)) fail(`${key}.commodityDependence.dependent must follow the >60% UNCTAD threshold`);
+      if (!isText(commodity.referencePeriod)) fail(`${key}.commodityDependence.referencePeriod is required`);
+      if (!isText(commodity.sourceUrl) || !commodity.sourceUrl.startsWith("https://")) fail(`${key}.commodityDependence.sourceUrl must use https`);
+    }
+    if (economic.trade !== undefined) {
+      if (!Number.isInteger(Number(economic.trade.year))) fail(`${key}.trade.year must be an integer`);
+      for (const field of ["exportsTotal", "importsTotal"]) {
+        if (economic.trade[field] !== undefined && (!Number.isFinite(Number(economic.trade[field])) || Number(economic.trade[field]) < 0)) fail(`${key}.trade.${field} must be non-negative`);
+      }
+      for (const field of ["topExports", "topImports", "exportPartners", "importPartners"]) {
+        checkRankedRows(economic.trade[field], `${key}.trade.${field}`);
+      }
+    }
+  }
+  for (const key of Object.keys(economicData.countries || {})) {
+    if (!countries[key]) fail(`Economic data references unknown country: ${key}`);
+  }
+
+  if (newsData.imfArticleIV !== undefined) {
+    if (!newsData.imfArticleIV || typeof newsData.imfArticleIV !== "object" || Array.isArray(newsData.imfArticleIV)) {
+      fail("NEWS_DATA.imfArticleIV must be an object when present");
+    } else {
+      for (const [key, record] of Object.entries(newsData.imfArticleIV)) {
+        if (!countries[key]) fail(`NEWS_DATA.imfArticleIV references unknown country: ${key}`);
+        for (const field of ["title", "url", "domain", "publishedAt", "officialSourceName"]) {
+          if (!isText(record?.[field])) fail(`NEWS_DATA.imfArticleIV.${key}.${field} must be non-empty text`);
+        }
+        if (record?.url && !record.url.startsWith("https://")) fail(`NEWS_DATA.imfArticleIV.${key}.url must use https`);
+        if (record?.publishedAt && Number.isNaN(Date.parse(record.publishedAt))) fail(`NEWS_DATA.imfArticleIV.${key}.publishedAt must be a valid date`);
+      }
+    }
+  }
 
   if (!validDateString(config.dataLastUpdated)) fail("SITE_CONFIG.dataLastUpdated must be YYYY-MM-DD");
   if (!Array.isArray(order) || order.length === 0) fail("COUNTRY_DATA.order must be a non-empty array");

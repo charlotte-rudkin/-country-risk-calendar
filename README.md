@@ -53,9 +53,19 @@ World Bank ingestion uses a narrower document whitelist: country economic update
 
 Every connector fails independently. `data/review/news-quality.json` records each official source as `ok` or `failed`, its record count, GDELT request failures and country-level quality totals. OFAC is monitored from its official Recent Actions page because its RSS feed was retired in 2025.
 
+### IMF Article IV records
+
+Country pages contain a dedicated IMF Article IV block. Article IV releases found through the IMF feed are stored separately in `NEWS_DATA.imfArticleIV`, so they are not displaced by the ten-item rolling news inventory. Until the first automated record is captured, the page falls back to any analyst-reviewed Article IV event already present in the country calendar and otherwise shows a transparent unpopulated state.
+
+### Hybrid Web NGrams groundwork
+
+`tools/web-ngrams-query.sql` is the credential-free BigQuery query template for the next discovery layer. `tools/ingest-web-ngrams.mjs` accepts exported JSON or NDJSON, reconstructs contextual snippets, normalises URLs, applies the existing country/relevance/exclusion rules and writes `data/review/web-ngrams-candidates.json`. These records are review-only and cannot publish to the dashboard. This separates candidate discovery from publication before any Google Cloud credentials or spending authority are introduced.
+
 - **Weekly:** screens the retained news for possible country-defining timeline events.
 - **Monthly:** generates a review queue for elections, sovereign ratings, IMF developments, sanctions/FATF and central-bank developments.
-- **Quarterly:** searches the prior three months for possible missed coups, defaults, restructurings, wars, constitutional breaks and comparable anchor events.
+- **Monthly:** also refreshes the IMF World Economic Outlook and World Bank vulnerability indicators. Each provider fails independently and the last valid observation is retained.
+- **Quarterly:** refreshes OEC merchandise-trade products and partners, and searches the prior three months for possible missed coups, defaults, restructurings, wars, constitutional breaks and comparable anchor events.
+- **Annually:** import reviewed UNCTAD commodity-dependence records when the dashboard/report is updated. The publication threshold is applied mechanically: commodity exports must exceed 60% of merchandise exports.
 
 News is a discovery feed and is displayed with a verification warning. The structured and historical jobs create files in `data/review/`; they never rewrite ratings, status fields or historical events automatically. An analyst must corroborate candidates against primary or authoritative sources before publication. If a news refresh fails for every country, the job exits without replacing the last working data file.
 
@@ -80,6 +90,8 @@ Open the root `index.html` directly in a browser. It is a fully self-contained c
 | `src/index.template.html` | Maintainable page structure | Only for layout changes |
 | `data/config.js` | Freshness date and validation settings | Yes |
 | `data/countries.js` | Current profiles, ratings, key issues, upcoming calendar and recent developments | Yes |
+| `data/economics.js` | Generated IMF, World Bank, UNCTAD and OEC profile data | No—guarded refresh/import workflow |
+| `data/commodity-import.example.json` | Example schema for the annual reviewed UNCTAD import | Copy, verify and rename when updating |
 | `data/news.js` | Generated rolling country-risk news feed | No—daily workflow |
 | `data/history.js` | 1945–present turning points and source registry | Yes |
 | `data/review/` | Generated analyst review queues; never published as verified facts | Review only |
@@ -135,4 +147,24 @@ Run the validator before publishing; it will identify anything missing.
 
 ## Moving to live data
 
-The application reads four stable browser globals: `SITE_CONFIG`, `COUNTRY_DATA`, `HISTORY_DATA`, and `MAP_DATA`. A future ingestion service can generate the first three data files from a database or approved API output without changing the template, the design, or `js/app.js`. The build step then emits a fresh self-contained `index.html`. Keep analyst approval between automated ingestion and publication.
+The application reads stable browser globals including `SITE_CONFIG`, `COUNTRY_DATA`, `ECONOMIC_DATA`, `NEWS_DATA`, `HISTORY_DATA`, and `MAP_DATA`. A future ingestion service can generate the data files from a database or approved API output without changing the template, the design, or `js/app.js`. The build step then emits a fresh self-contained `index.html`. Keep analyst approval between automated ingestion and publication.
+
+## Economic and trade data
+
+Each country now has a separate **Economic & trade structure** sub-page, reached from the navigation above the country title. This keeps the risk profile focused while giving structural data enough room for visual analysis. Missing provider values render as a transparent pending state; they never break either page.
+
+- **IMF:** real GDP growth, inflation, current-account balance, general-government balance and gross government debt. The updater retains a ten-year actual/forecast series, used for the macro and debt charts; the current-year point is preferred for the headline value.
+- **World Bank:** reserves in months of imports, external debt as a share of GNI and total debt service as a share of exports. The most recent non-null observation and available history are retained, with reserve coverage shown as a time series.
+- **UNCTAD:** commodity exports as a share of merchandise exports, the derived commodity-dependent classification, the dominant commodity group and reference period. The page displays the share against UNCTAD's 60% threshold. Copy `data/commodity-import.example.json` to `data/commodity-import.json`, add only figures checked against the current UNCTAD country profile, then run `npm run import:commodity`.
+- **OEC:** total merchandise exports and imports plus horizontal ranked charts for the five largest exports, imports, export destinations and import origins. The configured annual BACI vintage is shown on the page. If OEC requires authenticated access, store an `OEC_API_TOKEN` GitHub Actions secret; never put a token in a data file or commit.
+
+Useful commands:
+
+```text
+npm run refresh:macro
+npm run refresh:trade
+npm run refresh:economic
+npm run import:commodity
+```
+
+All connectors use last-known-good semantics. A provider error produces a workflow warning and preserves that provider's published block; successful providers can still update normally.

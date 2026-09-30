@@ -1,0 +1,10 @@
+{
+  "countries": {
+    "angola": {
+      "exportShare": null,
+      "referencePeriod": "YYYY–YYYY",
+      "primaryGroup": "Replace with the verified UNCTAD group",
+      "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence/country-profiles"
+    }
+  }
+}

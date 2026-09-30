@@ -5,6 +5,7 @@ const DATA_LAST_UPDATED = window.SITE_CONFIG.dataLastUpdated;
 const HISTORY_START_YEAR = window.SITE_CONFIG.historyStartYear;
 const HISTORY_DEEP_COVERAGE_START_YEAR = window.SITE_CONFIG.historyDeepCoverageStartYear;
 const { countries, order } = window.COUNTRY_DATA;
+const ECONOMIC_DATA = window.ECONOMIC_DATA || { generatedAt: null, sources: {}, countries: {} };
 const NEWS_DATA = window.NEWS_DATA || { generatedAt: null, countries: {} };
 const { sources: HISTORY_SOURCES, events: HISTORICAL_EVENTS } = window.HISTORY_DATA;
 const { worldBasePaths: WORLD_BASE_PATHS, countryShapes: COUNTRY_SHAPES, countryCentroids: COUNTRY_CENTROIDS } = window.MAP_DATA;
@@ -34,6 +35,159 @@ function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>'"]/g, character => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
   })[character]);
+}
+
+function formatMetricValue(metric) {
+  if (!metric || !Number.isFinite(Number(metric.value))) return "—";
+  const value = Number(metric.value);
+  const digits = Math.abs(value) >= 100 ? 0 : 1;
+  if (metric.unit === "percent") return `${value.toFixed(digits)}%`;
+  if (metric.unit === "months") return `${value.toFixed(1)} mo.`;
+  if (metric.unit === "usd") {
+    if (Math.abs(value) >= 1e12) return `$${(value / 1e12).toFixed(1)}tn`;
+    if (Math.abs(value) >= 1e9) return `$${(value / 1e9).toFixed(1)}bn`;
+    if (Math.abs(value) >= 1e6) return `$${(value / 1e6).toFixed(1)}m`;
+    return `$${value.toLocaleString("en-GB", { maximumFractionDigits: 0 })}`;
+  }
+  return value.toLocaleString("en-GB", { maximumFractionDigits: digits });
+}
+
+function metricCard(label, metric) {
+  if (!metric || !Number.isFinite(Number(metric.value))) return "";
+  return `<div class="economic-metric">
+    <span>${escapeHTML(label)}</span>
+    <strong>${escapeHTML(formatMetricValue(metric))}</strong>
+    <small>${escapeHTML(metric.year || metric.period || "")}${metric.projection ? " · IMF projection" : ""}</small>
+  </div>`;
+}
+
+function rankedBars(title, rows) {
+  if (!Array.isArray(rows) || !rows.length) return "";
+  const maximum = Math.max(...rows.map(row => Number(row.share) || Number(row.value) || 0), 1);
+  return `<div class="trade-chart"><p class="chart-title">${escapeHTML(title)}</p>${rows.slice(0, 5).map(row => {
+    const share = Number(row.share);
+    const measure = Number.isFinite(share) ? share : Number(row.value) || 0;
+    const width = Math.max(2, measure / maximum * 100);
+    const value = Number.isFinite(share) ? `${share.toFixed(1)}%` : formatMetricValue({ value: row.value, unit: "usd" });
+    return `<div class="trade-bar-row">
+      <div class="trade-bar-label"><span>${escapeHTML(row.name)}</span><strong>${escapeHTML(value)}</strong></div>
+      <div class="trade-bar-track"><span style="width:${width.toFixed(1)}%"></span></div>
+    </div>`;
+  }).join("")}</div>`;
+}
+
+function lineChartHTML(title, definitions, unit = "%") {
+  const series = definitions.map((definition, index) => ({
+    ...definition,
+    index,
+    values: (definition.metric?.series || [])
+      .map(point => ({ year: Number(point.year), value: Number(point.value), projection: Boolean(point.projection) }))
+      .filter(point => Number.isInteger(point.year) && Number.isFinite(point.value))
+      .sort((left, right) => left.year - right.year)
+  })).filter(definition => definition.values.length);
+  if (!series.length) return "";
+  const all = series.flatMap(definition => definition.values);
+  const years = [...new Set(all.map(point => point.year))].sort((a, b) => a - b);
+  const minimum = Math.min(...all.map(point => point.value), 0);
+  const maximum = Math.max(...all.map(point => point.value), 0);
+  const padding = Math.max((maximum - minimum) * 0.12, 1);
+  const yMin = minimum - padding;
+  const yMax = maximum + padding;
+  const width = 760, height = 290, left = 52, right = 18, top = 24, bottom = 38;
+  const x = year => years.length === 1 ? (left + width - right) / 2 : left + (year - years[0]) / (years.at(-1) - years[0]) * (width - left - right);
+  const y = value => top + (yMax - value) / (yMax - yMin) * (height - top - bottom);
+  const yTicks = Array.from({ length: 5 }, (_, index) => yMin + index * (yMax - yMin) / 4);
+  const xStep = Math.max(1, Math.ceil(years.length / 6));
+  const xTicks = years.filter((_, index) => index % xStep === 0 || index === years.length - 1);
+  const currentYear = new Date().getUTCFullYear();
+  const forecastX = years.includes(currentYear) ? x(currentYear) : null;
+  return `<div class="macro-chart">
+    <div class="chart-heading"><p class="chart-title">${escapeHTML(title)}</p><div class="chart-legend">${series.map(definition => `<span class="series-${definition.index + 1}"><i></i>${escapeHTML(definition.label)}</span>`).join("")}</div></div>
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHTML(title)} time series">
+      <title>${escapeHTML(title)}</title>
+      ${yTicks.map(value => `<line class="chart-grid" x1="${left}" y1="${y(value)}" x2="${width - right}" y2="${y(value)}"/><text class="chart-axis" x="${left - 8}" y="${y(value) + 4}" text-anchor="end">${value.toFixed(1)}${unit}</text>`).join("")}
+      ${xTicks.map(year => `<text class="chart-axis" x="${x(year)}" y="${height - 12}" text-anchor="middle">${year}</text>`).join("")}
+      ${yMin < 0 && yMax > 0 ? `<line class="chart-zero" x1="${left}" y1="${y(0)}" x2="${width - right}" y2="${y(0)}"/>` : ""}
+      ${forecastX ? `<line class="chart-forecast" x1="${forecastX}" y1="${top}" x2="${forecastX}" y2="${height - bottom}"/><text class="chart-forecast-label" x="${forecastX + 6}" y="${top + 11}">forecast</text>` : ""}
+      ${series.map(definition => `<path class="chart-line series-${definition.index + 1}" d="${definition.values.map((point, index) => `${index ? "L" : "M"}${x(point.year).toFixed(1)},${y(point.value).toFixed(1)}`).join(" ")}"/>${definition.values.map(point => `<circle class="chart-point series-${definition.index + 1}${point.projection ? " projected" : ""}" cx="${x(point.year).toFixed(1)}" cy="${y(point.value).toFixed(1)}" r="4"><title>${escapeHTML(definition.label)}: ${point.value.toFixed(1)}${unit} (${point.year})</title></circle>`).join("")}`).join("")}
+    </svg>
+  </div>`;
+}
+
+function countryPageNavHTML() {
+  return `<nav class="country-page-nav" aria-label="Country sections">
+    <button class="${countryView === "profile" ? "active" : ""}" type="button" onclick="countryView='profile'; renderMain();">Risk profile</button>
+    <button class="${countryView === "economics" ? "active" : ""}" type="button" onclick="countryView='economics'; renderMain();">Economic &amp; trade structure</button>
+  </nav>`;
+}
+
+function economicsPageHTML(countryKey, country) {
+  const record = ECONOMIC_DATA.countries?.[countryKey] || {};
+  const imf = record.imf?.indicators || {};
+  const wb = record.worldBank?.indicators || {};
+  const commodity = record.commodityDependence;
+  const trade = record.trade;
+  const macroCards = [
+    metricCard("Real GDP growth", imf.realGdpGrowth),
+    metricCard("Inflation", imf.inflation),
+    metricCard("Current account", imf.currentAccount),
+    metricCard("Fiscal balance", imf.fiscalBalance),
+    metricCard("Government debt", imf.governmentDebt),
+    metricCard("Reserves", wb.reserveMonths),
+    metricCard("External debt", wb.externalDebtGni),
+    metricCard("Debt service / exports", wb.debtServiceExports),
+  ].filter(Boolean).join("");
+  const hasTrade = trade && [trade.topExports, trade.topImports, trade.exportPartners, trade.importPartners].some(rows => rows?.length);
+  const sourceDate = ECONOMIC_DATA.generatedAt
+    ? new Date(ECONOMIC_DATA.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
+    : "first refresh pending";
+
+  const macroChart = lineChartHTML("Macro outlook", [
+    { label: "GDP growth", metric: imf.realGdpGrowth },
+    { label: "Inflation", metric: imf.inflation },
+    { label: "Current account", metric: imf.currentAccount },
+    { label: "Fiscal balance", metric: imf.fiscalBalance }
+  ]);
+  const debtChart = lineChartHTML("Government debt", [{ label: "Debt / GDP", metric: imf.governmentDebt }]);
+  const reserveChart = lineChartHTML("Reserve coverage", [{ label: "Months of imports", metric: wb.reserveMonths }], " mo.");
+  return `${countryPageNavHTML()}
+  <div class="country-head economic-page-head">
+    <div><h1 class="country-title">${escapeHTML(country.name)}</h1><p class="country-region">Economic &amp; trade structure · ${escapeHTML(country.region)}</p></div>
+    <span class="economic-updated">Updated ${escapeHTML(sourceDate)}</span>
+  </div>
+  <section class="block economic-block">
+    <div class="economic-head">
+      <div>
+        <p class="block-title">Macro vulnerability</p>
+        <p class="block-note">Latest observations and IMF projections. The year shown on every value matters: source vintages differ.</p>
+      </div>
+    </div>
+    ${macroCards ? `<div class="economic-grid">${macroCards}</div>` : `<p class="empty-note">IMF and World Bank indicators will populate on the first successful economic-data refresh.</p>`}
+    ${macroChart || ""}
+    <div class="secondary-chart-grid">${debtChart}${reserveChart}</div>
+  </section>
+  <section class="block">
+    <p class="block-title">Commodity dependence</p>
+    <p class="block-note">Share of merchandise exports classed as commodities by UNCTAD.</p>
+    ${commodity ? `<div class="commodity-viz">
+      <div class="commodity-gauge-label"><strong>${escapeHTML(formatMetricValue({ value: commodity.exportShare, unit: "percent" }))}</strong><span class="${commodity.dependent ? "dependent" : "diversified"}">${commodity.dependent ? "Commodity-dependent" : "Not commodity-dependent"}</span></div>
+      <div class="commodity-gauge" role="img" aria-label="Commodities are ${escapeHTML(commodity.exportShare)} percent of merchandise exports; UNCTAD dependence threshold is 60 percent"><span style="width:${Math.max(0, Math.min(100, Number(commodity.exportShare)))}%"></span><i></i></div>
+      <div class="commodity-scale"><span>0%</span><span>60% threshold</span><span>100%</span></div>
+      <div class="commodity-detail"><span>Largest commodity group</span><strong>${escapeHTML(commodity.primaryGroup || "Not recorded")}</strong><small>Reference period ${escapeHTML(commodity.referencePeriod || "not recorded")}</small></div>
+    </div>` : `<p class="empty-note">UNCTAD commodity-dependence record pending annual reviewed import.</p>`}
+  </section>
+  <section class="block">
+    <p class="block-title">Merchandise trade</p>
+    <p class="block-note">Largest products and trading partners, ranked by share of the country's total.</p>
+    ${trade ? `<div class="trade-totals">${metricCard("Merchandise exports", { value: trade.exportsTotal, unit: "usd", year: trade.year })}${metricCard("Merchandise imports", { value: trade.importsTotal, unit: "usd", year: trade.year })}</div>` : ""}
+    ${hasTrade ? `<div class="trade-grid">
+      ${rankedBars("Top exports", trade.topExports)}
+      ${rankedBars("Top imports", trade.topImports)}
+      ${rankedBars("Export destinations", trade.exportPartners)}
+      ${rankedBars("Import origins", trade.importPartners)}
+    </div><p class="economic-pending">OEC merchandise trade · ${escapeHTML(trade.year || "latest available year")}.</p>` : `<p class="empty-note">OEC top products and trade partners will populate on the first successful trade refresh.</p>`}
+    <p class="economic-sources"><a href="${escapeHTML(ECONOMIC_DATA.sources?.imf?.url || "https://www.imf.org/")}" target="_blank" rel="noopener noreferrer">IMF</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.worldBank?.url || "https://data.worldbank.org/")}" target="_blank" rel="noopener noreferrer">World Bank</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.unctad?.url || "https://unctad.org/")}" target="_blank" rel="noopener noreferrer">UNCTAD</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.oec?.url || "https://oec.world/")}" target="_blank" rel="noopener noreferrer">OEC</a></p>
+  </section>`;
 }
 
 function newsHTML(countryKey) {
@@ -76,8 +230,44 @@ function newsHTML(countryKey) {
     </section>`;
 }
 
+function imfArticleIVHTML(countryKey, country) {
+  const stored = NEWS_DATA.imfArticleIV?.[countryKey];
+  const calendarRecord = [...country.past, ...country.upcoming]
+    .filter(event => /article iv|consultation under article iv/i.test(`${event.label} ${event.meta}`))
+    .sort((left, right) => String(right.sortDate || right.date).localeCompare(String(left.sortDate || left.date)))[0];
+  const title = stored?.title || calendarRecord?.label;
+  const date = stored?.publishedAt
+    ? new Date(stored.publishedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
+    : calendarRecord?.date;
+  const detail = calendarRecord?.meta || "Latest consultation captured from the IMF news feed.";
+  const link = stored?.url
+    ? `<a href="${escapeHTML(stored.url)}" target="_blank" rel="noopener noreferrer">Open IMF release ↗</a>`
+    : `<a href="https://www.imf.org/en/Countries" target="_blank" rel="noopener noreferrer">Check IMF country pages ↗</a>`;
+
+  return `
+    <section class="block imf-article-iv">
+      <div class="imf-article-head">
+        <div>
+          <p class="block-title">IMF Article IV consultation</p>
+          <p class="block-note">Latest stored consultation record · retained separately from the rolling news inventory.</p>
+        </div>
+        <span class="imf-mark">IMF</span>
+      </div>
+      ${title ? `
+        <p class="imf-article-date">${escapeHTML(date || "Date not recorded")}</p>
+        <p class="imf-article-title">${escapeHTML(title)}</p>
+        <p class="imf-article-detail">${escapeHTML(detail)}</p>
+        <p class="imf-article-link">${link}</p>
+      ` : `
+        <p class="empty-note">No Article IV consultation has been captured yet. This will populate automatically when an IMF release is found.</p>
+        <p class="imf-article-link">${link}</p>
+      `}
+    </section>`;
+}
+
 
 let active = "__home__";
+let countryView = "profile";
 let historyFilter = "All";
 let historyCountry = null;
 
@@ -109,12 +299,12 @@ function renderList(filter = "") {
     const li = document.createElement("li");
     li.className = "country-item" + (key === active ? " active" : "");
     li.innerHTML = `<span class="cname">${c.name}</span>`;
-    li.onclick = () => { active = key; renderList(document.getElementById("search").value); renderMain(); };
+    li.onclick = () => { active = key; countryView = "profile"; renderList(document.getElementById("search").value); renderMain(); };
     list.appendChild(li);
   });
 }
 
-document.getElementById("overviewBtn").onclick = () => { active = "__home__"; renderList(document.getElementById("search").value); renderHome(); };
+document.getElementById("overviewBtn").onclick = () => { active = "__home__"; countryView = "profile"; renderList(document.getElementById("search").value); renderHome(); };
 
 
 function fhClass(status) {
@@ -223,6 +413,11 @@ function historyHTML(countryKey) {
 function renderMain() {
   document.getElementById("main").style.maxWidth = "960px";
   const c = countries[active];
+  if (countryView === "economics") {
+    document.getElementById("main").style.maxWidth = "1120px";
+    document.getElementById("main").innerHTML = economicsPageHTML(active, c);
+    return;
+  }
   const chips = [
     chip("FATF", c.status.fatf, c.status.fatf && c.status.fatf.includes("black") ? "rust" : "amber"),
     chip("IMF programme", c.status.imf, "amber"),
@@ -236,6 +431,7 @@ function renderMain() {
   ).join("");
 
   document.getElementById("main").innerHTML = `
+    ${countryPageNavHTML()}
     <div class="country-head">
       <div>
         <h1 class="country-title">${c.name}</h1>
@@ -261,6 +457,8 @@ function renderMain() {
     </div>
 
     <div class="chip-row">${chips}</div>
+
+    ${imfArticleIVHTML(active, c)}
 
     ${newsHTML(active)}
 
@@ -308,7 +506,7 @@ function renderFeed() {
   const rowHTML = (e) => {
     const c = countries[e.key];
     return `
-      <div class="feed-row" onclick="active='${e.key}'; renderList(); renderMain();">
+      <div class="feed-row" onclick="active='${e.key}'; countryView='profile'; renderList(); renderMain();">
         <div class="feed-when">${e.date}</div>
         <div class="feed-country"><span>${c.name}</span></div>
         <div class="feed-body">
@@ -336,7 +534,7 @@ function renderHome() {
     const c = countries[key];
     const sev = severityDots(c)[0] || "";
     const shape = COUNTRY_SHAPES[key] ? `<path class="country-shape" d="${COUNTRY_SHAPES[key]}"/>` : "";
-    return `<g class="map-pin ${sev}" onclick="active='${key}'; renderList(); renderMain();">
+    return `<g class="map-pin ${sev}" onclick="active='${key}'; countryView='profile'; renderList(); renderMain();">
         <title>${c.name}</title>
         ${shape}
       </g>`;
