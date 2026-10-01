@@ -1,18 +1,522 @@
 {
   "schemaVersion": 1,
-  "generatedAt": null,
-  "status": "awaiting-refresh",
-  "provider": "GDELT DOC 2.0",
+  "generatedAt": "2026-10-01T05:43:49.668Z",
+  "runStartedAt": "2026-10-01T05:31:26.230Z",
+  "bundle": null,
+  "status": "partial",
+  "providers": [
+    "GDELT DOC 2.0",
+    "Recent country-news search",
+    "Direct official sources"
+  ],
   "totals": {
     "retrieved": 0,
     "acceptedFromCurrentSearch": 0,
-    "officialRetrieved": 0,
+    "officialRetrieved": 31,
+    "recentDiscoveryRetrieved": 259,
     "rejected": 0,
     "expired": 0,
-    "duplicatesMerged": 0,
-    "publishedEventClusters": 0
+    "duplicatesMerged": 44,
+    "publishedEventClusters": 141
   },
-  "requestFailures": [],
-  "officialSourceStatus": [],
-  "countries": {}
+  "requestFailures": [
+    "GDELT request failed for usa: fetch failed",
+    "GDELT request failed for mexico: fetch failed",
+    "GDELT request failed for bahamas: HTTP 429",
+    "GDELT request failed for serbia: HTTP 429",
+    "GDELT request failed for turkey: HTTP 429",
+    "GDELT request failed for egypt: fetch failed",
+    "GDELT request failed for uzbekistan: HTTP 429",
+    "GDELT request failed for vietnam: HTTP 429",
+    "GDELT request failed for senegal: HTTP 429",
+    "GDELT request failed for cotedivoire: HTTP 429",
+    "GDELT request failed for benin: fetch failed",
+    "GDELT request failed for angola: fetch failed",
+    "GDELT request failed for kenya: fetch failed",
+    "GDELT request failed for tanzania: HTTP 429",
+    "GDELT request failed for ethiopia: HTTP 429"
+  ],
+  "officialSourceStatus": [
+    {
+      "id": "imf-news",
+      "label": "International Monetary Fund",
+      "status": "failed",
+      "error": "HTTP 403"
+    },
+    {
+      "id": "fatf-news",
+      "label": "Financial Action Task Force",
+      "status": "failed",
+      "error": "HTTP 403"
+    },
+    {
+      "id": "eu-council-press",
+      "label": "Council of the European Union",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "ofac-recent-actions",
+      "label": "US Treasury OFAC",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "moodys-sovereigns",
+      "label": "Moody's Ratings",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "us-fed",
+      "label": "Federal Reserve",
+      "status": "ok",
+      "records": 20
+    },
+    {
+      "id": "fitch-sovereigns",
+      "label": "Fitch Ratings",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "bs-central-bank",
+      "label": "Central Bank of The Bahamas",
+      "status": "failed",
+      "error": "HTTP 404"
+    },
+    {
+      "id": "sp-sovereign-actions",
+      "label": "S&P Global Ratings",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "mx-banxico",
+      "label": "Banco de México",
+      "status": "failed",
+      "error": "HTTP 404"
+    },
+    {
+      "id": "tr-tcmb",
+      "label": "Central Bank of the Republic of Türkiye",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "rs-nbs",
+      "label": "National Bank of Serbia",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "eg-cbe",
+      "label": "Central Bank of Egypt",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "sn-bceao",
+      "label": "BCEAO",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "ci-bceao",
+      "label": "BCEAO",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "bj-bceao",
+      "label": "BCEAO",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "ao-bna",
+      "label": "Banco Nacional de Angola",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "vn-sbv",
+      "label": "State Bank of Vietnam",
+      "status": "failed",
+      "error": "HTTP 403"
+    },
+    {
+      "id": "uz-cbu",
+      "label": "Central Bank of Uzbekistan",
+      "status": "ok",
+      "records": 5
+    },
+    {
+      "id": "tz-bot",
+      "label": "Bank of Tanzania",
+      "status": "failed",
+      "error": "HTTP 404"
+    },
+    {
+      "id": "et-nbe",
+      "label": "National Bank of Ethiopia",
+      "status": "ok",
+      "records": 1
+    },
+    {
+      "id": "ke-cbk",
+      "label": "Central Bank of Kenya",
+      "status": "ok",
+      "records": 3
+    },
+    {
+      "id": "world-bank-bahamas",
+      "label": "World Bank — bahamas",
+      "status": "ok",
+      "records": 2
+    },
+    {
+      "id": "world-bank-usa",
+      "label": "World Bank — usa",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-mexico",
+      "label": "World Bank — mexico",
+      "status": "ok",
+      "records": 2
+    },
+    {
+      "id": "world-bank-turkey",
+      "label": "World Bank — turkey",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-serbia",
+      "label": "World Bank — serbia",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-uzbekistan",
+      "label": "World Bank — uzbekistan",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-vietnam",
+      "label": "World Bank — vietnam",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-cotedivoire",
+      "label": "World Bank — cotedivoire",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-benin",
+      "label": "World Bank — benin",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-angola",
+      "label": "World Bank — angola",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-kenya",
+      "label": "World Bank — kenya",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-tanzania",
+      "label": "World Bank — tanzania",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-ethiopia",
+      "label": "World Bank — ethiopia",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-egypt",
+      "label": "World Bank — egypt",
+      "status": "ok",
+      "records": 2
+    },
+    {
+      "id": "world-bank-senegal",
+      "label": "World Bank — senegal",
+      "status": "ok",
+      "records": 0
+    }
+  ],
+  "recentDiscoveryStatus": [
+    {
+      "id": "google-news-usa",
+      "label": "Recent country news — usa",
+      "status": "ok",
+      "records": 14
+    },
+    {
+      "id": "google-news-mexico",
+      "label": "Recent country news — mexico",
+      "status": "ok",
+      "records": 30
+    },
+    {
+      "id": "google-news-bahamas",
+      "label": "Recent country news — bahamas",
+      "status": "ok",
+      "records": 5
+    },
+    {
+      "id": "google-news-serbia",
+      "label": "Recent country news — serbia",
+      "status": "ok",
+      "records": 30
+    },
+    {
+      "id": "google-news-turkey",
+      "label": "Recent country news — turkey",
+      "status": "ok",
+      "records": 21
+    },
+    {
+      "id": "google-news-egypt",
+      "label": "Recent country news — egypt",
+      "status": "ok",
+      "records": 18
+    },
+    {
+      "id": "google-news-uzbekistan",
+      "label": "Recent country news — uzbekistan",
+      "status": "ok",
+      "records": 12
+    },
+    {
+      "id": "google-news-vietnam",
+      "label": "Recent country news — vietnam",
+      "status": "ok",
+      "records": 13
+    },
+    {
+      "id": "google-news-senegal",
+      "label": "Recent country news — senegal",
+      "status": "ok",
+      "records": 16
+    },
+    {
+      "id": "google-news-cotedivoire",
+      "label": "Recent country news — cotedivoire",
+      "status": "ok",
+      "records": 4
+    },
+    {
+      "id": "google-news-benin",
+      "label": "Recent country news — benin",
+      "status": "ok",
+      "records": 11
+    },
+    {
+      "id": "google-news-angola",
+      "label": "Recent country news — angola",
+      "status": "ok",
+      "records": 19
+    },
+    {
+      "id": "google-news-kenya",
+      "label": "Recent country news — kenya",
+      "status": "ok",
+      "records": 21
+    },
+    {
+      "id": "google-news-tanzania",
+      "label": "Recent country news — tanzania",
+      "status": "ok",
+      "records": 30
+    },
+    {
+      "id": "google-news-ethiopia",
+      "label": "Recent country news — ethiopia",
+      "status": "ok",
+      "records": 15
+    }
+  ],
+  "countries": {
+    "usa": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 16,
+      "recentDiscoveryRetrieved": 14,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 2,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "mexico": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 2,
+      "recentDiscoveryRetrieved": 30,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 6,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "bahamas": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 2,
+      "recentDiscoveryRetrieved": 5,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 1,
+      "publishedEventClusters": 6,
+      "rejections": []
+    },
+    "serbia": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "recentDiscoveryRetrieved": 30,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 9,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "turkey": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "recentDiscoveryRetrieved": 21,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "egypt": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 2,
+      "recentDiscoveryRetrieved": 18,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 4,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "uzbekistan": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 5,
+      "recentDiscoveryRetrieved": 12,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 1,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "vietnam": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "recentDiscoveryRetrieved": 13,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 1,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "senegal": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "recentDiscoveryRetrieved": 16,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 3,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "cotedivoire": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "recentDiscoveryRetrieved": 4,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 5,
+      "rejections": []
+    },
+    "benin": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "recentDiscoveryRetrieved": 11,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 2,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "angola": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "recentDiscoveryRetrieved": 19,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 6,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "kenya": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "recentDiscoveryRetrieved": 21,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 4,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "tanzania": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 0,
+      "recentDiscoveryRetrieved": 30,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 5,
+      "publishedEventClusters": 10,
+      "rejections": []
+    },
+    "ethiopia": {
+      "retrieved": 0,
+      "acceptedFromCurrentSearch": 0,
+      "officialRetrieved": 1,
+      "recentDiscoveryRetrieved": 15,
+      "rejectedCount": 0,
+      "expired": 0,
+      "duplicatesMerged": 0,
+      "publishedEventClusters": 10,
+      "rejections": []
+    }
+  }
 }
