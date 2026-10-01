@@ -5,6 +5,27 @@ on:
     - cron: "29 7 2 * *"       # monthly IMF and World Bank refresh
     - cron: "47 7 2 1,4,7,10 *" # quarterly OEC trade refresh
   workflow_dispatch:
+    inputs:
+      scope:
+        description: Data source to refresh
+        required: true
+        default: macro
+        type: choice
+        options: [macro, trade, commodity, all]
+      jurisdiction:
+        description: Optional ISO3 code or profiles
+        required: false
+        type: string
+      bundle_count:
+        description: Number of bundles
+        required: true
+        default: "24"
+        type: string
+      bundle_index:
+        description: Zero-based bundle number
+        required: true
+        default: "0"
+        type: string
 
 permissions:
   contents: write
