@@ -81,9 +81,11 @@ function sleep(milliseconds) {
 
 async function fetchResponse(url, options = {}) {
   let lastError;
-  for (let attempt = 0; attempt < 4; attempt += 1) {
+  const attempts = Number(process.env.ECONOMIC_FETCH_ATTEMPTS || 2);
+  const timeoutMs = Number(process.env.ECONOMIC_FETCH_TIMEOUT_MS || 12_000);
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 30_000);
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
       const response = await fetch(url, {
         ...options,
@@ -94,7 +96,7 @@ async function fetchResponse(url, options = {}) {
       return response;
     } catch (error) {
       lastError = error;
-      if (attempt < 3) await sleep((attempt + 1) * 1_250);
+      if (attempt < attempts - 1) await sleep((attempt + 1) * 1_000);
     } finally {
       clearTimeout(timer);
     }
@@ -136,26 +138,23 @@ async function fetchImf(iso3) {
   const indicators = {};
   const warnings = [];
 
-  for (const [key, metadata] of Object.entries(IMF_INDICATORS)) {
+  const entries = Object.entries(IMF_INDICATORS);
+  const results = await Promise.allSettled(entries.map(async ([key, metadata]) => {
     const url = `https://www.imf.org/external/datamapper/api/v1/${metadata.code}/${iso3}?periods=${periods}`;
-    try {
-      const json = await fetchJson(url);
-      const sourceSeries = json?.values?.[metadata.code]?.[iso3] || json?.values?.[iso3] || json?.data?.[metadata.code]?.[iso3] || {};
-      const series = Object.entries(sourceSeries).map(([year, value]) => ({
-        year: Number(year), value: Number(value)
-      })).filter(point => requestedSet.has(point.year) && Number.isFinite(point.value))
-        .sort((left, right) => left.year - right.year)
-        .map(point => ({
-          ...point,
-          observationClass: observationClass(point.year, currentYear),
-          projection: point.year > currentYear
-        }));
-      const picked = currentValue(series, currentYear);
-      if (!picked) {
-        warnings.push(`${metadata.code}: no observations in requested window`);
-        continue;
-      }
-      indicators[key] = {
+    const json = await fetchJson(url);
+    const sourceSeries = json?.values?.[metadata.code]?.[iso3] || json?.values?.[iso3] || json?.data?.[metadata.code]?.[iso3] || {};
+    const series = Object.entries(sourceSeries).map(([year, value]) => ({
+      year: Number(year), value: Number(value)
+    })).filter(point => requestedSet.has(point.year) && Number.isFinite(point.value))
+      .sort((left, right) => left.year - right.year)
+      .map(point => ({
+        ...point,
+        observationClass: observationClass(point.year, currentYear),
+        projection: point.year > currentYear
+      }));
+    const picked = currentValue(series, currentYear);
+    if (!picked) throw new Error("no observations in requested window");
+    return [key, {
         value: picked.value,
         year: picked.year,
         unit: metadata.unit,
@@ -165,11 +164,16 @@ async function fetchImf(iso3) {
         sourceCode: metadata.code,
         sourceUrl: url,
         series
-      };
-    } catch (error) {
-      warnings.push(`${metadata.code}: ${error.message}`);
+      }];
+  }));
+  results.forEach((result, index) => {
+    const [key, metadata] = entries[index];
+    if (result.status === "fulfilled") {
+      indicators[key] = result.value[1];
+    } else {
+      warnings.push(`${metadata.code}: ${result.reason.message}`);
     }
-  }
+  });
   if (!Object.keys(indicators).length) throw new Error(warnings.join(" | ") || "no IMF observations returned");
   return { indicators, warnings, observationThrough: Math.max(...Object.values(indicators).map(metric => metric.year)) };
 }
@@ -178,21 +182,18 @@ async function fetchWorldBank(iso3) {
   const currentYear = new Date().getUTCFullYear();
   const indicators = {};
   const warnings = [];
-  for (const [key, metadata] of Object.entries(WB_INDICATORS)) {
+  const entries = Object.entries(WB_INDICATORS);
+  const results = await Promise.allSettled(entries.map(async ([key, metadata]) => {
     const url = `https://api.worldbank.org/v2/country/${iso3}/indicator/${metadata.code}?format=json&per_page=100&date=2015:${currentYear}`;
-    try {
-      const json = await fetchJson(url);
-      const rows = Array.isArray(json?.[1]) ? json[1] : [];
-      const series = rows.filter(row => row?.value !== null && Number.isFinite(Number(row.value)) && Number.isInteger(Number(row.date)))
-        .map(row => ({ value: Number(row.value), year: Number(row.date), projection: false, observationClass: "historical" }))
-        .sort((left, right) => left.year - right.year);
-      const picked = series.at(-1);
-      if (!picked) {
-        warnings.push(`${metadata.code}: no observations`);
-        continue;
-      }
-      const ageYears = Math.max(0, currentYear - picked.year);
-      indicators[key] = {
+    const json = await fetchJson(url);
+    const rows = Array.isArray(json?.[1]) ? json[1] : [];
+    const series = rows.filter(row => row?.value !== null && Number.isFinite(Number(row.value)) && Number.isInteger(Number(row.date)))
+      .map(row => ({ value: Number(row.value), year: Number(row.date), projection: false, observationClass: "historical" }))
+      .sort((left, right) => left.year - right.year);
+    const picked = series.at(-1);
+    if (!picked) throw new Error("no observations");
+    const ageYears = Math.max(0, currentYear - picked.year);
+    return [key, {
         value: picked.value,
         year: picked.year,
         unit: metadata.unit,
@@ -203,11 +204,16 @@ async function fetchWorldBank(iso3) {
         ageYears,
         stale: ageYears > metadata.maxAgeYears,
         series
-      };
-    } catch (error) {
-      warnings.push(`${metadata.code}: ${error.message}`);
+      }];
+  }));
+  results.forEach((result, index) => {
+    const [key, metadata] = entries[index];
+    if (result.status === "fulfilled") {
+      indicators[key] = result.value[1];
+    } else {
+      warnings.push(`${metadata.code}: ${result.reason.message}`);
     }
-  }
+  });
   if (!Object.keys(indicators).length) throw new Error(warnings.join(" | ") || "no World Bank observations returned");
   return { indicators, warnings, observationThrough: Math.max(...Object.values(indicators).map(metric => metric.year)) };
 }
@@ -568,6 +574,7 @@ const failures = [];
 
 for (const target of selectedTargets) {
   const { iso3 } = target;
+  console.log(`[economic] Refreshing ${iso3} (${scope})...`);
   const jurisdiction = jurisdictionFor(iso3);
   const record = next.jurisdictions[iso3];
   if (!jurisdiction) {
