@@ -92,6 +92,32 @@ function providerStatusHTML(refresh = {}) {
   }).join("")}</div>`;
 }
 
+function shortTradeLabel(row) {
+  const labels = {
+    '2709': 'Crude oil', '2710': 'Refined petroleum products', '2711': 'Petroleum gases',
+    '4907': 'Stamps, banknotes, cheques and financial certificates',
+    '0306': 'Crustaceans', '8903': 'Yachts and recreational boats',
+    '3903': 'Styrene polymers', '8703': 'Passenger cars',
+    '8502': 'Electric generating sets and rotary converters',
+    '9403': 'Other furniture and parts', '9999': 'Unspecified commodities',
+    '7102': 'Diamonds', '7106': 'Silver', '7108': 'Gold',
+    '7110': 'Platinum-group metals', '2603': 'Copper ores and concentrates',
+    '2601': 'Iron ores and concentrates', '2606': 'Aluminium ores and concentrates',
+    '7403': 'Refined copper and unwrought copper alloys',
+    '7601': 'Unwrought aluminium', '1001': 'Wheat and meslin',
+    '0901': 'Coffee, coffee substitutes, husks and skins', '1801': 'Cocoa beans',
+    '8901': 'Passenger and cargo vessels',
+    '8905': 'Special-purpose vessels and floating platforms',
+    '8481': 'Taps, valves and similar appliances',
+    '7304': 'Seamless iron or steel tubes and pipes'
+  };
+  const name = String(row.name || '').trim();
+  // Partner codes have fewer than four digits; never apply product aliases to them.
+  const label = labels[String(row.code)] || name;
+  const words = label.split(/\s+/);
+  return words.length > 10 ? words.slice(0, 10).join(' ') + '…' : label;
+}
+
 function rankedBars(title, rows) {
   if (!Array.isArray(rows) || !rows.length) return "";
   const maximum = Math.max(...rows.map(row => Number(row.share) || Number(row.value) || 0), 1);
@@ -101,7 +127,7 @@ function rankedBars(title, rows) {
     const width = Math.max(2, measure / maximum * 100);
     const value = Number.isFinite(share) ? `${share.toFixed(1)}%` : formatMetricValue({ value: row.value, unit: "usd" });
     return `<div class="trade-bar-row">
-      <div class="trade-bar-label"><span>${escapeHTML(row.name)}</span><strong>${escapeHTML(value)}</strong></div>
+      <div class="trade-bar-label"><span tabindex="0" title="${escapeHTML(row.sourceDescription || row.name)}" aria-label="${escapeHTML(row.sourceDescription || row.name)}">${escapeHTML(shortTradeLabel(row))}</span><strong>${escapeHTML(value)}</strong></div>
       <div class="trade-bar-track"><span style="width:${width.toFixed(1)}%"></span></div>
     </div>`;
   }).join("")}${rows.slice(0,5).every(r => typeof r.share === "number") ? `<p class="block-note">Other / unallocated: ${Math.max(0,100-rows.slice(0,5).reduce((n,r)=>n+r.share,0)).toFixed(1)}%</p>` : ""}</div>`;
