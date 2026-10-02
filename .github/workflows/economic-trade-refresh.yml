@@ -7,25 +7,22 @@ on:
   workflow_dispatch:
     inputs:
       scope:
-        description: Data source to refresh
-        required: true
-        default: macro
+        description: Data source to refresh (audit makes no data changes)
         type: choice
-        options: [macro, trade, commodity, all]
+        default: audit
+        options: [audit, macro, trade, commodity, all]
       jurisdiction:
-        description: Optional ISO3 code or profiles
-        required: false
+        description: ISO3 code (AGO), profiles, or blank for selected bundle
         type: string
+        default: AGO
       bundle_count:
         description: Number of bundles
-        required: true
-        default: "24"
         type: string
+        default: "24"
       bundle_index:
         description: Zero-based bundle number
-        required: true
-        default: "0"
         type: string
+        default: "0"
 
 permissions:
   contents: write
@@ -42,6 +39,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
@@ -54,22 +52,60 @@ jobs:
         shell: bash
         env:
           SCHEDULE: ${{ github.event.schedule }}
+          EVENT: ${{ github.event_name }}
+          SCOPE: ${{ inputs.scope }}
+          COUNTRY: ${{ inputs.jurisdiction }}
+          COUNT: ${{ inputs.bundle_count }}
+          INDEX: ${{ inputs.bundle_index }}
         run: |
-          if [ "$SCHEDULE" = "29 7 2 * *" ]; then
-            scope="macro"
-          elif [ "$SCHEDULE" = "47 7 2 1,4,7,10 *" ]; then
-            scope="trade"
-          else
-            scope="all"
+          set -euo pipefail
+          if [ "$EVENT" = "schedule" ]; then
+            COUNTRY=""
+            COUNT=1
+            INDEX=0
+            case "$SCHEDULE" in
+              "29 7 2 * *") SCOPE=macro ;;
+              "47 7 2 1,4,7,10 *") SCOPE=trade ;;
+              *) echo "Unknown schedule"; exit 1 ;;
+            esac
           fi
-          echo "name=$scope" >> "$GITHUB_OUTPUT"
+          case "$SCOPE" in audit|macro|trade|commodity|all) ;; *) exit 1 ;; esac
+          [[ "$COUNT" =~ ^[0-9]+$ && "$INDEX" =~ ^[0-9]+$ ]] || exit 1
+          (( COUNT >= 1 && COUNT <= 197 && INDEX < COUNT )) || exit 1
+          [[ -z "$COUNTRY" || "$COUNTRY" == profiles || "$COUNTRY" =~ ^[A-Z]{3}$ ]] || exit 1
+          echo "Scope=$SCOPE; country=$COUNTRY; bundle=$INDEX/$COUNT"
+          echo "name=$SCOPE" >> "$GITHUB_OUTPUT"
+          echo "country=$COUNTRY" >> "$GITHUB_OUTPUT"
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          echo "index=$INDEX" >> "$GITHUB_OUTPUT"
       - name: Refresh economic data
+        if: steps.scope.outputs.name != 'audit'
+        timeout-minutes: 20
         env:
           OEC_API_TOKEN: ${{ secrets.OEC_API_TOKEN }}
-        run: node tools/update-economic.mjs --scope=${{ steps.scope.outputs.name }}
+          UNCTAD_DATA_URL: ${{ secrets.UNCTAD_DATA_URL }}
+          SCOPE: ${{ steps.scope.outputs.name }}
+          COUNTRY: ${{ steps.scope.outputs.country }}
+          ECONOMIC_BUNDLE_COUNT: ${{ steps.scope.outputs.count }}
+          ECONOMIC_BUNDLE_INDEX: ${{ steps.scope.outputs.index }}
+        shell: bash
+        run: |
+          args=("--scope=$SCOPE")
+          if [ -n "$COUNTRY" ]; then args+=("--country=$COUNTRY"); fi
+          printf 'Updater argument: %s\n' "${args[@]}"
+          node tools/update-economic.mjs "${args[@]}"
+      - name: Audit economic coverage
+        run: node tools/audit-economic.mjs
+      - name: Save coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: economic-coverage
+          path: audit-output/
       - name: Validate and rebuild site
+        if: steps.scope.outputs.name != 'audit'
         run: npm run validate
       - name: Commit verified changes
+        if: steps.scope.outputs.name != 'audit'
         id: commit
         shell: bash
         run: |
@@ -85,20 +121,20 @@ jobs:
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
       - name: Configure Pages
-        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.scope.outputs.name != 'audit' && (steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
         uses: actions/configure-pages@v5
       - name: Prepare deployment directory
-        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.scope.outputs.name != 'audit' && (steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
         run: |
           mkdir -p _site
           cp index.html _site/index.html
           touch _site/.nojekyll
       - name: Upload Pages artifact
-        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.scope.outputs.name != 'audit' && (steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
       - name: Deploy refreshed site
-        if: steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        if: steps.scope.outputs.name != 'audit' && (steps.commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
         id: deployment
         uses: actions/deploy-pages@v4
