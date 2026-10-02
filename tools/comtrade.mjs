@@ -1,7 +1,7 @@
 // Annual merchandise trade. Shares use reported world totals, never top-five sums.
 export function rank(rows, flow, year, reporter, products, total) {
   const selected = rows.filter(r => r.flowCode === flow && Number(r.period) === year && Number(r.reporterCode) === reporter &&
-    (products ? /^\d{2}$/.test(String(r.cmdCode)) && Number(r.partnerCode) === 0 : r.cmdCode === 'TOTAL' && Number(r.partnerCode) !== 0));
+    (products ? /^\d{4}$/.test(String(r.cmdCode)) && Number(r.partnerCode) === 0 : r.cmdCode === 'TOTAL' && Number(r.partnerCode) !== 0));
   const seen = new Set();
   return selected.filter(r => {
     const key = products ? r.cmdCode : r.partnerCode;
@@ -9,7 +9,10 @@ export function rank(rows, flow, year, reporter, products, total) {
     seen.add(key);
     return r.primaryValue !== null && Number.isFinite(Number(r.primaryValue)) && Number(r.primaryValue) > 0;
   }).sort((a,b) => b.primaryValue-a.primaryValue).slice(0,5).map(r => ({
-    name: products ? r.cmdDesc : r.partnerDesc, value:Number(r.primaryValue), share:total > 0 ? Number(r.primaryValue)/total*100 : null
+    code: String(products ? r.cmdCode : r.partnerCode),
+    name: products ? ({'2709':'Crude oil','2710':'Refined petroleum products','2711':'Petroleum gases'}[r.cmdCode] || r.cmdDesc) : r.partnerDesc,
+    sourceDescription: products ? r.cmdDesc : r.partnerDesc,
+    value:Number(r.primaryValue), share:total > 0 ? Number(r.primaryValue)/total*100 : null
   }));
 }
 export async function fetchComtrade(iso3) {
@@ -18,44 +21,18 @@ export async function fetchComtrade(iso3) {
   async function get(url, authenticated = false) {
     for (let attempt = 0; attempt < 3; attempt++) {
       await new Promise(resolve => setTimeout(resolve, 1500));
-
-      const response = await fetch(url, {
-        signal: AbortSignal.timeout(20000),
-        headers: authenticated
-          ? { 'Ocp-Apim-Subscription-Key': key }
-          : {}
-      });
-
+      const response = await fetch(url, {signal:AbortSignal.timeout(20000), headers:authenticated ? {'Ocp-Apim-Subscription-Key':key} : {}});
       if (response.ok) return await response.json();
-
       const retryHeader = response.headers.get('retry-after');
       const raw = await response.text();
-      const detail = raw.split(key).join('[REDACTED]').slice(0, 1000);
-
-      const seconds = retryHeader === null
-        ? 2
-        : /^\d+$/.test(retryHeader)
-          ? Number(retryHeader)
-          : Math.ceil((Date.parse(retryHeader) - Date.now()) / 1000);
-
-      if (
-        response.status === 429 &&
-        attempt < 2 &&
-        Number.isFinite(seconds) &&
-        seconds >= 0 &&
-        seconds <= 30
-      ) {
-        console.log(`Comtrade rate limit: waiting ${seconds + 1}s.`);
-        await new Promise(resolve =>
-          setTimeout(resolve, (seconds + 1) * 1000)
-        );
+      const detail = raw.split(key).join('[REDACTED]').slice(0,1000);
+      const seconds = retryHeader === null ? 2 : /^\d+$/.test(retryHeader) ? Number(retryHeader) : Math.ceil((Date.parse(retryHeader)-Date.now())/1000);
+      if (response.status === 429 && attempt < 2 && Number.isFinite(seconds) && seconds >= 0 && seconds <= 30) {
+        console.log(`Comtrade rate limit: waiting ${seconds+1}s.`);
+        await new Promise(resolve => setTimeout(resolve,(seconds+1)*1000));
         continue;
       }
-
-      throw new Error(
-        `Comtrade HTTP ${response.status}; ` +
-        `Retry-After: ${retryHeader || 'not provided'}; ${detail}`
-      );
+      throw new Error(`Comtrade HTTP ${response.status}; Retry-After: ${retryHeader || 'not provided'}; ${detail}`);
     }
   }
   const catalogue = await get('https://comtradeapi.un.org/files/v1/app/reference/Reporters.json');
@@ -78,9 +55,9 @@ export async function fetchComtrade(iso3) {
     const totals = await query('TOTAL',0);
     const total = flow => totals.find(r=>r.flowCode===flow && Number(r.partnerCode)===0 && Number(r.period)===year && Number(r.reporterCode)===reporter)?.primaryValue;
     if (!(total('X')>0 && total('M')>0)) continue;
-    const products = await query('AG2',0);
+    const products = await query('AG4',0);
     const partners = await query('TOTAL',null);
-    const result = {year, dataset:'UN Comtrade — annual reported merchandise trade (HS2)', provider:'comtrade', sourceUrl:'https://comtradeplus.un.org/', exportsTotal:Number(total('X')),importsTotal:Number(total('M')),retainedSections:[],warnings:[],coverage:{}};
+    const result = {year, dataset:'UN Comtrade — annual reported merchandise trade (HS4)', provider:'comtrade', sourceUrl:'https://comtradeplus.un.org/', exportsTotal:Number(total('X')),importsTotal:Number(total('M')),retainedSections:[],warnings:[],coverage:{}};
     for (const [field,flow,isProduct] of [['topExports','X',true],['topImports','M',true],['exportPartners','X',false],['importPartners','M',false]]) {
       result[field]=rank(isProduct?products:partners,flow,year,reporter,isProduct,total(flow));
       result.coverage[field]=result[field].length>0;
