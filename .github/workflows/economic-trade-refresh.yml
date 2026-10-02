@@ -3,7 +3,7 @@ name: Refresh economic and trade data
 on:
   schedule:
     - cron: "29 7 2 * *"       # monthly IMF and World Bank refresh
-    - cron: "47 7 2 1,4,7,10 *" # quarterly OEC trade refresh
+    - cron: "47 7 3-26 1,4,7,10 *" # quarterly Comtrade refresh split into 24 daily batches
   workflow_dispatch:
     inputs:
       scope:
@@ -30,7 +30,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: economic-trade-refresh
+  group: github-pages
   cancel-in-progress: false
 
 jobs:
@@ -65,7 +65,7 @@ jobs:
             INDEX=0
             case "$SCHEDULE" in
               "29 7 2 * *") SCOPE=macro ;;
-              "47 7 2 1,4,7,10 *") SCOPE=trade ;;
+              "47 7 3-26 1,4,7,10 *") SCOPE=trade; COUNT=24; INDEX=$((10#$(date -u +%d)-3)) ;;
               *) echo "Unknown schedule"; exit 1 ;;
             esac
           fi
@@ -82,7 +82,7 @@ jobs:
         if: steps.scope.outputs.name != 'audit'
         timeout-minutes: 20
         env:
-          OEC_API_TOKEN: ${{ secrets.OEC_API_TOKEN }}
+          COMTRADE_API_KEY: ${{ secrets.COMTRADE_API_KEY }}
           UNCTAD_DATA_URL: ${{ secrets.UNCTAD_DATA_URL }}
           SCOPE: ${{ steps.scope.outputs.name }}
           COUNTRY: ${{ steps.scope.outputs.country }}
