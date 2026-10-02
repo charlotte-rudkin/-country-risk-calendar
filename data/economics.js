@@ -4,7 +4,7 @@
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T13:35:10.495Z",
+  "generatedAt": "2026-10-02T13:45:10.684Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -68,8 +68,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -899,8 +899,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -1961,8 +1961,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -2780,8 +2780,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -3827,8 +3827,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -4880,8 +4880,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -5885,8 +5885,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -6932,8 +6932,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -7746,8 +7746,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -8718,8 +8718,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -9691,8 +9691,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -10592,8 +10592,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -11651,8 +11651,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -12698,8 +12698,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -13715,8 +13715,8 @@
         },
         "unctad": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
-          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
+          "lastAttemptAt": "2026-10-02T13:45:10.673Z",
+          "lastSuccessAt": "2026-10-02T13:45:10.673Z",
           "retainedPrevious": false,
           "observationThrough": "2022-2024",
           "warnings": [
@@ -145167,7 +145167,7 @@
   "refreshSummary": {
     "scope": "commodity",
     "jurisdictionsAttempted": 15,
-    "completedAt": "2026-10-02T13:35:10.495Z",
+    "completedAt": "2026-10-02T13:45:10.684Z",
     "failures": 0
   }
 };
