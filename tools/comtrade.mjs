@@ -16,20 +16,47 @@ export async function fetchComtrade(iso3) {
   const key = process.env.COMTRADE_API_KEY;
   if (!key) throw new Error('COMTRADE_API_KEY is missing');
   async function get(url, authenticated = false) {
-    const response = await fetch(url, {signal:AbortSignal.timeout(20000), headers:authenticated ? {'Ocp-Apim-Subscription-Key':key} : {}});
-    if (!response.ok) {
-  const retryAfter = response.headers.get('retry-after');
-  const raw = await response.text();
-  const detail = raw.split(key).join('[REDACTED]').slice(0, 1000);
+    for (let attempt = 0; attempt < 3; attempt++) {
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
-  throw new Error(
-    `Comtrade HTTP ${response.status}; ` +
-    `Retry-After: ${retryAfter || 'not provided'}; ` +
-    `Details: ${detail}`
-  );
-}
-    const body = await response.json();
-    return body;
+      const response = await fetch(url, {
+        signal: AbortSignal.timeout(20000),
+        headers: authenticated
+          ? { 'Ocp-Apim-Subscription-Key': key }
+          : {}
+      });
+
+      if (response.ok) return await response.json();
+
+      const retryHeader = response.headers.get('retry-after');
+      const raw = await response.text();
+      const detail = raw.split(key).join('[REDACTED]').slice(0, 1000);
+
+      const seconds = retryHeader === null
+        ? 2
+        : /^\d+$/.test(retryHeader)
+          ? Number(retryHeader)
+          : Math.ceil((Date.parse(retryHeader) - Date.now()) / 1000);
+
+      if (
+        response.status === 429 &&
+        attempt < 2 &&
+        Number.isFinite(seconds) &&
+        seconds >= 0 &&
+        seconds <= 30
+      ) {
+        console.log(`Comtrade rate limit: waiting ${seconds + 1}s.`);
+        await new Promise(resolve =>
+          setTimeout(resolve, (seconds + 1) * 1000)
+        );
+        continue;
+      }
+
+      throw new Error(
+        `Comtrade HTTP ${response.status}; ` +
+        `Retry-After: ${retryHeader || 'not provided'}; ${detail}`
+      );
+    }
   }
   const catalogue = await get('https://comtradeapi.un.org/files/v1/app/reference/Reporters.json');
   const reporterEntry = catalogue.results?.find(r => r.reporterCodeIsoAlpha3 === iso3);
