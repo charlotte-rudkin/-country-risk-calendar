@@ -1,3 +1,4 @@
+import { fetchComtrade } from './comtrade.mjs';
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -216,102 +217,6 @@ async function fetchWorldBank(iso3) {
   });
   if (!Object.keys(indicators).length) throw new Error(warnings.join(" | ") || "no World Bank observations returned");
   return { indicators, warnings, observationThrough: Math.max(...Object.values(indicators).map(metric => metric.year)) };
-}
-
-function oecRows(json) {
-  if (Array.isArray(json)) return json;
-  if (Array.isArray(json?.data)) return json.data;
-  if (Array.isArray(json?.records)) return json.records;
-  return [];
-}
-
-function firstField(row, fields) {
-  for (const field of fields) if (row?.[field] !== undefined && row[field] !== null) return row[field];
-  return null;
-}
-
-function tradeValue(row) {
-  return Number(firstField(row, ["Trade Value", "Trade Value USD", "value"])) || 0;
-}
-
-function rankOec(rows, nameFields) {
-  const mapped = rows.map(row => ({
-    name: String(firstField(row, nameFields) || "").trim(), value: tradeValue(row)
-  })).filter(row => row.name && Number.isFinite(row.value) && row.value > 0);
-  const total = mapped.reduce((sum, row) => sum + row.value, 0);
-  return mapped.sort((left, right) => right.value - left.value).slice(0, 5)
-    .map(row => ({ ...row, share: total ? row.value / total * 100 : null }));
-}
-
-async function fetchOecQuery(params) {
-  const url = new URL(process.env.OEC_API_BASE || "https://api-v2.oec.world/tesseract/data.jsonrecords");
-  for (const [key, value] of Object.entries(params)) url.searchParams.set(key, value);
-  if (process.env.OEC_API_TOKEN) url.searchParams.set("token", process.env.OEC_API_TOKEN);
-  const rows = oecRows(await fetchJson(url));
-  if (!rows.length) throw new Error("no rows returned");
-  return rows;
-}
-
-async function fetchOecYear(oecId, year) {
-  const common = { cube: "trade_i_baci_a_22", measures: "Trade Value", locale: "en", limit: "5000,0" };
-  const specifications = [
-    ["topExports", { ...common, include: `Year:${year};Exporter Country:${oecId}`, drilldowns: "HS4" }, ["HS4", "HS4 Description", "HS4 Name", "Product"]],
-    ["topImports", { ...common, include: `Year:${year};Importer Country:${oecId}`, drilldowns: "HS4" }, ["HS4", "HS4 Description", "HS4 Name", "Product"]],
-    ["exportPartners", { ...common, include: `Year:${year};Exporter Country:${oecId}`, drilldowns: "Importer Country" }, ["Importer Country", "Importer Country Name"]],
-    ["importPartners", { ...common, include: `Year:${year};Importer Country:${oecId}`, drilldowns: "Exporter Country" }, ["Exporter Country", "Exporter Country Name"]]
-  ];
-  const sections = {};
-  const warnings = [];
-  for (const [field, params, nameFields] of specifications) {
-    try {
-      const rows = await fetchOecQuery(params);
-      sections[field] = { rows, ranked: rankOec(rows, nameFields) };
-    } catch (error) {
-      warnings.push(`${field}: ${error.message}`);
-    }
-    await sleep(Number(process.env.OEC_THROTTLE_MS || 350));
-  }
-  return { sections, warnings };
-}
-
-async function fetchOec(oecId, previousTrade = null) {
-  const preferredYear = Number(process.env.OEC_DATA_YEAR || new Date().getUTCFullYear() - 2);
-  const candidateYears = Array.from({ length: 6 }, (_, index) => preferredYear - index);
-  const yearWarnings = [];
-  for (const year of candidateYears) {
-    const attempt = await fetchOecYear(oecId, year);
-    const available = Object.keys(attempt.sections);
-    if (!available.length) {
-      yearWarnings.push(`${year}: ${attempt.warnings.join("; ")}`);
-      continue;
-    }
-    const previousSameYear = previousTrade?.year === year ? previousTrade : {};
-    const topExports = attempt.sections.topExports?.ranked || previousSameYear.topExports || [];
-    const topImports = attempt.sections.topImports?.ranked || previousSameYear.topImports || [];
-    const exportPartners = attempt.sections.exportPartners?.ranked || previousSameYear.exportPartners || [];
-    const importPartners = attempt.sections.importPartners?.ranked || previousSameYear.importPartners || [];
-    const exportRows = attempt.sections.topExports?.rows || attempt.sections.exportPartners?.rows || [];
-    const importRows = attempt.sections.topImports?.rows || attempt.sections.importPartners?.rows || [];
-    const coverage = {
-      topExports: Boolean(attempt.sections.topExports),
-      topImports: Boolean(attempt.sections.topImports),
-      exportPartners: Boolean(attempt.sections.exportPartners),
-      importPartners: Boolean(attempt.sections.importPartners)
-    };
-    const retainedSections = Object.entries(coverage)
-      .filter(([field, refreshed]) => !refreshed && Array.isArray(previousSameYear[field]) && previousSameYear[field].length)
-      .map(([field]) => field);
-    return {
-      year,
-      dataset: "BACI bilateral merchandise trade via OEC",
-      exportsTotal: exportRows.reduce((sum, row) => sum + tradeValue(row), 0) || previousSameYear.exportsTotal || null,
-      importsTotal: importRows.reduce((sum, row) => sum + tradeValue(row), 0) || previousSameYear.importsTotal || null,
-      topExports, topImports, exportPartners, importPartners, coverage,
-      retainedSections,
-      warnings: [...yearWarnings, ...attempt.warnings]
-    };
-  }
-  throw new Error(yearWarnings.join(" | ") || "no OEC observations returned");
 }
 
 function parseCsv(text) {
@@ -555,7 +460,7 @@ next.sources = {
   imf: { label: "IMF World Economic Outlook", url: "https://www.imf.org/external/datamapper/", cadence: "Monthly API check", apiVersion: "v1" },
   worldBank: { label: "World Bank Indicators API", url: "https://api.worldbank.org/v2/", cadence: "Monthly API check", apiVersion: "v2" },
   unctad: { label: "UNCTAD Commodity Dependence Dashboard", url: "https://unctad.org/topic/commodities/state-of-commodity-dependence/country-profiles", cadence: "Annual source refresh" },
-  oec: { label: "Observatory of Economic Complexity", url: "https://oec.world/", cadence: "Quarterly API check; annual BACI merchandise data", dataset: "BACI via OEC" }
+  oec: { label: "UN Comtrade", url: "https://comtradeplus.un.org/", cadence: "Quarterly batches; annual reported merchandise trade", dataset: "UN Comtrade HS4" }
 };
 
 next.jurisdictions ||= {};
@@ -569,6 +474,7 @@ for (const iso3 of Object.keys(JURISDICTIONS)) {
 delete next.countries;
 
 const selectedTargets = selectTargets(loaded);
+if ((scope === "trade" || scope === "all") && selectedTargets.length > 15) throw new Error("Trade refresh limited to 15 jurisdictions per run. Select one country, profiles, or at least 24 bundles.");
 const attemptedAt = nowIso();
 const failures = [];
 
@@ -611,17 +517,20 @@ for (const target of selectedTargets) {
   }
 
   if (scope === "all" || scope === "trade") {
+    if (record.refresh.oec?.provider !== "comtrade") record.refresh.oec = {status:"pending", provider:"comtrade"};
     try {
-      record.trade = await fetchOec(jurisdiction.oecId, record.trade);
+      record.trade = await fetchComtrade(iso3);
       const coverageCount = Object.values(record.trade.coverage || {}).filter(Boolean).length;
       record.refresh.oec = providerStatus(record.refresh.oec, coverageCount === 4 ? "ok" : "partial", attemptedAt, {
+        provider: "comtrade",
         observationThrough: record.trade.year,
         retainedPrevious: Boolean(record.trade.retainedSections?.length),
         warnings: record.trade.warnings || []
       });
     } catch (error) {
-      failures.push(`${iso3} OEC: ${error.message}`);
+      failures.push(`${iso3} Comtrade: ${error.message}`);
       record.refresh.oec = providerStatus(record.refresh.oec, "error", attemptedAt, {
+        provider: "comtrade",
         error: error.message,
         retainedPrevious: Boolean(record.trade)
       });
@@ -660,8 +569,8 @@ if (scope === "all" || scope === "commodity") {
   }
 }
 
-next.generatedAt = attemptedAt;
-next.refreshSummary = { scope, jurisdictionsAttempted: selectedTargets.length, completedAt: attemptedAt, failures: failures.length };
+next.generatedAt = nowIso();
+next.refreshSummary = { scope, jurisdictionsAttempted: selectedTargets.length, completedAt: nowIso(), failures: failures.length };
 writeData(next);
 console.log(`Economic data refresh completed (${scope}): ${selectedTargets.length} jurisdictions, ${failures.length} provider warning(s).`);
 if (failures.length) {

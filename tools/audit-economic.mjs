@@ -19,7 +19,7 @@ for (const [iso3, record] of Object.entries(data.jurisdictions)) {
       const retained = refresh.retainedMetricKeys?.includes(metric) || (refresh.retainedPrevious && ['error','failed','stale'].includes(refresh.status));
       const status = !present ? 'missing' : retained ? 'retained_previous' : point.stale ? 'stale_observation' : 'available';
       rows.push({iso3, provider, metric, status, value: present ? point.value : null, year: point?.year ?? null,
-        sourceCode: point?.sourceCode ?? null, lastAttempt: refresh.lastAttempt ?? null, lastSuccess: refresh.lastSuccess ?? null,
+        sourceCode: point?.sourceCode ?? null, lastAttempt: refresh.lastAttemptAt ?? null, lastSuccess: refresh.lastSuccessAt ?? null,
         providerStatus: refresh.status ?? 'unknown', error: refresh.error ?? null, warnings: refresh.warnings ?? [],
         coverageNote: !present && provider === 'worldBank' && debt.has(metric)
           ? iso3 === 'USA' ? 'Outside IDS country coverage; not zero.' : 'Check IDS reporting-country coverage before treating as retrieval failure.'
