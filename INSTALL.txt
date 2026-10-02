@@ -1,0 +1,23 @@
+UNCTAD commodity-dependence importer fix
+
+Upload the tools and data folders from this ZIP to the repository root, preserving folders. Commit to main.
+The ZIP changes only tools/update-economic.mjs, adds tools/commodity-country-codes.json, and adds data/unctad-dependence.csv. It does not replace economics.js, news or index.html.
+
+Then Actions > Refresh economic and trade data > Run workflow:
+Branch: main
+Data source: commodity
+Jurisdiction: AGO
+Number of bundles: 24
+Bundle index: 0
+
+This should populate Angola at 96.14773202339411%, reference period 2022-2024. Once checked, use jurisdiction profiles to populate the existing country profiles. The 191-country source can support the wider catalogue through normal bundles.
+
+The uploaded .xls was actually CSV. Original columns: cc,symbol,period,value. Two-letter codes are mapped to three-letter dashboard codes. The newest period is selected explicitly. Blank values are not converted to zero. No commodity-group breakdown is present or inferred.
+
+This is an uploaded snapshot imported 2026-10-02, NOT a verified live refresh. UNCTAD provider status is partial with an explicit snapshot warning. A configured UNCTAD_DATA_URL is tried first; failure retains an explicit warning and uses the snapshot. Broken hard-coded URLs were removed. No automatic future source discovery is claimed.
+
+Six target jurisdictions are absent: Taiwan, Liechtenstein, Monaco, San Marino, Vatican City, Kosovo. Missing values are not estimated.
+
+Existing Comtrade integration remains in the updater. World Bank concessional-debt repair is not included: its live API response still needs verification.
+
+Verification: 191 source-country mappings; Angola and Bahamas exact source values; reversed input order; missing values versus zero; missing reference periods; Angola-only refresh in an isolated copy; existing build and smoke validations.
