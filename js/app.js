@@ -75,7 +75,7 @@ function formatRefreshTime(value) {
 
 function providerStatusHTML(refresh = {}) {
   const providers = [
-    ["imf", "IMF WEO"], ["worldBank", "World Bank"], ["unctad", "UNCTAD"], ["oec", "OEC / BACI"]
+    ["imf", "IMF WEO"], ["worldBank", "World Bank"], ["unctad", "UNCTAD"], ["oec", refresh.oec?.provider === "comtrade" ? "UN Comtrade" : "Trade (legacy OEC)"]
   ];
   const statusLabels = { ok: "Current", partial: "Partial", error: "Failed", stale: "Needs refresh", pending: "Pending" };
   return `<div class="provider-status-grid" aria-label="Economic source refresh status">${providers.map(([key, label]) => {
@@ -104,7 +104,7 @@ function rankedBars(title, rows) {
       <div class="trade-bar-label"><span>${escapeHTML(row.name)}</span><strong>${escapeHTML(value)}</strong></div>
       <div class="trade-bar-track"><span style="width:${width.toFixed(1)}%"></span></div>
     </div>`;
-  }).join("")}</div>`;
+  }).join("")}${rows.slice(0,5).every(r => typeof r.share === "number") ? `<p class="block-note">Other / unallocated: ${Math.max(0,100-rows.slice(0,5).reduce((n,r)=>n+r.share,0)).toFixed(1)}%</p>` : ""}</div>`;
 }
 
 function lineChartHTML(title, definitions, unit = "%") {
@@ -222,15 +222,15 @@ function economicsPageHTML(countryKey, country) {
   </section>
   <section class="block">
     <p class="block-title">Merchandise trade</p>
-    <p class="block-note">Largest products and trading partners from BACI bilateral merchandise trade via OEC, ranked by share of the country's total.</p>
+    <p class="block-note">Largest reported merchandise products and trading partners, ranked by share of the country's total. Product codes distinguish crude oil, refined petroleum, gases and precious metals. Imports and exports use their respective reported totals.</p>
     ${trade ? `<div class="trade-totals">${metricCard("Merchandise exports", { value: trade.exportsTotal, unit: "usd", year: trade.year })}${metricCard("Merchandise imports", { value: trade.importsTotal, unit: "usd", year: trade.year })}</div>` : ""}
     ${hasTrade ? `<div class="trade-grid">
       ${rankedBars("Top exports", trade.topExports)}
       ${rankedBars("Top imports", trade.topImports)}
       ${rankedBars("Export destinations", trade.exportPartners)}
       ${rankedBars("Import origins", trade.importPartners)}
-    </div><p class="economic-pending">BACI bilateral merchandise trade via OEC · ${escapeHTML(trade.year || "latest available year")}${record.refresh?.oec?.status === "partial" ? " · partial coverage" : ""}.</p>` : `<p class="empty-note">No verified OEC/BACI trade record is currently available. The updater searches the preferred year and five earlier annual vintages rather than recording a false zero.</p>`}
-    <p class="economic-sources"><a href="${escapeHTML(ECONOMIC_DATA.sources?.imf?.url || "https://www.imf.org/")}" target="_blank" rel="noopener noreferrer">IMF</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.worldBank?.url || "https://data.worldbank.org/")}" target="_blank" rel="noopener noreferrer">World Bank</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.unctad?.url || "https://unctad.org/")}" target="_blank" rel="noopener noreferrer">UNCTAD</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.oec?.url || "https://oec.world/")}" target="_blank" rel="noopener noreferrer">OEC</a></p>
+    </div><p class="economic-pending">${escapeHTML(trade.dataset || "Legacy trade data")} · ${escapeHTML(trade.year || "latest available year")}${record.refresh?.oec?.status === "partial" ? " · partial coverage" : ""}.</p>` : `<p class="empty-note">No trade record is currently available. UN Comtrade checks the three latest completed years. Missing data is not zero.</p>`}
+    <p class="economic-sources"><a href="${escapeHTML(ECONOMIC_DATA.sources?.imf?.url || "https://www.imf.org/")}" target="_blank" rel="noopener noreferrer">IMF</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.worldBank?.url || "https://data.worldbank.org/")}" target="_blank" rel="noopener noreferrer">World Bank</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.unctad?.url || "https://unctad.org/")}" target="_blank" rel="noopener noreferrer">UNCTAD</a> · <a href="${escapeHTML(ECONOMIC_DATA.sources?.oec?.url || "https://comtradeplus.un.org/")}" target="_blank" rel="noopener noreferrer">Trade source</a></p>
   </section>`;
 }
 
