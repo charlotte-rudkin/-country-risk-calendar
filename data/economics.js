@@ -4,7 +4,7 @@
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T13:16:56.164Z",
+  "generatedAt": "2026-10-02T13:35:10.495Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -67,11 +67,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -850,6 +853,16 @@
             "share": 5.743197185698562
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 35.24634186292738,
+        "dependent": false,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "MEX": {
@@ -885,11 +898,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -1896,6 +1912,16 @@
             "share": 3.369184749202516
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 17.69465770750384,
+        "dependent": false,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "BHS": {
@@ -1934,11 +1960,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -2705,6 +2734,16 @@
             "share": 0.7432764719417326
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 53.703427983503374,
+        "dependent": false,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "SRB": {
@@ -2740,11 +2779,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -3739,6 +3781,16 @@
             "share": 4.514872513876127
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 33.237796380558606,
+        "dependent": false,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "TUR": {
@@ -3774,11 +3826,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -4779,6 +4834,16 @@
             "share": 4.948477348064376
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 25.132088999979345,
+        "dependent": false,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "EGY": {
@@ -4814,11 +4879,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -5771,6 +5839,16 @@
             "share": 4.30860937868944
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 52.828416631347466,
+        "dependent": false,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "UZB": {
@@ -5806,11 +5884,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -6805,6 +6886,16 @@
             "share": 4.748680510038042
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 64.31446108116813,
+        "dependent": true,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "VNM": {
@@ -6840,11 +6931,14 @@
           "error": "No year with both reported imports and exports in the three-year search window"
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -7605,6 +7699,16 @@
             "projection": false
           }
         }
+      },
+      "commodityDependence": {
+        "exportShare": 13.509437024131257,
+        "dependent": false,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "SEN": {
@@ -7641,11 +7745,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -8564,6 +8671,16 @@
             "share": 5.591127187125432
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 73.84156759292357,
+        "dependent": true,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "CIV": {
@@ -8600,11 +8717,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -9523,6 +9643,16 @@
             "share": 4.8731277971262195
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 91.86676219466395,
+        "dependent": true,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "BEN": {
@@ -9560,11 +9690,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -10413,6 +10546,16 @@
             "share": 3.53115449863428
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 92.70574883480342,
+        "dependent": true,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "AGO": {
@@ -10448,11 +10591,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -11459,6 +11605,16 @@
             "share": 5.546807246670349
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 96.14773202339411,
+        "dependent": true,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "KEN": {
@@ -11494,11 +11650,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -12493,6 +12652,16 @@
             "share": 5.026402857010178
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 69.92516189380942,
+        "dependent": true,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "TZA": {
@@ -12528,11 +12697,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -13497,6 +13669,16 @@
             "share": 3.2503911234339165
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 89.47061019370274,
+        "dependent": true,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "ETH": {
@@ -13532,11 +13714,14 @@
           "warnings": []
         },
         "unctad": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T13:35:10.489Z",
+          "lastSuccessAt": "2026-10-02T13:35:10.489Z",
           "retainedPrevious": false,
-          "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
+          "observationThrough": "2022-2024",
+          "warnings": [
+            "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."
+          ]
         }
       },
       "imf": {
@@ -14525,6 +14710,16 @@
             "share": 6.339526169287578
           }
         ]
+      },
+      "commodityDependence": {
+        "exportShare": 84.47822144540653,
+        "dependent": true,
+        "referencePeriod": "2022-2024",
+        "periodEnd": 2024,
+        "sourceUrl": "https://unctad.org/topic/commodities/state-of-commodity-dependence",
+        "sourceDataset": "UNCTAD commodity dependence — uploaded snapshot",
+        "sourceFile": "cdde_dependence.xls",
+        "snapshotImportedAt": "2026-10-02"
       }
     },
     "DZA": {
@@ -144970,10 +145165,10 @@
     }
   },
   "refreshSummary": {
-    "scope": "trade",
+    "scope": "commodity",
     "jurisdictionsAttempted": 15,
-    "completedAt": "2026-10-02T13:16:56.164Z",
-    "failures": 1
+    "completedAt": "2026-10-02T13:35:10.495Z",
+    "failures": 0
   }
 };
 })();
