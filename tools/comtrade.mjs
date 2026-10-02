@@ -17,7 +17,17 @@ export async function fetchComtrade(iso3) {
   if (!key) throw new Error('COMTRADE_API_KEY is missing');
   async function get(url, authenticated = false) {
     const response = await fetch(url, {signal:AbortSignal.timeout(20000), headers:authenticated ? {'Ocp-Apim-Subscription-Key':key} : {}});
-    if (!response.ok) throw new Error(`Comtrade HTTP ${response.status}; no automatic retries`);
+    if (!response.ok) {
+  const retryAfter = response.headers.get('retry-after');
+  const raw = await response.text();
+  const detail = raw.split(key).join('[REDACTED]').slice(0, 1000);
+
+  throw new Error(
+    `Comtrade HTTP ${response.status}; ` +
+    `Retry-After: ${retryAfter || 'not provided'}; ` +
+    `Details: ${detail}`
+  );
+}
     const body = await response.json();
     return body;
   }
