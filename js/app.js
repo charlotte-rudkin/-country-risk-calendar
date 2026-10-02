@@ -243,7 +243,7 @@ function economicsPageHTML(countryKey, country) {
       <div class="commodity-gauge-label"><strong>${escapeHTML(formatMetricValue({ value: commodity.exportShare, unit: "percent" }))}</strong><span class="${commodity.dependent ? "dependent" : "diversified"}">${commodity.dependent ? "Commodity-dependent" : "Not commodity-dependent"}</span></div>
       <div class="commodity-gauge" role="img" aria-label="Commodities are ${escapeHTML(commodity.exportShare)} percent of merchandise exports; UNCTAD dependence threshold is 60 percent"><span style="width:${Math.max(0, Math.min(100, Number(commodity.exportShare)))}%"></span><i></i></div>
       <div class="commodity-scale"><span>0%</span><span>60% threshold</span><span>100%</span></div>
-      <div class="commodity-detail"><span>Largest commodity group</span><strong>${escapeHTML(commodity.primaryGroup || "Not recorded")}</strong><small>Reference period ${escapeHTML(commodity.referencePeriod || "not recorded")}</small></div>
+      <div class="commodity-detail">${commodity.primaryGroup && commodity.primaryGroup.trim() ? `<span>Largest commodity group</span><strong>${escapeHTML(commodity.primaryGroup)}</strong>` : ""}<small>Reference period ${escapeHTML(commodity.referencePeriod || "not recorded")}</small></div>
     </div>` : `<p class="empty-note">No UNCTAD observation is currently published for this profile. Check the UNCTAD source status above; a failed refresh is not treated as a valid zero.</p>`}
   </section>
   <section class="block">
