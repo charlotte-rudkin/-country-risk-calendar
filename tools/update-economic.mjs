@@ -61,11 +61,11 @@ const WB_INDICATORS = {
   }
 };
 
-const UNCTAD_URLS = [
-  process.env.UNCTAD_DATA_URL,
-  "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv",
-  "https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv"
-].filter(Boolean);
+// Optional verified live CSV URL. The bundled user-supplied snapshot remains
+// explicitly labelled when no live source is configured or retrieval fails.
+const UNCTAD_URLS = [process.env.UNCTAD_DATA_URL].filter(Boolean);
+const commodityCodeMap = JSON.parse(fs.readFileSync(path.join(here, "commodity-country-codes.json"), "utf8"));
+
 
 function loadWindow(...relativePaths) {
   const context = { window: {} };
@@ -257,7 +257,9 @@ function findColumn(headers, candidates) {
 
 function numericCell(row, field) {
   if (!field) return null;
-  const value = Number(String(row[field] ?? "").replace(/[%\s]/g, ""));
+  const raw = String(row[field] ?? "").trim();
+  if (!raw) return null;
+  const value = Number(raw.replace(/[%\s]/g, ""));
   return Number.isFinite(value) ? value : null;
 }
 
@@ -265,8 +267,8 @@ function commodityRecordsFromCsv(text, sourceUrl) {
   const rows = parseCsv(text);
   if (!rows.length) throw new Error("UNCTAD CSV contained no rows");
   const headers = Object.keys(rows[0]);
-  const isoField = findColumn(headers, ["iso3", "country iso3", "economy iso3", "alpha3"]);
-  const shareField = findColumn(headers, ["commodity export dependence", "commodity export share", "dependence", "share commodity exports", "commodity share", "dependency"]);
+  const isoField = findColumn(headers, ["iso3", "country iso3", "economy iso3", "alpha3", "cc"]);
+  const shareField = findColumn(headers, ["commodity export dependence", "commodity export share", "dependence", "share commodity exports", "commodity share", "dependency", "value"]);
   const periodField = findColumn(headers, ["reference period", "period", "year"]);
   const groupField = findColumn(headers, ["dominant export product group", "dominant group", "primary group"]);
   const agricultureField = findColumn(headers, ["agriculture share", "agricultural commodities"]);
@@ -275,7 +277,14 @@ function commodityRecordsFromCsv(text, sourceUrl) {
   if (!isoField || !shareField) throw new Error(`UNCTAD CSV fields not recognised (${headers.join(", ")})`);
   const records = {};
   for (const row of rows) {
-    const iso3 = String(row[isoField] || "").trim().toUpperCase();
+    if (headers.includes("symbol") && row.symbol !== "dd") continue;
+    const code = String(row[isoField] || "").trim().toUpperCase();
+    const iso3 = commodityCodeMap[code] || code;
+    const referencePeriod = String(row[periodField] || "").trim();
+    const periodMatch = referencePeriod.match(/^(\d{4})(?:[-–](\d{4}))?$/);
+    if (!periodMatch) throw new Error(`UNCTAD reference period missing or invalid for ${code}`);
+    const periodEnd = Number(periodMatch[2] || periodMatch[1]);
+    if (records[iso3] && records[iso3].periodEnd > periodEnd) continue;
     const exportShare = numericCell(row, shareField);
     if (!/^[A-Z]{3}$/.test(iso3) || exportShare === null || exportShare < 0 || exportShare > 100) continue;
     const groups = [
@@ -286,7 +295,8 @@ function commodityRecordsFromCsv(text, sourceUrl) {
     records[iso3] = {
       exportShare,
       dependent: exportShare > 60,
-      referencePeriod: String(row[periodField] || "2022–2024").trim(),
+      referencePeriod,
+      periodEnd,
       ...(row[groupField] ? { primaryGroup: String(row[groupField]).trim() } : groups.length ? { primaryGroup: groups[0][0] } : {}),
       sourceUrl,
       sourceDataset: "UNCTAD Commodity Dependence Dashboard"
@@ -332,6 +342,16 @@ async function fetchUnctad(countries) {
     } catch (error) {
       failures.push(`${url}: ${error.message}`);
     }
+  }
+  const snapshotPath = path.join(root, "data", "unctad-dependence.csv");
+  if (fs.existsSync(snapshotPath)) {
+    const records = commodityRecordsFromCsv(fs.readFileSync(snapshotPath, "utf8"), "https://unctad.org/topic/commodities/state-of-commodity-dependence");
+    for (const record of Object.values(records)) {
+      record.sourceDataset = "UNCTAD commodity dependence — uploaded snapshot";
+      record.sourceFile = "cdde_dependence.xls";
+      record.snapshotImportedAt = "2026-10-02";
+    }
+    return { records, warnings: [...failures, "Using uploaded UNCTAD snapshot (imported 2026-10-02); live source freshness has not been verified."] };
   }
   const imported = loadCommodityImport(countries);
   if (Object.keys(imported).length) return { records: imported, warnings: failures };
@@ -541,12 +561,13 @@ for (const target of selectedTargets) {
 if (scope === "all" || scope === "commodity") {
   try {
     const unctad = await fetchUnctad(loaded.COUNTRY_DATA.countries);
+    for (const warning of unctad.warnings) console.warn(`[UNCTAD] ${warning}`);
     for (const { iso3 } of selectedTargets) {
       const record = next.jurisdictions[iso3];
       const commodity = unctad.records[record.iso3];
       if (commodity) {
         record.commodityDependence = commodity;
-        record.refresh.unctad = providerStatus(record.refresh.unctad, "ok", attemptedAt, {
+        record.refresh.unctad = providerStatus(record.refresh.unctad, unctad.warnings.length ? "partial" : "ok", attemptedAt, {
           observationThrough: commodity.referencePeriod,
           warnings: unctad.warnings
         });
