@@ -4,7 +4,7 @@
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T13:10:10.641Z",
+  "generatedAt": "2026-10-02T13:16:56.164Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -59,8 +59,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -877,8 +877,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -1926,8 +1926,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2024,
@@ -2732,8 +2732,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -3766,8 +3766,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -4806,8 +4806,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -5798,8 +5798,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2024,
@@ -6833,7 +6833,7 @@
         },
         "oec": {
           "status": "error",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "provider": "comtrade",
@@ -7633,8 +7633,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2024,
@@ -8592,8 +8592,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -9552,8 +9552,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -10440,8 +10440,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -11486,8 +11486,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -12520,8 +12520,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -13524,8 +13524,8 @@
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:07:32.436Z",
-          "lastSuccessAt": "2026-10-02T13:07:32.436Z",
+          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
+          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2023,
@@ -144972,7 +144972,7 @@
   "refreshSummary": {
     "scope": "trade",
     "jurisdictionsAttempted": 15,
-    "completedAt": "2026-10-02T13:10:10.641Z",
+    "completedAt": "2026-10-02T13:16:56.164Z",
     "failures": 1
   }
 };
