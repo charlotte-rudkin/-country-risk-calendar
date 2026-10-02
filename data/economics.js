@@ -4,7 +4,7 @@
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-01T16:42:19.378Z",
+  "generatedAt": "2026-10-02T07:38:23.287Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -36,8 +36,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -45,8 +45,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -677,8 +677,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -686,8 +686,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -1534,19 +1534,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2024,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -1926,6 +1933,229 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 3.95320627474854,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BHS",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 2.29663852087598,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.42753105593861,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.18337801408719,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.76440306147581,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.85200499675234,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.35609883565824,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.10937798510662,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.62433819062106,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.17333846415305,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.95320627474854,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 19.9786058030221,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BHS",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 13.9443010644557,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.8230032358439,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.9334306789354,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.3680168746622,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.5384600166593,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.5154610172241,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.1411229128413,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.1760213775265,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.0709587568738,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.9786058030221,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 39455.4466548546,
+            "year": 2024,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BHS",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 30719.405417469,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30616.5363157284,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31875.4881749619,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 32642.3353203452,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33640.3369861278,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26178.7537607708,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30367.8605757708,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 34957.1613279737,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 38231.774484278,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 39455.4466548546,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "SRB": {
@@ -1933,8 +2163,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -1942,8 +2172,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -2778,8 +3008,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -2787,8 +3017,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -3629,8 +3859,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -3638,8 +3868,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -4432,8 +4662,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -4441,8 +4671,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -5277,8 +5507,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -5286,8 +5516,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -6056,8 +6286,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -6065,8 +6295,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -6829,19 +7059,24 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "FI.RES.TOTL.MO: no observations",
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -7221,6 +7456,375 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "interestPaymentsRevenue": {
+            "value": 18.0465156613231,
+            "year": 2023,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CIV",
+            "ageYears": 3,
+            "stale": false,
+            "series": [
+              {
+                "value": 8.321598320938,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.84588005505329,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.70179628760793,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.4969074239999,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.557699922265,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.4709512967797,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.8113398704174,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.4439105528207,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.0465156613231,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 48.8304044647452,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=CIV",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 25.4109025665834,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.2006866364198,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.3779718245256,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.4634771423081,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.7779620972679,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 41.0439427377816,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42.1962341583395,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 46.0823328796999,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 47.4826411328516,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 48.8304044647452,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 10.5627,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=CIV",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 0,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.3501,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.2071,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.8512,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.4874,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.2051,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.3491,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.3358,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.2067,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.5627,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 24.7283736134001,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=CIV",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 6.35864533484013,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.9728634799211,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.0951138013737,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.3155204491884,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.1857500643047,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.9986903027955,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.3219763867472,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.9116655451909,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.0502096444777,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.7283736134001,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 3050.10202257321,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CIV",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 1814.71855088017,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1862.59597081287,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1964.29930338343,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2130.86619381144,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2141.76836170115,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2179.72934832935,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2455.98127641148,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2333.37128301259,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2591.9659048119,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2727.8935220697,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3050.10202257321,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BEN": {
@@ -7228,8 +7832,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -7237,18 +7841,15 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
             "FI.RES.TOTL.MO: no observations",
             "GC.XPN.INTP.RV.ZS: no observations",
-            "DT.DOD.DECT.GN.ZS: This operation was aborted",
-            "DT.DOD.DSTC.ZS: This operation was aborted",
-            "DT.DOD.ALLC.ZS: no observations",
-            "DT.TDS.DECT.EX.ZS: This operation was aborted"
+            "DT.DOD.ALLC.ZS: no observations"
           ]
         },
         "oec": {
@@ -7710,6 +8311,225 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "externalDebtGni": {
+            "value": 66.5543408193995,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BEN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 31.8337413318005,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 35.5161661575197,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 38.8078591798797,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 48.5044887424269,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 48.4523108206094,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54.7130728796589,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 59.6659345183529,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 63.163660783078,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 64.4103774213458,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 66.5543408193995,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 8.9652,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BEN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 35.7424,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.8247,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.1984,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.1014,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.9051,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.2749,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.3177,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.1548,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.3235,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.9652,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 26.8148132358465,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BEN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 7.459044594949,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.1554230958446,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.69067991082305,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.85591733563495,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.90326941767725,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.04130686635785,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.3300274821482,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.2720641300019,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.1036453293349,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.8148132358465,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -7719,19 +8539,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -8111,6 +8935,460 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 5.32280228774496,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=AGO",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 6.48204569064842,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.08387120490077,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.81818691844858,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.41264015408642,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.42509428996665,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.02614772310759,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.94915414648974,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.3768328674863,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.08927113560434,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.51374910579315,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.32280228774496,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 25.187180764127,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=AGO",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 9.48574817746618,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.7020911962502,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.5402705579421,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.5996010187756,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.494038906987,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.187180764127,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.3701078150735,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.9570213148472,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 23.6718837565057,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.187180764127,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 79.5726391511001,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=AGO",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 56.7801551813803,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 114.845094739154,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 84.9404832711627,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 84.2843625797666,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 96.5947267900598,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 148.159899274824,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 108.138096106725,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 62.7115153094556,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 74.5628642843282,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 79.5726391511001,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 9.8896,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=AGO",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 12.4058,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.6677,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.3121,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.5827,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.147,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.1806,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.0271,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.9361,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.6092,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.8896,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 28.9122414363047,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=AGO",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 24.7853019209701,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 38.0756437635118,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.4292237629753,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.5353974870477,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29.9160622680195,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36.2643591957246,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29.2509172416252,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.3800197632965,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.4545527405695,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.9122414363047,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 3129.47662331063,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AGO",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 3641.72893920253,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2082.37343594705,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2832.14997950512,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2891.83032378747,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2507.86807213642,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1749.1794838482,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2266.96834861584,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3598.53669077341,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2885.51349130806,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2720.81900669715,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3129.47662331063,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "KEN": {
@@ -8118,8 +9396,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -8127,8 +9405,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -8963,8 +10241,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -8972,8 +10250,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -9778,8 +11056,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -9787,13 +11065,12 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "DT.DOD.DECT.GN.ZS: This operation was aborted",
             "DT.DOD.ALLC.ZS: no observations"
           ]
         },
@@ -10548,6 +11825,67 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "externalDebtGni": {
+            "value": 24.2638688064282,
+            "year": 2022,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=ETH",
+            "ageYears": 4,
+            "stale": true,
+            "series": [
+              {
+                "value": 31.7812582331685,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31.5941088728904,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 32.195990368417,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 35.572601682596,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31.8677861051946,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.2340278652052,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.9101982304795,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.2638688064282,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -10557,19 +11895,24 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "GC.XPN.INTP.RV.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -10949,6 +12292,381 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 16.5279389774711,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=DZA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 25.8569065523585,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.5792566104525,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.3716083235174,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.926933826264,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.4665752336272,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.4414562891346,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.7665681887564,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.336474497122,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.0452476814619,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.5279389774711,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 2.66774817396092,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=DZA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 2.54367171691573,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.04187962008185,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.04068276560909,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.99935858462774,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.89761005806805,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.19351908942954,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.04120760001954,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.23500775227816,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.9975548859142,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.66774817396092,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 25.4556,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=DZA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 39.026,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36.3517,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36.7334,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.6127,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 41.2274,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 34.4453,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.6382,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.465,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.1486,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.4556,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 0.797700031642401,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=DZA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.72343736396926,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.01404269029051,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.599991543214634,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.476882884742504,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.491760656376484,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.679786418584712,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.451864627527454,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.426551111107604,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.756757789102277,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.797700031642401,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 6051.00322704182,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DZA",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 4685.05902729002,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4424.98529027556,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4554.66753957828,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4577.21029180491,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4468.45341883656,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3743.5419522929,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4160.55926736925,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4960.30334332888,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5370.477235078,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5752.99076651465,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6051.00322704182,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BWA": {
@@ -10956,19 +12674,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: no observations | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -11348,6 +13070,448 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 4.75676435737337,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BWA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 10.297414998766,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.2345139601368,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.3608810616714,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.69368416094931,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.35244884596834,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.742104293835,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.00373614438294,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.98603986672535,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.17982295358158,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.75676435737337,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 3.42834998133724,
+            "year": 2023,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BWA",
+            "ageYears": 3,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.7027696395195,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.53116489095053,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.75655829604472,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.04191914569203,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.21967434011338,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.40747477920722,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.70232678290708,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.18057642885417,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.42834998133724,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 11.9275332021357,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BWA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 16.9995186828514,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.3799402336298,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.7524342645419,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.4836203837343,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.32339448456644,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.6992155948814,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.6318003846395,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.83885342882201,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.2373733255328,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.9275332021357,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 6.241,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BWA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 17.301,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.8611,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.2235,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.1413,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.8997,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.5849,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.8083,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.5939,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.2875,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.241,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 4.71797953358513,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BWA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 3.32688648966856,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.97974958199445,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.44289884396781,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.36055721853273,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.01630581025341,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.75183359746915,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.01493357903601,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.92955567642417,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.66650187699974,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.71797953358513,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 7778.1151090571,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BWA",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 6141.20394726616,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6749.05994339013,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7104.96401088027,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7407.95940141786,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7172.08956480028,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6323.2974967659,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7807.88794570471,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8328.7090572666,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7827.30027960734,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7649.81663744354,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7778.1151090571,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BFA": {
@@ -11355,19 +13519,24 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "FI.RES.TOTL.MO: no observations",
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -11747,6 +13916,381 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "interestPaymentsRevenue": {
+            "value": 9.6705591927502,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BFA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 3.42432602558419,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.62956398440269,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.47159471999323,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.72042616897292,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.0834357492822,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.91097872644696,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.37106278815743,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.63060550645225,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.117585765234,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.6705591927502,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 48.7617444251463,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BFA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 111.588257916983,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 83.6087932611822,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 94.0623582632253,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 69.0514156278439,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 59.7717694385558,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 57.1113882568484,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 55.0365504706363,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54.9423521840175,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 53.7746197762312,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 48.7617444251463,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 0,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BFA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 0,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 13.6006276960344,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BFA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 55.1912850414511,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 35.8367222621689,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.3276068719955,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 63.1575913019546,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49.4789970682693,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 38.7337417162162,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.58878923609941,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.5796065996179,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.6676647392299,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.6006276960344,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 1147.57131635601,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BFA",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 630.124750752312,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 663.742364842886,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 709.091535894695,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 777.465618514048,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 764.853077774946,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 825.237038782475,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 895.535288442991,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 827.330843486661,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 873.198061670247,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 982.493100418428,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1147.57131635601,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BDI": {
@@ -11754,8 +14298,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -11763,15 +14307,13 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "observationThrough": 2024,
+          "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "DT.DOD.DSTC.ZS: HTTP 502",
-            "DT.DOD.ALLC.ZS: no observations",
-            "NY.GDP.PCAP.CD: HTTP 502"
+            "DT.DOD.ALLC.ZS: no observations"
           ]
         },
         "oec": {
@@ -12410,6 +14952,158 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "shortTermDebtPct": {
+            "value": 0.2588,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BDI",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 0.0422,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0438,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0435,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0446,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0423,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0398,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0271,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0279,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0284,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.2588,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 233.823013385395,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BDI",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 254.402585226788,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 232.937812100153,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 246.060725714184,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 245.661678332009,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 234.31061590725,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 252.702452750006,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 264.172844085398,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 301.832255755105,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 249.795164039029,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 216.231928531758,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 233.823013385395,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -12419,8 +15113,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -12428,8 +15122,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -13252,19 +15946,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -13644,6 +16342,430 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 5.27511403162855,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=CMR",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 5.04658828570745,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.40870594357099,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.72598094872677,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.42822803998766,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.3937287007678,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.78826250910732,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.21284074886784,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.58537321573804,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.10504144166634,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.27511403162855,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 6.82374829265213,
+            "year": 2021,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CMR",
+            "ageYears": 5,
+            "stale": true,
+            "series": [
+              {
+                "value": 2.36156626913071,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.88644416697601,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.53382310848202,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.97558086776796,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.4612417661634,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.3241036705055,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.82374829265213,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 31.2876251648885,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=CMR",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 22.9906774662358,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 23.7253706528744,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.3602661682383,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.0621238720245,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.2997557994886,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36.8702826869217,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 34.7277913710517,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 34.9721858052416,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31.8816357267696,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31.2876251648885,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 6.0294,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=CMR",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.0911,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.3265,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.2499,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.9373,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.918,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.5008,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.2269,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.8098,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.5705,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.0294,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 20.1497415591014,
+            "year": 2023,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=CMR",
+            "ageYears": 3,
+            "stale": true,
+            "series": [
+              {
+                "value": 7.35707247061288,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.3924754687549,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.6764553693679,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.0645418720094,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.2418862218893,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.8588208934159,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.5585010943463,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.5830912121116,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.1497415591014,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 1972.3815800786,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CMR",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 1415.00009710569,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1441.7201725688,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1496.08951771242,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1610.69641591017,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1555.22660476477,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1555.60370660749,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1672.32657340872,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1604.87726954895,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1720.47510154506,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1830.00833684727,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1972.3815800786,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "CAF": {
@@ -13651,8 +16773,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -13660,18 +16782,14 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "observationThrough": 2024,
+          "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
             "FI.RES.TOTL.MO: no observations",
-            "GC.XPN.INTP.RV.ZS: This operation was aborted",
-            "DT.DOD.DSTC.ZS: This operation was aborted",
-            "DT.DOD.ALLC.ZS: no observations",
-            "DT.TDS.DECT.EX.ZS: This operation was aborted",
-            "NY.GDP.PCAP.CD: This operation was aborted"
+            "DT.DOD.ALLC.ZS: no observations"
           ]
         },
         "oec": {
@@ -14127,6 +17245,262 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 4.21186914539276,
+            "year": 2021,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CAF",
+            "ageYears": 5,
+            "stale": true,
+            "series": [
+              {
+                "value": 5.08892378308416,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.688369241293243,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.3253701360503,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.34851085661626,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.70833799366233,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.32276787247527,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.21186914539276,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 12.0915,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=CAF",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 15.3536,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.0567,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.4923,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.3622,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.3762,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.6393,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.3894,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.2796,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.3823,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.0915,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 13.3966251157824,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=CAF",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 8.85123078974685,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.90561640189487,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.37314440983041,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.90048213810493,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.087726739592,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.3966251157824,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 556.131398031455,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CAF",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 366.322853938121,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 387.176203444318,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 432.324025684263,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 455.243962859534,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 449.228467602439,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 462.879071294011,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 492.263142830507,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 467.359825026238,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 495.978897288721,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 516.160999996036,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 556.131398031455,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -14136,8 +17510,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -14145,8 +17519,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -14837,19 +18211,24 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "GC.XPN.INTP.RV.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -15229,6 +18608,375 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 7.61057543164725,
+            "year": 2023,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=COM",
+            "ageYears": 3,
+            "stale": true,
+            "series": [
+              {
+                "value": 8.96697419041541,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.08079906543647,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.09775360348587,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.67439551749484,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.79842494084219,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.180847011885,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.38387950850108,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.01550904247258,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.61057543164725,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 24.8117198831103,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=COM",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 12.9348443972103,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.1852272690132,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.7806633037462,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.3630009719664,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.5484369313434,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.7631357533658,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.9274940136758,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.1538537874079,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.5476534847055,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.8117198831103,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 0,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=COM",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.1727,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.8663,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.6066,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.4622,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.7004,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.4974,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.4191,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.432,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.1187,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 17.3446983217314,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=COM",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 7.198585983012,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.50330298674021,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.94478722866575,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.78955193840012,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.05689709139567,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9191208828341,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.54156016580105,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.72555793496297,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.5431570183404,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.3446983217314,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 2055.75921566281,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=COM",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 1329.37048235986,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1365.48403444497,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1423.9248027797,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1540.71132257526,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1519.26386436068,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1527.16991011916,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1587.72988658008,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1533.87755393614,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1723.89474946474,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1857.87060684189,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2055.75921566281,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "COD": {
@@ -15236,19 +18984,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -15628,6 +19380,436 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 1.69039445082268,
+            "year": 2023,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=COD",
+            "ageYears": 3,
+            "stale": true,
+            "series": [
+              {
+                "value": 1.0430266435877,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.571544526905987,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.58950064275133,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.408229282555945,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.778786794619875,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.560133687624344,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.70980437781737,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.53179038968345,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.69039445082268,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 0.514036894677786,
+            "year": 2022,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=COD",
+            "ageYears": 4,
+            "stale": true,
+            "series": [
+              {
+                "value": 0.961714058457864,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.772729954465031,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.34251472638719,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.977224206783608,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.776761661188434,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.447735340156219,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.557011168639761,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.514036894677786,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 18.2538680171709,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=COD",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 15.6120482697762,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.3576500658631,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.3225235261773,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.4031639309706,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.7368783009022,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.8637697107175,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.6554775760053,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.1525866553824,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.4990385916912,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.2538680171709,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 3.8127,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=COD",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 3.0087,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.118,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.3819,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.3502,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.6652,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.0532,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.8078,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.5038,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.7807,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.8127,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 1.32142230470742,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=COD",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 3.25710608430542,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.59493327498272,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.95476624265172,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.01509020345538,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.27805735573549,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.93016671817991,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.42666404520974,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.09413337623899,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.6307320697536,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.32142230470742,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 806.776000708534,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=COD",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 495.826633014883,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 459.765036590388,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 431.052559128788,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 518.169626875371,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 504.00419142286,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 486.425572682256,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 595.743074403567,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 687.738587554685,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 660.21205238997,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 692.887665085098,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 806.776000708534,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "COG": {
@@ -15635,19 +19817,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -16027,6 +20213,394 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 1.60424664602081,
+            "year": 2021,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=COG",
+            "ageYears": 5,
+            "stale": true,
+            "series": [
+              {
+                "value": 2.76745313851708,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.11391426492275,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.84721342330911,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.06325128634281,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.60424664602081,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 9.04946853718006,
+            "year": 2021,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=COG",
+            "ageYears": 5,
+            "stale": true,
+            "series": [
+              {
+                "value": 1.87440976033079,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.5793562755815,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.19814908256644,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.79814561837149,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.1382263589314,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.50885020133859,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.04946853718006,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 44.8962409480798,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=COG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 54.7879329617986,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 63.2452493790411,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 71.3077717450485,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50.4895160168294,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 66.812566750599,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 72.1017777027496,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 61.8650496171088,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51.9845941753511,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 47.2286650692878,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 44.8962409480798,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 9.7613,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=COG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 6.6257,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.8274,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.7804,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.9116,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.7833,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.4486,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.5572,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.6285,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.8707,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.7613,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 13.5644191652699,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=COG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 8.09368231765128,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.82824894809077,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.37938937317886,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.6490649444663,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.37452308103295,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.6272413104511,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.2898755561662,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.5644191652699,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 2514.73393584747,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=COG",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 2439.35189403696,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2093.10728558843,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2211.63309874797,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2694.43413191427,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2488.42466724916,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1993.586671931,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2516.16255145432,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2620.83804267402,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2477.97845544866,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2482.2489948456,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2514.73393584747,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "DJI": {
@@ -16034,19 +20608,24 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "GC.XPN.INTP.RV.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -16426,6 +21005,381 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 0.850017224988693,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=DJI",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.43676965414638,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.64742258520207,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.49154157981283,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.24125456382954,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.21983600051018,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.29585382544443,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.25571117105207,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.34430440635494,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.10411747889346,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.850017224988693,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 83.8288747209446,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=DJI",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 51.2014218463801,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 67.4162737541098,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 86.0029214045977,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 83.7652176445944,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 85.2277738046756,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 95.2325058529055,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 96.2217659599007,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 87.3175079251638,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 85.2908177323727,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 83.8288747209446,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 14.9872,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=DJI",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 0.3321,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.1527,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.2688,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.3229,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.7067,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.7288,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.9017,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.8086,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9526,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.9872,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 2.52675252956975,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=DJI",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.24037633439777,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.1475631145837,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.7173350672911,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.58567108414747,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.52528322747519,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.88392135365331,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.17105098898137,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.3139889030219,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.63906330772357,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.52675252956975,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 3905.604954681,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DJI",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 2376.12554719873,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2510.4300076241,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2618.95521147369,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2718.08338799203,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2837.16902340932,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2844.88810647853,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3025.91126413549,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3133.25779772463,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3381.29779710722,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3552.72335079222,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3905.604954681,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "GNQ": {
@@ -16433,8 +21387,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -16442,8 +21396,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -16984,15 +21938,15 @@
       "refresh": {
         "imf": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "NGDP_RPCH: no observations in requested window | PCPIPCH: no observations in requested window | BCA_NGDPD: no observations in requested window | GGXCNL_NGDP: no observations in requested window | GGXWDG_NGDP: no observations in requested window"
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2024,
           "retainedMetricKeys": [],
@@ -17103,8 +22057,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -17112,8 +22066,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -17936,8 +22890,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -17945,8 +22899,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -18697,8 +23651,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -18706,8 +23660,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -19476,8 +24430,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -19485,8 +24439,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -20321,8 +25275,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -20330,8 +25284,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -21100,8 +26054,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -21109,8 +26063,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -21867,8 +26821,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -21876,8 +26830,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -22718,8 +27672,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -22727,8 +27681,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -23497,8 +28451,8 @@
       "refresh": {
         "imf": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -23508,8 +28462,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -23984,8 +28938,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -23993,8 +28947,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -24835,8 +29789,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -24844,8 +29798,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -25662,8 +30616,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -25671,8 +30625,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -26417,8 +31371,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -26426,8 +31380,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -27178,8 +32132,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -27187,8 +32141,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -28029,8 +32983,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -28038,8 +32992,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -28880,8 +33834,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -28889,8 +33843,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -29725,8 +34679,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -29734,8 +34688,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -30360,8 +35314,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -30369,8 +35323,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -31067,8 +36021,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -31076,8 +36030,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -31852,8 +36806,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -31861,8 +36815,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -32697,8 +37651,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -32706,8 +37660,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -33476,8 +38430,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -33485,8 +38439,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -34039,8 +38993,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -34048,8 +39002,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -34818,8 +39772,8 @@
       "refresh": {
         "imf": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -34829,8 +39783,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -35497,8 +40451,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -35506,8 +40460,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -36354,8 +41308,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -36363,8 +41317,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2023,
           "retainedMetricKeys": [],
@@ -36851,8 +41805,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -36860,8 +41814,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -37600,8 +42554,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -37609,8 +42563,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -38373,8 +43327,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -38382,8 +43336,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -39152,8 +44106,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -39161,8 +44115,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -40003,8 +44957,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -40012,8 +44966,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -40818,8 +45772,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -40827,8 +45781,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -41627,8 +46581,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -41636,18 +46590,13 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "observationThrough": 2017,
+          "observationThrough": 2024,
           "retainedMetricKeys": [],
           "warnings": [
-            "FI.RES.TOTL.MO: This operation was aborted",
-            "DT.DOD.DECT.GN.ZS: This operation was aborted",
-            "DT.DOD.DSTC.ZS: This operation was aborted",
-            "DT.DOD.ALLC.ZS: This operation was aborted",
-            "DT.TDS.DECT.EX.ZS: This operation was aborted",
-            "NY.GDP.PCAP.CD: This operation was aborted"
+            "DT.DOD.ALLC.ZS: no observations"
           ]
         },
         "oec": {
@@ -41881,6 +46830,317 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "reserveMonths": {
+            "value": 16.6316336551941,
+            "year": 2020,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=AFG",
+            "ageYears": 6,
+            "stale": true,
+            "series": [
+              {
+                "value": 9.77019396043118,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.8280603760738,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.1342766418313,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.178586861258,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.7489091058633,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.6316336551941,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 19.8909368152618,
+            "year": 2023,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=AFG",
+            "ageYears": 3,
+            "stale": true,
+            "series": [
+              {
+                "value": 13.4908301094464,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.1470450360055,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.5133427404056,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.6424246657516,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9496520351375,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.1208585304773,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.7857399527695,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 23.3368489761511,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.8909368152618,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 13.2352,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=AFG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 11.0823,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.6576,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.0628,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.1916,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.7742,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.3132,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.5075,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.6108,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.4462,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.2352,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 2.67397501265809,
+            "year": 2020,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=AFG",
+            "ageYears": 6,
+            "stale": true,
+            "series": [
+              {
+                "value": 3.29960835203606,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.333403208221,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.35357201508207,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.32380000211032,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.97423809266455,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.67397501265809,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 416.871146273728,
+            "year": 2024,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AFG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 565.569730408751,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 522.082215583898,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 525.469770891619,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 491.337221382603,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 496.6025042585,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 510.787063366811,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 356.496214115892,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 357.261152798144,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 413.757894705303,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 416.871146273728,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -41890,19 +47150,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -42282,6 +47546,460 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 3.40707226150344,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=ARM",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.36841425193598,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.21487635382212,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.43189010210332,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.66898148499649,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.10969720904173,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.50061898268812,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.56520282287035,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.13231061160277,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.61693545736627,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.06051540228787,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.40707226150344,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 12.6007315081548,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=ARM",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 6.18523035436581,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.24198882048674,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.60777563027228,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.1820168168123,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.96461886338451,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.6452559067568,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.9441131132779,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.85904112142016,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.1089311863769,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.6007315081548,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 65.9870950657396,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=ARM",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 80.4154639528465,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 91.3302217488821,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 85.7142699282465,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 84.732912100644,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 86.0748926105104,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 105.006642730875,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 104.151886769747,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 83.8849419476276,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 67.5888031767855,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 65.9870950657396,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 21.3397,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=ARM",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 7.515,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.8731,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.6883,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.5701,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.4175,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.2714,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.8547,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.3501,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.6155,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.3397,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 9.17206815657839,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=ARM",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 38.4142387162148,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.0971857565039,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.4117195018642,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.5621462576129,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.9705935961192,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 45.6343705720396,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 34.934362726599,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.5363685258393,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.8100738562614,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.17206815657839,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 9474.01849300368,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ARM",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 3512.39350276709,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3524.42476874707,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3869.05373867752,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4196.00562301769,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4597.22887399548,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4268.68093304583,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4685.17997128509,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6571.97445545099,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8159.08720967996,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8556.21406956719,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9474.01849300368,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "AZE": {
@@ -42289,8 +48007,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -42298,16 +48016,13 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "FI.RES.TOTL.MO: HTTP 502",
-            "GC.XPN.INTP.RV.ZS: HTTP 502",
-            "DT.DOD.ALLC.ZS: no observations",
-            "DT.TDS.DECT.EX.ZS: HTTP 502"
+            "DT.DOD.ALLC.ZS: no observations"
           ]
         },
         "oec": {
@@ -42915,6 +48630,231 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "reserveMonths": {
+            "value": 4.9535537097736,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=AZE",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 3.90413353903156,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.035276233462,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.18446687391091,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.67287653604613,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.93814204872058,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.19963004276592,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.08434027652561,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.80721642479812,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.46585515897895,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.6648967080829,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.9535537097736,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 0.883220917636713,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=AZE",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.13633309502948,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.91037136736744,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.0071661343407,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.43715735591677,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.75137533176258,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.21126527667123,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.76324564327867,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.19806414724053,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.7154611686204,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.883220917636713,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 11.3863005417684,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=AZE",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 8.96415714597556,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.40764724203768,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.4767418864894,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.85592392029587,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.10909844940075,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.7609775657399,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.77942102990038,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.28802752077169,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.86298085585441,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.3863005417684,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -42924,8 +48864,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -42933,18 +48873,16 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "observationThrough": 2024,
+          "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "GC.XPN.INTP.RV.ZS: This operation was aborted",
             "DT.DOD.DECT.GN.ZS: no observations",
-            "DT.DOD.DSTC.ZS: This operation was aborted",
+            "DT.DOD.DSTC.ZS: no observations",
             "DT.DOD.ALLC.ZS: no observations",
-            "DT.TDS.DECT.EX.ZS: This operation was aborted",
-            "NY.GDP.PCAP.CD: This operation was aborted"
+            "DT.TDS.DECT.EX.ZS: no observations"
           ]
         },
         "oec": {
@@ -43400,6 +49338,134 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 31.9422121469037,
+            "year": 2020,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BHR",
+            "ageYears": 6,
+            "stale": true,
+            "series": [
+              {
+                "value": 13.194917121661,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.0727522284835,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.7717442615796,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.2888788363676,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.1965712704672,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31.9422121469037,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 30596.5794898885,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BHR",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 23734.0551143019,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 23800.001440631,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24784.7693514607,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26324.4066549559,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 27259.7438599327,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24342.8444554718,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 27147.8083882286,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30470.5219276023,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29290.1284215098,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29717.1424605273,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30596.5794898885,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -43409,19 +49475,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: no observations | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -43801,6 +49871,442 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 3.91092137452087,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BGD",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 6.8309139901541,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.60387702099135,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.76886499116675,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.67626909607111,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.85933450460047,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.65813724626272,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.29023985723134,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.18907976493715,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.3558121828929,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.07374348965567,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.91092137452087,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 20.8277384040526,
+            "year": 2021,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BGD",
+            "ageYears": 5,
+            "stale": true,
+            "series": [
+              {
+                "value": 20.4265885640651,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.4590815688377,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.7004546302975,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.0722402064144,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.0400358921353,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.0903642354009,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.8277384040526,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 22.2547977203389,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BGD",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 18.656464728563,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.9717904789002,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.8057450414319,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.0924802738604,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.0856511809436,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.8853836099419,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.8766117836117,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.2659753173734,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.285488486933,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.2547977203389,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 12.3893,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BGD",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 17.1025,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.8471,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.0795,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.8062,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.5876,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.9372,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.7733,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.1141,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.0386,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.3893,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 15.7658301164336,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BGD",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 5.00105961552124,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.92101273972835,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.79903429874665,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.79539373258512,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.1445525906638,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.4592111139286,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.4417559557247,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.2392162165619,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.5939799449972,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.7658301164336,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 2597.34352335275,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BGD",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 1224.38647668165,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1649.28380858601,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1811.08221668646,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1965.24372731467,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2129.79896954606,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2248.85078828233,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2482.84917843357,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2716.48592780431,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2551.01773827307,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2593.41611680774,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2597.34352335275,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BTN": {
@@ -43808,19 +50314,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -44200,6 +50710,424 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 6.61474201389783,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BTN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 9.6061172441657,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.43703232126751,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.88572466303793,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.89747826994493,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.98564557325312,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.5303950802887,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.468479173115,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.60738875203101,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.0132493332428,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.61474201389783,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 1.51596119346737,
+            "year": 2020,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BTN",
+            "ageYears": 6,
+            "stale": true,
+            "series": [
+              {
+                "value": 5.75592351454246,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.00174619607642,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.67268019590186,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.03587795730617,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.43867185187086,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.51596119346737,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 114.49950351728,
+            "year": 2023,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BTN",
+            "ageYears": 3,
+            "stale": true,
+            "series": [
+              {
+                "value": 103.230441033963,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 110.020732525956,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 113.849547308498,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 112.222258298103,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 111.877606026612,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 139.831817651251,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 125.138819900092,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 115.015506284534,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 114.49950351728,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 0,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BTN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 0,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0036,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.111,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.1626,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.9906,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0449,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0903,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.1743,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.0284,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 16.5776241652416,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BTN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 18.1043400042224,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.5595801863358,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.92263516548,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.4177745462651,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.35212645374377,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.74330362481245,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.3241911789711,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.1948695115357,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.6094043269782,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.5776241652416,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 4492.78400306618,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BTN",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 2954.04081911097,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3152.30905106786,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3435.28804735662,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3400.20417245342,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3576.87987100503,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3191.66906999331,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3570.61257980872,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3711.32767981591,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3831.32535564326,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4228.05102403654,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4492.78400306618,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BRN": {
@@ -44207,19 +51135,27 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "GC.XPN.INTP.RV.ZS: no observations",
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -44599,6 +51535,168 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 7.90557661596612,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BRN",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 7.59781665650988,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.20577843518729,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.98232048772998,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.20049673259355,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.86171221841256,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.90984715473737,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.92828571931747,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.48218875419572,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.46692482171071,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.50707918002426,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.90557661596612,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 32234.6428368582,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BRN",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 30625.1287744656,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26663.2972950602,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28024.3824580252,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30988.1190267227,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30426.5730656528,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26834.3592233943,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31006.9636289785,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36632.9280952155,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 32890.5491812019,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33153.4738913513,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 32234.6428368582,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "KHM": {
@@ -44606,8 +51704,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -44615,8 +51713,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -45457,19 +52555,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -45849,6 +52951,442 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 11.9430464176221,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=CHN",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 17.935784855181,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.7160982737837,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.4175323187252,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.1417391678264,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.6333355975394,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.4970336212148,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.4763094263764,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.0459629699848,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.4423012102454,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.0155252612111,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.9430464176221,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 3.4419404251668,
+            "year": 2021,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CHN",
+            "ageYears": 5,
+            "stale": true,
+            "series": [
+              {
+                "value": 3.23796955299514,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.92095458128791,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.40209957331909,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.76221448223877,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.90342194803221,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.91615191754211,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.4419404251668,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 13.0007522555005,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=CHN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 11.8789197021152,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.4023168814925,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.6631367045646,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9248882428061,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.5601860956403,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.634535209813,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.0703683293598,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9317634143876,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.50675136222,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.0007522555005,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 53.9653,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=CHN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 61.6481,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 56.6796,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 60.242,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 62.1392,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 57.0113,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 53.1431,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50.1807,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49.9975,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 52.5999,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 53.9653,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 8.59286077464029,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=CHN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.90274889592115,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.91875543607767,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.58735986967657,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.25271896595969,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.49516872239568,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.19478034214525,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.68754451581172,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.3335740725489,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.8307203396454,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.59286077464029,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 13861.970224368,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CHN",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 8175.33285077393,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8254.86859320357,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8979.67652709856,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10085.6638148819,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10342.9009524335,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10627.4637989619,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12887.4357242941,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12970.6056414327,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12951.1782397043,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13293.1162269366,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13861.970224368,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "CYP": {
@@ -45856,19 +53394,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -46248,6 +53793,241 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 0.531870461097574,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=CYP",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 0.215850043782775,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.32383451149616,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.213934134762486,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.17543290120583,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.202778859338994,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.241634145395658,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.246555883003181,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.340464802333896,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.303284618051726,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.331211499733269,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.531870461097574,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 2.80593785346457,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CYP",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 7.61383531617475,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.73141280443661,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.249921023036,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.89074411860998,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.39966353205073,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.17528058750173,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.19429528548204,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.26446209486234,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.86833088595203,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.80593785346457,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 41783.08984375,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CYP",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 23088.4296875,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24280.044921875,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26247.46484375,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29120.38671875,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29227.16796875,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28130.330078125,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 32937.8359375,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33231.05078125,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36623.70703125,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 38674.3125,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 41783.08984375,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "GEO": {
@@ -46255,8 +54035,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -46264,8 +54044,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -47112,8 +54892,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -47121,8 +54901,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -47939,8 +55719,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -47948,8 +55728,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -48724,8 +56504,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -48733,8 +56513,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -49431,8 +57211,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -49440,8 +57220,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -50252,8 +58032,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -50261,8 +58041,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -50893,8 +58673,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -50902,8 +58682,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -51462,8 +59242,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -51471,8 +59251,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -52307,8 +60087,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -52316,8 +60096,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -53158,8 +60938,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -53167,8 +60947,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -53727,8 +61507,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -53736,8 +61516,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -54578,8 +62358,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -54587,8 +62367,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -55417,8 +63197,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -55426,8 +63206,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2024,
           "retainedMetricKeys": [],
@@ -56058,8 +63838,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -56067,8 +63847,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -56693,8 +64473,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -56702,8 +64482,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -57526,8 +65306,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -57535,8 +65315,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -58377,8 +66157,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -58386,8 +66166,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -59168,8 +66948,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -59177,8 +66957,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -60007,14 +67787,14 @@
       "refresh": {
         "imf": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "NGDP_RPCH: no observations in requested window | PCPIPCH: no observations in requested window | BCA_NGDPD: no observations in requested window | GGXCNL_NGDP: no observations in requested window | GGXWDG_NGDP: no observations in requested window"
         },
         "worldBank": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "FI.RES.TOTL.MO: no observations | GC.XPN.INTP.RV.ZS: no observations | DT.DOD.DECT.GN.ZS: no observations | DT.DOD.DSTC.ZS: no observations | DT.DOD.ALLC.ZS: no observations | DT.TDS.DECT.EX.ZS: no observations | NY.GDP.PCAP.CD: no observations"
@@ -60040,8 +67820,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -60049,8 +67829,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -60603,8 +68383,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -60612,8 +68392,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -61388,15 +69168,15 @@
       "refresh": {
         "imf": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "NGDP_RPCH: no observations in requested window | PCPIPCH: no observations in requested window | BCA_NGDPD: no observations in requested window | GGXCNL_NGDP: no observations in requested window | GGXWDG_NGDP: no observations in requested window"
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -61591,8 +69371,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -61600,8 +69380,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -62448,8 +70228,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -62457,8 +70237,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -63017,8 +70797,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -63026,8 +70806,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -63658,8 +71438,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -63667,8 +71447,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -64299,8 +72079,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -64308,8 +72088,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -64940,8 +72720,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2024,
           "retainedMetricKeys": [],
@@ -64949,8 +72729,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -65575,15 +73355,15 @@
       "refresh": {
         "imf": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "NGDP_RPCH: no observations in requested window | PCPIPCH: no observations in requested window | BCA_NGDPD: no observations in requested window | GGXCNL_NGDP: no observations in requested window | GGXWDG_NGDP: no observations in requested window"
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2024,
           "retainedMetricKeys": [],
@@ -65820,8 +73600,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -65829,8 +73609,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -66641,8 +74421,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -66650,8 +74430,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -67498,8 +75278,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -67507,8 +75287,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -68331,8 +76111,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -68340,8 +76120,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -68966,19 +76746,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2024,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -69358,6 +77145,157 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 5.19940206842546,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=ARE",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.61577821903282,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.19940206842546,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 3.0388427510985,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=ARE",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 0.00201529963006026,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.079158266303592,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.340713650725389,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.1786818753689,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.92498132600234,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.0388427510985,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 50273.5126243239,
+            "year": 2024,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ARE",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 44910.3458860776,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42721.1136110991,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 43733.6242018215,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 47135.3478795605,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 45938.6084572227,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 37991.738387966,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 44118.4936214315,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50759.7590190204,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49850.6945082084,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50273.5126243239,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "YEM": {
@@ -69365,8 +77303,8 @@
       "refresh": {
         "imf": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -69376,8 +77314,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2024,
           "retainedMetricKeys": [],
@@ -69900,8 +77838,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -69909,7 +77847,7 @@
         },
         "worldBank": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "FI.RES.TOTL.MO: no observations | GC.XPN.INTP.RV.ZS: no observations | DT.DOD.DECT.GN.ZS: no observations | DT.DOD.DSTC.ZS: no observations | DT.DOD.ALLC.ZS: no observations | DT.TDS.DECT.EX.ZS: no observations | NY.GDP.PCAP.CD: no observations"
@@ -70299,19 +78237,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -70691,6 +78633,460 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 7.20847522420004,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=ALB",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 7.03758370063155,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.54350256672646,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.57489520485403,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.37055743693267,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.94458817000626,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.16482348389536,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.75053224958908,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.33655990796027,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.73099415157148,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.04107418472308,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.20847522420004,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 7.41703631822189,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=ALB",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 10.5223217565603,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.71519157209464,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.73970302969854,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.5813935058396,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.06655647539145,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.52582072031223,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.50561490957785,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.31408380022955,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.04504143403456,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.41703631822189,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 39.7190681766686,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=ALB",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 72.7839311764582,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 69.9108688734659,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 73.748302704928,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 62.8192787162639,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 60.2886652039553,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 69.8900514825763,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 62.1678808397569,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 55.7646269319117,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 48.6747823852328,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 39.7190681766686,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 11.5828,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=ALB",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 21.2299,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.9524,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.9252,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.4774,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.1686,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.1977,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.0936,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.3116,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.6518,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.5828,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 8.00915421288433,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=ALB",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 33.5285463236996,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.2354342786112,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.1448259863343,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.6761205604885,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.6000415822134,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29.7327896535043,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.5720229004701,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.18516585280181,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.54481299685541,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.00915421288433,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 12998.147869552,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ALB",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 4199.53912925398,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4457.63412207495,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5006.36012951959,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5897.65452588774,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6069.43903131027,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6027.91350716348,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7242.45513146613,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7756.96188744253,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9740.7023414631,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11374.0085781236,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12998.147869552,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "AND": {
@@ -70698,19 +79094,27 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "FI.RES.TOTL.MO: no observations",
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -71090,6 +79494,144 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "interestPaymentsRevenue": {
+            "value": 1.50904550353117,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=AND",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.56387750571741,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.49186801658718,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.67484349981924,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.2353294714284,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.24231505510196,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.7431550770274,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.50904550353117,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 54291.5026031052,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AND",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 38654.9347217207,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40129.8192026671,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40672.9943362327,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42819.774579353,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 41257.8045861543,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 37361.090067211,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42425.6996761083,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42414.0590111349,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 46812.448450114,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49357.437070178,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54291.5026031052,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "AUT": {
@@ -71097,8 +79639,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -71106,18 +79648,16 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "GC.XPN.INTP.RV.ZS: HTTP 502",
-            "DT.DOD.DECT.GN.ZS: HTTP 502",
-            "DT.DOD.DSTC.ZS: HTTP 502",
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
             "DT.DOD.ALLC.ZS: no observations",
-            "DT.TDS.DECT.EX.ZS: HTTP 502",
-            "NY.GDP.PCAP.CD: HTTP 502"
+            "DT.TDS.DECT.EX.ZS: no observations"
           ]
         },
         "oec": {
@@ -71579,6 +80119,158 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 3.08352908996582,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=AUT",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.99839552172285,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.57745173945013,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.1179415960588,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.59812234792041,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.16986622290645,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.08426089791633,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.492931518597,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.15569416078849,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.62016235170767,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.08352908996582,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 62930.0351324599,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AUT",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 43915.228020857,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 45061.4993920192,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 47163.7425775142,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51194.0749841299,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49885.9947355204,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 48716.4098900349,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 53648.6437976214,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 52336.7725223758,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 56579.504175468,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 58268.8787651601,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 62930.0351324599,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -71588,19 +80280,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -71980,6 +80676,460 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 3.03689694114409,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BLR",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.39984867852594,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.79421367518526,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.22678705426344,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.92285617061419,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.48197967811781,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.31622619322733,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.06531509290183,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.02887464932316,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.88919232235999,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.95220373518424,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.03689694114409,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 4.15347054806571,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BLR",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.80807704411736,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.69444863929591,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.38393529877477,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.17258744119016,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.95858653103866,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.18280167516257,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.77840242256855,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.26481540545399,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.86532605278622,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.15347054806571,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 46.1452886653758,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BLR",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 70.7668231487899,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 82.5010405969595,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 75.1554915511371,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 67.0009807620654,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 65.1747660547607,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 70.9847643016215,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 62.0622832088135,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 56.3947988685637,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 52.4376285095848,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 46.1452886653758,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 29.0171,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BLR",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 29.9924,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.3131,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.5668,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.572,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.0367,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.1229,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.8828,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.4502,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.4192,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29.0171,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 10.4697875188332,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BLR",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 14.8963571702265,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.318907338682,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.7755887758454,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.3189514000796,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.4516456803401,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.2758095940727,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.62319657795036,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.0645147381013,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.1332621106548,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.4697875188332,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 10279.2547190723,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BLR",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 5967.05595058777,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5039.77560949445,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5785.54491935194,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6360.037502312,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6837.77339645635,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6542.85579976768,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7489.71894713888,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7994.64806074889,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7896.75388295584,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8605.60954569694,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10279.2547190723,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BEL": {
@@ -71987,8 +81137,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -71996,16 +81146,15 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "GC.XPN.INTP.RV.ZS: HTTP 502",
-            "DT.DOD.DECT.GN.ZS: HTTP 502",
+            "DT.DOD.DECT.GN.ZS: no observations",
             "DT.DOD.DSTC.ZS: no observations",
-            "DT.DOD.ALLC.ZS: HTTP 502",
+            "DT.DOD.ALLC.ZS: no observations",
             "DT.TDS.DECT.EX.ZS: no observations"
           ]
         },
@@ -72547,6 +81696,79 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 4.51236187590081,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BEL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 6.59931659134092,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.42310251282992,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.54181713848729,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.88758193488278,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.73353844242441,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.73452806027069,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.92717142468875,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.41746566567103,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.97400991093013,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.51236187590081,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -72556,19 +81778,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -72948,6 +82174,454 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 6.48581729707099,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BIH",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 6.29130432187882,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.51275823467331,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.00828958464748,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.64612836747488,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.28300464871793,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.0633908676273,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.26116786627427,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.46639679782462,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.65853728463666,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.48581729707099,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 2.38061973673101,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BIH",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 2.16273138418052,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.02430041300093,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.71680726271015,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.72198688310898,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.62614804078784,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.80680613699491,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.51220444054424,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.47421825812242,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.01260988789197,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.38061973673101,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 49.1550732058777,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BIH",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 70.5762540899842,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 68.0557464337731,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 71.87227677897,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 63.739448130961,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 62.0944658549127,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 69.5081286353197,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 58.8174446888183,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 55.5070051088793,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50.553295139949,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49.1550732058777,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 22.1288,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BIH",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 5.5471,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.5482,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.186,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.8567,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.1271,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.8782,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.9512,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.5863,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.8449,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.1288,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 10.8351325250283,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BIH",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 30.8086929589917,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18.5032311661066,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.9768147415281,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9498324986333,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.3690261851021,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.68735090635182,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.6940052872026,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.90369523474478,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.5341648063256,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.8351325250283,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 10381.8460703874,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BIH",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 4662.25869219448,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4928.5665903114,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5345.01978766473,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6047.84707207392,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6122.37541352353,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6130.31187968266,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7295.34378682258,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7655.59421024383,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8663.02326458629,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9397.90942855997,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10381.8460703874,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BGR": {
@@ -72955,8 +82629,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -72964,13 +82638,12 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "GC.XPN.INTP.RV.ZS: This operation was aborted",
             "DT.DOD.ALLC.ZS: no observations"
           ]
         },
@@ -73707,6 +83380,79 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 1.4413880432147,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BGR",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 2.64863407440941,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.59567611548725,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.35860196008974,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.81354943511323,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.47954217589571,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.49985098350884,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.32773869899373,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.00156799662028,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.33573211469445,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.4413880432147,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -73716,8 +83462,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -73725,8 +83471,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -74345,19 +84091,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -74737,6 +84490,241 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 7.64375278763755,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=CZE",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.89799814039569,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.46822553951745,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.82284804756295,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.47511678583177,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.06849990975418,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.3938793048782,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.363554473226,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.83372087751841,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.09632126966092,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.9620214293683,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.64375278763755,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 3.47687049782886,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CZE",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 2.76839937671492,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.37882814459673,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.92845908737032,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.88733702877312,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.79337146730144,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.95803150819252,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.98134992760279,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.95765461223435,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.43067938167049,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.47687049782886,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 35917.2724081665,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CZE",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 17931.5987670768,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18753.9686718096,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20913.197632212,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 23705.9329811299,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24062.7190013343,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 23472.8915454417,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 27696.4619527544,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28282.2236715857,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31761.5944102491,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31827.7552539413,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 35917.2724081665,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "DNK": {
@@ -74744,19 +84732,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -75136,6 +85131,235 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 4.40117717539998,
+            "year": 2024,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=DNK",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.65573697899575,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.59154537433829,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.91746136076967,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.13082930342231,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.93865095048992,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.52934660153463,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.16057736639066,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.21712222634877,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.69462972280691,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.40117717539998,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 1.44252048887747,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=DNK",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 2.9742144432543,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.56187956238623,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.81205776233889,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.93177920890176,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.64396179076592,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.11640295734431,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.00172958419483,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.61289210854626,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.24314069558927,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.44252048887747,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 76970.1535217919,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DNK",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 53094.0133607574,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54500.9260410217,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 57521.5514992225,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 61324.7665045565,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 59404.2663247723,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 60985.4885601514,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 69340.7334922138,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 67781.0940939514,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 68043.5466971243,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 71026.4832271897,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 76970.1535217919,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "EST": {
@@ -75143,8 +85367,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -75152,8 +85376,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -75784,8 +86008,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -75793,8 +86017,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -76425,8 +86649,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -76434,8 +86658,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -77066,19 +87290,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -77458,6 +87689,241 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 3.10966865624185,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=DEU",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.53866263784816,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.62420238995537,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.62554687781984,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.45449826289867,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.68680367954395,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.2194147879826,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.99690469909918,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.76085539632078,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.84235967804865,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.17619726140455,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.10966865624185,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 2.47958940598133,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=DEU",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 2.66365124026745,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.22569671916529,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.8827682952478,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.69301686936053,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.4360093895827,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.04773577927648,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.968275088782061,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.45773373315771,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.04817590091326,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.47958940598133,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 60496.4350820414,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DEU",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 41929.7549110722,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42948.9381932694,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 45553.9341495339,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 48916.1686612154,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 47656.199739747,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 47394.8734504469,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 52349.2459994422,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50506.5179638543,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54776.7668235491,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 56103.7323182554,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 60496.4350820414,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "GRC": {
@@ -77465,8 +87931,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -77474,8 +87940,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -78100,8 +88566,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -78109,8 +88575,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -78741,8 +89207,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -78750,8 +89216,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -79376,8 +89842,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -79385,8 +89851,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -80011,8 +90477,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -80020,8 +90486,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -80652,8 +91118,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -80661,8 +91127,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -81293,8 +91759,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -81302,8 +91768,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2024,
           "retainedMetricKeys": [],
@@ -81778,8 +92244,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -81787,8 +92253,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -82419,8 +92885,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -82428,8 +92894,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -83060,8 +93526,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -83069,8 +93535,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -83695,8 +94161,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -83704,8 +94170,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -84546,15 +95012,15 @@
       "refresh": {
         "imf": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "NGDP_RPCH: no observations in requested window | PCPIPCH: no observations in requested window | BCA_NGDPD: no observations in requested window | GGXCNL_NGDP: no observations in requested window | GGXWDG_NGDP: no observations in requested window"
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2024,
           "retainedMetricKeys": [],
@@ -84665,8 +95131,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -84674,8 +95140,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -85450,8 +95916,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -85459,8 +95925,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -86085,8 +96551,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -86094,8 +96560,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -86942,8 +97408,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -86951,8 +97417,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -87583,8 +98049,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -87592,8 +98058,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -88218,8 +98684,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -88227,8 +98693,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -88853,8 +99319,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -88862,8 +99328,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -89494,8 +99960,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -89503,8 +99969,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -90297,8 +100763,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -90306,8 +100772,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2024,
           "retainedMetricKeys": [],
@@ -90902,8 +101368,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -90911,8 +101377,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -91543,8 +102009,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -91552,8 +102018,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -92184,8 +102650,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -92193,13 +102659,12 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "FI.RES.TOTL.MO: This operation was aborted",
             "DT.DOD.DECT.GN.ZS: no observations",
             "DT.DOD.DSTC.ZS: no observations",
             "DT.DOD.ALLC.ZS: no observations",
@@ -92738,6 +103203,85 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "reserveMonths": {
+            "value": 2.01778146515219,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=ESP",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.51753270703603,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.76235386629208,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.72868709897248,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.5808003454262,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.72806068309746,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.26605414616915,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.03235175101755,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.74987384242179,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.83601786815125,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.8246595612095,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.01778146515219,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -92747,8 +103291,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -92756,8 +103300,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -93388,19 +103932,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -93780,6 +104331,241 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 13.1988008035668,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=CHE",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 14.0381093116377,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.7781437779488,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.5202615600178,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.1105604842755,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.5474933642214,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.3472405398935,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.2467144477569,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.0105362573548,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.943374645767,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.1903467469865,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.1988008035668,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 0.896177243628368,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CHE",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.61942583484754,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.43026130171159,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.15787864182328,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.942716852775934,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.843353509253962,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.752676719121318,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.590221176255857,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.676569274072201,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.950426380119413,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.896177243628368,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 114769.012314293,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CHE",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 85265.06205193,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 83432.4111596314,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 83610.248611484,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 87002.3382293532,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 85872.9702303454,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 87529.7016394892,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 96582.8687080693,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 97809.095567203,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 104449.75451772,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 107702.065940312,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 114769.012314293,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "UKR": {
@@ -93787,8 +104573,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -93796,8 +104582,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -94638,8 +105424,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -94647,8 +105433,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -95279,14 +106065,14 @@
       "refresh": {
         "imf": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "NGDP_RPCH: no observations in requested window | PCPIPCH: no observations in requested window | BCA_NGDPD: no observations in requested window | GGXCNL_NGDP: no observations in requested window | GGXWDG_NGDP: no observations in requested window"
         },
         "worldBank": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "FI.RES.TOTL.MO: no observations | GC.XPN.INTP.RV.ZS: no observations | DT.DOD.DECT.GN.ZS: no observations | DT.DOD.DSTC.ZS: no observations | DT.DOD.ALLC.ZS: no observations | DT.TDS.DECT.EX.ZS: no observations | NY.GDP.PCAP.CD: no observations"
@@ -95312,15 +106098,15 @@
       "refresh": {
         "imf": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "NGDP_RPCH: no observations in requested window | PCPIPCH: no observations in requested window | BCA_NGDPD: no observations in requested window | GGXCNL_NGDP: no observations in requested window | GGXWDG_NGDP: no observations in requested window"
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -95731,8 +106517,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -95740,18 +106526,17 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "GC.XPN.INTP.RV.ZS: This operation was aborted",
-            "DT.DOD.DECT.GN.ZS: This operation was aborted",
+            "GC.XPN.INTP.RV.ZS: no observations",
+            "DT.DOD.DECT.GN.ZS: no observations",
             "DT.DOD.DSTC.ZS: no observations",
-            "DT.DOD.ALLC.ZS: This operation was aborted",
-            "DT.TDS.DECT.EX.ZS: This operation was aborted",
-            "NY.GDP.PCAP.CD: This operation was aborted"
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
           ]
         },
         "oec": {
@@ -96213,6 +106998,85 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "gdpPerCapita": {
+            "value": 24819.2454680158,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ATG",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 16077.6340769406,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16556.8551801588,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16965.7288273816,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18273.4270684912,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18896.3721832248,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15369.6082250401,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17348.6006987182,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20003.3909394099,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22012.2625947994,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 23059.8330702839,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24819.2454680158,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -96222,19 +107086,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -96614,6 +107485,145 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 1.25640510866189,
+            "year": 2017,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BRB",
+            "ageYears": 9,
+            "stale": true,
+            "series": [
+              {
+                "value": 2.41915861354469,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.6834400560226,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.25640510866189,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 25.6330743491592,
+            "year": 2016,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BRB",
+            "ageYears": 10,
+            "stale": true,
+            "series": [
+              {
+                "value": 26.1654535467045,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.6330743491592,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 28364.8181499736,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BRB",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 20429.4747123553,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20311.4094163764,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20870.7596432179,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21378.2201267496,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21929.435611489,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19180.9915228365,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21084.4013935998,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24393.2193483944,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25583.8722302505,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26897.2002039176,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28364.8181499736,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BLZ": {
@@ -96621,19 +107631,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -97013,6 +108027,418 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 3.49170054807951,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BLZ",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.08119529629943,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.62358607235614,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.95842320942662,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.69767692045652,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.41959366396948,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.31496825539472,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.78003847266624,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.36732370046332,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.33360237439553,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.18652304107596,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.49170054807951,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 9.43943774137489,
+            "year": 2017,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BLZ",
+            "ageYears": 9,
+            "stale": true,
+            "series": [
+              {
+                "value": 8.55303384870438,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.26430740147739,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.43943774137489,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 46.0428964719523,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BLZ",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 61.0374168644776,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 60.617190802549,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 62.5582203804267,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 63.1433493052864,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 61.9332736035164,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 77.0009327522602,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 61.9874859473581,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54.2321774965168,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51.3692267076717,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 46.0428964719523,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 0.8433,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BLZ",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 0.5539,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.3174,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.3586,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.2692,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.3054,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.5228,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.6761,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.6706,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.7638,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.8433,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 7.67121131772208,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BLZ",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 9.4063731609944,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.4917684199271,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.0634347639991,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.5260465943405,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.36643024652193,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.023767997294,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 58.9326978854465,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.57148974684561,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.34824731285362,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.67121131772208,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 7865.47937690933,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BLZ",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 6154.62264230369,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6140.86713919469,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6071.85451846453,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6011.99036888587,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6171.61449761423,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5238.54078175696,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6142.98930557031,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7068.21728043145,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7424.75821321022,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7681.24400583113,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7865.47937690933,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "CAN": {
@@ -97020,19 +108446,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -97412,6 +108845,241 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 1.59858615113231,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=CAN",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 1.54392945017431,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.65079590323093,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.59591357331042,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.43503478148262,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.44775879309168,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.76069410604191,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.72003903449133,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.46541502582442,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.55714979575801,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.5422071135267,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.59858615113231,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 8.3629853130122,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CAN",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 6.68485828504694,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.21311967896723,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.72580311309819,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.93567835808138,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.0895032470748,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.51828035314345,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.97666661384632,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.79267225578024,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.38985563444321,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.3629853130122,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 55697.6639660837,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CAN",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 43594.2379080706,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42314.1033623905,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 45129.7335281051,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 46539.2177903178,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 46352.9695208927,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 43537.8981198851,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 52886.6407813788,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 56496.9275340663,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54847.5370112652,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 55015.7066917734,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 55697.6639660837,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "CRI": {
@@ -97419,19 +109087,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: no observations | DT.DOD.ALLC.ZS: no observations | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -97811,6 +109486,241 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 4.64887001164502,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=CRI",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.73758461985226,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.37435530096994,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.80306697765492,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.68115753123254,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.34874643630183,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.03645988295648,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.13832500450206,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.14801516571318,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.26153421479814,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.22127418235713,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.64887001164502,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 16.6149238224439,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CRI",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 11.0393796221737,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.0263284192798,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.0172885301658,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.4677837752809,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.1138984374852,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.4638449284895,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.0641742418659,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.2927261286011,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.8726448263341,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.6149238224439,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 19970.0989059622,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CRI",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 11714.7106121672,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12091.0301560892,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12317.0902779911,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12620.0207321581,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12951.8588421841,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12475.6852076814,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12962.2716075659,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13971.7649991294,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17140.771430122,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 18853.2828705886,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19970.0989059622,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "CUB": {
@@ -97818,17 +109728,26 @@
       "refresh": {
         "imf": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
           "error": "NGDP_RPCH: no observations in requested window | PCPIPCH: no observations in requested window | BCA_NGDPD: no observations in requested window | GGXCNL_NGDP: no observations in requested window | GGXWDG_NGDP: no observations in requested window"
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: no observations | GC.XPN.INTP.RV.ZS: no observations | DT.DOD.DECT.GN.ZS: no observations | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: no observations | DT.TDS.DECT.EX.ZS: no observations | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2020,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "FI.RES.TOTL.MO: no observations",
+            "GC.XPN.INTP.RV.ZS: no observations",
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -97844,6 +109763,59 @@
           "retainedPrevious": false,
           "error": "https://storage.unctad.org/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404 | https://unctad-infovis.github.io/2025-commodity_dependency_map/assets/data/cdde_dependence.csv: HTTP 404"
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "gdpPerCapita": {
+            "value": 9605.27914559614,
+            "year": 2020,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CUB",
+            "ageYears": 6,
+            "stale": true,
+            "series": [
+              {
+                "value": 7727.91997207998,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8110.55874283616,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8610.60829605429,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8911.46205998726,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9232.26115935183,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9605.27914559614,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "DMA": {
@@ -97851,19 +109823,24 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "GC.XPN.INTP.RV.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -98243,6 +110220,387 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 3.86511620663956,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=DMA",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.22431879730821,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.34409544714443,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.58518468587758,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.22963469521241,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.0471700862835,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.50318234565576,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.03827433544328,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.790659243852,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.69894271019133,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.69558058580779,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.86511620663956,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 82.3567303337689,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=DMA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 88.4015382862575,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 90.5118431972535,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 91.9687797677961,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 80.2709953942802,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 72.5011521232773,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 89.4556387167,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 90.5167936997936,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 95.7270653249712,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 89.8840329836928,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 82.3567303337689,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 30.4936,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=DMA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 35.9036,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 44.5695,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.4874,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42.2952,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 37.2075,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29.6253,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.8134,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.0653,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.5217,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.4936,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 29.4152919032151,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=DMA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 12.0472718435126,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.5050998493163,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.9208593359592,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.6271743528782,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.7093939329021,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.4456209747372,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.800617255885,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.9960539600887,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.7548803482454,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29.4152919032151,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 10989.0431185083,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=DMA",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 8282.59874702141,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8802.56172041363,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8224.64896571414,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9215.3085405645,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9491.14995962374,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7827.74842680426,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8376.40414141113,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9323.66089490562,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9912.96212766668,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10405.2787777582,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10989.0431185083,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "DOM": {
@@ -98250,8 +110608,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -98259,8 +110617,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -99107,8 +111465,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -99116,8 +111474,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -99964,8 +112322,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -99973,8 +112331,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -100749,8 +113107,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -100758,8 +113116,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -101600,8 +113958,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -101609,8 +113967,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -102379,8 +114737,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -102388,8 +114746,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -103188,8 +115546,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -103197,8 +115555,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -104015,8 +116373,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -104024,8 +116382,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -104866,8 +117224,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -104875,8 +117233,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -105507,8 +117865,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -105516,8 +117874,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -106112,8 +118470,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -106121,8 +118479,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -106927,8 +119285,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -106936,8 +119294,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -107742,8 +120100,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -107751,8 +120109,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -108347,19 +120705,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -108739,6 +121101,460 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 4.05367056004785,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=ARG",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 3.36214425707702,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.09719624487539,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6.05038766582561,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.11111211150086,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.94220121846315,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.09405401009515,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.6049034262494,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.75930856415363,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.45755251575411,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.55326074207238,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.05367056004785,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 8.46208377895978,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=ARG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 8.32315211040757,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9565149181762,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.8066620522456,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.4774283123674,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.542362717226,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.0831741282416,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.83661389642186,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.47430226617865,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.59771414459103,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.46208377895978,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 39.0583452380588,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=ARG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 30.3597130322943,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.3125611167404,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36.0210140421607,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54.8960712180333,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 65.2499452681964,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 68.0983401439473,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51.6176877458835,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.0821942544545,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 39.9528949452964,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 39.0583452380588,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 20.046,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=ARG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 33.5438,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 22.5816,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.5687,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 24.393,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 23.876,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.6691,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.7702,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 19.821,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 21.8024,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 20.046,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 38.2533536654791,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=ARG",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 24.7334756900606,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 34.9280137137276,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51.7299119817311,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51.5482584868275,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50.832791702386,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 43.0972641723579,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.6022646249006,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31.6825901735881,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51.3619830543826,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 38.2533536654791,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 14898.0885943842,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ARG",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 13679.6264980954,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12699.9623137756,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14532.5009308511,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11752.7998922979,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9955.97478680428,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8535.59938004389,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10738.0179223384,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13962.1894087223,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14261.8465667948,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13969.7836603737,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14898.0885943842,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BOL": {
@@ -108746,19 +121562,24 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "GC.XPN.INTP.RV.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -108988,6 +121809,387 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 0.52085247812024,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BOL",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 11.9126085142483,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.4472997333726,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.4195976733249,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.90914049803567,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.98827234781854,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.32588143490117,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.03194280625604,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.03722996337964,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.50266723877959,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.86110946081755,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 0.52085247812024,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 32.5376974869568,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BOL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 31.0456275763891,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 32.9957292948572,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 35.6879564139746,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.7006008149571,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 35.6998390215282,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42.5818186341753,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.697891574053,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 37.2686637973882,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 37.1837075987323,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 32.5376974869568,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 4.0423,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BOL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 4.3051,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.3204,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.0785,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.3063,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.4564,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.7446,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.7382,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.9596,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.8621,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.0423,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 17.787635656929,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BOL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 9.89883952740801,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.21953909473769,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.024147779664,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.51956656449353,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.3652362849807,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.5640603308679,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.0108549191527,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.275104418689,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.205978684425,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17.787635656929,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 5147.81081955367,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BOL",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 2996.01289811344,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3035.87347732132,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4048.40119739839,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4206.8552936661,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4203.15492855788,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3580.96761778303,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4010.76053686204,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4219.46113742445,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4274.70820547613,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4421.16609889999,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5147.81081955367,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "BRA": {
@@ -108995,19 +122197,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -109387,6 +122593,460 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 8.4209144130353,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=BRA",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 14.6482488458148,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16.6034201407585,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.8647023427237,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.202166862988,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.2312070465136,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14.9438769882272,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.1402301211994,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.33579218529621,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.42965093795292,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.95225602897552,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.4209144130353,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 30.0945783300769,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=BRA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 45.2436436734703,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36.9749150420888,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 35.9278832277243,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 34.0540756166009,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 27.3874073489711,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 25.486547315142,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 27.0987532818901,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.8867766914126,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.8390881041646,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.0945783300769,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 28.6612661075538,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=BRA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 30.7299282835538,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.9090873467642,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.8156664558868,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29.9289604206331,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 31.1964144613097,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 38.0076646022397,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 35.2910131878973,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 30.5621181630478,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.628650184641,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 28.6612661075538,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 13.9202,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=BRA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 9.6322,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.5294,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.6516,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.9842,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9226,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 12.5576,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.7874,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.6997,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.2521,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9202,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 26.7439339145718,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=BRA",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 39.7792835988014,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51.0549755813973,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 34.7679526864763,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.3094436850684,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 53.4702774123798,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50.3521091588437,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 46.7278546984627,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 29.9040449782556,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 53.5434238618458,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 26.7439339145718,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 10713.2856869511,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=BRA",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 8936.19661712113,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8836.28652735657,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10080.5092819305,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9300.66164923219,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9029.83326681073,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7074.19378337644,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7972.5366498646,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9281.33334441234,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10377.5892792557,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10310.5486973693,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10713.2856869511,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "CHL": {
@@ -109394,19 +123054,26 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.DECT.GN.ZS: no observations",
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -109786,6 +123453,241 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 4.21740649827425,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=CHL",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 5.45339619283524,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.78588755052345,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.90281936187665,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.38194459144938,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.69728067944713,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.28711808990111,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.69423974456816,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.18145571608366,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.39461209765128,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.18812833070743,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.21740649827425,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 5.22421457104458,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=CHL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 3.11541843582078,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.64143238362122,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.71807139372882,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.12061874313739,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.12053472244623,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.54244663674644,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.54372318434982,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.81839448820788,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 4.62593321269895,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.22421457104458,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 17994.5911957485,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=CHL",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 13433.9202987032,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13649.8520452803,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14879.9086227187,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15659.4808675628,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 14496.9345640362,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13117.9930230086,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16216.1840860289,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15399.1044717559,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17081.5180740049,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 16658.9652720351,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 17994.5911957485,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "COL": {
@@ -109793,19 +123695,23 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
           "warnings": []
         },
         "worldBank": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "partial",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
-          "error": "FI.RES.TOTL.MO: This operation was aborted | GC.XPN.INTP.RV.ZS: This operation was aborted | DT.DOD.DECT.GN.ZS: This operation was aborted | DT.DOD.DSTC.ZS: This operation was aborted | DT.DOD.ALLC.ZS: This operation was aborted | DT.TDS.DECT.EX.ZS: This operation was aborted | NY.GDP.PCAP.CD: This operation was aborted"
+          "observationThrough": 2025,
+          "retainedMetricKeys": [],
+          "warnings": [
+            "DT.DOD.ALLC.ZS: no observations"
+          ]
         },
         "oec": {
           "status": "error",
@@ -110185,6 +124091,460 @@
             ]
           }
         }
+      },
+      "worldBank": {
+        "indicators": {
+          "reserveMonths": {
+            "value": 7.2960917611185,
+            "year": 2025,
+            "unit": "months",
+            "label": "Total reserves in months of imports",
+            "definition": "International reserves expressed as months of imports.",
+            "sourceCode": "FI.RES.TOTL.MO",
+            "sourceUrl": "https://data.worldbank.org/indicator/FI.RES.TOTL.MO?locations=COL",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 7.29304800301966,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.32883468161759,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.88739431363663,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.01653628399101,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.68978168444085,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.5419853283327,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.13634445223537,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5.98792041600812,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.1661637402161,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.34464091398545,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7.2960917611185,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 13.9043904178079,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=COL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 8.86641733707862,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.2733677695796,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.1982643477404,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.9583076355613,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.8755067433855,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.8624200372273,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.0049373856116,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 15.4743411391649,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.8203285626718,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 13.9043904178079,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "externalDebtGni": {
+            "value": 49.2038699846531,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=COL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 39.1551312422504,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 43.2364464218603,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 41.1813299968956,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.935302359277,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 44.0144816213322,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 58.195276425352,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54.5702530730857,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 55.2901604295775,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54.9698144239845,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49.2038699846531,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 9.4431,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=COL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 10.5227,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.3312,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.3212,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.181,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 11.2422,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8.9176,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.2067,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 10.4956,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.4277,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 9.4431,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "debtServiceExports": {
+            "value": 42.9975933296769,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt service / exports",
+            "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
+            "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.TDS.DECT.EX.ZS?locations=COL",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 27.5983642105443,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.1505406754278,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.907772512707,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.7847562687225,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 32.9649350870865,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50.7683360157448,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 44.6185424127,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 33.8039730673688,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36.7182409709799,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42.9975933296769,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 8561.62091854449,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=COL",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 6248.51490534512,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5959.84250367574,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6479.53231292429,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6816.96818309544,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6472.54544924705,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5339.68711357943,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6222.62164397614,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6680.44506854481,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7012.49169137756,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7951.08624019412,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 8561.62091854449,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          }
+        }
       }
     },
     "ECU": {
@@ -110192,8 +124552,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -110201,16 +124561,13 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "DT.DOD.DECT.GN.ZS: This operation was aborted",
-            "DT.DOD.DSTC.ZS: This operation was aborted",
-            "DT.DOD.ALLC.ZS: no observations",
-            "NY.GDP.PCAP.CD: This operation was aborted"
+            "DT.DOD.ALLC.ZS: no observations"
           ]
         },
         "oec": {
@@ -110734,6 +125091,231 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "externalDebtGni": {
+            "value": 49.7486298154549,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Total external debt / GNI",
+            "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
+            "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DECT.GN.ZS?locations=ECU",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 29.7448712901636,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 36.9480973788042,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 40.3243295654818,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 42.9910183543729,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49.6566686043124,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 60.9453501649796,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 55.1142076977331,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 53.1297474306529,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 52.1063435637108,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 49.7486298154549,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "shortTermDebtPct": {
+            "value": 1.0373,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Short-term debt / external debt",
+            "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.DSTC.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/DT.DOD.DSTC.ZS?locations=ECU",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "value": 3.7379,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.4673,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.6583,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.3952,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.7967,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.0009,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 2.1561,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.1693,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.3665,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 1.0373,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 7125.27618527738,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=ECU",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 5976.1596805651,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5917.63771271481,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6233.32244797718,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6303.91886658338,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6205.05765246766,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 5463.64515348598,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6061.32350181711,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6515.58528418336,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6718.1447938811,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 6826.5294137822,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 7125.27618527738,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -110743,8 +125325,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -110752,8 +125334,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -111516,8 +126098,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -111525,8 +126107,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -112367,8 +126949,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -112376,8 +126958,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -113206,8 +127788,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -113215,8 +127797,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -113973,8 +128555,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -113982,8 +128564,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -114614,8 +129196,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -114623,8 +129205,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -114985,8 +129567,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -114994,18 +129576,16 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
           "warnings": [
-            "GC.XPN.INTP.RV.ZS: HTTP 502",
             "DT.DOD.DECT.GN.ZS: no observations",
-            "DT.DOD.DSTC.ZS: HTTP 502",
-            "DT.DOD.ALLC.ZS: HTTP 502",
-            "DT.TDS.DECT.EX.ZS: no observations",
-            "NY.GDP.PCAP.CD: HTTP 502"
+            "DT.DOD.DSTC.ZS: no observations",
+            "DT.DOD.ALLC.ZS: no observations",
+            "DT.TDS.DECT.EX.ZS: no observations"
           ]
         },
         "oec": {
@@ -115467,6 +130047,146 @@
                 "observationClass": "historical"
               }
             ]
+          },
+          "interestPaymentsRevenue": {
+            "value": 3.08204640033961,
+            "year": 2022,
+            "unit": "percent",
+            "label": "Interest payments / revenue",
+            "definition": "Government interest payments as a percentage of government revenue.",
+            "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "sourceUrl": "https://data.worldbank.org/indicator/GC.XPN.INTP.RV.ZS?locations=AUS",
+            "ageYears": 4,
+            "stale": true,
+            "series": [
+              {
+                "value": 3.85096907733802,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.91562689998135,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.80461669991451,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.70461492270932,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.49325109953996,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.48613515816088,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.20656117385791,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 3.08204640033961,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "gdpPerCapita": {
+            "value": 65129.7227990563,
+            "year": 2025,
+            "unit": "usd",
+            "label": "GDP per capita",
+            "definition": "GDP divided by mid-year population, current US dollars.",
+            "sourceCode": "NY.GDP.PCAP.CD",
+            "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD?locations=AUS",
+            "ageYears": 1,
+            "stale": false,
+            "series": [
+              {
+                "value": 56970.3613028094,
+                "year": 2015,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 50084.4440606385,
+                "year": 2016,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 54117.547718609,
+                "year": 2017,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 57410.1737346009,
+                "year": 2018,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 55194.7585097428,
+                "year": 2019,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 51983.4523666382,
+                "year": 2020,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 60758.9044397144,
+                "year": 2021,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 65169.5191118657,
+                "year": 2022,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 65058.3773146674,
+                "year": 2023,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 64609.9865116088,
+                "year": 2024,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "value": 65129.7227990563,
+                "year": 2025,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
           }
         }
       }
@@ -115476,8 +130196,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -115485,8 +130205,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -116327,8 +131047,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -116336,8 +131056,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -116878,8 +131598,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -116887,8 +131607,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -117417,8 +132137,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -117426,8 +132146,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -117956,8 +132676,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -117965,8 +132685,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -118483,8 +133203,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -118492,8 +133212,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -119124,8 +133844,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -119133,8 +133853,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -119663,8 +134383,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -119672,8 +134392,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -120514,8 +135234,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -120523,8 +135243,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -121365,8 +136085,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -121374,8 +136094,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -122216,8 +136936,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -122225,8 +136945,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -123055,8 +137775,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -123064,8 +137784,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -123546,8 +138266,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -123555,8 +138275,8 @@
         },
         "worldBank": {
           "status": "partial",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-02T07:38:23.287Z",
+          "lastSuccessAt": "2026-10-02T07:38:23.287Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -124376,10 +139096,10 @@
     }
   },
   "refreshSummary": {
-    "scope": "all",
+    "scope": "macro",
     "jurisdictionsAttempted": 197,
-    "completedAt": "2026-10-01T16:42:19.378Z",
-    "failures": 246
+    "completedAt": "2026-10-02T07:38:23.287Z",
+    "failures": 11
   }
 };
 })();
