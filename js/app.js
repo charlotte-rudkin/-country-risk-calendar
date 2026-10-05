@@ -4,7 +4,32 @@
 const DATA_LAST_UPDATED = window.SITE_CONFIG.dataLastUpdated;
 const HISTORY_START_YEAR = window.SITE_CONFIG.historyStartYear;
 const HISTORY_DEEP_COVERAGE_START_YEAR = window.SITE_CONFIG.historyDeepCoverageStartYear;
-const { countries, order } = window.COUNTRY_DATA;
+const { order } = window.COUNTRY_DATA;
+const PROFILE_REVIEWS = window.PROFILE_REVIEWS || { countries: {} };
+// Keep the research overlay separate from refreshed news and economic datasets.
+const countries = Object.fromEntries(Object.entries(window.COUNTRY_DATA.countries)
+  .map(([key, country]) => [key, withVerifiedRatings(country, PROFILE_REVIEWS.countries[key])]));
+
+function withVerifiedRatings(country, profile) {
+  if (!profile?.ratings) return country;
+  const result = { ...country, ratings: { ...country.ratings }, ratingReviews: { ...country.ratingReviews } };
+  for (const [agency, verified] of Object.entries(profile.ratings)) {
+    const current = country.ratings?.[agency];
+    const currentValue = Array.isArray(current) ? current[0] : current?.value;
+    const currentOutlook = Array.isArray(current) ? current[1] : current?.outlook;
+    const tupleMeta = Array.isArray(current) ? current[2] : current;
+    const details = country.ratingReviews?.[agency] || (typeof tupleMeta === 'string' ? { actionDate: tupleMeta } : tupleMeta) || {};
+    const currentDate = details.reviewedAt || details.actionDate || details.assignedAt;
+    if (currentDate && String(currentDate) > (verified.reviewedAt || verified.actionDate)) continue;
+    // An undated future change must not be overwritten by this dated snapshot.
+    const same = currentValue === verified.value && currentOutlook === verified.outlook;
+    const baseline = currentValue === verified.previousValue && currentOutlook === verified.previousOutlook;
+    if (!currentDate && currentValue && !same && !baseline) continue;
+    result.ratings[agency] = [verified.value, verified.outlook];
+    result.ratingReviews[agency] = { ...verified };
+  }
+  return result;
+}
 const ECONOMIC_DATA = window.ECONOMIC_DATA || { generatedAt: null, sources: {}, countries: {} };
 const NEWS_DATA = window.NEWS_DATA || { generatedAt: null, countries: {} };
 const { sources: HISTORY_SOURCES, events: HISTORICAL_EVENTS } = window.HISTORY_DATA;
@@ -60,8 +85,8 @@ function ratingBlockHTML(country, key, agency) {
   const [value, outlook, metadata] = Array.isArray(rating) ? rating : [rating.value, rating.outlook, rating];
   const details = country.ratingReviews?.[key] || (typeof metadata === "string" ? { actionDate: metadata } : metadata) || {};
   let date = details.reviewedAt || details.assignedAt || details.actionDate;
-  let label = details.reviewedAt ? "Last reviewed" : details.assignedAt ? "Assigned" : "Latest action";
-  let url = details.sourceUrl || details.url;
+  let label = details.dateLabel || (details.reviewedAt ? "Last reviewed" : details.assignedAt ? "Assigned" : "Latest action");
+  let url = (details.reviewedAt ? details.reviewSourceUrl : null) || details.sourceUrl || details.url;
   // Older calendar entries are evidence of an action, not proof of the latest review.
   if (!date && value !== "NR") {
     const agencyPattern = { sp: /S&P|Standard & Poor/i, fitch: /Fitch/i, moodys: /Moody/i }[key];
@@ -71,8 +96,8 @@ function ratingBlockHTML(country, key, agency) {
       .sort((a, b) => String(b.sortDate || b.date).localeCompare(String(a.sortDate || a.date)))[0];
     if (event) { date = event.date; label = "Recorded action"; url = event.sourceUrl || event.url; }
   }
-  return `<div class="rating-block"><p class="rating-agency">${escapeHTML(agency)}</p><p class="rating-value">${escapeHTML(value)}</p><p class="rating-outlook">${escapeHTML(outlook)}</p>
-    <p class="rating-date">${value === "NR" ? "Not rated" : date ? `${escapeHTML(label)}<br>${sourceLink(url, reviewDateLabel(date))}` : "Review date not recorded"}</p></div>`;
+  return `<div class="rating-block"${details.note ? ` title="${escapeHTML(details.note)}"` : ""}><p class="rating-agency">${escapeHTML(agency)}</p><p class="rating-value">${escapeHTML(value)}</p><p class="rating-outlook">${escapeHTML(outlook)}</p>
+    <p class="rating-date">${value === "NR" ? "Not rated" : date ? `${escapeHTML(label)}<br>${sourceLink(url, reviewDateLabel(date))}` : "Review date not recorded"}</p>${details.sourceType === "secondary" ? '<small class="rating-provenance">Reported by financial source</small>' : ""}${details.note ? `<details class="rating-note"><summary>Date note</summary><small>${escapeHTML(details.note)}</small></details>` : ""}</div>`;
 }
 
 function commodityDetailHTML(commodity, trade) {
@@ -366,29 +391,35 @@ function imfArticleIVHTML(countryKey, country) {
     ...item, title: item.label, reviewDate: item.date,
     keyPoints: item.keyPoints || (item.meta ? item.meta.split(/;\s*|\n+/).filter(Boolean) : []), calendarRecord: true
   }));
-  const reviews = [country.imfArticleIV, stored?.lastCompletedReview, stored, ...calendarRecords]
-    .filter(completed).sort((a, b) => String(b.reviewDate || b.publishedAt || "").localeCompare(String(a.reviewDate || a.publishedAt || "")));
-  const review = reviews[0];
+  const verified = PROFILE_REVIEWS.countries[countryKey]?.imfArticleIV;
+  const candidates = [country.imfArticleIV, stored?.lastCompletedReview, stored, verified].filter(completed);
+  // Only actual Board dates can supersede a verified Board date. Publication and
+  // legacy calendar dates may represent an entirely different event.
+  const dated = candidates.filter(item => /^\d{4}-\d{2}-\d{2}$/.test(item.reviewDate || ""))
+    .sort((a, b) => b.reviewDate.localeCompare(a.reviewDate) || Number(b === verified) - Number(a === verified));
+  const review = dated[0] || candidates.sort((a,b) => String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")))[0]
+    || calendarRecords.filter(completed).sort((a,b) => String(b.date).localeCompare(String(a.date)))[0];
   const latest = stored || country.imfArticleIV;
   const points = (Array.isArray(review?.keyPoints) ? review.keyPoints : []).filter(point => typeof point === "string" && point.trim());
   const nextEvent = (country.upcoming || []).filter(isArticleIV)
-    .filter(item => !item.sortDate || new Date(item.sortDate) >= TODAY)
+    .filter(item => (item.sourceUrl || item.url) && /^\d{4}-\d{2}-\d{2}$/.test(item.sortDate || item.date || "") && new Date(item.sortDate || item.date) >= TODAY)
     .sort((a, b) => String(a.sortDate || a.date).localeCompare(String(b.sortDate || b.date)))[0];
-  const explicitNext = [country.imfArticleIV, stored, review].find(item => item?.nextReviewDate && new Date(item.nextReviewDate) >= TODAY);
+  const explicitNext = [country.imfArticleIV, stored, review, verified].find(item => item?.nextReviewDate && new Date(item.nextReviewDate) >= TODAY);
   const nextDate = explicitNext?.nextReviewDate || nextEvent?.date;
   const nextEstimated = explicitNext ? explicitNext.nextReviewEstimated : nextEvent?.estimated;
   const fallbackUrl = `https://www.imf.org/en/Countries/${encodeURIComponent(country.iso3 || "")}`;
   const url = review?.sourceUrl || review?.url || fallbackUrl;
-  const newerNews = latest && latest !== review && (!review || String(latest.publishedAt || latest.reviewDate || "") > String(review.reviewDate || review.publishedAt || ""));
+  const newerNews = latest && latest !== review && (latest.url || latest.sourceUrl) !== url && (!review || String(latest.publishedAt || latest.reviewDate || "") > String(review.reviewDate || review.publishedAt || ""));
   return `<section class="block imf-article-iv">
-    <div class="imf-article-head"><div><p class="block-title">IMF Article IV consultation</p><p class="block-note">Latest recorded completed consultation. Programme reviews are tracked separately.</p></div><span class="imf-mark">IMF</span></div>
+    <div class="imf-article-head"><div><p class="block-title">IMF Article IV consultation</p><p class="block-note">Latest verified completed consultation. Findings refer to that consultation, not today’s conditions.</p></div><span class="imf-mark">IMF</span></div>
     <div class="imf-review-dates">
       <div><span>Last review</span><strong>${escapeHTML(reviewDateLabel(review?.reviewDate))}</strong>${review?.calendarRecord ? "<small>Recorded calendar date</small>" : review?.publishedAt ? `<small>Release published ${escapeHTML(reviewDateLabel(review.publishedAt))}</small>` : ""}</div>
       <div><span>Next review</span><strong>${nextDate ? escapeHTML(reviewDateLabel(nextDate)) : "Not announced in recorded sources"}</strong>${nextDate ? `<small>${nextEstimated ? "Indicative timing — not confirmed" : "Scheduled in source record"}</small>` : ""}</div>
     </div>
+    ${review?.note ? `<p class="imf-vintage-note">${escapeHTML(review.note)}</p>` : ""}
     ${review ? `<p class="imf-article-title">${escapeHTML(review.title || review.label)}</p><p class="imf-points-label">Key points</p>${points.length ? `<ul class="imf-key-points">${points.map(point => `<li>${escapeHTML(point)}</li>`).join("")}</ul>` : `<p class="empty-note">Key points have not yet been recorded from this consultation.</p>`}` : `<p class="empty-note">No completed Article IV consultation has been recorded yet.</p>`}
     ${newerNews ? `<div class="imf-latest-news"><span>Latest Article IV update · ${escapeHTML(reviewDateLabel(latest.publishedAt || latest.reviewDate))}</span><p>${sourceLink(latest.url || latest.sourceUrl, latest.title || "IMF consultation update")}</p><small>A mission statement or publication date does not establish the date of a completed Board review.</small></div>` : ""}
-    <p class="imf-article-link">${sourceLink(url, review?.sourceUrl || review?.url ? "Open IMF consultation source ↗" : "Check IMF country page ↗")}</p>
+    <p class="imf-article-link">${sourceLink(url, review?.sourceUrl || review?.url ? "Open IMF consultation source ↗" : "Check IMF country page ↗")}${review?.dateSourceUrl ? ` · ${sourceLink(review.dateSourceUrl, "Verify Board date ↗")}` : ""}${review?.checkedAt ? `<small>Sources checked ${escapeHTML(reviewDateLabel(review.checkedAt))}</small>` : ""}</p>
   </section>`;
 }
 
@@ -563,7 +594,7 @@ function renderMain() {
       </div>
       <div class="ratings">${ratingBlocks}</div>
     </div>
-    <p class="map-caption" style="margin:-14px 0 22px;">NR = not rated. Recorded action dates may predate the latest agency review; missing dates are shown explicitly.</p>
+    <p class="map-caption" style="margin:-14px 0 22px;">Long-term foreign-currency sovereign ratings. NR = not rated. Dates link to sources; assignment dates and periodic reviews are labelled separately. Research checked ${escapeHTML(reviewDateLabel(PROFILE_REVIEWS.checkedAt))}.</p>
 
     <div class="snapshot">
       <div class="snapshot-row">
