@@ -1,3 +1,4 @@
+import { mergeArticleIVRecord } from "./article-iv-records.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -144,13 +145,13 @@ for (const key of selectedCountryKeys) {
     .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt));
   if (articleIVCandidates[0]) {
     const item = articleIVCandidates[0];
-    imfArticleIV[key] = {
+    imfArticleIV[key] = mergeArticleIVRecord(imfArticleIV[key], {
       title: item.title,
       url: item.url,
       domain: item.domain,
       publishedAt: item.publishedAt,
       officialSourceName: item.officialSourceName || "International Monetary Fund"
-    };
+    });
   }
   newArticleCount += freshItems.filter(item => !oldUrls.has(item.url)).length;
   const rejected = [...(fetched[key].audit?.rejected || []), ...(official.rejected[key] || [])].map(item => ({
