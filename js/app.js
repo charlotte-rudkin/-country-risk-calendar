@@ -37,6 +37,63 @@ function escapeHTML(value) {
   })[character]);
 }
 
+// Source dates retain their original precision; never substitute a refresh timestamp.
+function reviewDateLabel(value) {
+  if (!value) return "Not recorded";
+  const text = String(value);
+  if (/^\d{4}$/.test(text)) return text;
+  if (/^\d{4}-\d{2}$/.test(text)) {
+    const date = new Date(text + "-01T12:00:00Z");
+    return Number.isNaN(date.getTime()) ? "Not recorded" : date.toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
+  }
+  const date = new Date(text);
+  return Number.isNaN(date.getTime()) ? text : date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+}
+
+function sourceLink(url, label) {
+  return typeof url === "string" && /^https:\/\//i.test(url)
+    ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}</a>` : escapeHTML(label);
+}
+
+function ratingBlockHTML(country, key, agency) {
+  const rating = country.ratings?.[key] || ["NR", "—"];
+  const [value, outlook, metadata] = Array.isArray(rating) ? rating : [rating.value, rating.outlook, rating];
+  const details = country.ratingReviews?.[key] || (typeof metadata === "string" ? { actionDate: metadata } : metadata) || {};
+  let date = details.reviewedAt || details.assignedAt || details.actionDate;
+  let label = details.reviewedAt ? "Last reviewed" : details.assignedAt ? "Assigned" : "Latest action";
+  let url = details.sourceUrl || details.url;
+  // Older calendar entries are evidence of an action, not proof of the latest review.
+  if (!date && value !== "NR") {
+    const agencyPattern = { sp: /S&P|Standard & Poor/i, fitch: /Fitch/i, moodys: /Moody/i }[key];
+    const normalise = text => String(text).replace(/[−–]/g, "-").toLowerCase();
+    const event = (country.past || []).filter(item => item.tag === "Rating" && agencyPattern.test(item.label)
+      && normalise(item.label).split(/[^a-z0-9+\-]+/).includes(normalise(value)))
+      .sort((a, b) => String(b.sortDate || b.date).localeCompare(String(a.sortDate || a.date)))[0];
+    if (event) { date = event.date; label = "Recorded action"; url = event.sourceUrl || event.url; }
+  }
+  return `<div class="rating-block"><p class="rating-agency">${escapeHTML(agency)}</p><p class="rating-value">${escapeHTML(value)}</p><p class="rating-outlook">${escapeHTML(outlook)}</p>
+    <p class="rating-date">${value === "NR" ? "Not rated" : date ? `${escapeHTML(label)}<br>${sourceLink(url, reviewDateLabel(date))}` : "Review date not recorded"}</p></div>`;
+}
+
+function commodityDetailHTML(commodity, trade) {
+  const share = commodity.exportShare;
+  const dependent = share !== null && share !== "" && Number.isFinite(Number(share)) && Number(share) > 60;
+  const rawGroup = String(commodity.primaryGroup || "").trim();
+  const group = /^(not recorded|unknown|n\/a|not available)$/i.test(rawGroup) ? "" : rawGroup;
+  // Product detail is trade evidence, not an inferred UNCTAD group or threshold.
+  const commodityCode = /^(0[1-9]|1[0-9]|2[0-7])\d{2}$|^(7101|7102|7103|7106|7108|7110|7403|7502|7601|7801|7901|8001)$/;
+  const products = (trade?.topExports || []).filter(row => commodityCode.test(String(row.code)) && Number(row.share) > 0)
+    .sort((a, b) => Number(b.share) - Number(a.share));
+  const product = products[0];
+  return `<div class="commodity-detail">
+    ${group ? `<span>${dependent ? "Main commodity group" : "Largest commodity group"}</span><strong>${escapeHTML(group)}</strong>` : ""}
+    <small>UNCTAD reference period ${escapeHTML(commodity.referencePeriod || "not recorded")}</small>
+    ${dependent && product ? `<span>Leading commodity export · trade data</span><strong>${escapeHTML(shortTradeLabel(product))}</strong><small>${Number(product.share).toFixed(1)}% of merchandise exports · ${escapeHTML(trade.year || "year not recorded")} · ${escapeHTML(trade.dataset || "Trade source")}</small>` : ""}
+    ${dependent && !group && !product ? `<p class="empty-note">Commodity-dependent; the leading commodity is not available in the recorded source data.</p>` : ""}
+    ${dependent ? `<small class="commodity-method">The 60% threshold applies to all commodity exports combined, not to the individual product shown.${group && product ? " UNCTAD and trade data may cover different periods." : ""}</small>` : ""}
+  </div>`;
+}
+
 function formatMetricValue(metric) {
   if (!metric || !Number.isFinite(Number(metric.value))) return "—";
   const value = Number(metric.value);
@@ -183,6 +240,7 @@ function economicsPageHTML(countryKey, country) {
   const imf = record.imf?.indicators || {};
   const wb = record.worldBank?.indicators || {};
   const commodity = record.commodityDependence;
+  const commodityDependent = commodity?.exportShare != null && Number(commodity.exportShare) > 60;
   const trade = record.trade;
   const macroCards = [
     metricCard("Real GDP growth", imf.realGdpGrowth, true),
@@ -240,10 +298,10 @@ function economicsPageHTML(countryKey, country) {
     <p class="block-title">Commodity dependence</p>
     <p class="block-note">Share of merchandise exports classed as commodities by UNCTAD.</p>
     ${commodity ? `<div class="commodity-viz">
-      <div class="commodity-gauge-label"><strong>${escapeHTML(formatMetricValue({ value: commodity.exportShare, unit: "percent" }))}</strong><span class="${commodity.dependent ? "dependent" : "diversified"}">${commodity.dependent ? "Commodity-dependent" : "Not commodity-dependent"}</span></div>
+      <div class="commodity-gauge-label"><strong>${escapeHTML(formatMetricValue({ value: commodity.exportShare, unit: "percent" }))}</strong><span class="${commodityDependent ? "dependent" : "diversified"}">${commodityDependent ? "Commodity-dependent" : "Not commodity-dependent"}</span></div>
       <div class="commodity-gauge" role="img" aria-label="Commodities are ${escapeHTML(commodity.exportShare)} percent of merchandise exports; UNCTAD dependence threshold is 60 percent"><span style="width:${Math.max(0, Math.min(100, Number(commodity.exportShare)))}%"></span><i></i></div>
       <div class="commodity-scale"><span>0%</span><span>60% threshold</span><span>100%</span></div>
-      <div class="commodity-detail">${commodity.primaryGroup && commodity.primaryGroup.trim() ? `<span>Largest commodity group</span><strong>${escapeHTML(commodity.primaryGroup)}</strong>` : ""}<small>Reference period ${escapeHTML(commodity.referencePeriod || "not recorded")}</small></div>
+      ${commodityDetailHTML(commodity, trade)}
     </div>` : `<p class="empty-note">No UNCTAD observation is currently published for this profile. Check the UNCTAD source status above; a failed refresh is not treated as a valid zero.</p>`}
   </section>
   <section class="block">
@@ -302,37 +360,36 @@ function newsHTML(countryKey) {
 
 function imfArticleIVHTML(countryKey, country) {
   const stored = NEWS_DATA.imfArticleIV?.[countryKey];
-  const calendarRecord = [...country.past, ...country.upcoming]
-    .filter(event => /article iv|consultation under article iv/i.test(`${event.label} ${event.meta}`))
-    .sort((left, right) => String(right.sortDate || right.date).localeCompare(String(left.sortDate || left.date)))[0];
-  const title = stored?.title || calendarRecord?.label;
-  const date = stored?.publishedAt
-    ? new Date(stored.publishedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
-    : calendarRecord?.date;
-  const detail = calendarRecord?.meta || "Latest consultation captured from the IMF news feed.";
-  const link = stored?.url
-    ? `<a href="${escapeHTML(stored.url)}" target="_blank" rel="noopener noreferrer">Open IMF release ↗</a>`
-    : `<a href="https://www.imf.org/en/Countries" target="_blank" rel="noopener noreferrer">Check IMF country pages ↗</a>`;
-
-  return `
-    <section class="block imf-article-iv">
-      <div class="imf-article-head">
-        <div>
-          <p class="block-title">IMF Article IV consultation</p>
-          <p class="block-note">Latest stored consultation record · retained separately from the rolling news inventory.</p>
-        </div>
-        <span class="imf-mark">IMF</span>
-      </div>
-      ${title ? `
-        <p class="imf-article-date">${escapeHTML(date || "Date not recorded")}</p>
-        <p class="imf-article-title">${escapeHTML(title)}</p>
-        <p class="imf-article-detail">${escapeHTML(detail)}</p>
-        <p class="imf-article-link">${link}</p>
-      ` : `
-        <p class="empty-note">No Article IV consultation has been captured yet. This will populate automatically when an IMF release is found.</p>
-        <p class="imf-article-link">${link}</p>
-      `}
-    </section>`;
+  const isArticleIV = item => /article iv|consultation under article iv/i.test(item?.title || item?.label || "");
+  const completed = item => item && (item.status === "completed" || /(?:concludes?|concluded|completes?|completed).*article iv|article iv.*(?:concluded|completed)/i.test(item.title || item.label || "")) && !/mission|staff.concluding/i.test(item.title || item.label || "");
+  const calendarRecords = (country.past || []).filter(isArticleIV).map(item => ({
+    ...item, title: item.label, reviewDate: item.date,
+    keyPoints: item.keyPoints || (item.meta ? item.meta.split(/;\s*|\n+/).filter(Boolean) : []), calendarRecord: true
+  }));
+  const reviews = [country.imfArticleIV, stored?.lastCompletedReview, stored, ...calendarRecords]
+    .filter(completed).sort((a, b) => String(b.reviewDate || b.publishedAt || "").localeCompare(String(a.reviewDate || a.publishedAt || "")));
+  const review = reviews[0];
+  const latest = stored || country.imfArticleIV;
+  const points = (Array.isArray(review?.keyPoints) ? review.keyPoints : []).filter(point => typeof point === "string" && point.trim());
+  const nextEvent = (country.upcoming || []).filter(isArticleIV)
+    .filter(item => !item.sortDate || new Date(item.sortDate) >= TODAY)
+    .sort((a, b) => String(a.sortDate || a.date).localeCompare(String(b.sortDate || b.date)))[0];
+  const explicitNext = [country.imfArticleIV, stored, review].find(item => item?.nextReviewDate && new Date(item.nextReviewDate) >= TODAY);
+  const nextDate = explicitNext?.nextReviewDate || nextEvent?.date;
+  const nextEstimated = explicitNext ? explicitNext.nextReviewEstimated : nextEvent?.estimated;
+  const fallbackUrl = `https://www.imf.org/en/Countries/${encodeURIComponent(country.iso3 || "")}`;
+  const url = review?.sourceUrl || review?.url || fallbackUrl;
+  const newerNews = latest && latest !== review && (!review || String(latest.publishedAt || latest.reviewDate || "") > String(review.reviewDate || review.publishedAt || ""));
+  return `<section class="block imf-article-iv">
+    <div class="imf-article-head"><div><p class="block-title">IMF Article IV consultation</p><p class="block-note">Latest recorded completed consultation. Programme reviews are tracked separately.</p></div><span class="imf-mark">IMF</span></div>
+    <div class="imf-review-dates">
+      <div><span>Last review</span><strong>${escapeHTML(reviewDateLabel(review?.reviewDate))}</strong>${review?.calendarRecord ? "<small>Recorded calendar date</small>" : review?.publishedAt ? `<small>Release published ${escapeHTML(reviewDateLabel(review.publishedAt))}</small>` : ""}</div>
+      <div><span>Next review</span><strong>${nextDate ? escapeHTML(reviewDateLabel(nextDate)) : "Not announced in recorded sources"}</strong>${nextDate ? `<small>${nextEstimated ? "Indicative timing — not confirmed" : "Scheduled in source record"}</small>` : ""}</div>
+    </div>
+    ${review ? `<p class="imf-article-title">${escapeHTML(review.title || review.label)}</p><p class="imf-points-label">Key points</p>${points.length ? `<ul class="imf-key-points">${points.map(point => `<li>${escapeHTML(point)}</li>`).join("")}</ul>` : `<p class="empty-note">Key points have not yet been recorded from this consultation.</p>`}` : `<p class="empty-note">No completed Article IV consultation has been recorded yet.</p>`}
+    ${newerNews ? `<div class="imf-latest-news"><span>Latest Article IV update · ${escapeHTML(reviewDateLabel(latest.publishedAt || latest.reviewDate))}</span><p>${sourceLink(latest.url || latest.sourceUrl, latest.title || "IMF consultation update")}</p><small>A mission statement or publication date does not establish the date of a completed Board review.</small></div>` : ""}
+    <p class="imf-article-link">${sourceLink(url, review?.sourceUrl || review?.url ? "Open IMF consultation source ↗" : "Check IMF country page ↗")}</p>
+  </section>`;
 }
 
 
@@ -494,11 +551,8 @@ function renderMain() {
     chip("Paris Club", c.status.parisClub, "rust"),
   ].join("");
 
-  const ratingBlocks = [
-    ["S&P", c.ratings.sp], ["Fitch", c.ratings.fitch], ["Moody's", c.ratings.moodys],
-  ].map(([agency, [val, outlook]]) =>
-    `<div class="rating-block"><p class="rating-agency">${agency}</p><p class="rating-value">${val}</p><p class="rating-outlook">${outlook}</p></div>`
-  ).join("");
+  const ratingBlocks = [["sp", "S&P"], ["fitch", "Fitch"], ["moodys", "Moody's"]]
+    .map(([key, agency]) => ratingBlockHTML(c, key, agency)).join("");
 
   document.getElementById("main").innerHTML = `
     ${countryPageNavHTML()}
@@ -509,7 +563,7 @@ function renderMain() {
       </div>
       <div class="ratings">${ratingBlocks}</div>
     </div>
-    <p class="map-caption" style="margin:-14px 0 22px;">Latest action per agency shown; NR = not rated by that agency.</p>
+    <p class="map-caption" style="margin:-14px 0 22px;">NR = not rated. Recorded action dates may predate the latest agency review; missing dates are shown explicitly.</p>
 
     <div class="snapshot">
       <div class="snapshot-row">
