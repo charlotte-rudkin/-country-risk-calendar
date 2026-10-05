@@ -1,5 +1,38 @@
-Upload tools and data folders to the repository root, preserving paths. Commit to main. Run Refresh economic and trade data: scope macro; jurisdiction AGO; leave bundle fields unchanged.
+Country Dashboard — profile appearance update
 
-This patch resolves the International Debt Statistics source ID from the World Bank catalogue for concessional debt, distinguishes API errors from missing observations, preserves zero values, rejects empty values and incomplete responses, keeps download timeouts active through body retrieval, and reports partial-provider warnings in the run log. Existing UNCTAD snapshot and Comtrade code are preserved. No economics.js or generated index.html is included.
+INSTALL
+1. Extract the ZIP.
+2. Open the GitHub repository Code tab. Upload the assets, js and tools folders to the repository ROOT, keeping the folders intact. Commit to main.
+3. Add the included .github/workflows/publish-dashboard-appearance.yml file at that exact path. If your computer hides .github, use GitHub Add file > Create new file, enter that full path, then copy the contents of publish-dashboard-appearance.yml.txt into the editor. Commit to main.
+4. Open Actions > Publish dashboard appearance. It runs automatically when its workflow is added to main; if needed choose Run workflow > main > Run workflow.
+5. When successful, reload the website (Ctrl+Shift+R on Windows).
 
-Verified locally with controlled API responses and project validation. Live API retrieval was blocked in this session: restoration of the actual concessional-debt figure is NOT yet confirmed. Open Refresh economic data in the completed Angola run and look for the World Bank concessional-debt line, or its explicit warning. Do not run all jurisdictions until this single-country result is checked.
+This rebuilds the site from the repository's current data without requesting any external news/economic refresh. It does not overwrite your country or economic data. The workflow builds the published index.html directly and does not commit generated data back to GitHub.
+
+CHANGES
+- Rating cards show review/assignment dates where explicitly stored. Matching historical rating actions show 'Recorded action', which does not imply a latest review. Missing dates remain 'Review date not recorded'. Month-only dates stay month-only.
+- Article IV shows last completed review, key-point bullets and next review timing where recorded. IMF programme reviews and staff mission statements do not count as completed Article IV consultations. Release publication dates remain separate from Board review dates.
+- Government debt and reserve coverage charts now occupy the same full width as Macro outlook.
+- Above 60% commodity exports, the page shows the UNCTAD main group if recorded, plus the leading identifiable commodity product from the available trade data. Commodity codes filter out unrelated manufactured exports. The trade year and share are labelled separately. The 60% threshold concerns ALL commodity exports combined.
+
+DATA LIMITS
+This is a presentation update, not a new research dataset. Most existing rating records lack review dates; the current IMF feed stores only headlines. This patch displays available details but cannot supply unrecorded dates or substantive consultation findings. Missing details are explicit. Enriched IMF records are now retained across a refresh of the same release; points never carry over to a different release by mistake.
+
+OPTIONAL STRUCTURED FIELDS (for future sourced updates)
+In data/countries.js, each country may include:
+  ratingReviews: { sp: { reviewedAt: 'YYYY-MM-DD', sourceUrl: 'https://...' } }
+Use agency keys sp, fitch and moodys. assignedAt or actionDate may replace reviewedAt. A rating tuple also accepts a third metadata object.
+
+A country's imfArticleIV object, or NEWS_DATA.imfArticleIV[countryKey], may include:
+  status: 'completed'
+  title: 'Source title'
+  reviewDate: 'YYYY-MM-DD'     // actual consultation completion date
+  publishedAt: 'YYYY-MM-DD'   // separately dated publication
+  keyPoints: ['Source-grounded finding', 'Second finding']
+  sourceUrl: 'https://...'
+  nextReviewDate: 'YYYY-MM-DD' // only if sourced
+  nextReviewEstimated: true  // if indicative rather than confirmed
+Never replace unknown dates with a routine data refresh timestamp.
+
+VALIDATION
+The existing build, data, bundle, profile and standalone checks passed locally. Additional checks cover date precision, rating matching, Article IV stage separation, preservation of consultation details and the commodity threshold/product identification. A browser screenshot check could not run because the browser executable is unavailable in this environment.

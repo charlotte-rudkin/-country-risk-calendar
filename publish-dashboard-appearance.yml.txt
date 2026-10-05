@@ -1,0 +1,41 @@
+name: Publish dashboard appearance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['js/app.js', 'assets/styles.css', '.github/workflows/publish-dashboard-appearance.yml']
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Validate and build existing data
+        run: npm run validate
+      - name: Check profile display behaviour
+        run: node tools/profile-display-test.mjs
+      - uses: actions/configure-pages@v5
+      - name: Prepare deployment directory
+        run: |
+          mkdir -p _site
+          cp index.html _site/index.html
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Deploy dashboard
+        id: deployment
+        uses: actions/deploy-pages@v4
