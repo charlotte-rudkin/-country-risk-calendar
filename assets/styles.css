@@ -649,3 +649,10 @@
 .commodity-detail > span { display:block; margin-top:12px; }
 .commodity-method { display:block; margin-top:12px; line-height:1.5; }
 @media (max-width:600px) { .imf-review-dates { grid-template-columns:1fr; } }
+
+/* Review provenance stays subordinate to country information. */
+.rating-provenance{display:block;font-size:10px;line-height:1.4;color:var(--ink-muted,#666);margin-top:5px}
+.rating-note{font-size:10px;line-height:1.4;margin-top:5px;color:#666}
+.rating-note summary{cursor:pointer}
+.imf-vintage-note{padding:10px 12px;border-left:3px solid #8d0442;font-size:12px;line-height:1.5;background:#fff}
+.imf-article-link small{display:block;margin-top:6px;color:#666}
