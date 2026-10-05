@@ -12,9 +12,10 @@ on:
         default: audit
         options: [audit, macro, trade, commodity, all]
       jurisdiction:
-        description: ISO3 code (AGO), profiles, or blank for selected bundle
+        description: ISO3 code, profiles, or leave blank for selected bundle
         type: string
-        default: AGO
+        required: false
+        default: ""
       bundle_count:
         description: Number of bundles
         type: string
