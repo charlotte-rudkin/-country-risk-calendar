@@ -146,6 +146,7 @@ function metricCard(label, metric, showMissing = false) {
     <span>${escapeHTML(label)}</span>
     <strong>${escapeHTML(formatMetricValue(metric))}</strong>
     <small>${escapeHTML(metric.year || metric.period || "")} · ${escapeHTML(classification)}${escapeHTML(sourceCode)}</small>
+    ${metric.calculationMethod === "calculated" ? `<small>Calculated from same-year debt stocks · ${(metric.inputSources || []).map(input => sourceLink(input.url, input.code)).join(" · ")}</small>` : ""}
   </div>`;
 }
 
@@ -315,7 +316,7 @@ function economicsPageHTML(countryKey, country) {
   </section>
   <section class="block economic-block">
     <p class="block-title">Fiscal and external debt vulnerability</p>
-    <p class="block-note">World Bank external-debt measures cover public and publicly guaranteed debt, private nonguaranteed debt, IMF credit and short-term debt where the indicator definition specifies total external debt. Concessional debt uses <code>DT.DOD.ALLC.ZS</code>.</p>
+    <p class="block-note">World Bank external-debt measures cover public and publicly guaranteed debt, private nonguaranteed debt, IMF credit and short-term debt where the indicator definition specifies total external debt. Concessional debt uses the reported IDS share, or a labelled calculation from same-year IDS debt stocks.</p>
     <div class="economic-grid">${debtCards}</div>
     <div class="secondary-chart-grid">${debtChart}</div>
   </section>
