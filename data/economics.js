@@ -4,7 +4,7 @@
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-05T16:22:48.379Z",
+  "generatedAt": "2026-10-05T16:28:48.151Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -10563,8 +10563,8 @@
       "refresh": {
         "imf": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-          "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+          "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+          "lastSuccessAt": "2026-10-05T16:28:46.192Z",
           "retainedPrevious": false,
           "observationThrough": 2026,
           "retainedMetricKeys": [],
@@ -10572,8 +10572,8 @@
         },
         "worldBank": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-          "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+          "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+          "lastSuccessAt": "2026-10-05T16:28:46.192Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -10582,8 +10582,8 @@
             "reserveMonths": {
               "sourceCode": "FI.RES.TOTL.MO",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+              "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+              "lastSuccessAt": "2026-10-05T16:28:46.192Z",
               "error": null,
               "requests": [
                 {
@@ -10595,8 +10595,8 @@
             "interestPaymentsRevenue": {
               "sourceCode": "GC.XPN.INTP.RV.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+              "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+              "lastSuccessAt": "2026-10-05T16:28:46.192Z",
               "error": null,
               "requests": [
                 {
@@ -10608,8 +10608,8 @@
             "externalDebtGni": {
               "sourceCode": "DT.DOD.DECT.GN.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+              "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+              "lastSuccessAt": "2026-10-05T16:28:46.192Z",
               "error": null,
               "requests": [
                 {
@@ -10621,8 +10621,8 @@
             "shortTermDebtPct": {
               "sourceCode": "DT.DOD.DSTC.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+              "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+              "lastSuccessAt": "2026-10-05T16:28:46.192Z",
               "error": null,
               "requests": [
                 {
@@ -10634,8 +10634,8 @@
             "concessionalDebtPct": {
               "sourceCode": "DT.DOD.ALLC.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+              "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+              "lastSuccessAt": "2026-10-05T16:28:46.192Z",
               "error": null,
               "requests": [
                 {
@@ -10652,8 +10652,8 @@
             "debtServiceExports": {
               "sourceCode": "DT.TDS.DECT.EX.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+              "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+              "lastSuccessAt": "2026-10-05T16:28:46.192Z",
               "error": null,
               "requests": [
                 {
@@ -10665,8 +10665,8 @@
             "gdpPerCapita": {
               "sourceCode": "NY.GDP.PCAP.CD",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
-              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+              "lastAttemptAt": "2026-10-05T16:28:46.192Z",
+              "lastSuccessAt": "2026-10-05T16:28:46.192Z",
               "error": null,
               "requests": [
                 {
@@ -148714,7 +148714,7 @@
   "refreshSummary": {
     "scope": "macro",
     "jurisdictionsAttempted": 1,
-    "completedAt": "2026-10-05T16:22:48.379Z",
+    "completedAt": "2026-10-05T16:28:48.151Z",
     "failures": 0
   }
 };
