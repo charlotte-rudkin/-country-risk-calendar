@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['js/app.js', 'assets/styles.css', '.github/workflows/publish-dashboard-appearance.yml']
+    paths: ['js/app.js', 'assets/styles.css', 'data/profile-reviews.js', 'src/index.template.html', 'tools/build.mjs', '.github/workflows/publish-dashboard-appearance.yml']
 permissions:
   contents: read
   pages: write
