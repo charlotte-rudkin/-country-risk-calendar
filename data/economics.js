@@ -4,7 +4,7 @@
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-05T08:06:07.190Z",
+  "generatedAt": "2026-10-05T13:48:47.732Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -10562,24 +10562,118 @@
       "iso3": "AGO",
       "refresh": {
         "imf": {
-          "status": "ok",
-          "lastAttemptAt": "2026-10-05T08:06:06.278Z",
+          "status": "error",
+          "lastAttemptAt": "2026-10-05T13:48:22.603Z",
           "lastSuccessAt": "2026-10-05T08:06:06.278Z",
-          "retainedPrevious": false,
-          "observationThrough": 2026,
-          "retainedMetricKeys": [],
-          "warnings": []
+          "retainedPrevious": true,
+          "error": "NGDP_RPCH: This operation was aborted | PCPIPCH: This operation was aborted | BCA_NGDPD: This operation was aborted | GGXCNL_NGDP: This operation was aborted | GGXWDG_NGDP: This operation was aborted"
         },
         "worldBank": {
-          "status": "partial",
-          "lastAttemptAt": "2026-10-05T08:06:06.278Z",
-          "lastSuccessAt": "2026-10-05T08:06:06.278Z",
+          "status": "ok",
+          "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+          "lastSuccessAt": "2026-10-05T13:48:22.603Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
-          "warnings": [
-            "DT.DOD.ALLC.ZS: World Bank API error: [{\"id\":\"175\",\"key\":\"Invalid format\",\"value\":\"The indicator was not found. It may have been deleted or archived.\"}]"
-          ]
+          "warnings": [],
+          "metrics": {
+            "reserveMonths": {
+              "sourceCode": "FI.RES.TOTL.MO",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/FI.RES.TOTL.MO?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "interestPaymentsRevenue": {
+              "sourceCode": "GC.XPN.INTP.RV.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/GC.XPN.INTP.RV.ZS?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "externalDebtGni": {
+              "sourceCode": "DT.DOD.DECT.GN.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DECT.GN.ZS?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "shortTermDebtPct": {
+              "sourceCode": "DT.DOD.DSTC.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DSTC.ZS?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "concessionalDebtPct": {
+              "sourceCode": "DT.DOD.ALLC.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.ALLC.ZS?format=json&per_page=100&date=2015:2026&source=6",
+                  "status": "retrieval_failed",
+                  "error": "World Bank API error: [{\"id\":\"175\",\"key\":\"Invalid format\",\"value\":\"The indicator was not found. It may have been deleted or archived.\"}]"
+                },
+                {
+                  "url": "https://api.worldbank.org/v2/sources/6/country/AGO/series/DT.DOD.ALLC.ZS/counterpart-area/WLD/time/all/data?format=json&per_page=1000",
+                  "status": "ok"
+                }
+              ]
+            },
+            "debtServiceExports": {
+              "sourceCode": "DT.TDS.DECT.EX.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.TDS.DECT.EX.ZS?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "gdpPerCapita": {
+              "sourceCode": "NY.GDP.PCAP.CD",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/NY.GDP.PCAP.CD?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            }
+          }
         },
         "oec": {
           "status": "ok",
@@ -10673,7 +10767,8 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "NGDP_RPCH"
           },
           "inflation": {
             "value": 12.9,
@@ -10745,7 +10840,8 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "PCPIPCH"
           },
           "currentAccount": {
             "value": 2.2,
@@ -10817,7 +10913,8 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "BCA_NGDPD"
           },
           "fiscalBalance": {
             "value": -2.4,
@@ -10889,7 +10986,8 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "GGXCNL_NGDP"
           },
           "governmentDebt": {
             "value": 51.6,
@@ -10961,7 +11059,8 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "GGXWDG_NGDP"
           }
         }
       },
@@ -10974,6 +11073,14 @@
             "label": "Total reserves in months of imports",
             "definition": "International reserves expressed as months of imports.",
             "sourceCode": "FI.RES.TOTL.MO",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/FI.RES.TOTL.MO?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/FI.RES.TOTL.MO?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -10981,68 +11088,68 @@
             "stale": false,
             "series": [
               {
-                "value": 6.48204569064842,
                 "year": 2015,
+                "value": 6.48204569064842,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 9.08387120490077,
                 "year": 2016,
+                "value": 9.08387120490077,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.81818691844858,
                 "year": 2017,
+                "value": 5.81818691844858,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.41264015408642,
                 "year": 2018,
+                "value": 5.41264015408642,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 6.42509428996665,
                 "year": 2019,
+                "value": 6.42509428996665,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 8.02614772310759,
                 "year": 2020,
+                "value": 8.02614772310759,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 6.94915414648974,
                 "year": 2021,
+                "value": 6.94915414648974,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 4.3768328674863,
                 "year": 2022,
+                "value": 4.3768328674863,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.08927113560434,
                 "year": 2023,
+                "value": 5.08927113560434,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.51374910579315,
                 "year": 2024,
+                "value": 5.51374910579315,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.32280228774496,
                 "year": 2025,
+                "value": 5.32280228774496,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -11055,6 +11162,14 @@
             "label": "Interest payments / revenue",
             "definition": "Government interest payments as a percentage of government revenue.",
             "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/GC.XPN.INTP.RV.ZS?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/GC.XPN.INTP.RV.ZS?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -11062,62 +11177,62 @@
             "stale": false,
             "series": [
               {
-                "value": 9.48574817746618,
                 "year": 2015,
+                "value": 9.48574817746618,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 13.7020911962502,
                 "year": 2016,
+                "value": 13.7020911962502,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 16.5402705579421,
                 "year": 2017,
+                "value": 16.5402705579421,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 20.5996010187756,
                 "year": 2018,
+                "value": 20.5996010187756,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 22.494038906987,
                 "year": 2019,
+                "value": 22.494038906987,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 25.187180764127,
                 "year": 2020,
-                "projection": false,
-                "observationClass": "historical"
-              },
-              {
-                "value": 18.3701078150735,
-                "year": 2021,
-                "projection": false,
-                "observationClass": "historical"
-              },
-              {
-                "value": 12.9570213148472,
-                "year": 2022,
-                "projection": false,
-                "observationClass": "historical"
-              },
-              {
-                "value": 23.6718837565057,
-                "year": 2023,
-                "projection": false,
-                "observationClass": "historical"
-              },
-              {
                 "value": 25.187180764127,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2021,
+                "value": 18.3701078150735,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2022,
+                "value": 12.9570213148472,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2023,
+                "value": 23.6718837565057,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
                 "year": 2024,
+                "value": 25.187180764127,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -11130,6 +11245,14 @@
             "label": "Total external debt / GNI",
             "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
             "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DECT.GN.ZS?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DECT.GN.ZS?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -11137,62 +11260,62 @@
             "stale": false,
             "series": [
               {
-                "value": 56.7801551813803,
                 "year": 2015,
+                "value": 56.7801551813803,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 114.845094739154,
                 "year": 2016,
+                "value": 114.845094739154,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 84.9404832711627,
                 "year": 2017,
+                "value": 84.9404832711627,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 84.2843625797666,
                 "year": 2018,
+                "value": 84.2843625797666,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 96.5947267900598,
                 "year": 2019,
+                "value": 96.5947267900598,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 148.159899274824,
                 "year": 2020,
+                "value": 148.159899274824,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 108.138096106725,
                 "year": 2021,
+                "value": 108.138096106725,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 62.7115153094556,
                 "year": 2022,
+                "value": 62.7115153094556,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 74.5628642843282,
                 "year": 2023,
+                "value": 74.5628642843282,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 79.5726391511001,
                 "year": 2024,
+                "value": 79.5726391511001,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -11205,6 +11328,14 @@
             "label": "Short-term debt / external debt",
             "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
             "sourceCode": "DT.DOD.DSTC.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DSTC.ZS?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DSTC.ZS?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -11212,62 +11343,62 @@
             "stale": false,
             "series": [
               {
-                "value": 12.4058,
                 "year": 2015,
+                "value": 12.4058,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 7.6677,
                 "year": 2016,
+                "value": 7.6677,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 6.3121,
                 "year": 2017,
+                "value": 6.3121,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 4.5827,
                 "year": 2018,
+                "value": 4.5827,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 4.147,
                 "year": 2019,
+                "value": 4.147,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 8.1806,
                 "year": 2020,
+                "value": 8.1806,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 7.0271,
                 "year": 2021,
+                "value": 7.0271,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 6.9361,
                 "year": 2022,
+                "value": 6.9361,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 8.6092,
                 "year": 2023,
+                "value": 8.6092,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 9.8896,
                 "year": 2024,
+                "value": 9.8896,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -11280,6 +11411,14 @@
             "label": "Total external debt service / exports",
             "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
             "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.TDS.DECT.EX.ZS?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/DT.TDS.DECT.EX.ZS?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -11287,62 +11426,62 @@
             "stale": false,
             "series": [
               {
-                "value": 24.7853019209701,
                 "year": 2015,
+                "value": 24.7853019209701,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 38.0756437635118,
                 "year": 2016,
+                "value": 38.0756437635118,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 25.4292237629753,
                 "year": 2017,
+                "value": 25.4292237629753,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 28.5353974870477,
                 "year": 2018,
+                "value": 28.5353974870477,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 29.9160622680195,
                 "year": 2019,
+                "value": 29.9160622680195,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 36.2643591957246,
                 "year": 2020,
+                "value": 36.2643591957246,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 29.2509172416252,
                 "year": 2021,
+                "value": 29.2509172416252,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 30.3800197632965,
                 "year": 2022,
+                "value": 30.3800197632965,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 33.4545527405695,
                 "year": 2023,
+                "value": 33.4545527405695,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 28.9122414363047,
                 "year": 2024,
+                "value": 28.9122414363047,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -11355,6 +11494,14 @@
             "label": "GDP per capita",
             "definition": "GDP divided by mid-year population, current US dollars.",
             "sourceCode": "NY.GDP.PCAP.CD",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/NY.GDP.PCAP.CD?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/NY.GDP.PCAP.CD?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -11362,68 +11509,156 @@
             "stale": false,
             "series": [
               {
-                "value": 3641.72893920253,
                 "year": 2015,
+                "value": 3641.72893920253,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2082.37343594705,
                 "year": 2016,
+                "value": 2082.37343594705,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2832.14997950512,
                 "year": 2017,
+                "value": 2832.14997950512,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2891.83032378747,
                 "year": 2018,
+                "value": 2891.83032378747,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2507.86807213642,
                 "year": 2019,
+                "value": 2507.86807213642,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 1749.1794838482,
                 "year": 2020,
+                "value": 1749.1794838482,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2266.96834861584,
                 "year": 2021,
+                "value": 2266.96834861584,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 3598.53669077341,
                 "year": 2022,
+                "value": 3598.53669077341,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2885.51349130806,
                 "year": 2023,
+                "value": 2885.51349130806,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2720.81900669715,
                 "year": 2024,
+                "value": 2720.81900669715,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 3129.47662331063,
                 "year": 2025,
+                "value": 3129.47662331063,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "concessionalDebtPct": {
+            "value": 1.6795,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Concessional debt / external debt",
+            "definition": "Concessional external debt as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.ALLC.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.ALLC.ZS?format=json&per_page=100&date=2015:2026&source=6",
+                "status": "retrieval_failed",
+                "error": "World Bank API error: [{\"id\":\"175\",\"key\":\"Invalid format\",\"value\":\"The indicator was not found. It may have been deleted or archived.\"}]"
+              },
+              {
+                "url": "https://api.worldbank.org/v2/sources/6/country/AGO/series/DT.DOD.ALLC.ZS/counterpart-area/WLD/time/all/data?format=json&per_page=1000",
+                "status": "ok"
+              }
+            ],
+            "sourceUrl": "https://api.worldbank.org/v2/sources/6/country/AGO/series/DT.DOD.ALLC.ZS/counterpart-area/WLD/time/all/data?format=json&per_page=1000",
+            "sourceId": "6",
+            "sourceLastUpdated": "2025-12-03",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "year": 2015,
+                "value": 2.9712,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2016,
+                "value": 2.5239,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2017,
+                "value": 2.5359,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2018,
+                "value": 2.3479,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2019,
+                "value": 2.2404,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2020,
+                "value": 2.109,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2021,
+                "value": 1.9575,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2022,
+                "value": 1.8781,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2023,
+                "value": 1.8409,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2024,
+                "value": 1.6795,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -148482,7 +148717,7 @@
   "refreshSummary": {
     "scope": "macro",
     "jurisdictionsAttempted": 1,
-    "completedAt": "2026-10-05T08:06:07.190Z",
+    "completedAt": "2026-10-05T13:48:47.732Z",
     "failures": 1
   }
 };

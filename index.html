@@ -535,11 +535,11 @@
     .country-title { font-size: 26px; }
     .home-title { font-size: 24px; }
   }
-.imf-article-iv { border-left: 3px solid var(--accent); }
+.imf-article-iv { border-left: 3px solid var(--accent); font-size:12.5px; line-height:1.5; }
 .imf-article-head { display:flex; justify-content:space-between; gap:18px; align-items:flex-start; }
 .imf-mark { color:var(--accent); border:1px solid var(--accent); border-radius:999px; padding:4px 9px; font-size:11px; font-weight:600; letter-spacing:.08em; }
 .imf-article-date { margin:16px 0 5px; color:var(--text-faint); font-size:12px; }
-.imf-article-title { margin:0; color:var(--accent); font-family:var(--serif); font-size:20px; line-height:1.3; }
+.imf-article-title { margin:0; color:var(--accent); font-family:var(--font-serif); font-size:15px; font-weight:500; line-height:1.35; }
 .imf-article-detail { margin:8px 0 0; color:var(--text-dim); line-height:1.55; }
 .imf-article-link { margin:10px 0 0; font-size:12px; }
 .imf-article-link a { color:var(--accent); }
@@ -606,7 +606,7 @@
 .series-2 { color:#3B73A1; stroke:#3B73A1; }
 .series-3 { color:#9A6A16; stroke:#9A6A16; }
 .series-4 { color:#58686F; stroke:#58686F; }
-.secondary-chart-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
+.secondary-chart-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:28px; width:100%; }
 .commodity-viz { margin-top:22px; }
 .commodity-gauge-label { align-items:baseline; display:flex; justify-content:space-between; gap:14px; margin-bottom:10px; }
 .commodity-gauge-label > strong { color:var(--accent); font-family:var(--font-serif); font-size:30px; font-weight:500; }
@@ -642,6 +642,32 @@
 @media (max-width:480px) {
   .provider-status-grid { grid-template-columns:1fr; }
 }
+
+/* Profile review details: white background, maroon labels. */
+.rating-date { font-size:10px; line-height:1.5; color:var(--text-dim); margin:7px 0 0; max-width:140px; }
+.rating-date a { color:var(--accent); }
+.imf-review-dates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:20px 0; padding-bottom:18px; border-bottom:1px solid var(--hairline); }
+.imf-review-dates span, .imf-review-dates strong, .imf-review-dates small { display:block; }
+.imf-review-dates span, .imf-points-label { color:var(--accent); font-size:12px; font-weight:600; }
+.imf-review-dates strong { margin-top:6px; font-size:12.5px; font-weight:500; }
+.imf-review-dates small { margin-top:5px; color:var(--text-faint); font-size:11px; }
+.imf-points-label { margin:18px 0 7px; font-family:var(--font-serif); font-size:15px; font-weight:500; }
+.imf-key-points { margin:0; padding-left:20px; color:var(--text-dim); font-size:12.5px; line-height:1.5; }
+.imf-key-points li { margin:6px 0; }
+.imf-latest-news { margin-top:18px; padding-top:14px; border-top:1px solid var(--hairline); }
+.imf-latest-news span, .imf-latest-news small { color:var(--text-faint); font-size:11px; }
+.imf-latest-news p { margin:7px 0; }
+.imf-latest-news a { color:var(--accent); }
+.commodity-detail > span { display:block; margin-top:12px; }
+.commodity-method { display:block; margin-top:12px; line-height:1.5; }
+@media (max-width:600px) { .imf-review-dates { grid-template-columns:1fr; } }
+
+/* Review provenance stays subordinate to country information. */
+.rating-provenance{display:block;font-size:10px;line-height:1.4;color:var(--ink-muted,#666);margin-top:5px}
+.rating-note{font-size:10px;line-height:1.4;margin-top:5px;color:#666}
+.rating-note summary{cursor:pointer}
+.imf-vintage-note{padding:10px 12px;border-left:3px solid #8d0442;font-size:12px;line-height:1.5;background:#fff}
+.imf-article-link small{display:block;margin-top:6px;color:#666}
 </style>
 </head>
 <body>
@@ -930,7 +956,7 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-05T08:06:07.190Z",
+  "generatedAt": "2026-10-05T13:48:47.732Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -11488,24 +11514,118 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
       "iso3": "AGO",
       "refresh": {
         "imf": {
-          "status": "ok",
-          "lastAttemptAt": "2026-10-05T08:06:06.278Z",
+          "status": "error",
+          "lastAttemptAt": "2026-10-05T13:48:22.603Z",
           "lastSuccessAt": "2026-10-05T08:06:06.278Z",
-          "retainedPrevious": false,
-          "observationThrough": 2026,
-          "retainedMetricKeys": [],
-          "warnings": []
+          "retainedPrevious": true,
+          "error": "NGDP_RPCH: This operation was aborted | PCPIPCH: This operation was aborted | BCA_NGDPD: This operation was aborted | GGXCNL_NGDP: This operation was aborted | GGXWDG_NGDP: This operation was aborted"
         },
         "worldBank": {
-          "status": "partial",
-          "lastAttemptAt": "2026-10-05T08:06:06.278Z",
-          "lastSuccessAt": "2026-10-05T08:06:06.278Z",
+          "status": "ok",
+          "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+          "lastSuccessAt": "2026-10-05T13:48:22.603Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
-          "warnings": [
-            "DT.DOD.ALLC.ZS: World Bank API error: [{\"id\":\"175\",\"key\":\"Invalid format\",\"value\":\"The indicator was not found. It may have been deleted or archived.\"}]"
-          ]
+          "warnings": [],
+          "metrics": {
+            "reserveMonths": {
+              "sourceCode": "FI.RES.TOTL.MO",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/FI.RES.TOTL.MO?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "interestPaymentsRevenue": {
+              "sourceCode": "GC.XPN.INTP.RV.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/GC.XPN.INTP.RV.ZS?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "externalDebtGni": {
+              "sourceCode": "DT.DOD.DECT.GN.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DECT.GN.ZS?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "shortTermDebtPct": {
+              "sourceCode": "DT.DOD.DSTC.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DSTC.ZS?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "concessionalDebtPct": {
+              "sourceCode": "DT.DOD.ALLC.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.ALLC.ZS?format=json&per_page=100&date=2015:2026&source=6",
+                  "status": "retrieval_failed",
+                  "error": "World Bank API error: [{\"id\":\"175\",\"key\":\"Invalid format\",\"value\":\"The indicator was not found. It may have been deleted or archived.\"}]"
+                },
+                {
+                  "url": "https://api.worldbank.org/v2/sources/6/country/AGO/series/DT.DOD.ALLC.ZS/counterpart-area/WLD/time/all/data?format=json&per_page=1000",
+                  "status": "ok"
+                }
+              ]
+            },
+            "debtServiceExports": {
+              "sourceCode": "DT.TDS.DECT.EX.ZS",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.TDS.DECT.EX.ZS?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            },
+            "gdpPerCapita": {
+              "sourceCode": "NY.GDP.PCAP.CD",
+              "status": "ok",
+              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
+              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "error": null,
+              "requests": [
+                {
+                  "url": "https://api.worldbank.org/v2/country/AGO/indicator/NY.GDP.PCAP.CD?format=json&per_page=100&date=2015:2026",
+                  "status": "ok"
+                }
+              ]
+            }
+          }
         },
         "oec": {
           "status": "ok",
@@ -11599,7 +11719,8 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "NGDP_RPCH"
           },
           "inflation": {
             "value": 12.9,
@@ -11671,7 +11792,8 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "PCPIPCH"
           },
           "currentAccount": {
             "value": 2.2,
@@ -11743,7 +11865,8 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "BCA_NGDPD"
           },
           "fiscalBalance": {
             "value": -2.4,
@@ -11815,7 +11938,8 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "GGXCNL_NGDP"
           },
           "governmentDebt": {
             "value": 51.6,
@@ -11887,7 +12011,8 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
                 "observationClass": "forecast",
                 "projection": true
               }
-            ]
+            ],
+            "code": "GGXWDG_NGDP"
           }
         }
       },
@@ -11900,6 +12025,14 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "label": "Total reserves in months of imports",
             "definition": "International reserves expressed as months of imports.",
             "sourceCode": "FI.RES.TOTL.MO",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/FI.RES.TOTL.MO?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/FI.RES.TOTL.MO?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -11907,68 +12040,68 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "stale": false,
             "series": [
               {
-                "value": 6.48204569064842,
                 "year": 2015,
+                "value": 6.48204569064842,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 9.08387120490077,
                 "year": 2016,
+                "value": 9.08387120490077,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.81818691844858,
                 "year": 2017,
+                "value": 5.81818691844858,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.41264015408642,
                 "year": 2018,
+                "value": 5.41264015408642,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 6.42509428996665,
                 "year": 2019,
+                "value": 6.42509428996665,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 8.02614772310759,
                 "year": 2020,
+                "value": 8.02614772310759,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 6.94915414648974,
                 "year": 2021,
+                "value": 6.94915414648974,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 4.3768328674863,
                 "year": 2022,
+                "value": 4.3768328674863,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.08927113560434,
                 "year": 2023,
+                "value": 5.08927113560434,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.51374910579315,
                 "year": 2024,
+                "value": 5.51374910579315,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 5.32280228774496,
                 "year": 2025,
+                "value": 5.32280228774496,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -11981,6 +12114,14 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "label": "Interest payments / revenue",
             "definition": "Government interest payments as a percentage of government revenue.",
             "sourceCode": "GC.XPN.INTP.RV.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/GC.XPN.INTP.RV.ZS?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/GC.XPN.INTP.RV.ZS?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -11988,62 +12129,62 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "stale": false,
             "series": [
               {
-                "value": 9.48574817746618,
                 "year": 2015,
+                "value": 9.48574817746618,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 13.7020911962502,
                 "year": 2016,
+                "value": 13.7020911962502,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 16.5402705579421,
                 "year": 2017,
+                "value": 16.5402705579421,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 20.5996010187756,
                 "year": 2018,
+                "value": 20.5996010187756,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 22.494038906987,
                 "year": 2019,
+                "value": 22.494038906987,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 25.187180764127,
                 "year": 2020,
-                "projection": false,
-                "observationClass": "historical"
-              },
-              {
-                "value": 18.3701078150735,
-                "year": 2021,
-                "projection": false,
-                "observationClass": "historical"
-              },
-              {
-                "value": 12.9570213148472,
-                "year": 2022,
-                "projection": false,
-                "observationClass": "historical"
-              },
-              {
-                "value": 23.6718837565057,
-                "year": 2023,
-                "projection": false,
-                "observationClass": "historical"
-              },
-              {
                 "value": 25.187180764127,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2021,
+                "value": 18.3701078150735,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2022,
+                "value": 12.9570213148472,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2023,
+                "value": 23.6718837565057,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
                 "year": 2024,
+                "value": 25.187180764127,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -12056,6 +12197,14 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "label": "Total external debt / GNI",
             "definition": "Public, publicly guaranteed and private nonguaranteed external debt, IMF credit and short-term debt as a percentage of GNI.",
             "sourceCode": "DT.DOD.DECT.GN.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DECT.GN.ZS?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DECT.GN.ZS?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -12063,62 +12212,62 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "stale": false,
             "series": [
               {
-                "value": 56.7801551813803,
                 "year": 2015,
+                "value": 56.7801551813803,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 114.845094739154,
                 "year": 2016,
+                "value": 114.845094739154,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 84.9404832711627,
                 "year": 2017,
+                "value": 84.9404832711627,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 84.2843625797666,
                 "year": 2018,
+                "value": 84.2843625797666,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 96.5947267900598,
                 "year": 2019,
+                "value": 96.5947267900598,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 148.159899274824,
                 "year": 2020,
+                "value": 148.159899274824,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 108.138096106725,
                 "year": 2021,
+                "value": 108.138096106725,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 62.7115153094556,
                 "year": 2022,
+                "value": 62.7115153094556,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 74.5628642843282,
                 "year": 2023,
+                "value": 74.5628642843282,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 79.5726391511001,
                 "year": 2024,
+                "value": 79.5726391511001,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -12131,6 +12280,14 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "label": "Short-term debt / external debt",
             "definition": "Debt with an original maturity of one year or less, plus interest arrears, as a percentage of total external debt.",
             "sourceCode": "DT.DOD.DSTC.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DSTC.ZS?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.DSTC.ZS?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -12138,62 +12295,62 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "stale": false,
             "series": [
               {
-                "value": 12.4058,
                 "year": 2015,
+                "value": 12.4058,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 7.6677,
                 "year": 2016,
+                "value": 7.6677,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 6.3121,
                 "year": 2017,
+                "value": 6.3121,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 4.5827,
                 "year": 2018,
+                "value": 4.5827,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 4.147,
                 "year": 2019,
+                "value": 4.147,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 8.1806,
                 "year": 2020,
+                "value": 8.1806,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 7.0271,
                 "year": 2021,
+                "value": 7.0271,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 6.9361,
                 "year": 2022,
+                "value": 6.9361,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 8.6092,
                 "year": 2023,
+                "value": 8.6092,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 9.8896,
                 "year": 2024,
+                "value": 9.8896,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -12206,6 +12363,14 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "label": "Total external debt service / exports",
             "definition": "Principal and interest paid on total external debt as a percentage of exports and primary income receipts.",
             "sourceCode": "DT.TDS.DECT.EX.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.TDS.DECT.EX.ZS?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/DT.TDS.DECT.EX.ZS?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -12213,62 +12378,62 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "stale": false,
             "series": [
               {
-                "value": 24.7853019209701,
                 "year": 2015,
+                "value": 24.7853019209701,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 38.0756437635118,
                 "year": 2016,
+                "value": 38.0756437635118,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 25.4292237629753,
                 "year": 2017,
+                "value": 25.4292237629753,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 28.5353974870477,
                 "year": 2018,
+                "value": 28.5353974870477,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 29.9160622680195,
                 "year": 2019,
+                "value": 29.9160622680195,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 36.2643591957246,
                 "year": 2020,
+                "value": 36.2643591957246,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 29.2509172416252,
                 "year": 2021,
+                "value": 29.2509172416252,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 30.3800197632965,
                 "year": 2022,
+                "value": 30.3800197632965,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 33.4545527405695,
                 "year": 2023,
+                "value": 33.4545527405695,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 28.9122414363047,
                 "year": 2024,
+                "value": 28.9122414363047,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -12281,6 +12446,14 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "label": "GDP per capita",
             "definition": "GDP divided by mid-year population, current US dollars.",
             "sourceCode": "NY.GDP.PCAP.CD",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/NY.GDP.PCAP.CD?format=json&per_page=100&date=2015:2026",
+                "status": "ok"
+              }
+            ],
             "sourceUrl": "https://api.worldbank.org/v2/country/AGO/indicator/NY.GDP.PCAP.CD?format=json&per_page=100&date=2015:2026",
             "sourceId": "2",
             "sourceLastUpdated": "2026-07-13",
@@ -12288,68 +12461,156 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "stale": false,
             "series": [
               {
-                "value": 3641.72893920253,
                 "year": 2015,
+                "value": 3641.72893920253,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2082.37343594705,
                 "year": 2016,
+                "value": 2082.37343594705,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2832.14997950512,
                 "year": 2017,
+                "value": 2832.14997950512,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2891.83032378747,
                 "year": 2018,
+                "value": 2891.83032378747,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2507.86807213642,
                 "year": 2019,
+                "value": 2507.86807213642,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 1749.1794838482,
                 "year": 2020,
+                "value": 1749.1794838482,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2266.96834861584,
                 "year": 2021,
+                "value": 2266.96834861584,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 3598.53669077341,
                 "year": 2022,
+                "value": 3598.53669077341,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2885.51349130806,
                 "year": 2023,
+                "value": 2885.51349130806,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 2720.81900669715,
                 "year": 2024,
+                "value": 2720.81900669715,
                 "projection": false,
                 "observationClass": "historical"
               },
               {
-                "value": 3129.47662331063,
                 "year": 2025,
+                "value": 3129.47662331063,
+                "projection": false,
+                "observationClass": "historical"
+              }
+            ]
+          },
+          "concessionalDebtPct": {
+            "value": 1.6795,
+            "year": 2024,
+            "unit": "percent",
+            "label": "Concessional debt / external debt",
+            "definition": "Concessional external debt as a percentage of total external debt.",
+            "sourceCode": "DT.DOD.ALLC.ZS",
+            "calculationMethod": "reported",
+            "inputSources": [],
+            "requests": [
+              {
+                "url": "https://api.worldbank.org/v2/country/AGO/indicator/DT.DOD.ALLC.ZS?format=json&per_page=100&date=2015:2026&source=6",
+                "status": "retrieval_failed",
+                "error": "World Bank API error: [{\"id\":\"175\",\"key\":\"Invalid format\",\"value\":\"The indicator was not found. It may have been deleted or archived.\"}]"
+              },
+              {
+                "url": "https://api.worldbank.org/v2/sources/6/country/AGO/series/DT.DOD.ALLC.ZS/counterpart-area/WLD/time/all/data?format=json&per_page=1000",
+                "status": "ok"
+              }
+            ],
+            "sourceUrl": "https://api.worldbank.org/v2/sources/6/country/AGO/series/DT.DOD.ALLC.ZS/counterpart-area/WLD/time/all/data?format=json&per_page=1000",
+            "sourceId": "6",
+            "sourceLastUpdated": "2025-12-03",
+            "ageYears": 2,
+            "stale": false,
+            "series": [
+              {
+                "year": 2015,
+                "value": 2.9712,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2016,
+                "value": 2.5239,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2017,
+                "value": 2.5359,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2018,
+                "value": 2.3479,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2019,
+                "value": 2.2404,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2020,
+                "value": 2.109,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2021,
+                "value": 1.9575,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2022,
+                "value": 1.8781,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2023,
+                "value": 1.8409,
+                "projection": false,
+                "observationClass": "historical"
+              },
+              {
+                "year": 2024,
+                "value": 1.6795,
                 "projection": false,
                 "observationClass": "historical"
               }
@@ -149408,7 +149669,7 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
   "refreshSummary": {
     "scope": "macro",
     "jurisdictionsAttempted": 1,
-    "completedAt": "2026-10-05T08:06:07.190Z",
+    "completedAt": "2026-10-05T13:48:47.732Z",
     "failures": 1
   }
 };
@@ -154367,13 +154628,963 @@ const COUNTRY_CENTROIDS = {"tanzania": [597, 259], "usa": [187, 114], "uzbekista
 })();
 </script>
 <script>
+/* Source-backed records. Keep action, review and refresh dates separate. */
+window.PROFILE_REVIEWS = Object.freeze({
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-05",
+  "coverage": "15 pilot countries; latest identifiable source-backed records, not an agency feed",
+  "countries": {
+    "usa": {
+      "iso3": "USA",
+      "name": "United States",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2026 Article IV consultation — United States",
+        "consultationYear": 2026,
+        "reviewDate": "2026-04-01",
+        "publishedAt": "2026-04-02",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Growth remained resilient, supported by strong productivity.",
+          "Tariff-related price pressures add to inflation risks.",
+          "The external position was moderately weaker than warranted by fundamentals."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2026/04/01/united-states-2026-article-iv-consultation-press-release-staff-report-and-statement-by-the-575120",
+        "dateSourceUrl": "https://www.imf.org/en/countries/usa",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "AA+",
+          "outlook": "Stable",
+          "actionDate": "2026-06-26",
+          "action": "affirmed",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3587371",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "AA+",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "AA+",
+          "outlook": "Stable",
+          "actionDate": "2026-08-13",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/entity/united-states-of-america-80442210",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "AA+",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "Aa1",
+          "outlook": "Stable",
+          "actionDate": "2025-05-16",
+          "action": "downgraded",
+          "sourceUrl": "https://ratings.moodys.com/ratings-news/443154",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Aa1",
+          "previousOutlook": "Stable"
+        }
+      }
+    },
+    "mexico": {
+      "iso3": "MEX",
+      "name": "Mexico",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2025 Article IV consultation — Mexico",
+        "consultationYear": 2025,
+        "reviewDate": "2025-10-23",
+        "publishedAt": "2025-10-27",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Growth weakened amid fiscal consolidation and tight monetary conditions.",
+          "Trade uncertainty weighed on consumption and investment.",
+          "Inflation moderated, but underlying price pressures persisted."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2025/10/27/mexico-2025-article-iv-consultation-press-release-staff-report-and-statement-by-the-571378",
+        "dateSourceUrl": "https://www.imf.org/en/countries/mex",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "BBB",
+          "outlook": "Negative",
+          "actionDate": "2026-05-12",
+          "action": "outlook revised",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3560935",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BBB",
+          "previousOutlook": "Negative"
+        },
+        "fitch": {
+          "value": "BBB-",
+          "outlook": "Stable",
+          "actionDate": "2026-04-10",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-affirms-mexico-at-bbb-outlook-stable-10-04-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BBB−",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "Baa3",
+          "outlook": "Stable",
+          "actionDate": "2026-05-20",
+          "action": "downgraded",
+          "sourceUrl": "https://www.morningstar.com/news/dow-jones/2026052011574/moodys-downgrades-mexico-to-baa3-with-stable-outlook",
+          "sourceType": "secondary",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Baa3",
+          "previousOutlook": "—"
+        }
+      }
+    },
+    "bahamas": {
+      "iso3": "BHS",
+      "name": "The Bahamas",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2025 Article IV consultation — The Bahamas",
+        "consultationYear": 2025,
+        "reviewDate": "2026-02-02",
+        "publishedAt": "2026-02-06",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Tourism-led recovery improved the fiscal position.",
+          "Inflation eased within the US-dollar peg framework.",
+          "Electricity reform and resilience to hurricanes remain important."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2026/02/06/the-bahamas-2025-article-iv-consultation-press-release-and-staff-report-573751",
+        "dateSourceUrl": "https://www.imf.org/en/countries/bhs",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "BB-",
+          "outlook": "Stable",
+          "actionDate": "2026-09-28",
+          "action": "affirmed",
+          "sourceUrl": "https://www.ncbcapitalmarkets.com/research/latestnews/8573-s-p-affirms-the-bahamas-at-bb-with-stable-outlook-on-economic-resilience",
+          "sourceType": "secondary",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB−",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "BB-",
+          "outlook": "Stable",
+          "actionDate": "2026-04-02",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-affirms-commonwealth-of-the-bahamas-at-bb-outlook-stable-02-04-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB−",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "Ba3",
+          "outlook": "Stable",
+          "actionDate": "2026-04-30",
+          "action": "upgraded",
+          "sourceUrl": "https://opm.gov.bs/moodys-ratings-upgrades-the-bahamas-long-term-ratings-to-ba3-with-a-stable-outlook/",
+          "sourceType": "government",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Ba3",
+          "previousOutlook": "Stable"
+        }
+      }
+    },
+    "serbia": {
+      "iso3": "SRB",
+      "name": "Serbia",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2025 Article IV consultation — Serbia",
+        "consultationYear": 2025,
+        "reviewDate": "2025-06-30",
+        "publishedAt": "2025-07-10",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Resilient growth was supported by stronger fiscal and external buffers.",
+          "The Policy Coordination Instrument supports continued fiscal discipline.",
+          "Domestic and global uncertainty pose downside risks."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2025/07/10/republic-of-serbia-2025-article-iv-consultation-first-review-under-the-policy-coordination-568458",
+        "dateSourceUrl": "https://www.imf.org/en/countries/srb",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "BBB-",
+          "outlook": "Stable",
+          "actionDate": "2024-10-04",
+          "action": "upgraded",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3262738",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Rating assigned",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "note": "This is the verified upgrade date. A later foreign-currency affirmation date was not independently verified.",
+          "previousValue": "BBB−",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "BB+",
+          "outlook": "Positive",
+          "actionDate": "2026-07-10",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-affirms-serbia-at-bb-outlook-positive-10-07-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB+",
+          "previousOutlook": "Positive"
+        },
+        "moodys": {
+          "value": "Ba2",
+          "outlook": "Stable",
+          "actionDate": "2026-02-27",
+          "action": "affirmed",
+          "sourceUrl": "https://www.nbs.rs/export/sites/NBS_site/documents/finansijska-stabilnost/kreditni-rejting/izvestaji/Moodys_20260227.pdf",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Ba2",
+          "previousOutlook": "Stable"
+        }
+      }
+    },
+    "turkey": {
+      "iso3": "TUR",
+      "name": "Türkiye",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2025 Article IV consultation — Türkiye",
+        "consultationYear": 2025,
+        "reviewDate": "2026-02-06",
+        "publishedAt": "2026-02-13",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Inflation declined slowly and remained above target.",
+          "Fiscal consolidation reduced the 2025 deficit.",
+          "Anchoring inflation expectations and reducing foreign-exchange vulnerabilities remain priorities."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2026/02/13/republic-of-trkiye-2025-article-iv-consultation-press-release-staff-report-and-statement-573962",
+        "dateSourceUrl": "https://www.imf.org/en/countries/tur",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "BB-",
+          "outlook": "Stable",
+          "actionDate": "2026-04-17",
+          "action": "affirmed",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3547964",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB−",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "BB-",
+          "outlook": "Stable",
+          "actionDate": "2026-07-17",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/entity/turkiye-80442217",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB−",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "Ba3",
+          "outlook": "Stable",
+          "actionDate": "2025-07-25",
+          "action": "upgraded",
+          "sourceUrl": "https://www.wsj.com/articles/moodys-raises-turkeys-sovereign-debt-rating-defaea86",
+          "sourceType": "secondary",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Periodic review (month known)",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "note": "A July 2026 periodic review took no rating action. Exact completion day was not verified. The upgrade to Ba3 was on 25 July 2025.",
+          "previousValue": "B1",
+          "previousOutlook": "Positive",
+          "reviewedAt": "2026-07",
+          "reviewSourceUrl": "https://www.hurriyetdailynews.com/moodys-completes-periodic-review-of-turkiye-takes-no-rating-action-224798"
+        }
+      }
+    },
+    "egypt": {
+      "iso3": "EGY",
+      "name": "Egypt",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2025 Article IV consultation — Egypt",
+        "consultationYear": 2025,
+        "reviewDate": "2025-03-10",
+        "publishedAt": "2025-07-15",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Regional conflicts and Red Sea disruption created substantial external shocks.",
+          "Suez Canal foreign-exchange receipts fell sharply in 2024.",
+          "Weaker canal traffic weighed on growth and fiscal revenue."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2025/07/15/arab-republic-of-egypt-2025-article-iv-consultation-fourth-review-under-the-extended-568598",
+        "dateSourceUrl": "https://www.imf.org/en/countries/egy",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "B",
+          "outlook": "Stable",
+          "actionDate": "2026-04-10",
+          "action": "affirmed",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3544107",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "B",
+          "outlook": "Stable",
+          "actionDate": "2025-10-10",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/entity/egypt-80442214",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "Caa1",
+          "outlook": "Positive",
+          "actionDate": "2026-04-03",
+          "action": "affirmed",
+          "sourceUrl": "https://cbonds.com/news/3860051/",
+          "sourceType": "secondary",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Caa1",
+          "previousOutlook": "Negative"
+        }
+      }
+    },
+    "uzbekistan": {
+      "iso3": "UZB",
+      "name": "Uzbekistan",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2026 Article IV consultation — Uzbekistan",
+        "consultationYear": 2026,
+        "reviewDate": "2026-06-12",
+        "publishedAt": "2026-06-18",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Strong growth and reforms improved fiscal and external buffers.",
+          "Demand pressures call for continued restrictive monetary policy.",
+          "State-bank and enterprise reforms remain important for limiting fiscal risks."
+        ],
+        "sourceUrl": "https://www.imf.org/en/news/articles/2026/06/18/pr-26214-uzbekistan-imf-executive-board-concludes-2026-article-iv-consultation",
+        "dateSourceUrl": "https://cbu.uz/en/press_center/releases/4028837/",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "BB",
+          "outlook": "Stable",
+          "actionDate": "2026-05-22",
+          "action": "affirmed",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3568186",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "BB",
+          "outlook": "Positive",
+          "actionDate": "2026-06-03",
+          "action": "outlook revised",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-revises-uzbekistan-outlook-to-positive-affirms-at-bb-03-06-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB",
+          "previousOutlook": "Positive"
+        },
+        "moodys": {
+          "value": "Ba2",
+          "outlook": "Stable",
+          "actionDate": "2026-06-25",
+          "action": "upgraded",
+          "sourceUrl": "https://gov.uz/en/imv/news/view/184041",
+          "sourceType": "government",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Ba2",
+          "previousOutlook": "Stable"
+        }
+      }
+    },
+    "vietnam": {
+      "iso3": "VNM",
+      "name": "Vietnam",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2025 Article IV consultation — Vietnam",
+        "consultationYear": 2025,
+        "reviewDate": "2025-09-08",
+        "publishedAt": "2025-10-03",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Strong exports supported the recovery in 2024.",
+          "Trade-policy uncertainty threatens the export-led growth model.",
+          "Institutional reforms and public investment can support growth."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2025/10/03/vietnam-2025-article-iv-consultation-press-release-staff-report-and-statement-by-the-570895",
+        "dateSourceUrl": "https://www.imf.org/en/countries/vnm",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "BB+",
+          "outlook": "Stable",
+          "actionDate": "2025-08-11",
+          "action": "affirmed",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/sourceId/101639308",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB+",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "BB+",
+          "outlook": "Stable",
+          "actionDate": "2026-06-16",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/entity/vietnam-80442269",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB+",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "Ba2",
+          "outlook": "Positive",
+          "actionDate": "2026-05-04",
+          "action": "outlook revised",
+          "sourceUrl": "https://events.moodys.com/rating-action-moodys-ratings-changes-vietnams-outlook-to-positive-from-stable-affirms-ba2-ratings-4-may-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Ba2",
+          "previousOutlook": "Stable"
+        }
+      }
+    },
+    "senegal": {
+      "iso3": "SEN",
+      "name": "Senegal",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2021 Article IV consultation — Senegal",
+        "consultationYear": 2021,
+        "reviewDate": "2022-01-10",
+        "publishedAt": "2022-01-14",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Fiscal support helped the recovery from the pandemic.",
+          "Rising debt reduced available fiscal space.",
+          "Pandemic-related income and employment losses remained a challenge."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2022/01/14/senegal-2021-article-iv-consultation-fourth-review-under-the-policy-coordination-instrument-511932",
+        "dateSourceUrl": "https://www.imf.org/en/countries/sen",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null,
+        "note": "Historical consultation: these findings reflect the 2021 assessment, not current conditions."
+      },
+      "ratings": {
+        "sp": {
+          "value": "CC",
+          "outlook": "Negative",
+          "actionDate": "2026-09-04",
+          "action": "downgraded",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3623078",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "CCC+",
+          "previousOutlook": "CreditWatch Dev."
+        },
+        "moodys": {
+          "value": "Caa2",
+          "outlook": "Negative",
+          "actionDate": "2026-08-28",
+          "action": "downgraded",
+          "sourceUrl": "https://www.financialafrik.com/en/2026/08/29/senegal-moodys-downgrades-rating-to-caa2-amid-negotiations-with-the-imf/",
+          "sourceType": "secondary",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B1",
+          "previousOutlook": "—"
+        }
+      }
+    },
+    "cotedivoire": {
+      "iso3": "CIV",
+      "name": "Côte d’Ivoire",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2024 Article IV consultation — Côte d’Ivoire",
+        "consultationYear": 2024,
+        "reviewDate": "2024-12-11",
+        "publishedAt": "2025-04-08",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Consumption and investment supported resilience despite weaker agricultural output.",
+          "Tax and customs reforms support fiscal consolidation.",
+          "State-enterprise transparency and governance remain reform priorities."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2025/04/08/cte-d-ivoire-2024-article-iv-consultation-third-reviews-under-extended-arrangement-under-565981",
+        "dateSourceUrl": "https://www.imf.org/en/countries/civ",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "BB",
+          "outlook": "Stable",
+          "actionDate": "2024-10-18",
+          "action": "upgraded",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3270607",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Rating assigned",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "note": "Verified upgrade date; a later affirmation date was not verified in accessible sources.",
+          "previousValue": "BB",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "BB",
+          "outlook": "Stable",
+          "actionDate": "2026-06-12",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-affirms-cote-d-ivoire-at-bb-outlook-stable-12-06-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "Ba2",
+          "outlook": "Stable",
+          "actionDate": "2026-03-13",
+          "action": "affirmed",
+          "sourceUrl": "https://www.economie-ivoirienne.ci/actualites/notation-souveraine-moodys-confirme-la-notation-de-la-cote-divoire-ba2-reflet-dune",
+          "sourceType": "government",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Ba3",
+          "previousOutlook": "Positive"
+        }
+      }
+    },
+    "benin": {
+      "iso3": "BEN",
+      "name": "Benin",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2024 Article IV consultation — Benin",
+        "consultationYear": 2024,
+        "reviewDate": "2024-06-27",
+        "publishedAt": "2024-12-13",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "The economy remained resilient and programme performance was strong.",
+          "Fuel-subsidy reforms need protection for vulnerable households.",
+          "Regional risks and climate resilience remain policy priorities."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2024/12/14/benin-fourth-review-under-the-extended-fund-facility-and-the-extended-credit-facility-559472",
+        "dateSourceUrl": "https://www.imf.org/en/countries/ben",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "BB-",
+          "outlook": "Positive",
+          "actionDate": "2025-10-17",
+          "action": "outlook revised",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/sourceId/101651912",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "BB−",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "B+",
+          "outlook": "Positive",
+          "actionDate": "2026-06-26",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-affirms-benin-at-b-outlook-positive-26-06-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B+",
+          "previousOutlook": "Positive"
+        },
+        "moodys": {
+          "value": "Ba3",
+          "outlook": "Stable",
+          "actionDate": "2026-08-07",
+          "action": "upgraded",
+          "sourceUrl": "https://www.financialafrik.com/en/2026/08/08/breaking-news-moodys-upgrades-benins-sovereign-rating-to-ba3-stable-outlook/",
+          "sourceType": "secondary",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B1",
+          "previousOutlook": "Stable"
+        }
+      }
+    },
+    "angola": {
+      "iso3": "AGO",
+      "name": "Angola",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2026 Article IV consultation — Angola",
+        "consultationYear": 2026,
+        "reviewDate": "2026-05-01",
+        "publishedAt": "2026-05-01",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Lower oil production weakened fiscal and external positions.",
+          "Inflation eased but remained in double digits.",
+          "Oil windfalls should rebuild buffers while reforms support diversification."
+        ],
+        "sourceUrl": "https://www.imf.org/en/news/articles/2026/05/01/pr26135imf-executive-board-concludes-2026-article-iv-consultation-with-angola",
+        "dateSourceUrl": "https://www.imf.org/-/media/files/publications/cr/2026/english/1agoea2026001-source-pdf.pdf",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "B-",
+          "outlook": "Stable",
+          "actionDate": "2026-08-14",
+          "action": "affirmed",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3612169",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B−",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "B-",
+          "outlook": "Stable",
+          "actionDate": "2026-05-08",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-affirms-angola-at-b-outlook-stable-08-05-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B−",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "B3",
+          "outlook": "Positive",
+          "actionDate": "2026-09-25",
+          "action": "outlook revised",
+          "sourceUrl": "https://opais.ao/economia/moodys-da-nota-positiva-a-classificacao-de-angola/",
+          "sourceType": "secondary",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B3",
+          "previousOutlook": "Positive"
+        }
+      }
+    },
+    "kenya": {
+      "iso3": "KEN",
+      "name": "Kenya",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2023 Article IV consultation — Kenya",
+        "consultationYear": 2023,
+        "reviewDate": "2024-01-17",
+        "publishedAt": "2024-01-17",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Reforms aim to strengthen stability and rebuild policy buffers.",
+          "Debt vulnerabilities require sustained adjustment.",
+          "Climate resilience and private-sector job creation remain priorities."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2024/01/17/kenya-2023-article-iv-consultation-sixth-reviews-under-the-extended-fund-facility-and-543889",
+        "dateSourceUrl": "https://www.imf.org/en/countries/ken",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null,
+        "note": "The IMF said in September 2025 that the 2025 Article IV consultation would be rescheduled. A new completion date was not verified.",
+        "nextReviewSourceUrl": "https://www.imf.org/en/countries/ken/kenya-qandas"
+      },
+      "ratings": {
+        "sp": {
+          "value": "B",
+          "outlook": "Stable",
+          "actionDate": "2026-08-21",
+          "action": "affirmed",
+          "sourceUrl": "https://www.spglobal.com/ratings/en/regulatory/article/-/view/sourceId/101703025",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B",
+          "previousOutlook": "Stable"
+        },
+        "fitch": {
+          "value": "B-",
+          "outlook": "Stable",
+          "actionDate": "2026-07-17",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-affirms-kenya-at-b-outlook-stable-17-07-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B−",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "B3",
+          "outlook": "Stable",
+          "actionDate": "2026-01-27",
+          "action": "upgraded",
+          "sourceUrl": "https://ratings.moodys.com/ratings-news/458323",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Verified periodic review",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "note": "Periodic review on 9 July 2026 without a new rating action. The upgrade to B3 was on 27 January 2026.",
+          "previousValue": "B3",
+          "previousOutlook": "Negative",
+          "reviewedAt": "2026-07-09",
+          "reviewSourceUrl": "https://www.moodys.com/researchandratings/country/kenya/-/042085"
+        }
+      }
+    },
+    "tanzania": {
+      "iso3": "TZA",
+      "name": "Tanzania",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2025 Article IV consultation — Tanzania",
+        "consultationYear": 2025,
+        "reviewDate": "2025-06-27",
+        "publishedAt": "2025-07-03",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "Growth remained robust alongside macroeconomic and financial stability.",
+          "Business reforms can unlock private-sector activity.",
+          "External uncertainty and reform delays are downside risks."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2025/07/03/united-republic-of-tanzania-staff-report-for-the-2025-article-iv-consultation-fifth-review-568276",
+        "dateSourceUrl": "https://www.imf.org/en/countries/tza",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "fitch": {
+          "value": "B+",
+          "outlook": "Positive",
+          "actionDate": "2026-08-21",
+          "action": "outlook revised",
+          "sourceUrl": "https://www.fitchratings.com/research/sovereigns/fitch-revises-tanzania-outlook-to-positive-affirms-at-b-21-08-2026",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "B+",
+          "previousOutlook": "Stable"
+        },
+        "moodys": {
+          "value": "B1",
+          "outlook": "Stable",
+          "actionDate": "2026-02-20",
+          "action": "affirmed",
+          "sourceUrl": "https://www.moodys.com/researchandratings/region/africa/tanzania-united-republic-of/0420CD",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "NR",
+          "previousOutlook": "—"
+        }
+      }
+    },
+    "ethiopia": {
+      "iso3": "ETH",
+      "name": "Ethiopia",
+      "imfArticleIV": {
+        "status": "completed",
+        "title": "2025 Article IV consultation — Ethiopia",
+        "consultationYear": 2025,
+        "reviewDate": "2025-07-02",
+        "publishedAt": "2025-07-15",
+        "dateBasis": "IMF Executive Board completion",
+        "keyPoints": [
+          "The transition to a more flexible exchange rate progressed.",
+          "Revenue, social-protection and state-enterprise reforms remain important.",
+          "Restoring external debt sustainability requires continued reform momentum."
+        ],
+        "sourceUrl": "https://www.imf.org/en/publications/cr/issues/2025/07/15/the-federal-democratic-republic-of-ethiopia-2025-article-iv-consultation-third-review-under-568611",
+        "dateSourceUrl": "https://www.imf.org/en/countries/eth",
+        "checkedAt": "2026-10-05",
+        "nextReviewDate": null
+      },
+      "ratings": {
+        "sp": {
+          "value": "SD",
+          "outlook": "—",
+          "actionDate": "2025-09-19",
+          "action": "affirmed",
+          "sourceUrl": "https://cbonds.com/news/3597775/",
+          "sourceType": "secondary",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "SD",
+          "previousOutlook": "—"
+        },
+        "fitch": {
+          "value": "RD",
+          "outlook": "—",
+          "actionDate": "2025-10-17",
+          "action": "affirmed",
+          "sourceUrl": "https://www.fitchratings.com/entity/ethiopia-93705890",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "RD",
+          "previousOutlook": "—"
+        },
+        "moodys": {
+          "value": "Caa3",
+          "outlook": "Stable",
+          "actionDate": "2026-02-06",
+          "action": "affirmed",
+          "sourceUrl": "https://ratings.moodys.com/ratings-news/458997",
+          "sourceType": "agency",
+          "checkedAt": "2026-10-05",
+          "dateLabel": "Latest verified action",
+          "ratingType": "Long-term foreign-currency sovereign",
+          "previousValue": "Caa3",
+          "previousOutlook": "Stable"
+        }
+      }
+    }
+  }
+});
+</script>
+<script>
 /* Country Dashboard application logic. Data is loaded before this file. */
 'use strict';
 
 const DATA_LAST_UPDATED = window.SITE_CONFIG.dataLastUpdated;
 const HISTORY_START_YEAR = window.SITE_CONFIG.historyStartYear;
 const HISTORY_DEEP_COVERAGE_START_YEAR = window.SITE_CONFIG.historyDeepCoverageStartYear;
-const { countries, order } = window.COUNTRY_DATA;
+const { order } = window.COUNTRY_DATA;
+const PROFILE_REVIEWS = window.PROFILE_REVIEWS || { countries: {} };
+// Keep the research overlay separate from refreshed news and economic datasets.
+const countries = Object.fromEntries(Object.entries(window.COUNTRY_DATA.countries)
+  .map(([key, country]) => [key, withVerifiedRatings(country, PROFILE_REVIEWS.countries[key])]));
+
+function withVerifiedRatings(country, profile) {
+  if (!profile?.ratings) return country;
+  const result = { ...country, ratings: { ...country.ratings }, ratingReviews: { ...country.ratingReviews } };
+  for (const [agency, verified] of Object.entries(profile.ratings)) {
+    const current = country.ratings?.[agency];
+    const currentValue = Array.isArray(current) ? current[0] : current?.value;
+    const currentOutlook = Array.isArray(current) ? current[1] : current?.outlook;
+    const tupleMeta = Array.isArray(current) ? current[2] : current;
+    const details = country.ratingReviews?.[agency] || (typeof tupleMeta === 'string' ? { actionDate: tupleMeta } : tupleMeta) || {};
+    const currentDate = details.reviewedAt || details.actionDate || details.assignedAt;
+    if (currentDate && String(currentDate) > (verified.reviewedAt || verified.actionDate)) continue;
+    // An undated future change must not be overwritten by this dated snapshot.
+    const same = currentValue === verified.value && currentOutlook === verified.outlook;
+    const baseline = currentValue === verified.previousValue && currentOutlook === verified.previousOutlook;
+    if (!currentDate && currentValue && !same && !baseline) continue;
+    result.ratings[agency] = [verified.value, verified.outlook];
+    result.ratingReviews[agency] = { ...verified };
+  }
+  return result;
+}
 const ECONOMIC_DATA = window.ECONOMIC_DATA || { generatedAt: null, sources: {}, countries: {} };
 const NEWS_DATA = window.NEWS_DATA || { generatedAt: null, countries: {} };
 const { sources: HISTORY_SOURCES, events: HISTORICAL_EVENTS } = window.HISTORY_DATA;
@@ -154406,6 +155617,63 @@ function escapeHTML(value) {
   })[character]);
 }
 
+// Source dates retain their original precision; never substitute a refresh timestamp.
+function reviewDateLabel(value) {
+  if (!value) return "Not recorded";
+  const text = String(value);
+  if (/^\d{4}$/.test(text)) return text;
+  if (/^\d{4}-\d{2}$/.test(text)) {
+    const date = new Date(text + "-01T12:00:00Z");
+    return Number.isNaN(date.getTime()) ? "Not recorded" : date.toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
+  }
+  const date = new Date(text);
+  return Number.isNaN(date.getTime()) ? text : date.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+}
+
+function sourceLink(url, label) {
+  return typeof url === "string" && /^https:\/\//i.test(url)
+    ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}</a>` : escapeHTML(label);
+}
+
+function ratingBlockHTML(country, key, agency) {
+  const rating = country.ratings?.[key] || ["NR", "—"];
+  const [value, outlook, metadata] = Array.isArray(rating) ? rating : [rating.value, rating.outlook, rating];
+  const details = country.ratingReviews?.[key] || (typeof metadata === "string" ? { actionDate: metadata } : metadata) || {};
+  let date = details.reviewedAt || details.assignedAt || details.actionDate;
+  let label = details.dateLabel || (details.reviewedAt ? "Last reviewed" : details.assignedAt ? "Assigned" : "Latest action");
+  let url = (details.reviewedAt ? details.reviewSourceUrl : null) || details.sourceUrl || details.url;
+  // Older calendar entries are evidence of an action, not proof of the latest review.
+  if (!date && value !== "NR") {
+    const agencyPattern = { sp: /S&P|Standard & Poor/i, fitch: /Fitch/i, moodys: /Moody/i }[key];
+    const normalise = text => String(text).replace(/[−–]/g, "-").toLowerCase();
+    const event = (country.past || []).filter(item => item.tag === "Rating" && agencyPattern.test(item.label)
+      && normalise(item.label).split(/[^a-z0-9+\-]+/).includes(normalise(value)))
+      .sort((a, b) => String(b.sortDate || b.date).localeCompare(String(a.sortDate || a.date)))[0];
+    if (event) { date = event.date; label = "Recorded action"; url = event.sourceUrl || event.url; }
+  }
+  return `<div class="rating-block"${details.note ? ` title="${escapeHTML(details.note)}"` : ""}><p class="rating-agency">${escapeHTML(agency)}</p><p class="rating-value">${escapeHTML(value)}</p><p class="rating-outlook">${escapeHTML(outlook)}</p>
+    <p class="rating-date">${value === "NR" ? "Not rated" : date ? `${escapeHTML(label)}<br>${sourceLink(url, reviewDateLabel(date))}` : "Review date not recorded"}</p>${details.sourceType === "secondary" ? '<small class="rating-provenance">Reported by financial source</small>' : ""}${details.note ? `<details class="rating-note"><summary>Date note</summary><small>${escapeHTML(details.note)}</small></details>` : ""}</div>`;
+}
+
+function commodityDetailHTML(commodity, trade) {
+  const share = commodity.exportShare;
+  const dependent = share !== null && share !== "" && Number.isFinite(Number(share)) && Number(share) > 60;
+  const rawGroup = String(commodity.primaryGroup || "").trim();
+  const group = /^(not recorded|unknown|n\/a|not available)$/i.test(rawGroup) ? "" : rawGroup;
+  // Product detail is trade evidence, not an inferred UNCTAD group or threshold.
+  const commodityCode = /^(0[1-9]|1[0-9]|2[0-7])\d{2}$|^(7101|7102|7103|7106|7108|7110|7403|7502|7601|7801|7901|8001)$/;
+  const products = (trade?.topExports || []).filter(row => commodityCode.test(String(row.code)) && Number(row.share) > 0)
+    .sort((a, b) => Number(b.share) - Number(a.share));
+  const product = products[0];
+  return `<div class="commodity-detail">
+    ${group ? `<span>${dependent ? "Main commodity group" : "Largest commodity group"}</span><strong>${escapeHTML(group)}</strong>` : ""}
+    <small>UNCTAD reference period ${escapeHTML(commodity.referencePeriod || "not recorded")}</small>
+    ${dependent && product ? `<span>Leading commodity export · trade data</span><strong>${escapeHTML(shortTradeLabel(product))}</strong><small>${Number(product.share).toFixed(1)}% of merchandise exports · ${escapeHTML(trade.year || "year not recorded")} · ${escapeHTML(trade.dataset || "Trade source")}</small>` : ""}
+    ${dependent && !group && !product ? `<p class="empty-note">Commodity-dependent; the leading commodity is not available in the recorded source data.</p>` : ""}
+    ${dependent ? `<small class="commodity-method">The 60% threshold applies to all commodity exports combined, not to the individual product shown.${group && product ? " UNCTAD and trade data may cover different periods." : ""}</small>` : ""}
+  </div>`;
+}
+
 function formatMetricValue(metric) {
   if (!metric || !Number.isFinite(Number(metric.value))) return "—";
   const value = Number(metric.value);
@@ -154433,6 +155701,7 @@ function metricCard(label, metric, showMissing = false) {
     <span>${escapeHTML(label)}</span>
     <strong>${escapeHTML(formatMetricValue(metric))}</strong>
     <small>${escapeHTML(metric.year || metric.period || "")} · ${escapeHTML(classification)}${escapeHTML(sourceCode)}</small>
+    ${metric.calculationMethod === "calculated" ? `<small>Calculated from same-year debt stocks · ${(metric.inputSources || []).map(input => sourceLink(input.url, input.code)).join(" · ")}</small>` : ""}
   </div>`;
 }
 
@@ -154552,6 +155821,7 @@ function economicsPageHTML(countryKey, country) {
   const imf = record.imf?.indicators || {};
   const wb = record.worldBank?.indicators || {};
   const commodity = record.commodityDependence;
+  const commodityDependent = commodity?.exportShare != null && Number(commodity.exportShare) > 60;
   const trade = record.trade;
   const macroCards = [
     metricCard("Real GDP growth", imf.realGdpGrowth, true),
@@ -154601,7 +155871,7 @@ function economicsPageHTML(countryKey, country) {
   </section>
   <section class="block economic-block">
     <p class="block-title">Fiscal and external debt vulnerability</p>
-    <p class="block-note">World Bank external-debt measures cover public and publicly guaranteed debt, private nonguaranteed debt, IMF credit and short-term debt where the indicator definition specifies total external debt. Concessional debt uses <code>DT.DOD.ALLC.ZS</code>.</p>
+    <p class="block-note">World Bank external-debt measures cover public and publicly guaranteed debt, private nonguaranteed debt, IMF credit and short-term debt where the indicator definition specifies total external debt. Concessional debt uses the reported IDS share, or a labelled calculation from same-year IDS debt stocks.</p>
     <div class="economic-grid">${debtCards}</div>
     <div class="secondary-chart-grid">${debtChart}</div>
   </section>
@@ -154609,10 +155879,10 @@ function economicsPageHTML(countryKey, country) {
     <p class="block-title">Commodity dependence</p>
     <p class="block-note">Share of merchandise exports classed as commodities by UNCTAD.</p>
     ${commodity ? `<div class="commodity-viz">
-      <div class="commodity-gauge-label"><strong>${escapeHTML(formatMetricValue({ value: commodity.exportShare, unit: "percent" }))}</strong><span class="${commodity.dependent ? "dependent" : "diversified"}">${commodity.dependent ? "Commodity-dependent" : "Not commodity-dependent"}</span></div>
+      <div class="commodity-gauge-label"><strong>${escapeHTML(formatMetricValue({ value: commodity.exportShare, unit: "percent" }))}</strong><span class="${commodityDependent ? "dependent" : "diversified"}">${commodityDependent ? "Commodity-dependent" : "Not commodity-dependent"}</span></div>
       <div class="commodity-gauge" role="img" aria-label="Commodities are ${escapeHTML(commodity.exportShare)} percent of merchandise exports; UNCTAD dependence threshold is 60 percent"><span style="width:${Math.max(0, Math.min(100, Number(commodity.exportShare)))}%"></span><i></i></div>
       <div class="commodity-scale"><span>0%</span><span>60% threshold</span><span>100%</span></div>
-      <div class="commodity-detail">${commodity.primaryGroup && commodity.primaryGroup.trim() ? `<span>Largest commodity group</span><strong>${escapeHTML(commodity.primaryGroup)}</strong>` : ""}<small>Reference period ${escapeHTML(commodity.referencePeriod || "not recorded")}</small></div>
+      ${commodityDetailHTML(commodity, trade)}
     </div>` : `<p class="empty-note">No UNCTAD observation is currently published for this profile. Check the UNCTAD source status above; a failed refresh is not treated as a valid zero.</p>`}
   </section>
   <section class="block">
@@ -154671,37 +155941,42 @@ function newsHTML(countryKey) {
 
 function imfArticleIVHTML(countryKey, country) {
   const stored = NEWS_DATA.imfArticleIV?.[countryKey];
-  const calendarRecord = [...country.past, ...country.upcoming]
-    .filter(event => /article iv|consultation under article iv/i.test(`${event.label} ${event.meta}`))
-    .sort((left, right) => String(right.sortDate || right.date).localeCompare(String(left.sortDate || left.date)))[0];
-  const title = stored?.title || calendarRecord?.label;
-  const date = stored?.publishedAt
-    ? new Date(stored.publishedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
-    : calendarRecord?.date;
-  const detail = calendarRecord?.meta || "Latest consultation captured from the IMF news feed.";
-  const link = stored?.url
-    ? `<a href="${escapeHTML(stored.url)}" target="_blank" rel="noopener noreferrer">Open IMF release ↗</a>`
-    : `<a href="https://www.imf.org/en/Countries" target="_blank" rel="noopener noreferrer">Check IMF country pages ↗</a>`;
-
-  return `
-    <section class="block imf-article-iv">
-      <div class="imf-article-head">
-        <div>
-          <p class="block-title">IMF Article IV consultation</p>
-          <p class="block-note">Latest stored consultation record · retained separately from the rolling news inventory.</p>
-        </div>
-        <span class="imf-mark">IMF</span>
-      </div>
-      ${title ? `
-        <p class="imf-article-date">${escapeHTML(date || "Date not recorded")}</p>
-        <p class="imf-article-title">${escapeHTML(title)}</p>
-        <p class="imf-article-detail">${escapeHTML(detail)}</p>
-        <p class="imf-article-link">${link}</p>
-      ` : `
-        <p class="empty-note">No Article IV consultation has been captured yet. This will populate automatically when an IMF release is found.</p>
-        <p class="imf-article-link">${link}</p>
-      `}
-    </section>`;
+  const isArticleIV = item => /article iv|consultation under article iv/i.test(item?.title || item?.label || "");
+  const completed = item => item && (item.status === "completed" || /(?:concludes?|concluded|completes?|completed).*article iv|article iv.*(?:concluded|completed)/i.test(item.title || item.label || "")) && !/mission|staff.concluding/i.test(item.title || item.label || "");
+  const calendarRecords = (country.past || []).filter(isArticleIV).map(item => ({
+    ...item, title: item.label, reviewDate: item.date,
+    keyPoints: item.keyPoints || (item.meta ? item.meta.split(/;\s*|\n+/).filter(Boolean) : []), calendarRecord: true
+  }));
+  const verified = PROFILE_REVIEWS.countries[countryKey]?.imfArticleIV;
+  const candidates = [country.imfArticleIV, stored?.lastCompletedReview, stored, verified].filter(completed);
+  // Only actual Board dates can supersede a verified Board date. Publication and
+  // legacy calendar dates may represent an entirely different event.
+  const dated = candidates.filter(item => /^\d{4}-\d{2}-\d{2}$/.test(item.reviewDate || ""))
+    .sort((a, b) => b.reviewDate.localeCompare(a.reviewDate) || Number(b === verified) - Number(a === verified));
+  const review = dated[0] || candidates.sort((a,b) => String(b.publishedAt || "").localeCompare(String(a.publishedAt || "")))[0]
+    || calendarRecords.filter(completed).sort((a,b) => String(b.date).localeCompare(String(a.date)))[0];
+  const latest = stored || country.imfArticleIV;
+  const points = (Array.isArray(review?.keyPoints) ? review.keyPoints : []).filter(point => typeof point === "string" && point.trim());
+  const nextEvent = (country.upcoming || []).filter(isArticleIV)
+    .filter(item => (item.sourceUrl || item.url) && /^\d{4}-\d{2}-\d{2}$/.test(item.sortDate || item.date || "") && new Date(item.sortDate || item.date) >= TODAY)
+    .sort((a, b) => String(a.sortDate || a.date).localeCompare(String(b.sortDate || b.date)))[0];
+  const explicitNext = [country.imfArticleIV, stored, review, verified].find(item => item?.nextReviewDate && new Date(item.nextReviewDate) >= TODAY);
+  const nextDate = explicitNext?.nextReviewDate || nextEvent?.date;
+  const nextEstimated = explicitNext ? explicitNext.nextReviewEstimated : nextEvent?.estimated;
+  const fallbackUrl = `https://www.imf.org/en/Countries/${encodeURIComponent(country.iso3 || "")}`;
+  const url = review?.sourceUrl || review?.url || fallbackUrl;
+  const newerNews = latest && latest !== review && (latest.url || latest.sourceUrl) !== url && (!review || String(latest.publishedAt || latest.reviewDate || "") > String(review.reviewDate || review.publishedAt || ""));
+  return `<section class="block imf-article-iv">
+    <div class="imf-article-head"><div><p class="block-title">IMF Article IV consultation</p><p class="block-note">Latest verified completed consultation. Findings refer to that consultation, not today’s conditions.</p></div><span class="imf-mark">IMF</span></div>
+    <div class="imf-review-dates">
+      <div><span>Last review</span><strong>${escapeHTML(reviewDateLabel(review?.reviewDate))}</strong>${review?.calendarRecord ? "<small>Recorded calendar date</small>" : review?.publishedAt ? `<small>Release published ${escapeHTML(reviewDateLabel(review.publishedAt))}</small>` : ""}</div>
+      <div><span>Next review</span><strong>${nextDate ? escapeHTML(reviewDateLabel(nextDate)) : "Not announced in recorded sources"}</strong>${nextDate ? `<small>${nextEstimated ? "Indicative timing — not confirmed" : "Scheduled in source record"}</small>` : ""}</div>
+    </div>
+    ${review?.note ? `<p class="imf-vintage-note">${escapeHTML(review.note)}</p>` : ""}
+    ${review ? `<p class="imf-article-title">${escapeHTML(review.title || review.label)}</p><p class="imf-points-label">Key points</p>${points.length ? `<ul class="imf-key-points">${points.map(point => `<li>${escapeHTML(point)}</li>`).join("")}</ul>` : `<p class="empty-note">Key points have not yet been recorded from this consultation.</p>`}` : `<p class="empty-note">No completed Article IV consultation has been recorded yet.</p>`}
+    ${newerNews ? `<div class="imf-latest-news"><span>Latest Article IV update · ${escapeHTML(reviewDateLabel(latest.publishedAt || latest.reviewDate))}</span><p>${sourceLink(latest.url || latest.sourceUrl, latest.title || "IMF consultation update")}</p><small>A mission statement or publication date does not establish the date of a completed Board review.</small></div>` : ""}
+    <p class="imf-article-link">${sourceLink(url, review?.sourceUrl || review?.url ? "Open IMF consultation source ↗" : "Check IMF country page ↗")}${review?.dateSourceUrl ? ` · ${sourceLink(review.dateSourceUrl, "Verify Board date ↗")}` : ""}${review?.checkedAt ? `<small>Sources checked ${escapeHTML(reviewDateLabel(review.checkedAt))}</small>` : ""}</p>
+  </section>`;
 }
 
 
@@ -154863,11 +156138,8 @@ function renderMain() {
     chip("Paris Club", c.status.parisClub, "rust"),
   ].join("");
 
-  const ratingBlocks = [
-    ["S&P", c.ratings.sp], ["Fitch", c.ratings.fitch], ["Moody's", c.ratings.moodys],
-  ].map(([agency, [val, outlook]]) =>
-    `<div class="rating-block"><p class="rating-agency">${agency}</p><p class="rating-value">${val}</p><p class="rating-outlook">${outlook}</p></div>`
-  ).join("");
+  const ratingBlocks = [["sp", "S&P"], ["fitch", "Fitch"], ["moodys", "Moody's"]]
+    .map(([key, agency]) => ratingBlockHTML(c, key, agency)).join("");
 
   document.getElementById("main").innerHTML = `
     ${countryPageNavHTML()}
@@ -154878,7 +156150,7 @@ function renderMain() {
       </div>
       <div class="ratings">${ratingBlocks}</div>
     </div>
-    <p class="map-caption" style="margin:-14px 0 22px;">Latest action per agency shown; NR = not rated by that agency.</p>
+    <p class="map-caption" style="margin:-14px 0 22px;">Long-term foreign-currency sovereign ratings. NR = not rated. Dates link to sources; assignment dates and periodic reviews are labelled separately. Research checked ${escapeHTML(reviewDateLabel(PROFILE_REVIEWS.checkedAt))}.</p>
 
     <div class="snapshot">
       <div class="snapshot-row">
