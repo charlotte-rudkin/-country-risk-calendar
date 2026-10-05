@@ -1,3 +1,4 @@
+import { imfBatch, imfJson } from './imf-requests.mjs';
 import { annualSeries, fetchConcessionalDebt, metricRefreshStatuses } from './worldbank-debt.mjs';
 import { fetchComtrade } from './comtrade.mjs';
 import fs from "node:fs";
@@ -143,11 +144,12 @@ async function fetchImf(iso3) {
   const warnings = [];
 
   const entries = Object.entries(IMF_INDICATORS);
-  const results = await Promise.allSettled(entries.map(async ([key, metadata]) => {
+  const results = await imfBatch(entries, async ([key, metadata], deadline) => {
     const url = `https://www.imf.org/external/datamapper/api/v1/${metadata.code}/${iso3}?periods=${periods}`;
-    const json = await fetchJson(url);
+    console.log(`[IMF] ${iso3} ${metadata.code}: requesting`);
+    const json = await imfJson(url, deadline);
     const sourceSeries = json?.values?.[metadata.code]?.[iso3] || json?.values?.[iso3] || json?.data?.[metadata.code]?.[iso3] || {};
-    const series = Object.entries(sourceSeries).map(([year, value]) => ({
+    const series = Object.entries(sourceSeries).filter(([,value]) => value !== null && value !== undefined && typeof value !== 'boolean' && String(value).trim() !== '').map(([year, value]) => ({
       year: Number(year), value: Number(value)
     })).filter(point => requestedSet.has(point.year) && Number.isFinite(point.value))
       .sort((left, right) => left.year - right.year)
@@ -169,7 +171,7 @@ async function fetchImf(iso3) {
         sourceUrl: url,
         series
       }];
-  }));
+  });
   results.forEach((result, index) => {
     const [key, metadata] = entries[index];
     if (result.status === "fulfilled") {
