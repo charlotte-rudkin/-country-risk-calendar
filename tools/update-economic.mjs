@@ -1,3 +1,4 @@
+import { annualSeries, fetchConcessionalDebt, metricRefreshStatuses } from './worldbank-debt.mjs';
 import { fetchComtrade } from './comtrade.mjs';
 import fs from "node:fs";
 import path from "node:path";
@@ -209,15 +210,27 @@ async function fetchWorldBank(iso3) {
   const currentYear = new Date().getUTCFullYear();
   const indicators = {};
   const warnings = [];
+  const diagnostics = {};
   const entries = Object.entries(WB_INDICATORS);
   const results = await Promise.allSettled(entries.map(async ([key, metadata]) => {
     const sourceId = key === "concessionalDebtPct" ? await debtSourceId() : null;
-    const url = `https://api.worldbank.org/v2/country/${iso3}/indicator/${metadata.code}?format=json&per_page=100&date=2015:${currentYear}${sourceId ? `&source=${sourceId}` : ""}`;
-    const json = await fetchJson(url);
-    const rows = worldBankRows(json);
-    const series = rows.filter(row => row?.value !== null && row?.value !== undefined && String(row.value).trim() !== "" && Number.isFinite(Number(row.value)) && Number.isInteger(Number(row.date)))
-      .map(row => ({ value: Number(row.value), year: Number(row.date), projection: false, observationClass: "historical" }))
-      .sort((left, right) => left.year - right.year);
+    let url = `https://api.worldbank.org/v2/country/${iso3}/indicator/${metadata.code}?format=json&per_page=100&date=2015:${currentYear}${sourceId ? `&source=${sourceId}` : ""}`;
+    let json, series, detail = {}, requests = [];
+    try {
+      json = await fetchJson(url);
+      const rows = worldBankRows(json);
+      series = annualSeries(rows, currentYear);
+      requests.push({url,status:series.length ? 'ok' : 'no_observations'});
+      if (!series.length && key === 'concessionalDebtPct') throw new Error('No observations on standard route');
+    } catch (error) {
+      requests.push({url,status:'retrieval_failed',error:error.message});
+      if (key !== 'concessionalDebtPct') { error.requests=requests; throw error; }
+      try {
+        detail = await fetchConcessionalDebt({iso3,sourceId,currentYear,fetchJson});
+        series=detail.series; url=detail.url; requests.push(...detail.requests);
+        console.log(`[World Bank] ${iso3} concessional-debt fallback: ${detail.method}`);
+      } catch (fallbackError) { fallbackError.requests=[...requests,...(fallbackError.requests || [])]; throw fallbackError; }
+    }
     const picked = series.at(-1);
     if (!picked) throw new Error(`No published observations for ${iso3}, 2015–${currentYear}${sourceId ? `, source ${sourceId}` : ""}`);
     if (key === "concessionalDebtPct" && series.some(point => point.value < 0 || point.value > 100)) throw new Error("Concessional-debt share outside 0–100%; refusing to publish");
@@ -228,11 +241,14 @@ async function fetchWorldBank(iso3) {
         year: picked.year,
         unit: metadata.unit,
         label: metadata.label,
-        definition: metadata.definition,
-        sourceCode: metadata.code,
+        definition: detail.definition || metadata.definition,
+        sourceCode: detail.sourceCode || metadata.code,
+        calculationMethod: detail.method || "reported",
+        inputSources: detail.inputSources || [],
+        requests,
         sourceUrl: url,
-        sourceId: sourceId || String(json[0].sourceid || ""),
-        sourceLastUpdated: json[0].lastupdated || null,
+        sourceId: sourceId || String(json?.[0]?.sourceid || ""),
+        sourceLastUpdated: detail.lastUpdated || json?.[0]?.lastupdated || null,
         ageYears,
         stale: ageYears > metadata.maxAgeYears,
         series
@@ -243,11 +259,11 @@ async function fetchWorldBank(iso3) {
     if (result.status === "fulfilled") {
       indicators[key] = result.value[1];
     } else {
+      diagnostics[key] = {status: /^No published observations/.test(result.reason.message) ? 'no_observations' : 'retrieval_failed', error:result.reason.message, requests:result.reason.requests || []};
       warnings.push(`${metadata.code}: ${result.reason.message}`);
     }
   });
-  if (!Object.keys(indicators).length) throw new Error(warnings.join(" | ") || "no World Bank observations returned");
-  return { indicators, warnings, observationThrough: Math.max(...Object.values(indicators).map(metric => metric.year)) };
+  return { indicators, warnings, diagnostics, observationThrough: Object.keys(indicators).length ? Math.max(...Object.values(indicators).map(metric => metric.year)) : null };
 }
 
 function parseCsv(text) {
@@ -550,13 +566,14 @@ for (const target of selectedTargets) {
         const previousIndicators = record[provider]?.indicators || {};
         const retainedMetricKeys = Object.keys(previousIndicators).filter(metricKey => !result.value.indicators[metricKey]);
         record[provider] = { indicators: { ...previousIndicators, ...result.value.indicators } };
-        const status = result.value.warnings.length ? "partial" : "ok";
+        const status = !Object.keys(result.value.indicators).length ? "error" : result.value.warnings.length ? "partial" : "ok";
         for (const warning of result.value.warnings) failures.push(`${iso3} ${provider}: ${warning}`);
         record.refresh[provider] = providerStatus(record.refresh[provider], status, attemptedAt, {
           observationThrough: result.value.observationThrough,
           retainedPrevious: retainedMetricKeys.length > 0,
           retainedMetricKeys,
-          warnings: result.value.warnings
+          warnings: result.value.warnings,
+          ...(provider === 'worldBank' ? {metrics:metricRefreshStatuses(record.refresh[provider]?.metrics, WB_INDICATORS, result.value.indicators, result.value.diagnostics || {}, attemptedAt)} : {})
         });
       } else {
         failures.push(`${iso3} ${provider}: ${result.reason.message}`);
