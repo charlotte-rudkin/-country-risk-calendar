@@ -8,7 +8,7 @@ const elements = {};
 const element = id => elements[id] ||= { style: {}, innerHTML: '', appendChild() {}, addEventListener() {} };
 const context = { window: {}, document: { getElementById: element, createElement: () => ({ style: {} }) }, console, Date, Set, Intl };
 vm.createContext(context);
-for (const file of ['data/config.js', 'data/countries.js', 'data/economics.js', 'data/news.js', 'data/history.js', 'data/map-data.js', 'js/app.js']) vm.runInContext(fs.readFileSync(root+file,'utf8'),context);
+for (const file of ['data/config.js', 'data/countries.js', 'data/economics.js', 'data/news.js', 'data/history.js', 'data/map-data.js', 'data/profile-reviews.js', 'js/app.js']) vm.runInContext(fs.readFileSync(root+file,'utf8'),context);
 const call = (name,...args) => { context.testArgs = args; return vm.runInContext(`${name}(...testArgs)`,context); };
 assert.equal(call('reviewDateLabel','2026-04'), 'April 2026');
 assert.match(call('ratingBlockHTML',{ratings:{sp:['BB','Stable']},ratingReviews:{sp:{reviewedAt:'2026-04-03'}}},'sp','S&P'), /Last reviewed<br>3 Apr 2026/);
@@ -19,7 +19,7 @@ assert.match(call('commodityDetailHTML',{exportShare:90,referencePeriod:'2022–
 assert.doesNotMatch(call('commodityDetailHTML',{exportShare:60,dependent:true},trade), /Leading commodity export/);
 assert.match(call('commodityDetailHTML',{exportShare:90},{topExports:[{code:'8703',name:'Cars',share:80}]}), /leading commodity is not available/);
 const country={iso3:'AGO',past:[],upcoming:[],imfArticleIV:{status:'completed',title:'2025 Article IV consultation',reviewDate:'2025-07-09',keyPoints:['Fiscal risks remain elevated.','<script>bad</script>']}};
-const html=call('imfArticleIVHTML','angola',country);
+const html=call('imfArticleIVHTML','test',country);
 assert.match(html,/9 Jul 2025/);assert.match(html,/<ul class="imf-key-points">/);assert.match(html,/&lt;script&gt;/);assert.match(html,/Not announced in recorded sources/);
 assert.match(call('imfArticleIVHTML','test',{iso3:'AGO',past:[{date:'2026-01-02',label:'Staff concludes Article IV mission',meta:'Mission only'}],upcoming:[]}),/No completed Article IV/);
 const previous={title:'IMF concludes Article IV consultation',url:'https://www.imf.org/old',publishedAt:'2025-07-10',reviewDate:'2025-07-09',keyPoints:['Old finding']};
@@ -27,3 +27,38 @@ assert.deepEqual(mergeArticleIVRecord(previous,{title:previous.title,url:previou
 const next=mergeArticleIVRecord(previous,{title:'Staff concluding statement of Article IV mission',url:'https://www.imf.org/new',publishedAt:'2026-01-02'});
 assert.equal(next.keyPoints,undefined);assert.equal(next.lastCompletedReview.reviewDate,'2025-07-09');assert.equal(mergeArticleIVRecord(previous,{publishedAt:'2024-01-01'}),previous);
 console.log('Profile display checks passed: source dates, Article IV stages, retained details and commodity evidence.');
+// Research coverage and refresh-regression checks.
+const researched = context.window.PROFILE_REVIEWS;
+assert.equal(Object.keys(researched.countries).length, 15);
+let ratedCount = 0;
+for (const [key, profile] of Object.entries(researched.countries)) {
+  assert.match(profile.imfArticleIV.reviewDate, /^\d{4}-\d{2}-\d{2}$/);
+  assert.equal(profile.imfArticleIV.keyPoints.length, 3);
+  assert.match(profile.imfArticleIV.sourceUrl, /^https:\/\/www\.imf\.org\//);
+  assert.ok(profile.imfArticleIV.reviewDate <= researched.checkedAt);
+  const current = vm.runInContext(`countries[${JSON.stringify(key)}]`,context);
+  const section = call('imfArticleIVHTML', key, current);
+  assert.match(section, new RegExp(call('reviewDateLabel', profile.imfArticleIV.reviewDate)));
+  assert.doesNotMatch(section, /Not recorded|not yet been recorded/);
+  for (const [agency, record] of Object.entries(profile.ratings)) {
+    ratedCount++;
+    assert.match(record.actionDate, /^\d{4}-\d{2}-\d{2}$/);
+    assert.match(record.sourceUrl, /^https:\/\//);
+    assert.ok(record.actionDate <= researched.checkedAt);
+    assert.equal(current.ratings[agency][0], record.value);
+    assert.equal(current.ratings[agency][1], record.outlook);
+    assert.match(call('ratingBlockHTML', current, agency, agency), new RegExp(call('reviewDateLabel', record.reviewedAt || record.actionDate)));
+  }
+}
+assert.equal(ratedCount, 43);
+const turkey = researched.countries.turkey;
+const legacy = {past:[{date:'2026-02-13',label:'IMF concludes Article IV consultation'}], upcoming:[]};
+assert.match(call('imfArticleIVHTML','turkey',legacy), /<strong>6 Feb 2026<\/strong>/);
+const newer = { ...legacy, imfArticleIV:{status:'completed', reviewDate:'2027-01-01', title:'New consultation',keyPoints:['New finding'],sourceUrl:'https://www.imf.org/new'}};
+assert.match(call('imfArticleIVHTML','turkey',newer), /<strong>1 Jan 2027<\/strong>/);
+assert.doesNotMatch(call('imfArticleIVHTML','turkey',newer), /Inflation declined slowly/);
+const laterRating={ratings:{sp:['BB','Positive']},ratingReviews:{sp:{actionDate:'2027-01-01'}}};
+assert.equal(call('withVerifiedRatings',laterRating,turkey).ratings.sp[0], 'BB');
+const undatedChange={ratings:{sp:['BBB','Positive']}};
+assert.equal(call('withVerifiedRatings',undatedChange,turkey).ratings.sp[0], 'BBB');
+console.log('Research coverage passed: 15 consultations, 43 dated ratings; newer records supersede the snapshot.');

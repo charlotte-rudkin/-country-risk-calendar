@@ -45,6 +45,7 @@ for (const relativePath of [
   "data/economics.js",
   "data/history.js",
   "data/map-data.js",
+  "data/profile-reviews.js",
   "js/app.js",
 ]) {
   vm.runInContext(fs.readFileSync(path.join(root, relativePath), "utf8"), context, { filename: relativePath });

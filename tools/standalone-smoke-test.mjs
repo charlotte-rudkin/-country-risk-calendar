@@ -20,7 +20,7 @@ for (const unresolved of ['href="assets/', 'src="data/', 'src="js/']) {
 }
 
 const scripts = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(match => match[1]);
-if (scripts.length !== 7) failures.push(`Expected 7 embedded scripts; found ${scripts.length}`);
+if (scripts.length !== 8) failures.push(`Expected 8 embedded scripts; found ${scripts.length}`);
 
 const elements = {};
 function element(id = "") {

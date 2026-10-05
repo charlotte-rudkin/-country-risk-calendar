@@ -15,6 +15,7 @@ const requiredFiles = [
   "data/news.js",
   "data/history.js",
   "data/map-data.js",
+  "data/profile-reviews.js",
   "js/app.js",
 ];
 
