@@ -94,7 +94,9 @@ async function fetchResponse(url, options = {}) {
         headers: { "user-agent": "CountryDashboard/2.0", accept: "application/json,text/csv,*/*", ...(options.headers || {}) }
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response;
+      // Keep the timeout active until the response body has finished downloading.
+      const body = await response.text();
+      return { json: async () => JSON.parse(body), text: async () => body };
     } catch (error) {
       lastError = error;
       if (attempt < attempts - 1) await sleep((attempt + 1) * 1_000);
@@ -179,20 +181,47 @@ async function fetchImf(iso3) {
   return { indicators, warnings, observationThrough: Math.max(...Object.values(indicators).map(metric => metric.year)) };
 }
 
+// Resolve the debt database once per run from the provider's own catalogue.
+let debtSourcePromise;
+function worldBankRows(json) {
+  const messages = json?.[0]?.message || json?.message;
+  if (messages) throw new Error(`World Bank API error: ${JSON.stringify(messages).slice(0, 500)}`);
+  if (!Array.isArray(json) || json.length !== 2 || !json[0] || typeof json[0] !== "object") {
+    throw new Error("World Bank response format was not recognised");
+  }
+  if (Number(json[0].pages) > 1) throw new Error("World Bank response is paginated; refusing an incomplete series");
+  if (json[1] === null && Number(json[0].total) === 0) return [];
+  if (!Array.isArray(json[1])) throw new Error("World Bank observation list was not recognised");
+  return json[1];
+}
+async function debtSourceId() {
+  debtSourcePromise ||= (async () => {
+    const json = await fetchJson("https://api.worldbank.org/v2/sources?format=json&per_page=1000");
+    const rows = worldBankRows(json);
+    const source = rows.find(row => /^international debt statistics$/i.test(String(row.name || "").trim()));
+    if (!source || !/^\d+$/.test(String(source.id))) throw new Error("International Debt Statistics was not found in the World Bank source catalogue");
+    return String(source.id);
+  })();
+  return debtSourcePromise;
+}
+
 async function fetchWorldBank(iso3) {
   const currentYear = new Date().getUTCFullYear();
   const indicators = {};
   const warnings = [];
   const entries = Object.entries(WB_INDICATORS);
   const results = await Promise.allSettled(entries.map(async ([key, metadata]) => {
-    const url = `https://api.worldbank.org/v2/country/${iso3}/indicator/${metadata.code}?format=json&per_page=100&date=2015:${currentYear}`;
+    const sourceId = key === "concessionalDebtPct" ? await debtSourceId() : null;
+    const url = `https://api.worldbank.org/v2/country/${iso3}/indicator/${metadata.code}?format=json&per_page=100&date=2015:${currentYear}${sourceId ? `&source=${sourceId}` : ""}`;
     const json = await fetchJson(url);
-    const rows = Array.isArray(json?.[1]) ? json[1] : [];
-    const series = rows.filter(row => row?.value !== null && Number.isFinite(Number(row.value)) && Number.isInteger(Number(row.date)))
+    const rows = worldBankRows(json);
+    const series = rows.filter(row => row?.value !== null && row?.value !== undefined && String(row.value).trim() !== "" && Number.isFinite(Number(row.value)) && Number.isInteger(Number(row.date)))
       .map(row => ({ value: Number(row.value), year: Number(row.date), projection: false, observationClass: "historical" }))
       .sort((left, right) => left.year - right.year);
     const picked = series.at(-1);
-    if (!picked) throw new Error("no observations");
+    if (!picked) throw new Error(`No published observations for ${iso3}, 2015–${currentYear}${sourceId ? `, source ${sourceId}` : ""}`);
+    if (key === "concessionalDebtPct" && series.some(point => point.value < 0 || point.value > 100)) throw new Error("Concessional-debt share outside 0–100%; refusing to publish");
+    if (key === "concessionalDebtPct") console.log(`[World Bank] ${iso3} concessional debt: ${picked.value}% (${picked.year}), source ${sourceId}`);
     const ageYears = Math.max(0, currentYear - picked.year);
     return [key, {
         value: picked.value,
@@ -201,7 +230,9 @@ async function fetchWorldBank(iso3) {
         label: metadata.label,
         definition: metadata.definition,
         sourceCode: metadata.code,
-        sourceUrl: `https://data.worldbank.org/indicator/${metadata.code}?locations=${iso3}`,
+        sourceUrl: url,
+        sourceId: sourceId || String(json[0].sourceid || ""),
+        sourceLastUpdated: json[0].lastupdated || null,
         ageYears,
         stale: ageYears > metadata.maxAgeYears,
         series
@@ -520,6 +551,7 @@ for (const target of selectedTargets) {
         const retainedMetricKeys = Object.keys(previousIndicators).filter(metricKey => !result.value.indicators[metricKey]);
         record[provider] = { indicators: { ...previousIndicators, ...result.value.indicators } };
         const status = result.value.warnings.length ? "partial" : "ok";
+        for (const warning of result.value.warnings) failures.push(`${iso3} ${provider}: ${warning}`);
         record.refresh[provider] = providerStatus(record.refresh[provider], status, attemptedAt, {
           observationThrough: result.value.observationThrough,
           retainedPrevious: retainedMetricKeys.length > 0,
