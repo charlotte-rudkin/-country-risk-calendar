@@ -594,7 +594,7 @@
 .series-2 { color:#3B73A1; stroke:#3B73A1; }
 .series-3 { color:#9A6A16; stroke:#9A6A16; }
 .series-4 { color:#58686F; stroke:#58686F; }
-.secondary-chart-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
+.secondary-chart-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:28px; width:100%; }
 .commodity-viz { margin-top:22px; }
 .commodity-gauge-label { align-items:baseline; display:flex; justify-content:space-between; gap:14px; margin-bottom:10px; }
 .commodity-gauge-label > strong { color:var(--accent); font-family:var(--font-serif); font-size:30px; font-weight:500; }
@@ -630,3 +630,22 @@
 @media (max-width:480px) {
   .provider-status-grid { grid-template-columns:1fr; }
 }
+
+/* Profile review details: white background, maroon labels. */
+.rating-date { font-size:10px; line-height:1.5; color:var(--text-dim); margin:7px 0 0; max-width:140px; }
+.rating-date a { color:var(--accent); }
+.imf-review-dates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:20px 0; padding-bottom:18px; border-bottom:1px solid var(--hairline); }
+.imf-review-dates span, .imf-review-dates strong, .imf-review-dates small { display:block; }
+.imf-review-dates span, .imf-points-label { color:var(--accent); font-size:12px; font-weight:600; }
+.imf-review-dates strong { margin-top:6px; font-size:15px; font-weight:500; }
+.imf-review-dates small { margin-top:5px; color:var(--text-faint); font-size:11px; }
+.imf-points-label { margin:18px 0 7px; }
+.imf-key-points { margin:0; padding-left:20px; color:var(--text-dim); line-height:1.6; }
+.imf-key-points li { margin:6px 0; }
+.imf-latest-news { margin-top:18px; padding-top:14px; border-top:1px solid var(--hairline); }
+.imf-latest-news span, .imf-latest-news small { color:var(--text-faint); font-size:11px; }
+.imf-latest-news p { margin:7px 0; }
+.imf-latest-news a { color:var(--accent); }
+.commodity-detail > span { display:block; margin-top:12px; }
+.commodity-method { display:block; margin-top:12px; line-height:1.5; }
+@media (max-width:600px) { .imf-review-dates { grid-template-columns:1fr; } }
