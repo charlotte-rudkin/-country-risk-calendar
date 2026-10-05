@@ -4,7 +4,7 @@
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-05T13:48:47.732Z",
+  "generatedAt": "2026-10-05T16:22:48.379Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -10562,16 +10562,18 @@
       "iso3": "AGO",
       "refresh": {
         "imf": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-          "lastSuccessAt": "2026-10-05T08:06:06.278Z",
-          "retainedPrevious": true,
-          "error": "NGDP_RPCH: This operation was aborted | PCPIPCH: This operation was aborted | BCA_NGDPD: This operation was aborted | GGXCNL_NGDP: This operation was aborted | GGXWDG_NGDP: This operation was aborted"
+          "status": "ok",
+          "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+          "lastSuccessAt": "2026-10-05T16:22:45.090Z",
+          "retainedPrevious": false,
+          "observationThrough": 2026,
+          "retainedMetricKeys": [],
+          "warnings": []
         },
         "worldBank": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-          "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+          "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+          "lastSuccessAt": "2026-10-05T16:22:45.090Z",
           "retainedPrevious": false,
           "observationThrough": 2025,
           "retainedMetricKeys": [],
@@ -10580,8 +10582,8 @@
             "reserveMonths": {
               "sourceCode": "FI.RES.TOTL.MO",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
               "error": null,
               "requests": [
                 {
@@ -10593,8 +10595,8 @@
             "interestPaymentsRevenue": {
               "sourceCode": "GC.XPN.INTP.RV.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
               "error": null,
               "requests": [
                 {
@@ -10606,8 +10608,8 @@
             "externalDebtGni": {
               "sourceCode": "DT.DOD.DECT.GN.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
               "error": null,
               "requests": [
                 {
@@ -10619,8 +10621,8 @@
             "shortTermDebtPct": {
               "sourceCode": "DT.DOD.DSTC.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
               "error": null,
               "requests": [
                 {
@@ -10632,8 +10634,8 @@
             "concessionalDebtPct": {
               "sourceCode": "DT.DOD.ALLC.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
               "error": null,
               "requests": [
                 {
@@ -10650,8 +10652,8 @@
             "debtServiceExports": {
               "sourceCode": "DT.TDS.DECT.EX.ZS",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
               "error": null,
               "requests": [
                 {
@@ -10663,8 +10665,8 @@
             "gdpPerCapita": {
               "sourceCode": "NY.GDP.PCAP.CD",
               "status": "ok",
-              "lastAttemptAt": "2026-10-05T13:48:22.603Z",
-              "lastSuccessAt": "2026-10-05T13:48:22.603Z",
+              "lastAttemptAt": "2026-10-05T16:22:45.090Z",
+              "lastSuccessAt": "2026-10-05T16:22:45.090Z",
               "error": null,
               "requests": [
                 {
@@ -10767,8 +10769,7 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ],
-            "code": "NGDP_RPCH"
+            ]
           },
           "inflation": {
             "value": 12.9,
@@ -10840,8 +10841,7 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ],
-            "code": "PCPIPCH"
+            ]
           },
           "currentAccount": {
             "value": 2.2,
@@ -10913,8 +10913,7 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ],
-            "code": "BCA_NGDPD"
+            ]
           },
           "fiscalBalance": {
             "value": -2.4,
@@ -10986,8 +10985,7 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ],
-            "code": "GGXCNL_NGDP"
+            ]
           },
           "governmentDebt": {
             "value": 51.6,
@@ -11059,8 +11057,7 @@
                 "observationClass": "forecast",
                 "projection": true
               }
-            ],
-            "code": "GGXWDG_NGDP"
+            ]
           }
         }
       },
@@ -148717,8 +148714,8 @@
   "refreshSummary": {
     "scope": "macro",
     "jurisdictionsAttempted": 1,
-    "completedAt": "2026-10-05T13:48:47.732Z",
-    "failures": 1
+    "completedAt": "2026-10-05T16:22:48.379Z",
+    "failures": 0
   }
 };
 })();
