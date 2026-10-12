@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-11T05:45:18.605Z",
-  "runStartedAt": "2026-10-11T05:31:58.570Z",
+  "generatedAt": "2026-10-12T05:48:35.143Z",
+  "runStartedAt": "2026-10-12T05:35:36.516Z",
   "bundle": null,
   "status": "partial",
   "providers": [
@@ -12,8 +12,8 @@
   "totals": {
     "retrieved": 0,
     "acceptedFromCurrentSearch": 0,
-    "officialRetrieved": 31,
-    "recentDiscoveryRetrieved": 259,
+    "officialRetrieved": 32,
+    "recentDiscoveryRetrieved": 270,
     "rejected": 0,
     "expired": 0,
     "duplicatesMerged": 175,
@@ -21,25 +21,31 @@
   },
   "requestFailures": [
     "GDELT request failed for usa: HTTP 429",
-    "GDELT request failed for mexico: fetch failed",
+    "GDELT request failed for mexico: HTTP 429",
     "GDELT request failed for bahamas: HTTP 429",
     "GDELT request failed for serbia: HTTP 429",
     "GDELT request failed for turkey: HTTP 429",
     "GDELT request failed for egypt: HTTP 429",
-    "GDELT request failed for uzbekistan: GDELT returned a non-JSON response: Your query was too short or too long. ",
-    "GDELT request failed for vietnam: HTTP 429",
+    "GDELT request failed for uzbekistan: HTTP 429",
+    "GDELT request failed for vietnam: fetch failed",
     "GDELT request failed for senegal: fetch failed",
-    "GDELT request failed for cotedivoire: GDELT returned a non-JSON response: Your query was too short or too long. ",
-    "GDELT request failed for benin: GDELT returned a non-JSON response: Your query was too short or too long. ",
+    "GDELT request failed for cotedivoire: HTTP 429",
+    "GDELT request failed for benin: HTTP 429",
     "GDELT request failed for angola: HTTP 429",
     "GDELT request failed for kenya: fetch failed",
-    "GDELT request failed for tanzania: HTTP 429",
-    "GDELT request failed for ethiopia: fetch failed"
+    "GDELT request failed for tanzania: GDELT returned a non-JSON response: Your query was too short or too long. ",
+    "GDELT request failed for ethiopia: HTTP 429"
   ],
   "officialSourceStatus": [
     {
       "id": "imf-news",
       "label": "International Monetary Fund",
+      "status": "failed",
+      "error": "HTTP 403"
+    },
+    {
+      "id": "fatf-news",
+      "label": "Financial Action Task Force",
       "status": "failed",
       "error": "HTTP 403"
     },
@@ -56,14 +62,14 @@
       "records": 2
     },
     {
-      "id": "fatf-news",
-      "label": "Financial Action Task Force",
-      "status": "failed",
-      "error": "HTTP 403"
-    },
-    {
       "id": "moodys-sovereigns",
       "label": "Moody's Ratings",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "fitch-sovereigns",
+      "label": "Fitch Ratings",
       "status": "ok",
       "records": 0
     },
@@ -72,12 +78,6 @@
       "label": "Federal Reserve",
       "status": "ok",
       "records": 20
-    },
-    {
-      "id": "fitch-sovereigns",
-      "label": "Fitch Ratings",
-      "status": "ok",
-      "records": 0
     },
     {
       "id": "sp-sovereign-actions",
@@ -98,12 +98,6 @@
       "records": 0
     },
     {
-      "id": "eg-cbe",
-      "label": "Central Bank of Egypt",
-      "status": "ok",
-      "records": 0
-    },
-    {
       "id": "tr-tcmb",
       "label": "Central Bank of the Republic of Türkiye",
       "status": "ok",
@@ -114,6 +108,18 @@
       "label": "National Bank of Serbia",
       "status": "ok",
       "records": 0
+    },
+    {
+      "id": "eg-cbe",
+      "label": "Central Bank of Egypt",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "vn-sbv",
+      "label": "State Bank of Vietnam",
+      "status": "failed",
+      "error": "HTTP 403"
     },
     {
       "id": "sn-bceao",
@@ -132,12 +138,6 @@
       "label": "BCEAO",
       "status": "ok",
       "records": 3
-    },
-    {
-      "id": "vn-sbv",
-      "label": "State Bank of Vietnam",
-      "status": "failed",
-      "error": "HTTP 403"
     },
     {
       "id": "ao-bna",
@@ -160,8 +160,8 @@
     {
       "id": "et-nbe",
       "label": "National Bank of Ethiopia",
-      "status": "failed",
-      "error": "fetch failed"
+      "status": "ok",
+      "records": 1
     },
     {
       "id": "ke-cbk",
@@ -206,14 +206,14 @@
       "records": 2
     },
     {
-      "id": "world-bank-vietnam",
-      "label": "World Bank — vietnam",
+      "id": "world-bank-uzbekistan",
+      "label": "World Bank — uzbekistan",
       "status": "ok",
       "records": 0
     },
     {
-      "id": "world-bank-uzbekistan",
-      "label": "World Bank — uzbekistan",
+      "id": "world-bank-vietnam",
+      "label": "World Bank — vietnam",
       "status": "ok",
       "records": 0
     },
@@ -224,20 +224,14 @@
       "records": 0
     },
     {
-      "id": "world-bank-benin",
-      "label": "World Bank — benin",
-      "status": "ok",
-      "records": 0
-    },
-    {
       "id": "world-bank-cotedivoire",
       "label": "World Bank — cotedivoire",
       "status": "ok",
       "records": 0
     },
     {
-      "id": "world-bank-tanzania",
-      "label": "World Bank — tanzania",
+      "id": "world-bank-benin",
+      "label": "World Bank — benin",
       "status": "ok",
       "records": 0
     },
@@ -250,6 +244,12 @@
     {
       "id": "world-bank-kenya",
       "label": "World Bank — kenya",
+      "status": "ok",
+      "records": 0
+    },
+    {
+      "id": "world-bank-tanzania",
+      "label": "World Bank — tanzania",
       "status": "ok",
       "records": 0
     },
@@ -283,37 +283,37 @@
       "id": "google-news-serbia",
       "label": "Recent country news — serbia",
       "status": "ok",
-      "records": 20
+      "records": 23
     },
     {
       "id": "google-news-turkey",
       "label": "Recent country news — turkey",
       "status": "ok",
-      "records": 12
+      "records": 14
     },
     {
       "id": "google-news-egypt",
       "label": "Recent country news — egypt",
       "status": "ok",
-      "records": 25
+      "records": 30
     },
     {
       "id": "google-news-uzbekistan",
       "label": "Recent country news — uzbekistan",
       "status": "ok",
-      "records": 14
+      "records": 12
     },
     {
       "id": "google-news-vietnam",
       "label": "Recent country news — vietnam",
       "status": "ok",
-      "records": 19
+      "records": 15
     },
     {
       "id": "google-news-senegal",
       "label": "Recent country news — senegal",
       "status": "ok",
-      "records": 14
+      "records": 19
     },
     {
       "id": "google-news-cotedivoire",
@@ -325,19 +325,19 @@
       "id": "google-news-benin",
       "label": "Recent country news — benin",
       "status": "ok",
-      "records": 4
+      "records": 3
     },
     {
       "id": "google-news-angola",
       "label": "Recent country news — angola",
       "status": "ok",
-      "records": 17
+      "records": 18
     },
     {
       "id": "google-news-kenya",
       "label": "Recent country news — kenya",
       "status": "ok",
-      "records": 8
+      "records": 10
     },
     {
       "id": "google-news-tanzania",
@@ -360,7 +360,7 @@
       "recentDiscoveryRetrieved": 30,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 24,
+      "duplicatesMerged": 25,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -371,7 +371,7 @@
       "recentDiscoveryRetrieved": 30,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 20,
+      "duplicatesMerged": 26,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -390,10 +390,10 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 0,
-      "recentDiscoveryRetrieved": 20,
+      "recentDiscoveryRetrieved": 23,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 12,
+      "duplicatesMerged": 13,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -401,7 +401,7 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 0,
-      "recentDiscoveryRetrieved": 12,
+      "recentDiscoveryRetrieved": 14,
       "rejectedCount": 0,
       "expired": 0,
       "duplicatesMerged": 4,
@@ -412,10 +412,10 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 2,
-      "recentDiscoveryRetrieved": 25,
+      "recentDiscoveryRetrieved": 30,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 17,
+      "duplicatesMerged": 18,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -423,10 +423,10 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 5,
-      "recentDiscoveryRetrieved": 14,
+      "recentDiscoveryRetrieved": 12,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 10,
+      "duplicatesMerged": 9,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -434,7 +434,7 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 0,
-      "recentDiscoveryRetrieved": 19,
+      "recentDiscoveryRetrieved": 15,
       "rejectedCount": 0,
       "expired": 0,
       "duplicatesMerged": 5,
@@ -445,10 +445,10 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 1,
-      "recentDiscoveryRetrieved": 14,
+      "recentDiscoveryRetrieved": 19,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 17,
+      "duplicatesMerged": 18,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -467,10 +467,10 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 1,
-      "recentDiscoveryRetrieved": 4,
+      "recentDiscoveryRetrieved": 3,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 5,
+      "duplicatesMerged": 4,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -478,10 +478,10 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 0,
-      "recentDiscoveryRetrieved": 17,
+      "recentDiscoveryRetrieved": 18,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 13,
+      "duplicatesMerged": 14,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -489,10 +489,10 @@
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
       "officialRetrieved": 0,
-      "recentDiscoveryRetrieved": 8,
+      "recentDiscoveryRetrieved": 10,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 5,
+      "duplicatesMerged": 4,
       "publishedEventClusters": 10,
       "rejections": []
     },
@@ -503,18 +503,18 @@
       "recentDiscoveryRetrieved": 26,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 15,
+      "duplicatesMerged": 14,
       "publishedEventClusters": 10,
       "rejections": []
     },
     "ethiopia": {
       "retrieved": 0,
       "acceptedFromCurrentSearch": 0,
-      "officialRetrieved": 0,
+      "officialRetrieved": 1,
       "recentDiscoveryRetrieved": 25,
       "rejectedCount": 0,
       "expired": 0,
-      "duplicatesMerged": 15,
+      "duplicatesMerged": 8,
       "publishedEventClusters": 10,
       "rejections": []
     }
