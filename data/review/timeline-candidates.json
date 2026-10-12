@@ -1,5 +1,68 @@
 {
-  "generatedAt": "2026-10-05T07:01:35.690Z",
+  "generatedAt": "2026-10-12T07:06:06.676Z",
   "publicationRule": "Analyst approval required; this file never edits history.js automatically.",
-  "candidates": []
+  "candidates": [
+    {
+      "country": "mexico",
+      "score": 5,
+      "id": "b16b5e2c02bbb7181dc4814a",
+      "title": "'It hurts a lot': Couple speaks out after woman tells camera crew to 'go back to Mexico' during Laguna Beach mariachi proposal",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNVnFITEdURnpqWU81ZnZWdTd1Y194ZVBxcnpTQ1E0dXRLNnNndTBzajh2RmJpMm9zTlVCcjg2M3BjOVVOZ2g4WVFLUS1lVGxjdzZ4NWVGNmJPYkJXNkNLcXEtalQ1eXlLcTVUMGNsN2xLcXRRV19pRnNCMWx6WW02Zi1rNlNmRnplLW0zQTltRlZZOHNGRUlKOWRzU1VhLW9rYWlvLTFtN3Y2WlBwZmRQcER2bWtIVDdpSGJtb0E2ai3SAcYBQVVfeXFMTkRmN2dHZUhwc0NaaUhOckhyMVNVUWxESVhoWnVkNVA5Ym5KYWkwQ09tcU1hclJwM2lzeXZOU3FrWmstVXMwUDBvM1JxaGs1dmR3TjZzYXR5Y2FuMTVZTmhWajZTRll6d0Zoc2ZDVEhWblhPalRHby02RnUzNGhsbUxDSDNfZVlIbWY5LWVEQTdRMk9Uck5NdkN2bjRmUWNVR3pXYzd4d3p4Mm52SlBHZDZmOEFweXV2ek13NXpSMnIxT0hnUVZB?oc=5",
+      "domain": "abc7.com",
+      "publishedAt": "2026-10-07T04:54:02.000Z",
+      "sourceCountry": "",
+      "language": "English",
+      "relevanceBasis": "recent-country-news-search",
+      "discoverySourceName": "ABC7 Los Angeles",
+      "accepted": true,
+      "relevanceScore": 7,
+      "relevanceReasons": [
+        "Country identity in headline",
+        "Sovereign-risk topic in headline"
+      ],
+      "materiality": "critical",
+      "materialityScore": 8,
+      "riskSignals": [
+        "Unconstitutional transfer/conflict"
+      ],
+      "canonicalUrl": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNVnFITEdURnpqWU81ZnZWdTd1Y194ZVBxcnpTQ1E0dXRLNnNndTBzajh2RmJpMm9zTlVCcjg2M3BjOVVOZ2g4WVFLUS1lVGxjdzZ4NWVGNmJPYkJXNkNLcXEtalQ1eXlLcTVUMGNsN2xLcXRRV19pRnNCMWx6WW02Zi1rNlNmRnplLW0zQTltRlZZOHNGRUlKOWRzU1VhLW9rYWlvLTFtN3Y2WlBwZmRQcER2bWtIVDdpSGJtb0E2ai3SAcYBQVVfeXFMTkRmN2dHZUhwc0NaaUhOckhyMVNVUWxESVhoWnVkNVA5Ym5KYWkwQ09tcU1hclJwM2lzeXZOU3FrWmstVXMwUDBvM1JxaGs1dmR3TjZzYXR5Y2FuMTVZTmhWajZTRll6d0Zoc2ZDVEhWblhPalRHby02RnUzNGhsbUxDSDNfZVlIbWY5LWVEQTdRMk9Uck5NdkN2bjRmUWNVR3pXYzd4d3p4Mm52SlBHZDZmOEFweXV2ek13NXpSMnIxT0hnUVZB?oc=5",
+      "sourceTier": 4,
+      "sourceClass": "discovery source",
+      "eventId": "5ecf5ea240a23bb5",
+      "coverageCount": 1,
+      "relatedCoverage": [],
+      "reviewStatus": "pending"
+    },
+    {
+      "country": "bahamas",
+      "score": 5,
+      "id": "e9c9670ee91bc02f7fa70dd6",
+      "title": "The Bahamas for couples: when romance meets the Out Islands",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOOFY3SHRhRjg5T21qVzhhalJvNVBMQTdlWnJJUDJtNzFpYkRTU0RTUkJkU0x2dVp0djdGTG9NcEJqdUs3Rk1rMzdicm1tRUlnX01QX1kwams1MUJNOEY0RzBVQnBEQmNpbzF0NmFENnEwZlZ4X2hpeEpjaGNxcmFDQ1J4OFFMTzE2MW5RT1IyQ0JubTgwb21tbEVIeHprZDZzRUE4MkxR?oc=5",
+      "domain": "en.travel2latam.com",
+      "publishedAt": "2026-10-08T19:40:30.000Z",
+      "sourceCountry": "",
+      "language": "English",
+      "relevanceBasis": "recent-country-news-search",
+      "discoverySourceName": "Travel2Latam",
+      "accepted": true,
+      "relevanceScore": 7,
+      "relevanceReasons": [
+        "Country identity in headline",
+        "Sovereign-risk topic in headline"
+      ],
+      "materiality": "critical",
+      "materialityScore": 8,
+      "riskSignals": [
+        "Unconstitutional transfer/conflict"
+      ],
+      "canonicalUrl": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOOFY3SHRhRjg5T21qVzhhalJvNVBMQTdlWnJJUDJtNzFpYkRTU0RTUkJkU0x2dVp0djdGTG9NcEJqdUs3Rk1rMzdicm1tRUlnX01QX1kwams1MUJNOEY0RzBVQnBEQmNpbzF0NmFENnEwZlZ4X2hpeEpjaGNxcmFDQ1J4OFFMTzE2MW5RT1IyQ0JubTgwb21tbEVIeHprZDZzRUE4MkxR?oc=5",
+      "sourceTier": 4,
+      "sourceClass": "discovery source",
+      "eventId": "9f4e6ed2c75ad3f6",
+      "coverageCount": 1,
+      "relatedCoverage": [],
+      "reviewStatus": "pending"
+    }
+  ]
 }
