@@ -956,7 +956,7 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
 
   window.ECONOMIC_DATA = {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-16T08:13:38.293Z",
+  "generatedAt": "2026-10-17T08:05:37.422Z",
   "sources": {
     "imf": {
       "label": "IMF World Economic Outlook",
@@ -3723,8 +3723,8 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
         },
         "oec": {
           "status": "ok",
-          "lastAttemptAt": "2026-10-02T13:14:41.624Z",
-          "lastSuccessAt": "2026-10-02T13:14:41.624Z",
+          "lastAttemptAt": "2026-10-17T08:04:07.749Z",
+          "lastSuccessAt": "2026-10-17T08:04:07.749Z",
           "retainedPrevious": false,
           "provider": "comtrade",
           "observationThrough": 2025,
@@ -18178,11 +18178,13 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
           ]
         },
         "oec": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "ok",
+          "lastAttemptAt": "2026-10-17T08:04:07.749Z",
+          "lastSuccessAt": "2026-10-17T08:04:07.749Z",
           "retainedPrevious": false,
-          "error": "2024: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2023: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2022: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2021: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2020: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2019: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403"
+          "provider": "comtrade",
+          "observationThrough": 2024,
+          "warnings": []
         },
         "unctad": {
           "status": "error",
@@ -18950,6 +18952,170 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "projection": false
           }
         }
+      },
+      "trade": {
+        "year": 2024,
+        "dataset": "UN Comtrade — annual reported merchandise trade (HS4)",
+        "provider": "comtrade",
+        "sourceUrl": "https://comtradeplus.un.org/",
+        "exportsTotal": 5642319696.589,
+        "importsTotal": 6428761846.688,
+        "retainedSections": [],
+        "warnings": [],
+        "coverage": {
+          "topExports": true,
+          "topImports": true,
+          "exportPartners": true,
+          "importPartners": true
+        },
+        "topExports": [
+          {
+            "code": "7108",
+            "name": "Gold (including gold plated with platinum) unwrought or in semi-manufactured forms, or in powder form",
+            "sourceDescription": "Gold (including gold plated with platinum) unwrought or in semi-manufactured forms, or in powder form",
+            "value": 4642549078.655,
+            "share": 82.28085837570671
+          },
+          {
+            "code": "5201",
+            "name": "Cotton; not carded or combed",
+            "sourceDescription": "Cotton; not carded or combed",
+            "value": 332780326.858,
+            "share": 5.897934621804194
+          },
+          {
+            "code": "0801",
+            "name": "Nuts, edible; coconuts, Brazil nuts and cashew nuts, fresh or dried, whether or not shelled or peeled",
+            "sourceDescription": "Nuts, edible; coconuts, Brazil nuts and cashew nuts, fresh or dried, whether or not shelled or peeled",
+            "value": 111451666.649,
+            "share": 1.9752809596446093
+          },
+          {
+            "code": "1207",
+            "name": "Oil seeds and oleaginous fruits, n.e.c. in chapter 12; whether or not broken",
+            "sourceDescription": "Oil seeds and oleaginous fruits, n.e.c. in chapter 12; whether or not broken",
+            "value": 98059394.96,
+            "share": 1.7379269561645132
+          },
+          {
+            "code": "2523",
+            "name": "Portland cement, aluminous cement (ciment fondu), slag cement, supersulphate cement and similar hydraulic cements, whether or not coloured or in the form of clinkers",
+            "sourceDescription": "Portland cement, aluminous cement (ciment fondu), slag cement, supersulphate cement and similar hydraulic cements, whether or not coloured or in the form of clinkers",
+            "value": 70621938.169,
+            "share": 1.2516472296260293
+          }
+        ],
+        "topImports": [
+          {
+            "code": "2710",
+            "name": "Refined petroleum products",
+            "sourceDescription": "Petroleum oils and oils from bituminous minerals, not crude; preparations n.e.c, containing by weight 70% or more of petroleum oils or oils from bituminous minerals; these being the basic constituents of the preparations; waste oils",
+            "value": 2350052282.778,
+            "share": 36.55528605385672
+          },
+          {
+            "code": "3004",
+            "name": "Medicaments; (not goods of heading no. 3002, 3005 or 3006) consisting of mixed or unmixed products for therapeutic or prophylactic use, put up in measured doses (incl. those in the form of transdermal admin. systems) or packed for retail sale",
+            "sourceDescription": "Medicaments; (not goods of heading no. 3002, 3005 or 3006) consisting of mixed or unmixed products for therapeutic or prophylactic use, put up in measured doses (incl. those in the form of transdermal admin. systems) or packed for retail sale",
+            "value": 209831680.277,
+            "share": 3.263951679670668
+          },
+          {
+            "code": "2523",
+            "name": "Portland cement, aluminous cement (ciment fondu), slag cement, supersulphate cement and similar hydraulic cements, whether or not coloured or in the form of clinkers",
+            "sourceDescription": "Portland cement, aluminous cement (ciment fondu), slag cement, supersulphate cement and similar hydraulic cements, whether or not coloured or in the form of clinkers",
+            "value": 167203395.448,
+            "share": 2.6008646678075444
+          },
+          {
+            "code": "2716",
+            "name": "Electrical energy",
+            "sourceDescription": "Electrical energy",
+            "value": 163689664.148,
+            "share": 2.546208244318934
+          },
+          {
+            "code": "1006",
+            "name": "Rice",
+            "sourceDescription": "Rice",
+            "value": 137026051.972,
+            "share": 2.1314532290940864
+          }
+        ],
+        "exportPartners": [
+          {
+            "code": "757",
+            "name": "Switzerland",
+            "sourceDescription": "Switzerland",
+            "value": 3170369273.113,
+            "share": 56.189110925947894
+          },
+          {
+            "code": "784",
+            "name": "United Arab Emirates",
+            "sourceDescription": "United Arab Emirates",
+            "value": 1477296571.58,
+            "share": 26.182432953472713
+          },
+          {
+            "code": "384",
+            "name": "Côte d'Ivoire",
+            "sourceDescription": "Côte d'Ivoire",
+            "value": 163511784.847,
+            "share": 2.897953211439777
+          },
+          {
+            "code": "466",
+            "name": "Mali",
+            "sourceDescription": "Mali",
+            "value": 129916007.673,
+            "share": 2.30252829791866
+          },
+          {
+            "code": "288",
+            "name": "Ghana",
+            "sourceDescription": "Ghana",
+            "value": 84322209.822,
+            "share": 1.494459980227211
+          }
+        ],
+        "importPartners": [
+          {
+            "code": "156",
+            "name": "China",
+            "sourceDescription": "China",
+            "value": 1018941689.904,
+            "share": 15.849734586589847
+          },
+          {
+            "code": "384",
+            "name": "Côte d'Ivoire",
+            "sourceDescription": "Côte d'Ivoire",
+            "value": 981502254.717,
+            "share": 15.267360622833696
+          },
+          {
+            "code": "643",
+            "name": "Russian Federation",
+            "sourceDescription": "Russian Federation",
+            "value": 751381600.724,
+            "share": 11.687812033527115
+          },
+          {
+            "code": "288",
+            "name": "Ghana",
+            "sourceDescription": "Ghana",
+            "value": 573330477.895,
+            "share": 8.918209937896068
+          },
+          {
+            "code": "251",
+            "name": "France",
+            "sourceDescription": "France",
+            "value": 303702465.407,
+            "share": 4.724120641729214
+          }
+        ]
       }
     },
     "BDI": {
@@ -23495,11 +23661,13 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
           ]
         },
         "oec": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "ok",
+          "lastAttemptAt": "2026-10-17T08:04:07.749Z",
+          "lastSuccessAt": "2026-10-17T08:04:07.749Z",
           "retainedPrevious": false,
-          "error": "2024: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2023: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2022: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2021: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2020: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2019: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403"
+          "provider": "comtrade",
+          "observationThrough": 2025,
+          "warnings": []
         },
         "unctad": {
           "status": "error",
@@ -24261,6 +24429,170 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "projection": false
           }
         }
+      },
+      "trade": {
+        "year": 2025,
+        "dataset": "UN Comtrade — annual reported merchandise trade (HS4)",
+        "provider": "comtrade",
+        "sourceUrl": "https://comtradeplus.un.org/",
+        "exportsTotal": 31419948.427,
+        "importsTotal": 311947681.6,
+        "retainedSections": [],
+        "warnings": [],
+        "coverage": {
+          "topExports": true,
+          "topImports": true,
+          "exportPartners": true,
+          "importPartners": true
+        },
+        "topExports": [
+          {
+            "code": "0907",
+            "name": "Cloves (whole fruit, cloves and stems)",
+            "sourceDescription": "Cloves (whole fruit, cloves and stems)",
+            "value": 24718446.206,
+            "share": 78.67118643886373
+          },
+          {
+            "code": "3301",
+            "name": "Oils; essential (concretes, absolutes); concentrates thereof in fats, fixed oils, waxes or the like (obtained by enfleurage or maceration); aqueous distillates, solutions and terpenic by-products thereof; resinoids; extracted oleoresins",
+            "sourceDescription": "Oils; essential (concretes, absolutes); concentrates thereof in fats, fixed oils, waxes or the like (obtained by enfleurage or maceration); aqueous distillates, solutions and terpenic by-products thereof; resinoids; extracted oleoresins",
+            "value": 4501548.934,
+            "share": 14.32704112948734
+          },
+          {
+            "code": "0905",
+            "name": "Vanilla",
+            "sourceDescription": "Vanilla",
+            "value": 526332.509,
+            "share": 1.6751539558470707
+          },
+          {
+            "code": "7311",
+            "name": "Containers for compressed or liquefied gas, of iron or steel",
+            "sourceDescription": "Containers for compressed or liquefied gas, of iron or steel",
+            "value": 246011.153,
+            "share": 0.7829775837206532
+          },
+          {
+            "code": "8407",
+            "name": "Reciprocating or rotary internal combustion piston engines",
+            "sourceDescription": "Reciprocating or rotary internal combustion piston engines",
+            "value": 218352.656,
+            "share": 0.6949491228711366
+          }
+        ],
+        "topImports": [
+          {
+            "code": "1006",
+            "name": "Rice",
+            "sourceDescription": "Rice",
+            "value": 49761688.175,
+            "share": 15.951933965262716
+          },
+          {
+            "code": "2523",
+            "name": "Portland cement, aluminous cement (ciment fondu), slag cement, supersulphate cement and similar hydraulic cements, whether or not coloured or in the form of clinkers",
+            "sourceDescription": "Portland cement, aluminous cement (ciment fondu), slag cement, supersulphate cement and similar hydraulic cements, whether or not coloured or in the form of clinkers",
+            "value": 29490609.7,
+            "share": 9.453703758508714
+          },
+          {
+            "code": "8703",
+            "name": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "sourceDescription": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "value": 24456270.203,
+            "share": 7.8398627864654085
+          },
+          {
+            "code": "0207",
+            "name": "Meat and edible offal of poultry; of the poultry of heading no. 0105, (i.e. fowls of the species Gallus domesticus), fresh, chilled or frozen",
+            "sourceDescription": "Meat and edible offal of poultry; of the poultry of heading no. 0105, (i.e. fowls of the species Gallus domesticus), fresh, chilled or frozen",
+            "value": 21500508.335,
+            "share": 6.892344326690453
+          },
+          {
+            "code": "7214",
+            "name": "Iron or non-alloy steel; bars and rods, not further worked than forged, hot-rolled, hot drawn or hot-extruded, but including those twisted after rolling",
+            "sourceDescription": "Iron or non-alloy steel; bars and rods, not further worked than forged, hot-rolled, hot drawn or hot-extruded, but including those twisted after rolling",
+            "value": 14274688.158,
+            "share": 4.575987897965515
+          }
+        ],
+        "exportPartners": [
+          {
+            "code": "699",
+            "name": "India",
+            "sourceDescription": "India",
+            "value": 17451500.021,
+            "share": 55.54273922997105
+          },
+          {
+            "code": "251",
+            "name": "France",
+            "sourceDescription": "France",
+            "value": 4617915.181,
+            "share": 14.697398984371668
+          },
+          {
+            "code": "784",
+            "name": "United Arab Emirates",
+            "sourceDescription": "United Arab Emirates",
+            "value": 3387658.061,
+            "share": 10.781870214939293
+          },
+          {
+            "code": "528",
+            "name": "Netherlands",
+            "sourceDescription": "Netherlands",
+            "value": 1646566.917,
+            "share": 5.240514384756472
+          },
+          {
+            "code": "276",
+            "name": "Germany",
+            "sourceDescription": "Germany",
+            "value": 858083.896,
+            "share": 2.7310162459166407
+          }
+        ],
+        "importPartners": [
+          {
+            "code": "784",
+            "name": "United Arab Emirates",
+            "sourceDescription": "United Arab Emirates",
+            "value": 48315394.2,
+            "share": 15.488300458649729
+          },
+          {
+            "code": "156",
+            "name": "China",
+            "sourceDescription": "China",
+            "value": 45290159.445,
+            "share": 14.518511313404806
+          },
+          {
+            "code": "586",
+            "name": "Pakistan",
+            "sourceDescription": "Pakistan",
+            "value": 35553448.488,
+            "share": 11.397247226087414
+          },
+          {
+            "code": "699",
+            "name": "India",
+            "sourceDescription": "India",
+            "value": 33836235.607,
+            "share": 10.846766173562099
+          },
+          {
+            "code": "251",
+            "name": "France",
+            "sourceDescription": "France",
+            "value": 32629724.683,
+            "share": 10.459999098451386
+          }
+        ]
       }
     },
     "COD": {
@@ -65243,11 +65575,13 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
           ]
         },
         "oec": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "ok",
+          "lastAttemptAt": "2026-10-17T08:04:07.749Z",
+          "lastSuccessAt": "2026-10-17T08:04:07.749Z",
           "retainedPrevious": false,
-          "error": "2024: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2023: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2022: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2021: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2020: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2019: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403"
+          "provider": "comtrade",
+          "observationThrough": 2025,
+          "warnings": []
         },
         "unctad": {
           "status": "error",
@@ -66097,6 +66431,170 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "projection": false
           }
         }
+      },
+      "trade": {
+        "year": 2025,
+        "dataset": "UN Comtrade — annual reported merchandise trade (HS4)",
+        "provider": "comtrade",
+        "sourceUrl": "https://comtradeplus.un.org/",
+        "exportsTotal": 7291181978.943,
+        "importsTotal": 18626157441.565,
+        "retainedSections": [],
+        "warnings": [],
+        "coverage": {
+          "topExports": true,
+          "topImports": true,
+          "exportPartners": true,
+          "importPartners": true
+        },
+        "topExports": [
+          {
+            "code": "8703",
+            "name": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "sourceDescription": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "value": 2814371576.428,
+            "share": 38.599661681136624
+          },
+          {
+            "code": "2616",
+            "name": "Precious metal ores and concentrates",
+            "sourceDescription": "Precious metal ores and concentrates",
+            "value": 378900884.63,
+            "share": 5.196700421471707
+          },
+          {
+            "code": "2208",
+            "name": "Ethyl alcohol, undenatured; of an alcoholic strength by volume of less than 80% volume; spirits, liqueurs and other spirituous beverages",
+            "sourceDescription": "Ethyl alcohol, undenatured; of an alcoholic strength by volume of less than 80% volume; spirits, liqueurs and other spirituous beverages",
+            "value": 282492542.864,
+            "share": 3.8744409847380172
+          },
+          {
+            "code": "2204",
+            "name": "Wine of fresh grapes, including fortified wines; grape must other than that of heading no. 2009",
+            "sourceDescription": "Wine of fresh grapes, including fortified wines; grape must other than that of heading no. 2009",
+            "value": 267910409.023,
+            "share": 3.6744441408365294
+          },
+          {
+            "code": "7202",
+            "name": "Ferro-alloys",
+            "sourceDescription": "Ferro-alloys",
+            "value": 225813359.264,
+            "share": 3.097074794130102
+          }
+        ],
+        "topImports": [
+          {
+            "code": "8703",
+            "name": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "sourceDescription": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "value": 3963305510.032,
+            "share": 21.278170349766985
+          },
+          {
+            "code": "2710",
+            "name": "Refined petroleum products",
+            "sourceDescription": "Petroleum oils and oils from bituminous minerals, not crude; preparations n.e.c, containing by weight 70% or more of petroleum oils or oils from bituminous minerals; these being the basic constituents of the preparations; waste oils",
+            "value": 1358821448.958,
+            "share": 7.295232273328351
+          },
+          {
+            "code": "9999",
+            "name": "Commodities not specified according to kind",
+            "sourceDescription": "Commodities not specified according to kind",
+            "value": 682387018.654,
+            "share": 3.663595246603182
+          },
+          {
+            "code": "3004",
+            "name": "Medicaments; (not goods of heading no. 3002, 3005 or 3006) consisting of mixed or unmixed products for therapeutic or prophylactic use, put up in measured doses (incl. those in the form of transdermal admin. systems) or packed for retail sale",
+            "sourceDescription": "Medicaments; (not goods of heading no. 3002, 3005 or 3006) consisting of mixed or unmixed products for therapeutic or prophylactic use, put up in measured doses (incl. those in the form of transdermal admin. systems) or packed for retail sale",
+            "value": 680382416.45,
+            "share": 3.652832950567142
+          },
+          {
+            "code": "9701",
+            "name": "Paintings, drawings and pastels, executed entirely by hand; not drawings of heading no. 4906 and not hand-painted, hand-decorated manufactured articles; collages, mosaics and similar decorative plaques",
+            "sourceDescription": "Paintings, drawings and pastels, executed entirely by hand; not drawings of heading no. 4906 and not hand-painted, hand-decorated manufactured articles; collages, mosaics and similar decorative plaques",
+            "value": 481634991.079,
+            "share": 2.5857989904252214
+          }
+        ],
+        "exportPartners": [
+          {
+            "code": "417",
+            "name": "Kyrgyzstan",
+            "sourceDescription": "Kyrgyzstan",
+            "value": 1498787461.178,
+            "share": 20.556165865925603
+          },
+          {
+            "code": "398",
+            "name": "Kazakhstan",
+            "sourceDescription": "Kazakhstan",
+            "value": 909990339.294,
+            "share": 12.480697120467717
+          },
+          {
+            "code": "643",
+            "name": "Russian Federation",
+            "sourceDescription": "Russian Federation",
+            "value": 749298767.665,
+            "share": 10.27678049771603
+          },
+          {
+            "code": "31",
+            "name": "Azerbaijan",
+            "sourceDescription": "Azerbaijan",
+            "value": 697255148.894,
+            "share": 9.562991993721722
+          },
+          {
+            "code": "51",
+            "name": "Armenia",
+            "sourceDescription": "Armenia",
+            "value": 552925534.286,
+            "share": 7.583482841092898
+          }
+        ],
+        "importPartners": [
+          {
+            "code": "842",
+            "name": "USA",
+            "sourceDescription": "USA",
+            "value": 2779903364.451,
+            "share": 14.924728158087708
+          },
+          {
+            "code": "792",
+            "name": "Türkiye",
+            "sourceDescription": "Türkiye",
+            "value": 2776929802.163,
+            "share": 14.908763715086895
+          },
+          {
+            "code": "156",
+            "name": "China",
+            "sourceDescription": "China",
+            "value": 1986637449.291,
+            "share": 10.665846970979322
+          },
+          {
+            "code": "643",
+            "name": "Russian Federation",
+            "sourceDescription": "Russian Federation",
+            "value": 1939420366.821,
+            "share": 10.412348187786213
+          },
+          {
+            "code": "276",
+            "name": "Germany",
+            "sourceDescription": "Germany",
+            "value": 1306147393.264,
+            "share": 7.0124361257104
+          }
+        ]
       }
     },
     "IND": {
@@ -70835,11 +71333,13 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
           ]
         },
         "oec": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "ok",
+          "lastAttemptAt": "2026-10-17T08:04:07.749Z",
+          "lastSuccessAt": "2026-10-17T08:04:07.749Z",
           "retainedPrevious": false,
-          "error": "2024: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2023: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2022: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2021: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2020: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2019: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403"
+          "provider": "comtrade",
+          "observationThrough": 2025,
+          "warnings": []
         },
         "unctad": {
           "status": "error",
@@ -71385,6 +71885,170 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "projection": false
           }
         }
+      },
+      "trade": {
+        "year": 2025,
+        "dataset": "UN Comtrade — annual reported merchandise trade (HS4)",
+        "provider": "comtrade",
+        "sourceUrl": "https://comtradeplus.un.org/",
+        "exportsTotal": 738195990796.377,
+        "importsTotal": 755429286172.33,
+        "retainedSections": [],
+        "warnings": [],
+        "coverage": {
+          "topExports": true,
+          "topImports": true,
+          "exportPartners": true,
+          "importPartners": true
+        },
+        "topExports": [
+          {
+            "code": "8703",
+            "name": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "sourceDescription": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "value": 105295353156.284,
+            "share": 14.263874969395292
+          },
+          {
+            "code": "9999",
+            "name": "Commodities not specified according to kind",
+            "sourceDescription": "Commodities not specified according to kind",
+            "value": 70272967397.727,
+            "share": 9.519554193448744
+          },
+          {
+            "code": "8542",
+            "name": "Electronic integrated circuits",
+            "sourceDescription": "Electronic integrated circuits",
+            "value": 35101005421.572,
+            "share": 4.754971018428928
+          },
+          {
+            "code": "8486",
+            "name": "Machines and apparatus of a kind used solely or principally for the manufacture of semiconductor boules or wafers, semiconductor devices, electronic integrated circuits or flat panel displays; machines & apparatus specified in note 11 (C) to this Chapter",
+            "sourceDescription": "Machines and apparatus of a kind used solely or principally for the manufacture of semiconductor boules or wafers, semiconductor devices, electronic integrated circuits or flat panel displays; machines & apparatus specified in note 11 (C) to this Chapter",
+            "value": 30403142015.617,
+            "share": 4.1185731695477825
+          },
+          {
+            "code": "7108",
+            "name": "Gold (including gold plated with platinum) unwrought or in semi-manufactured forms, or in powder form",
+            "sourceDescription": "Gold (including gold plated with platinum) unwrought or in semi-manufactured forms, or in powder form",
+            "value": 25281877194.089,
+            "share": 3.4248190872473487
+          }
+        ],
+        "topImports": [
+          {
+            "code": "2709",
+            "name": "Crude oil",
+            "sourceDescription": "Petroleum oils and oils obtained from bituminous minerals; crude",
+            "value": 64219597238.286,
+            "share": 8.501073285585608
+          },
+          {
+            "code": "2711",
+            "name": "Petroleum gases",
+            "sourceDescription": "Petroleum gases and other gaseous hydrocarbons",
+            "value": 43742083324.804,
+            "share": 5.790361073561222
+          },
+          {
+            "code": "8517",
+            "name": "Telephone sets, including smartphones and other telephones for cellular/wireless networks; other apparatus for the transmission or reception of voice, images or other data (including wired/wireless networks), excluding items of 8443, 8525, 8527, or 8528",
+            "sourceDescription": "Telephone sets, including smartphones and other telephones for cellular/wireless networks; other apparatus for the transmission or reception of voice, images or other data (including wired/wireless networks), excluding items of 8443, 8525, 8527, or 8528",
+            "value": 29442895516.467,
+            "share": 3.897505174263317
+          },
+          {
+            "code": "8542",
+            "name": "Electronic integrated circuits",
+            "sourceDescription": "Electronic integrated circuits",
+            "value": 24271163982.971,
+            "share": 3.2128968822416315
+          },
+          {
+            "code": "8471",
+            "name": "Automatic data processing machines and units thereof, magnetic or optical readers, machines for transcribing data onto data media in coded form and machines for processing such data, not elsewhere specified or included",
+            "sourceDescription": "Automatic data processing machines and units thereof, magnetic or optical readers, machines for transcribing data onto data media in coded form and machines for processing such data, not elsewhere specified or included",
+            "value": 23205304871.967,
+            "share": 3.0718037143549872
+          }
+        ],
+        "exportPartners": [
+          {
+            "code": "842",
+            "name": "USA",
+            "sourceDescription": "USA",
+            "value": 137200428110.738,
+            "share": 18.585908054407625
+          },
+          {
+            "code": "156",
+            "name": "China",
+            "sourceDescription": "China",
+            "value": 125574561904.825,
+            "share": 17.01100567741546
+          },
+          {
+            "code": "490",
+            "name": "Other Asia, nes",
+            "sourceDescription": "Other Asia, nes",
+            "value": 52853741816.119,
+            "share": 7.159852190351182
+          },
+          {
+            "code": "410",
+            "name": "Rep. of Korea",
+            "sourceDescription": "Rep. of Korea",
+            "value": 46492816589.417,
+            "share": 6.298167040877566
+          },
+          {
+            "code": "344",
+            "name": "China, Hong Kong SAR",
+            "sourceDescription": "China, Hong Kong SAR",
+            "value": 42859218728.89,
+            "share": 5.8059403279409345
+          }
+        ],
+        "importPartners": [
+          {
+            "code": "156",
+            "name": "China",
+            "sourceDescription": "China",
+            "value": 178244992404.58,
+            "share": 23.5951922525702
+          },
+          {
+            "code": "842",
+            "name": "USA",
+            "sourceDescription": "USA",
+            "value": 87770767765.682,
+            "share": 11.618660988165551
+          },
+          {
+            "code": "36",
+            "name": "Australia",
+            "sourceDescription": "Australia",
+            "value": 45275529613.957,
+            "share": 5.993351124016214
+          },
+          {
+            "code": "490",
+            "name": "Other Asia, nes",
+            "sourceDescription": "Other Asia, nes",
+            "value": 33324239342.121,
+            "share": 4.4112983110531685
+          },
+          {
+            "code": "784",
+            "name": "United Arab Emirates",
+            "sourceDescription": "United Arab Emirates",
+            "value": 32772434387.312,
+            "share": 4.3382530949211695
+          }
+        ]
       }
     },
     "JOR": {
@@ -77280,11 +77944,13 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
           ]
         },
         "oec": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "ok",
+          "lastAttemptAt": "2026-10-17T08:04:07.749Z",
+          "lastSuccessAt": "2026-10-17T08:04:07.749Z",
           "retainedPrevious": false,
-          "error": "2024: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2023: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2022: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2021: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2020: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2019: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403"
+          "provider": "comtrade",
+          "observationThrough": 2025,
+          "warnings": []
         },
         "unctad": {
           "status": "error",
@@ -78110,6 +78776,170 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "projection": false
           }
         }
+      },
+      "trade": {
+        "year": 2025,
+        "dataset": "UN Comtrade — annual reported merchandise trade (HS4)",
+        "provider": "comtrade",
+        "sourceUrl": "https://comtradeplus.un.org/",
+        "exportsTotal": 144547934.204,
+        "importsTotal": 3617645020.079,
+        "retainedSections": [],
+        "warnings": [],
+        "coverage": {
+          "topExports": true,
+          "topImports": true,
+          "exportPartners": true,
+          "importPartners": true
+        },
+        "topExports": [
+          {
+            "code": "0303",
+            "name": "Fish; frozen, excluding fish fillets and other fish meat of heading 0304",
+            "sourceDescription": "Fish; frozen, excluding fish fillets and other fish meat of heading 0304",
+            "value": 85051605.356,
+            "share": 58.83972387731738
+          },
+          {
+            "code": "1604",
+            "name": "Prepared or preserved fish; caviar and caviar substitutes prepared from fish eggs",
+            "sourceDescription": "Prepared or preserved fish; caviar and caviar substitutes prepared from fish eggs",
+            "value": 35322853.895,
+            "share": 24.436775308839064
+          },
+          {
+            "code": "0304",
+            "name": "Fish fillets and other fish meat (whether or not minced); fresh, chilled or frozen",
+            "sourceDescription": "Fish fillets and other fish meat (whether or not minced); fresh, chilled or frozen",
+            "value": 8297153.543,
+            "share": 5.740070647630464
+          },
+          {
+            "code": "2301",
+            "name": "Flours, meal and pellets, of meat or meat offal, of fish or of crustaceans, molluscs or other aquatic invertebrates, unfit for human consumption; greaves",
+            "sourceDescription": "Flours, meal and pellets, of meat or meat offal, of fish or of crustaceans, molluscs or other aquatic invertebrates, unfit for human consumption; greaves",
+            "value": 4203470.639,
+            "share": 2.9080115618031988
+          },
+          {
+            "code": "0305",
+            "name": "Fish, dried, salted or in brine; smoked fish, whether or not cooked before, or during the smoking process",
+            "sourceDescription": "Fish, dried, salted or in brine; smoked fish, whether or not cooked before, or during the smoking process",
+            "value": 4143963.059,
+            "share": 2.866843501998195
+          }
+        ],
+        "topImports": [
+          {
+            "code": "2710",
+            "name": "Refined petroleum products",
+            "sourceDescription": "Petroleum oils and oils from bituminous minerals, not crude; preparations n.e.c, containing by weight 70% or more of petroleum oils or oils from bituminous minerals; these being the basic constituents of the preparations; waste oils",
+            "value": 694566367.257,
+            "share": 19.199406337602255
+          },
+          {
+            "code": "2516",
+            "name": "Granite, porphyry, basalt, sandstone, other monumental and building stone, whether or not roughly trimmed, cut, by sawing etc, into blocks or slabs of a rectangular (including square) shape",
+            "sourceDescription": "Granite, porphyry, basalt, sandstone, other monumental and building stone, whether or not roughly trimmed, cut, by sawing etc, into blocks or slabs of a rectangular (including square) shape",
+            "value": 79776781.196,
+            "share": 2.2052130806979475
+          },
+          {
+            "code": "8517",
+            "name": "Telephone sets, including smartphones and other telephones for cellular/wireless networks; other apparatus for the transmission or reception of voice, images or other data (including wired/wireless networks), excluding items of 8443, 8525, 8527, or 8528",
+            "sourceDescription": "Telephone sets, including smartphones and other telephones for cellular/wireless networks; other apparatus for the transmission or reception of voice, images or other data (including wired/wireless networks), excluding items of 8443, 8525, 8527, or 8528",
+            "value": 59377104.428,
+            "share": 1.6413192587564427
+          },
+          {
+            "code": "3004",
+            "name": "Medicaments; (not goods of heading no. 3002, 3005 or 3006) consisting of mixed or unmixed products for therapeutic or prophylactic use, put up in measured doses (incl. those in the form of transdermal admin. systems) or packed for retail sale",
+            "sourceDescription": "Medicaments; (not goods of heading no. 3002, 3005 or 3006) consisting of mixed or unmixed products for therapeutic or prophylactic use, put up in measured doses (incl. those in the form of transdermal admin. systems) or packed for retail sale",
+            "value": 57189501.086,
+            "share": 1.5808488883951124
+          },
+          {
+            "code": "8807",
+            "name": "Aircraft; parts of goods of heading 8801, 8802 or 8806",
+            "sourceDescription": "Aircraft; parts of goods of heading 8801, 8802 or 8806",
+            "value": 56386452.006,
+            "share": 1.5586507712348368
+          }
+        ],
+        "exportPartners": [
+          {
+            "code": "764",
+            "name": "Thailand",
+            "sourceDescription": "Thailand",
+            "value": 71639135.285,
+            "share": 49.56081571106781
+          },
+          {
+            "code": "826",
+            "name": "United Kingdom",
+            "sourceDescription": "United Kingdom",
+            "value": 28368342.948,
+            "share": 19.625560963025492
+          },
+          {
+            "code": "480",
+            "name": "Mauritius",
+            "sourceDescription": "Mauritius",
+            "value": 6977990.004,
+            "share": 4.827457439932685
+          },
+          {
+            "code": "704",
+            "name": "Viet Nam",
+            "sourceDescription": "Viet Nam",
+            "value": 5452447.497,
+            "share": 3.772068779139368
+          },
+          {
+            "code": "699",
+            "name": "India",
+            "sourceDescription": "India",
+            "value": 4150789.169,
+            "share": 2.871565887024028
+          }
+        ],
+        "importPartners": [
+          {
+            "code": "156",
+            "name": "China",
+            "sourceDescription": "China",
+            "value": 698872473.637,
+            "share": 19.31843698754441
+          },
+          {
+            "code": "699",
+            "name": "India",
+            "sourceDescription": "India",
+            "value": 530520047.161,
+            "share": 14.66479005586388
+          },
+          {
+            "code": "784",
+            "name": "United Arab Emirates",
+            "sourceDescription": "United Arab Emirates",
+            "value": 417982236.393,
+            "share": 11.55398702949225
+          },
+          {
+            "code": "512",
+            "name": "Oman",
+            "sourceDescription": "Oman",
+            "value": 341822254.757,
+            "share": 9.448750578339926
+          },
+          {
+            "code": "458",
+            "name": "Malaysia",
+            "sourceDescription": "Malaysia",
+            "value": 214338863.92,
+            "share": 5.924817463580752
+          }
+        ]
       }
     },
     "MNG": {
@@ -81462,10 +82292,11 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
         },
         "oec": {
           "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
+          "lastAttemptAt": "2026-10-17T08:04:07.749Z",
           "lastSuccessAt": null,
           "retainedPrevious": false,
-          "error": "2024: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2023: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2022: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2021: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2020: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2019: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403"
+          "provider": "comtrade",
+          "error": "No year with both reported imports and exports in the three-year search window"
         },
         "unctad": {
           "status": "error",
@@ -123802,11 +124633,13 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
           ]
         },
         "oec": {
-          "status": "error",
-          "lastAttemptAt": "2026-10-01T16:42:19.378Z",
-          "lastSuccessAt": null,
+          "status": "ok",
+          "lastAttemptAt": "2026-10-17T08:04:07.749Z",
+          "lastSuccessAt": "2026-10-17T08:04:07.749Z",
           "retainedPrevious": false,
-          "error": "2024: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2023: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2022: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2021: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2020: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403 | 2019: topExports: HTTP 403; topImports: HTTP 403; exportPartners: HTTP 403; importPartners: HTTP 403"
+          "provider": "comtrade",
+          "observationThrough": 2024,
+          "warnings": []
         },
         "unctad": {
           "status": "error",
@@ -124650,6 +125483,170 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
             "projection": false
           }
         }
+      },
+      "trade": {
+        "year": 2024,
+        "dataset": "UN Comtrade — annual reported merchandise trade (HS4)",
+        "provider": "comtrade",
+        "sourceUrl": "https://comtradeplus.un.org/",
+        "exportsTotal": 41733071045.46,
+        "importsTotal": 70770300839.67,
+        "retainedSections": [],
+        "warnings": [],
+        "coverage": {
+          "topExports": true,
+          "topImports": true,
+          "exportPartners": true,
+          "importPartners": true
+        },
+        "topExports": [
+          {
+            "code": "1512",
+            "name": "Sun-flower seed, safflower or cotton-seed oil and their fractions; whether or not refined, but not chemically modified",
+            "sourceDescription": "Sun-flower seed, safflower or cotton-seed oil and their fractions; whether or not refined, but not chemically modified",
+            "value": 5121604915.54,
+            "share": 12.272293380856194
+          },
+          {
+            "code": "1005",
+            "name": "Maize (corn)",
+            "sourceDescription": "Maize (corn)",
+            "value": 5072452046.92,
+            "share": 12.15451420144604
+          },
+          {
+            "code": "1001",
+            "name": "Wheat and meslin",
+            "sourceDescription": "Wheat and meslin",
+            "value": 3736273978.29,
+            "share": 8.95278944178362
+          },
+          {
+            "code": "2601",
+            "name": "Iron ores and concentrates; including roasted iron pyrites",
+            "sourceDescription": "Iron ores and concentrates; including roasted iron pyrites",
+            "value": 2803200217.69,
+            "share": 6.716975644175487
+          },
+          {
+            "code": "1205",
+            "name": "Rape or colza seeds; whether or not broken",
+            "sourceDescription": "Rape or colza seeds; whether or not broken",
+            "value": 1849982045.44,
+            "share": 4.432892186210805
+          }
+        ],
+        "topImports": [
+          {
+            "code": "2710",
+            "name": "Refined petroleum products",
+            "sourceDescription": "Petroleum oils and oils from bituminous minerals, not crude; preparations n.e.c, containing by weight 70% or more of petroleum oils or oils from bituminous minerals; these being the basic constituents of the preparations; waste oils",
+            "value": 6820998260.48,
+            "share": 9.63822137189011
+          },
+          {
+            "code": "9999",
+            "name": "Commodities not specified according to kind",
+            "sourceDescription": "Commodities not specified according to kind",
+            "value": 5966363289,
+            "share": 8.430603259009434
+          },
+          {
+            "code": "8703",
+            "name": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "sourceDescription": "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars",
+            "value": 4385481819.42,
+            "share": 6.196782785133699
+          },
+          {
+            "code": "3004",
+            "name": "Medicaments; (not goods of heading no. 3002, 3005 or 3006) consisting of mixed or unmixed products for therapeutic or prophylactic use, put up in measured doses (incl. those in the form of transdermal admin. systems) or packed for retail sale",
+            "sourceDescription": "Medicaments; (not goods of heading no. 3002, 3005 or 3006) consisting of mixed or unmixed products for therapeutic or prophylactic use, put up in measured doses (incl. those in the form of transdermal admin. systems) or packed for retail sale",
+            "value": 1960061687.5,
+            "share": 2.7696105064474947
+          },
+          {
+            "code": "8806",
+            "name": "Unmanned aircraft",
+            "sourceDescription": "Unmanned aircraft",
+            "value": 1286315691.21,
+            "share": 1.8175925154312205
+          }
+        ],
+        "exportPartners": [
+          {
+            "code": "616",
+            "name": "Poland",
+            "sourceDescription": "Poland",
+            "value": 4708911951.14,
+            "share": 11.283406260733997
+          },
+          {
+            "code": "724",
+            "name": "Spain",
+            "sourceDescription": "Spain",
+            "value": 2863456978.63,
+            "share": 6.861361761541166
+          },
+          {
+            "code": "276",
+            "name": "Germany",
+            "sourceDescription": "Germany",
+            "value": 2840754726.54,
+            "share": 6.806963052025466
+          },
+          {
+            "code": "156",
+            "name": "China",
+            "sourceDescription": "China",
+            "value": 2393836595.73,
+            "share": 5.736066231795844
+          },
+          {
+            "code": "792",
+            "name": "Türkiye",
+            "sourceDescription": "Türkiye",
+            "value": 2207967010.02,
+            "share": 5.290689026012135
+          }
+        ],
+        "importPartners": [
+          {
+            "code": "156",
+            "name": "China",
+            "sourceDescription": "China",
+            "value": 14369969974.93,
+            "share": 20.30508533160703
+          },
+          {
+            "code": "616",
+            "name": "Poland",
+            "sourceDescription": "Poland",
+            "value": 6990067239.7,
+            "share": 9.87711957807836
+          },
+          {
+            "code": "276",
+            "name": "Germany",
+            "sourceDescription": "Germany",
+            "value": 5386216895.62,
+            "share": 7.610843576633178
+          },
+          {
+            "code": "792",
+            "name": "Türkiye",
+            "sourceDescription": "Türkiye",
+            "value": 4242402751.52,
+            "share": 5.994608898344458
+          },
+          {
+            "code": "842",
+            "name": "USA",
+            "sourceDescription": "USA",
+            "value": 3476755715.2,
+            "share": 4.912732705597203
+          }
+        ]
       }
     },
     "GBR": {
@@ -162186,7 +163183,7 @@ const order = ["usa", "mexico", "bahamas", "serbia", "turkey", "egypt", "uzbekis
   "refreshSummary": {
     "scope": "trade",
     "jurisdictionsAttempted": 8,
-    "completedAt": "2026-10-16T08:13:38.293Z",
+    "completedAt": "2026-10-17T08:05:37.422Z",
     "failures": 1
   }
 };
